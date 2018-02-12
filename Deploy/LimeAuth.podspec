@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.summary = 'High level PowerAuth based authentication library written in swift'
   s.homepage = 'https://github.com/lime-company/swift-lime-auth'
   s.social_media_url = 'https://twitter.com/lime_company'
-  s.author = { 'Lime - HighTech Solution s.r.o.' => 'support@lime-company.eu' }
+  s.author = { 'Lime - HighTech Solutions s.r.o.' => 'support@lime-company.eu' }
   s.source = { :git => 'https://github.com/lime-company/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.0'

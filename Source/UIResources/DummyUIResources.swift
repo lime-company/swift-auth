@@ -1,7 +1,7 @@
 import Foundation
 
 public class DummyUIResources {
-	public init() {
-	}
+    public init() {
+    }
 }
 
