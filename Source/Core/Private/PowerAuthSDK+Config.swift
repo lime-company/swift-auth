@@ -15,6 +15,14 @@
 //
 
 import Foundation
-import LimeCore
+import PowerAuth2
 
-
+internal extension PowerAuthSDK {
+    
+    /// Initializes PowerAuthSDK instance with given LimeAuthSessionConfig
+    internal convenience init?(_ config: LimeAuthSessionConfig) {
+        self.init(configuration: config.powerAuth,
+                  keychainConfiguration: config.powerAuthKeychain,
+                  clientConfiguration: config.powerAuthHttpClient)
+    }
+}

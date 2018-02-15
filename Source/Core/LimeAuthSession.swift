@@ -16,13 +16,46 @@
 
 import Foundation
 import PowerAuth2
+import LimeCore
 
 public class LimeAuthSession {
     
-    public private(set) var powerAuth: PowerAuthSDK
+    /// Instance of `PowerAuthSDK` object associated with this session.
+    ///
+    /// ## Warning
+    /// You should not use `PowerAuthSDK.sharedInstance()` in the application's code.
+    /// The shared instnace is not initialized in this library.
+    public let powerAuth: PowerAuthSDK
+    
+    /// Configuration use for this session creation.
+    public let configuration: LimeAuthSessionConfig
+    
+    /// Helper class wrapping getting activation status
+    internal lazy var statusFetcher: ActivationStatusFetcher = { ActivationStatusFetcher(session: self) }()
+    
+    /// Queue for critial operations synchronization
+    internal var serializedQueue: OperationQueue
+    internal var concurrentQueue: OperationQueue
+    internal var operationCompletionQueue: DispatchQueue
+    
+    public init(config: LimeAuthSessionConfig) {
+        // Keep config
+        configuration = config
+        // PowerAuthSDK alraedy raises an exception when config is wrong,
+        // so it's safe when we unwrap created instance
+        powerAuth = PowerAuthSDK(config)!
         
-    public init() {
-        self.powerAuth = PowerAuthSDK()
+        // Configure queues
+        serializedQueue = OperationQueue()
+        serializedQueue.maxConcurrentOperationCount = 1
+        concurrentQueue = OperationQueue()
+        concurrentQueue.maxConcurrentOperationCount = 10
+        // let assign dispatch queue
+        let dispatchQueue = config.operationDispatchQueue ?? .global(qos: .userInitiated)
+        serializedQueue.underlyingQueue = dispatchQueue
+        concurrentQueue.underlyingQueue = dispatchQueue
+        operationCompletionQueue = config.operationCompletionQueue
+
     }
     
 }
@@ -44,3 +77,5 @@ public extension LimeAuthSession {
         return powerAuth.hasValidActivation()
     }
 }
+
+
