@@ -170,9 +170,7 @@ internal class ActivationStatusFetcher {
         override func onComplete(result: ActivationStatusFetcher.FetchStatusData?, error: Error?) {
             // in concurrent queue, cleanup everything
             subOperations.allStrongReferences.forEach { (operation) in
-                if !operation.isCancelled {
-                    operation.finish(result: result, error: error)
-                }
+                operation.finish(result: result, error: error)
             }
             subOperations.removeAll()
         }
