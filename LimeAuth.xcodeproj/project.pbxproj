@@ -11,78 +11,19 @@
 		BF8CF44C20320A1D002A6B6E /* DummyUIResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF44B20320A1D002A6B6E /* DummyUIResources.swift */; };
 		BF8CF45320320A5E002A6B6E /* LimeAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8CF45120320A5E002A6B6E /* LimeAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF45520320ACA002A6B6E /* LimeImports.swift */; };
-		BF8CF46720320B6E002A6B6E /* LimeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8CF46120320B5A002A6B6E /* LimeCore.framework */; };
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
 		BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */; };
 		BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */; };
 		BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */; };
-		BFD125FF20334199001CE861 /* PowerAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8CF5292032EE3E002A6B6E /* PowerAuth2.framework */; };
 		BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */; };
 		BFD126042034A03E001CE861 /* LimeAuthSession+Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD126032034A03E001CE861 /* LimeAuthSession+Queue.swift */; };
 		BFDE279220359A37004BC16D /* ActivationStatusFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE279120359A37004BC16D /* ActivationStatusFetcher.swift */; };
 		BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */; };
 		BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27952035A929004BC16D /* AsyncOperation.swift */; };
 		BFDE27982035F34D004BC16D /* LimeAuthSession+Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */; };
+		BFE11F15203749110087E303 /* PowerAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE11F16203749110087E303 /* PowerAuth2.framework */; };
+		BFE11F18203749360087E303 /* LimeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE11F19203749360087E303 /* LimeCore.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BF8CF46020320B5A002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF08C1D320244FC700EC2529;
-			remoteInfo = "LimeCore iOS";
-		};
-		BF8CF46220320B5A002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF08C1E32024503500EC2529;
-			remoteInfo = "LimeCore watchOS";
-		};
-		BF8CF46420320B68002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BF08C1D220244FC700EC2529;
-			remoteInfo = "LimeCore iOS";
-		};
-		BF8CF5282032EE3E002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BFA5851E201F8771000DCD22;
-			remoteInfo = PowerAuth2_Static;
-		};
-		BF8CF52A2032EE3E002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF8CF5122032EB41002A6B6E;
-			remoteInfo = PowerAuth2_Dynamic;
-		};
-		BF8CF52C2032EE3E002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF4DBBB41CDF3377008F3A47;
-			remoteInfo = PowerAuth2Tests;
-		};
-		BF8CF52E2032EE3E002A6B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF4DBCCD1CDF9CDE008F3A47;
-			remoteInfo = XCTests;
-		};
-		BFD125FD20334192001CE861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BF8CF47D2032EB41002A6B6E;
-			remoteInfo = PowerAuth2_Dynamic;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BF8CF42E20320880002A6B6E /* LimeAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LimeAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +37,7 @@
 		BF8CF45720320AF9002A6B6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF8CF45820320B04002A6B6E /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BF8CF45920320B17002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
-		BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LimeCore.xcodeproj; path = "Carthage/Checkouts/swift-lime-core/LimeCore.xcodeproj"; sourceTree = "<group>"; };
 		BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSession.swift; sourceTree = "<group>"; };
-		BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PowerAuthLib.xcodeproj; path = "Carthage/Checkouts/powerauth-mobile-sdk/proj-xcode/PowerAuthLib.xcodeproj"; sourceTree = "<group>"; };
 		BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSessionConfig.swift; sourceTree = "<group>"; };
 		BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PowerAuthSDK+Config.swift"; sourceTree = "<group>"; };
 		BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Singleton.swift"; sourceTree = "<group>"; };
@@ -108,6 +47,8 @@
 		BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		BFDE27952035A929004BC16D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Activation.swift"; sourceTree = "<group>"; };
+		BFE11F16203749110087E303 /* PowerAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PowerAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFE11F19203749360087E303 /* LimeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LimeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD125FF20334199001CE861 /* PowerAuth2.framework in Frameworks */,
-				BF8CF46720320B6E002A6B6E /* LimeCore.framework in Frameworks */,
+				BFE11F18203749360087E303 /* LimeCore.framework in Frameworks */,
+				BFE11F15203749110087E303 /* PowerAuth2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				BF8CF439203209AC002A6B6E /* Source */,
-				BF8CF45A20320B46002A6B6E /* Dependencies */,
 				BF8CF44D20320A2B002A6B6E /* Supporting Files */,
 				BF8CF42F20320880002A6B6E /* Products */,
 				BF8CF46620320B6E002A6B6E /* Frameworks */,
@@ -206,40 +146,13 @@
 			path = Deploy;
 			sourceTree = "<group>";
 		};
-		BF8CF45A20320B46002A6B6E /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */,
-				BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */,
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		BF8CF45C20320B5A002A6B6E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CF46120320B5A002A6B6E /* LimeCore.framework */,
-				BF8CF46320320B5A002A6B6E /* LimeCore.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		BF8CF46620320B6E002A6B6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFE11F19203749360087E303 /* LimeCore.framework */,
+				BFE11F16203749110087E303 /* PowerAuth2.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BF8CF5212032EE3E002A6B6E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BF8CF5292032EE3E002A6B6E /* PowerAuth2.framework */,
-				BF8CF52B2032EE3E002A6B6E /* PowerAuth2.framework */,
-				BF8CF52D2032EE3E002A6B6E /* libPowerAuth2Tests.a */,
-				BF8CF52F2032EE3E002A6B6E /* XCTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BFD126002033421F001CE861 /* Private */ = {
@@ -287,8 +200,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BFD125FE20334192001CE861 /* PBXTargetDependency */,
-				BF8CF46520320B68002A6B6E /* PBXTargetDependency */,
 			);
 			name = LimeAuth;
 			productName = LimeAuth;
@@ -321,67 +232,12 @@
 			mainGroup = BF8CF42420320880002A6B6E;
 			productRefGroup = BF8CF42F20320880002A6B6E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BF8CF45C20320B5A002A6B6E /* Products */;
-					ProjectRef = BF8CF45B20320B5A002A6B6E /* LimeCore.xcodeproj */;
-				},
-				{
-					ProductGroup = BF8CF5212032EE3E002A6B6E /* Products */;
-					ProjectRef = BF8CF5202032EE3E002A6B6E /* PowerAuthLib.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BF8CF42D20320880002A6B6E /* LimeAuth */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BF8CF46120320B5A002A6B6E /* LimeCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LimeCore.framework;
-			remoteRef = BF8CF46020320B5A002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF8CF46320320B5A002A6B6E /* LimeCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LimeCore.framework;
-			remoteRef = BF8CF46220320B5A002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF8CF5292032EE3E002A6B6E /* PowerAuth2.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PowerAuth2.framework;
-			remoteRef = BF8CF5282032EE3E002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF8CF52B2032EE3E002A6B6E /* PowerAuth2.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PowerAuth2.framework;
-			remoteRef = BF8CF52A2032EE3E002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF8CF52D2032EE3E002A6B6E /* libPowerAuth2Tests.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPowerAuth2Tests.a;
-			remoteRef = BF8CF52C2032EE3E002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BF8CF52F2032EE3E002A6B6E /* XCTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = XCTests.xctest;
-			remoteRef = BF8CF52E2032EE3E002A6B6E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BF8CF42C20320880002A6B6E /* Resources */ = {
@@ -415,19 +271,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BF8CF46520320B68002A6B6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "LimeCore iOS";
-			targetProxy = BF8CF46420320B68002A6B6E /* PBXContainerItemProxy */;
-		};
-		BFD125FE20334192001CE861 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PowerAuth2_Dynamic;
-			targetProxy = BFD125FD20334192001CE861 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BF8CF43420320880002A6B6E /* Debug */ = {
