@@ -25,7 +25,7 @@ public extension LimeAuthSession {
     public func addOperationToQueue(_ operation: Operation, serialized: Bool) -> Operation {
         let queue = serialized ? serializedQueue : concurrentQueue
         if let completableInSpecificQueue = operation as? CompletableInSpecificQueue {
-            completableInSpecificQueue.assignCompletionDispatchQueue(queue.underlyingQueue) 
+            completableInSpecificQueue.assignCompletionDispatchQueue(operationCompletionQueue)
         }
         queue.addOperation(operation)
         return operation
