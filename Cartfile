@@ -1,2 +1,2 @@
 github "lime-company/swift-lime-core" "develop"
-github "lime-company/powerauth-mobile-sdk" "develop"
+github "lime-company/powerauth-mobile-sdk" "feature/carthage-build"
