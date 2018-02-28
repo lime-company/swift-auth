@@ -1,0 +1,47 @@
+//
+// Copyright 2018 Lime - HighTech Solutions s.r.o.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions
+// and limitations under the License.
+//
+
+import UIKit
+
+public enum BeginActivation {
+    
+    public struct UIData {
+        
+        public struct Strings {
+            let sceneTitle: String          // "Enter the Activation code"
+            let sceneDescription: String    // "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen."
+            let scanButton: String          // "Scan the Activation QR code"
+            let enterButton: String         // "Retype the Activation code manually"
+        }
+        
+        public struct Images {
+            let scenePromo: LazyUIImage
+        }
+        
+        public let strings: Strings
+        public let images: Images
+        
+        public static func fallbackData() -> UIData {
+            let strings = Strings(sceneTitle: "Enter the Activation code",
+                                  sceneDescription: "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.",
+                                  scanButton: "Scan the Activation QR code",
+                                  enterButton: "Retype the Activation code manually")
+            let images = Images(scenePromo: .empty())
+            return UIData(strings: strings, images: images)
+        }
+    }
+}
+
