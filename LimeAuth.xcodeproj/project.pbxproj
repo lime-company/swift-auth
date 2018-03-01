@@ -42,8 +42,8 @@
 		BF6134522045C45300164496 /* LazyUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134512045C45300164496 /* LazyUIImage.swift */; };
 		BF68809520480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68809420480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift */; };
 		BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68809720481B9300351112 /* DefaultActivationResourcesProvider.swift */; };
-		BF85E58E203DBD4B00B76FE8 /* LimeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF85E58F203DBD4B00B76FE8 /* LimeCore.framework */; };
-		BF85E590203DBD5400B76FE8 /* PowerAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF85E591203DBD5400B76FE8 /* PowerAuth2.framework */; };
+		BF6880B02048713E00351112 /* LimeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6880AF2048713E00351112 /* LimeCore.framework */; };
+		BF6880B22048714500351112 /* PowerAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6880B12048714400351112 /* PowerAuth2.framework */; };
 		BF85E595203DBDD600B76FE8 /* LimeAuthActivationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85E594203DBDD600B76FE8 /* LimeAuthActivationUI.swift */; };
 		BF85E597203DBDED00B76FE8 /* AuthenticationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85E596203DBDED00B76FE8 /* AuthenticationUI.swift */; };
 		BF85E599203DBE4600B76FE8 /* LimeAuthActivationUIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85E598203DBE4600B76FE8 /* LimeAuthActivationUIConfig.swift */; };
@@ -100,8 +100,8 @@
 		BF6134512045C45300164496 /* LazyUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyUIImage.swift; sourceTree = "<group>"; };
 		BF68809420480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthActivationUI+DefaultResources.swift"; sourceTree = "<group>"; };
 		BF68809720481B9300351112 /* DefaultActivationResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActivationResourcesProvider.swift; sourceTree = "<group>"; };
-		BF85E58F203DBD4B00B76FE8 /* LimeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LimeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF85E591203DBD5400B76FE8 /* PowerAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PowerAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6880AF2048713E00351112 /* LimeCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LimeCore.framework; path = Carthage/Build/iOS/LimeCore.framework; sourceTree = "<group>"; };
+		BF6880B12048714400351112 /* PowerAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PowerAuth2.framework; path = Carthage/Build/iOS/PowerAuth2.framework; sourceTree = "<group>"; };
 		BF85E594203DBDD600B76FE8 /* LimeAuthActivationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActivationUI.swift; sourceTree = "<group>"; };
 		BF85E596203DBDED00B76FE8 /* AuthenticationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUI.swift; sourceTree = "<group>"; };
 		BF85E598203DBE4600B76FE8 /* LimeAuthActivationUIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActivationUIConfig.swift; sourceTree = "<group>"; };
@@ -127,8 +127,6 @@
 		BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		BFDE27952035A929004BC16D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Activation.swift"; sourceTree = "<group>"; };
-		BFE11F16203749110087E303 /* PowerAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PowerAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFE11F19203749360087E303 /* LimeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LimeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF85E590203DBD5400B76FE8 /* PowerAuth2.framework in Frameworks */,
-				BF85E58E203DBD4B00B76FE8 /* LimeCore.framework in Frameworks */,
+				BF6880B02048713E00351112 /* LimeCore.framework in Frameworks */,
+				BF6880B22048714500351112 /* PowerAuth2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +395,8 @@
 		BF8CF46620320B6E002A6B6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF85E591203DBD5400B76FE8 /* PowerAuth2.framework */,
-				BF85E58F203DBD4B00B76FE8 /* LimeCore.framework */,
-				BFE11F19203749360087E303 /* LimeCore.framework */,
-				BFE11F16203749110087E303 /* PowerAuth2.framework */,
+				BF6880B12048714400351112 /* PowerAuth2.framework */,
+				BF6880AF2048713E00351112 /* LimeCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -695,6 +691,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -718,6 +718,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
