@@ -16,11 +16,10 @@
 
 import UIKit
 
-public class LimeAuthUIAppearance {
+public extension LimeAuthActivationUI {
     
-    /// Method configures default appearance to views used in the LimeAuthUI
-    public static func setupDefaultAppearance() {
-        
+    public static func defaultResourcesProvider(bundle: Bundle? = nil) -> ActivationUIProvider {
+        return DefaultActivationResourcesProvider(bundle: bundle)
     }
 }
 

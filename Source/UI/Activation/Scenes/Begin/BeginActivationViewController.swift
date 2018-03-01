@@ -18,6 +18,9 @@ import UIKit
 
 public class BeginActivationViewController: UIViewController, ActivationProcessController {
     
+    public var router: (ActivationProcessRouter & BeginActivationRoutingLogic)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,10 +54,9 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
     
     // MARK: - Routing
     
-    public var router: (ActivationProcessRouter & BeginActivationRoutingLogic)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,11 +100,6 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
     
     // MARK: - Presentation
     
-    private lazy var uiData: BeginActivation.UIData = {
-        return router?.activationProcess?.uiDataForBeginActivation ?? .fallbackData()
-    }()
-    
-    
     @IBOutlet weak var sceneTitleLabel: UILabel?
     @IBOutlet weak var sceneDescriptionLabel: UILabel?
     @IBOutlet weak var promoImageView: UIImageView?
@@ -114,8 +111,8 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
     
     open func prepareUI() {
         
-        let uiData = router.activationProcess.uiDataForBeginActivation
-        let commonStrings = router.activationProcess.uiCommonStrings
+        let uiData = uiDataProvider.uiDataForBeginActivation
+        let commonStrings = uiDataProvider.uiCommonStrings
         
         promoImageView?.image = uiData.images.scenePromo.image
         sceneTitleLabel?.text = uiData.strings.sceneTitle

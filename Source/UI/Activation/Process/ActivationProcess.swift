@@ -16,18 +16,48 @@
 
 import UIKit
 
+public protocol ActivationUIProvider {
+    
+    func instantiateInitialScene() -> BeginActivationViewController
+    func instantiateConfirmScene() -> ConfirmActivationViewController
+    func instantiateScanCodeScene() -> ScanActivationCodeViewController
+    func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
+    
+    var uiDataProvider: ActivationUIDataProvider { get }
+}
+
+public protocol ActivationUIDataProvider {
+    
+    var uiCommonStrings: Activation.UIData.CommonStrings { get }
+    var uiCommonStyle: Activation.UIData.CommonStyle { get }
+    
+    var uiDataForBeginActivation: BeginActivation.UIData { get }
+    var uiDataForNoCameraAccess: NoCameraAccess.UIData { get }
+    var uiDataForEnterActivationCode: EnterActivationCode.UIData { get }
+    var uiDataForScanActivationCode: ScanActivationCode.UIData { get }
+    var uiDataForKeysExchange: KeysExchange.UIData { get }
+    var uiDataForEnableBiometry: EnableBiometry.UIData { get }
+    var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
+    var uiDataForSuccessActivation: SuccessActivation.UIData { get }
+    var uiDataForErrorActivation: ErrorActivation.UIData { get }
+    
+}
+
 public class ActivationProcess {
     
     public private(set) var session: LimeAuthSession
-    public private(set) var uiData: Activation.UIData
+    public private(set) var uiDataProvider: ActivationUIDataProvider
     public private(set) var activationData: Activation.Data
     
-    public private(set) weak var initialController: UIViewController?
-    public private(set) weak var finalController: UIViewController?
+    public internal(set) weak var initialController: UIViewController?
+    public internal(set) weak var finalController: UIViewController?
     
-    public init(session: LimeAuthSession, uiData: Activation.UIData) {
+    internal var completion: ((Activation.Data)->Void)?
+    
+    public init(session: LimeAuthSession, uiDataProvider: ActivationUIDataProvider) {
         self.session = session
-        self.uiData = uiData
+        self.uiDataProvider = uiDataProvider
         self.activationData = Activation.Data()
     }
     
@@ -60,49 +90,7 @@ public class ActivationProcess {
             // Make sure that session's in initial state
             session.removeActivationLocal()
         }
-    }
-    
-    
-    // MARK: - UI configuration getters
-    
-    public var uiCommonStrings: Activation.UIData.CommonStrings {
-        return uiData.commonStrings
-    }
-    
-    public var uiDataForBeginActivation: BeginActivation.UIData {
-        return uiData.beginActivation
-    }
-    
-    public var uiDataForNoCameraAccess: NoCameraAccess.UIData {
-        return uiData.noCameraAccess
-    }
-    
-    public var uiDataForEnterActivationCode: EnterActivationCode.UIData {
-        return uiData.enterActivationCode
-    }
-    
-    public var uiDataForScanActivationCode: ScanActivationCode.UIData {
-        return uiData.scanActivationCode
-    }
-    
-    public var uiDataForKeysExchange: KeysExchange.UIData {
-        return uiData.keysExchange
-    }
-    
-    public var uiDataForEnableBiometry: EnableBiometry.UIData {
-        return uiData.enableBiometry
-    }
-    
-    public var uiDataForConfirmActivation: ConfirmActivation.UIData {
-        return uiData.confirmActivation
-    }
-    
-    public var uiDataForSuccessActivation: SuccessActivation.UIData {
-        return uiData.successActivation
-    }
-    
-    public var uiDataForErrorActivation: ErrorActivation.UIData {
-        return uiData.errorActivation
+        completion?(activationData)
     }
 }
 

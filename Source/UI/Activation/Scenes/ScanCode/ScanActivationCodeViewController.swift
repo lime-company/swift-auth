@@ -20,6 +20,12 @@ import AVKit
 
 public class ScanActivationCodeViewController: UIViewController, ActivationProcessController, QRCodeProviderDelegate {
     
+    
+    public var router: (ActivationProcessRouter & ScanActivationCodeRoutingLogic)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    public var qrCodeProvider: QRCodeProvider?
+    
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -66,10 +72,9 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     
     // MARK: - Routing
     
-    public var router: (ActivationProcessRouter & ScanActivationCodeRoutingLogic)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +84,6 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     
     // MARK: - Scanner
     
-    public var qrCodeProvider: QRCodeProvider?
     
     public func startScanner() {
         qrCodeProvider?.startScanner()
@@ -144,7 +148,7 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     
     
     open func prepareUI() {
-        let uiData = router.activationProcess.uiDataForScanActivationCode
+        let uiData = uiDataProvider.uiDataForScanActivationCode
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         enterCodeFallbackButton?.setTitle(uiData.strings.enterCodeFallbackButton, for: .normal)

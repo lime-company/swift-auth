@@ -12,7 +12,6 @@
 		BF565F89204717E100B9C897 /* RoundCornersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F88204717E100B9C897 /* RoundCornersButton.swift */; };
 		BF565F8B2047191300B9C897 /* RoundCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F8A2047191300B9C897 /* RoundCornersView.swift */; };
 		BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F8C20471A2000B9C897 /* WizardButtons.swift */; };
-		BF565F8F20471ABF00B9C897 /* LimeAuthUIAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F8E20471ABF00B9C897 /* LimeAuthUIAppearance.swift */; };
 		BF565F92204728CC00B9C897 /* KeysExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F91204728CC00B9C897 /* KeysExchangeViewController.swift */; };
 		BF565F94204728DE00B9C897 /* KeysExchangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F93204728DE00B9C897 /* KeysExchangeRouter.swift */; };
 		BF565F96204728EC00B9C897 /* KeysExchangeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F95204728EC00B9C897 /* KeysExchangeModels.swift */; };
@@ -41,6 +40,8 @@
 		BF61344C2045A97E00164496 /* BeginActivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF61344B2045A97E00164496 /* BeginActivationModels.swift */; };
 		BF61344E2045AD3E00164496 /* ActivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF61344D2045AD3E00164496 /* ActivationModels.swift */; };
 		BF6134522045C45300164496 /* LazyUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134512045C45300164496 /* LazyUIImage.swift */; };
+		BF68809520480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68809420480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift */; };
+		BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68809720481B9300351112 /* DefaultActivationResourcesProvider.swift */; };
 		BF85E58E203DBD4B00B76FE8 /* LimeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF85E58F203DBD4B00B76FE8 /* LimeCore.framework */; };
 		BF85E590203DBD5400B76FE8 /* PowerAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF85E591203DBD5400B76FE8 /* PowerAuth2.framework */; };
 		BF85E595203DBDD600B76FE8 /* LimeAuthActivationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85E594203DBDD600B76FE8 /* LimeAuthActivationUI.swift */; };
@@ -69,7 +70,6 @@
 		BF565F88204717E100B9C897 /* RoundCornersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersButton.swift; sourceTree = "<group>"; };
 		BF565F8A2047191300B9C897 /* RoundCornersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersView.swift; sourceTree = "<group>"; };
 		BF565F8C20471A2000B9C897 /* WizardButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardButtons.swift; sourceTree = "<group>"; };
-		BF565F8E20471ABF00B9C897 /* LimeAuthUIAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthUIAppearance.swift; sourceTree = "<group>"; };
 		BF565F91204728CC00B9C897 /* KeysExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysExchangeViewController.swift; sourceTree = "<group>"; };
 		BF565F93204728DE00B9C897 /* KeysExchangeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysExchangeRouter.swift; sourceTree = "<group>"; };
 		BF565F95204728EC00B9C897 /* KeysExchangeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysExchangeModels.swift; sourceTree = "<group>"; };
@@ -98,6 +98,8 @@
 		BF61344B2045A97E00164496 /* BeginActivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginActivationModels.swift; sourceTree = "<group>"; };
 		BF61344D2045AD3E00164496 /* ActivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationModels.swift; sourceTree = "<group>"; };
 		BF6134512045C45300164496 /* LazyUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyUIImage.swift; sourceTree = "<group>"; };
+		BF68809420480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthActivationUI+DefaultResources.swift"; sourceTree = "<group>"; };
+		BF68809720481B9300351112 /* DefaultActivationResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActivationResourcesProvider.swift; sourceTree = "<group>"; };
 		BF85E58F203DBD4B00B76FE8 /* LimeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LimeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF85E591203DBD5400B76FE8 /* PowerAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PowerAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF85E594203DBDD600B76FE8 /* LimeAuthActivationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActivationUI.swift; sourceTree = "<group>"; };
@@ -145,7 +147,6 @@
 		BF565F87204717C900B9C897 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				BF565F8E20471ABF00B9C897 /* LimeAuthUIAppearance.swift */,
 				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
 				BF565F8A2047191300B9C897 /* RoundCornersView.swift */,
 				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
@@ -259,13 +260,13 @@
 			path = NoCameraAccess;
 			sourceTree = "<group>";
 		};
-		BF61343920448BDC00164496 /* Model */ = {
+		BF61343920448BDC00164496 /* Process */ = {
 			isa = PBXGroup;
 			children = (
 				BF61344D2045AD3E00164496 /* ActivationModels.swift */,
 				BFDBCBC12045E1AD001585BF /* ActivationProcess.swift */,
 			);
-			path = Model;
+			path = Process;
 			sourceTree = "<group>";
 		};
 		BF61344420448E3200164496 /* Services */ = {
@@ -278,11 +279,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BF688096204811E100351112 /* Activation */ = {
+			isa = PBXGroup;
+			children = (
+				BF68809420480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift */,
+				BF68809720481B9300351112 /* DefaultActivationResourcesProvider.swift */,
+				BFDBCBB32045CFFE001585BF /* Activation.storyboard */,
+			);
+			path = Activation;
+			sourceTree = "<group>";
+		};
 		BF85E592203DBD6700B76FE8 /* Activation */ = {
 			isa = PBXGroup;
 			children = (
 				BF61344420448E3200164496 /* Services */,
-				BF61343920448BDC00164496 /* Model */,
+				BF61343920448BDC00164496 /* Process */,
 				BF6134352044860400164496 /* Scenes */,
 				BF85E594203DBDD600B76FE8 /* LimeAuthActivationUI.swift */,
 				BF85E598203DBE4600B76FE8 /* LimeAuthActivationUIConfig.swift */,
@@ -355,8 +366,8 @@
 		BF8CF440203209AC002A6B6E /* UIResources */ = {
 			isa = PBXGroup;
 			children = (
+				BF688096204811E100351112 /* Activation */,
 				BF565F87204717C900B9C897 /* CustomViews */,
-				BFDBCBB32045CFFE001585BF /* Activation.storyboard */,
 			);
 			path = UIResources;
 			sourceTree = "<group>";
@@ -503,7 +514,6 @@
 			files = (
 				BFDE27982035F34D004BC16D /* LimeAuthSession+Activation.swift in Sources */,
 				BF565FA220473C3900B9C897 /* SuccessActivationRouter.swift in Sources */,
-				BF565F8F20471ABF00B9C897 /* LimeAuthUIAppearance.swift in Sources */,
 				BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */,
 				BF565F9D20473BD100B9C897 /* ErrorActivationModels.swift in Sources */,
 				BF565FA82047410200B9C897 /* EnableBiometryRouter.swift in Sources */,
@@ -523,6 +533,7 @@
 				BF61343D20448D2100164496 /* NoCameraAccessViewController.swift in Sources */,
 				BF565FB0204743F300B9C897 /* ConfirmActivationRouter.swift in Sources */,
 				BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */,
+				BF68809520480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift in Sources */,
 				BF565FAC2047423600B9C897 /* EnableBiometryViewController.swift in Sources */,
 				BF565F92204728CC00B9C897 /* KeysExchangeViewController.swift in Sources */,
 				BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */,
@@ -532,6 +543,7 @@
 				BF565F89204717E100B9C897 /* RoundCornersButton.swift in Sources */,
 				BF565FA420473C4700B9C897 /* SuccessActivationModels.swift in Sources */,
 				BF6134522045C45300164496 /* LazyUIImage.swift in Sources */,
+				BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
 				BF85E597203DBDED00B76FE8 /* AuthenticationUI.swift in Sources */,
 				BF565F9920473B9A00B9C897 /* ErrorActivationViewController.swift in Sources */,

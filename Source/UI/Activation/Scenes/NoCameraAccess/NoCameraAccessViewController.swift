@@ -18,6 +18,9 @@ import UIKit
 
 public class NoCameraAccessViewController: UIViewController, ActivationProcessController {
     
+    public var router: (NoCameraAccessRoutingLogic & ActivationProcessRouter)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,10 +54,9 @@ public class NoCameraAccessViewController: UIViewController, ActivationProcessCo
     
     // MARK: - Routing
     
-    public var router: (NoCameraAccessRoutingLogic & ActivationProcessRouter)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,8 +94,8 @@ public class NoCameraAccessViewController: UIViewController, ActivationProcessCo
     // MARK: -
     
     open func prepareUI() {
-        let uiData = router.activationProcess.uiDataForNoCameraAccess
-        let commonStrings = router.activationProcess.uiCommonStrings
+        let uiData = uiDataProvider.uiDataForNoCameraAccess
+        let commonStrings = uiDataProvider.uiCommonStrings
         
         promoImageView?.image = uiData.images.noAccess.image
         sceneTitleLabel?.text = uiData.strings.sceneTitle

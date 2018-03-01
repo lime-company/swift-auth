@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
-                                                <rect key="frame" x="42.5" y="44" width="257" height="257"/>
+                                                <rect key="frame" x="43" y="44" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
                                                 </constraints>
@@ -150,7 +150,7 @@ Mobile Key</string>
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
-                                                <rect key="frame" x="42.5" y="52" width="257" height="257"/>
+                                                <rect key="frame" x="43" y="52" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
                                                 </constraints>

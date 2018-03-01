@@ -18,6 +18,9 @@ import UIKit
 
 public class EnableBiometryViewController: UIViewController, ActivationProcessController {
     
+    public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,10 +54,9 @@ public class EnableBiometryViewController: UIViewController, ActivationProcessCo
     
     // MARK: - Routing
     
-    public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

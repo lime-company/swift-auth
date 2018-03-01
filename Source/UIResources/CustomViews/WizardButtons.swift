@@ -29,7 +29,7 @@ class DestructiveWizardButton: RoundCornersButton {
 }
 
 /// Button used in the QR scanner
-class OverlayWizardButton: RoundCornersButton {
+class CameraOverlayButton: RoundCornersButton {
 }
 
 /// Button used for cancel operation.

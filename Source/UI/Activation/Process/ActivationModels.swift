@@ -31,9 +31,11 @@ public enum Activation {
         
         public var createActivationResult: PA2ActivationResult?
         
+        public var noActivationResult = false
+        
         public var password: String?
         
-        public var useBiometry: Bool = false
+        public var useBiometry = false
         
         public var result: Result?
         
@@ -55,17 +57,17 @@ public enum Activation {
             }
         }
         
+        public struct CommonStyle {
+            public let tintColor: UIColor
+            public let backgroundColor: UIColor
+            
+            public static func fallbackStyle() -> CommonStyle {
+                return CommonStyle(tintColor: .blue,
+                                   backgroundColor: .white)
+            }
+        }
+        
         public let commonStrings: CommonStrings
-        
-        public let beginActivation: BeginActivation.UIData
-        public let noCameraAccess: NoCameraAccess.UIData
-        public let enterActivationCode: EnterActivationCode.UIData
-        public let scanActivationCode: ScanActivationCode.UIData
-        public let keysExchange: KeysExchange.UIData
-        public let enableBiometry: EnableBiometry.UIData
-        public let confirmActivation: ConfirmActivation.UIData
-        
-        public let errorActivation: ErrorActivation.UIData
-        public let successActivation: SuccessActivation.UIData
+        public let commonStyle: CommonStyle
     }
 }

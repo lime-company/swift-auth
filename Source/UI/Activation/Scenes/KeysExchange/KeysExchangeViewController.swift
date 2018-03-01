@@ -18,6 +18,10 @@ import UIKit
 
 public class KeysExchangeViewController: UIViewController, ActivationProcessController {
     
+    public var router: (ActivationProcessRouter & KeysExchangeRoutingLogic)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -58,10 +62,9 @@ public class KeysExchangeViewController: UIViewController, ActivationProcessCont
     
     // MARK: - Routing
     
-    public var router: (ActivationProcessRouter & KeysExchangeRoutingLogic)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -99,7 +102,7 @@ public class KeysExchangeViewController: UIViewController, ActivationProcessCont
     
     open func prepareUI() {
         
-        let uiData = router.activationProcess.uiDataForKeysExchange
+        let uiData = uiDataProvider.uiDataForKeysExchange
         
         pendingDescriptionLabel?.text = uiData.strings.pendingActivationTitle
 

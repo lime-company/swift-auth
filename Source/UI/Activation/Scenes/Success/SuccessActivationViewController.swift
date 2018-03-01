@@ -18,6 +18,9 @@ import UIKit
 
 public class SuccessActivationViewController: UIViewController, ActivationProcessController {
     
+    public var router: (SuccessActivationRoutingLogic & ActivationProcessRouter)!
+    public var uiDataProvider: ActivationUIDataProvider!
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,10 +54,9 @@ public class SuccessActivationViewController: UIViewController, ActivationProces
     
     // MARK: - Routing
     
-    public var router: (SuccessActivationRoutingLogic & ActivationProcessRouter)!
-    
     public func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
     }
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
