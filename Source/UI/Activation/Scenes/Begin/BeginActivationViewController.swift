@@ -16,10 +16,11 @@
 
 import UIKit
 
-public class BeginActivationViewController: UIViewController, ActivationProcessController {
+open class BeginActivationViewController: UIViewController, ActivationProcessController {
     
     public var router: (ActivationProcessRouter & BeginActivationRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
+    public var cameraAccessProvider: CameraAccessProvider!
     
     // MARK: - Object lifecycle
     
@@ -38,11 +39,14 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
         let router = BeginActivationRouter()
         router.viewController = self
         viewController.router = router
+        // Camera access
+        cameraAccessProvider = CameraAccess()
+        
     }
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = router?.activationProcess else {
@@ -52,14 +56,19 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
         prepareUI()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     
@@ -79,14 +88,18 @@ public class BeginActivationViewController: UIViewController, ActivationProcessC
     }
     
     public func scanActivationCode() {
-        if QRCodeScanner.needsCameraAccessApproval() {
-            QRCodeScanner.requestCameraAccess { (granted) in
+        if cameraAccessProvider.needsCameraAccessApproval() {
+            cameraAccessProvider.requestCameraAccess { (granted) in
                 if granted {
                     self.router?.routeToScanCode()
                 } else {
                     self.router?.routeToNoCameraAccess()
                 }
             }
+        } else if cameraAccessProvider.isCameraAccessGranted() {
+            self.router?.routeToScanCode()
+        } else {
+            self.router?.routeToNoCameraAccess()
         }
     }
     

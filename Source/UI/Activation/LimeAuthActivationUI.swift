@@ -54,7 +54,7 @@ public class LimeAuthActivationUI {
     
     
     /// Function invokes initial scene
-    public func invokeEntryScene() -> UIViewController {
+    public func instantiateEntryScene() -> UIViewController {
         // Validate whether this invoke can be processed
         validateEntryScene()
         // Construct appropriate controller
@@ -86,7 +86,7 @@ public class LimeAuthActivationUI {
     
     /// Function invokes entry scene and pushes it into the provided navigation controller.
     public func pushEntryScene(to navigationController: UINavigationController, animated: Bool = true) {
-        let entryScene = invokeEntryScene()
+        let entryScene = instantiateEntryScene()
         navigationController.pushViewController(entryScene, animated: animated)
     }
     
@@ -94,7 +94,7 @@ public class LimeAuthActivationUI {
     /// Function invokes entry scene and presents it modally into provided controller. The appropriate navigation controller is
     /// constructed automatically, when `AuthenticationUIProvider` uses navigation stack.
     public func present(to controller: UIViewController, animated: Bool = true, completion: (()->Void)? = nil) {
-        let entryScene = invokeEntryScene()
+        let entryScene = instantiateEntryScene()
         var controllerToPresent = entryScene
         if let navigationController = uiProvider.instantiateNavigationController(with: entryScene) {
             controllerToPresent = navigationController

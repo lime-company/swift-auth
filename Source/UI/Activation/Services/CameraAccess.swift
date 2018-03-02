@@ -18,27 +18,30 @@ import Foundation
 import AVFoundation
 
 public protocol CameraAccessProvider {
-    static func isCameraAccessGranted() -> Bool
-    static func needsCameraAccessApproval() -> Bool
-    static func requestCameraAccess(completion: @escaping (Bool)->Void)
+    func isCameraAccessGranted() -> Bool
+    func needsCameraAccessApproval() -> Bool
+    func requestCameraAccess(completion: @escaping (Bool)->Void)
 }
 
 
 public extension CameraAccessProvider {
     
-    public static func isCameraAccessGranted() -> Bool {
+    public func isCameraAccessGranted() -> Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
     
-    static func needsCameraAccessApproval() -> Bool {
+    public func needsCameraAccessApproval() -> Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined
     }
     
-    static func requestCameraAccess(completion: @escaping (Bool)->Void) {
+    public func requestCameraAccess(completion: @escaping (Bool)->Void) {
         AVCaptureDevice.requestAccess(for: .video) { (approved) in
             DispatchQueue.main.async {
                 completion(approved)
             }
         }
     }
+}
+
+class CameraAccess: CameraAccessProvider {
 }

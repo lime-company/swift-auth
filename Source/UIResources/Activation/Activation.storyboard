@@ -11,6 +11,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CourierNew.ttf">
+            <string>CourierNewPSMT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Begin Activation View Controller-->
         <scene sceneID="oBi-Od-bnS">
@@ -125,11 +130,122 @@ Mobile Key</string>
                         <outlet property="sceneDescriptionLabel" destination="c7h-Vt-Vpi" id="N9n-wH-ilR"/>
                         <outlet property="sceneTitleLabel" destination="fpd-v2-qJI" id="1fB-Rd-sah"/>
                         <segue destination="Yer-ZO-Hol" kind="presentation" identifier="NoCameraAccess" id="dMI-iE-RGQ"/>
+                        <segue destination="eK1-vA-Ad8" kind="show" identifier="EnterCode" id="K2W-jD-OVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oex-Vh-dTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="160"/>
+        </scene>
+        <!--Enter Code-->
+        <scene sceneID="kDS-qH-A8s">
+            <objects>
+                <viewController storyboardIdentifier="EnterCode" id="eK1-vA-Ad8" customClass="EnterActivationCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rzn-M3-u5h"/>
+                        <viewControllerLayoutGuide type="bottom" id="ShW-VG-inx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EsR-aR-P33">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-VD-fb1" userLabel="Top">
+                                <rect key="frame" x="16" y="72" width="343" height="99"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište aktivační kód zobrazený v Internetbankingu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV9-Dr-WLb">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Q1-ydZ" userLabel="Text Fields">
+                                        <rect key="frame" x="0.0" y="55" width="343" height="44"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-b6-3QG" userLabel="AC2" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="sEa-dw-wcV"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hw-ne-tMj" userLabel="AC4" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="87" y="0.0" width="82.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="kOU-fy-3sp"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xli-th-GVJ" userLabel="AC1" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="173.5" y="0.0" width="83" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="WKS-8A-XQZ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agO-ju-R9f" userLabel="AC3" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="260.5" y="0.0" width="82.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="gsS-Be-WHu"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-P5-iq5" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="16" y="311" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qDx-Jz-YWg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Confirm"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jH8-P5-iq5" firstAttribute="leading" secondItem="EsR-aR-P33" secondAttribute="leadingMargin" id="5de-rF-iHk"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="leading" secondItem="EsR-aR-P33" secondAttribute="leadingMargin" id="Fpi-Le-orn"/>
+                            <constraint firstItem="ShW-VG-inx" firstAttribute="top" secondItem="jH8-P5-iq5" secondAttribute="bottom" constant="312" id="Hos-n9-Zhj"/>
+                            <constraint firstItem="jH8-P5-iq5" firstAttribute="trailing" secondItem="EsR-aR-P33" secondAttribute="trailingMargin" id="Kgr-WK-eRV"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="trailing" secondItem="EsR-aR-P33" secondAttribute="trailingMargin" id="TWB-Bu-iFb"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="top" secondItem="rzn-M3-u5h" secondAttribute="bottom" constant="8" id="Y5B-1Z-N37"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Enter Code" id="2z8-m3-91a">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="UFc-Mz-u8Z">
+                            <connections>
+                                <action selector="cancelAction:" destination="eK1-vA-Ad8" id="DPA-sW-s8B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomKeyboardConstraint" destination="Hos-n9-Zhj" id="HAE-Mo-PAJ"/>
+                        <outlet property="cancelButtonItem" destination="UFc-Mz-u8Z" id="gck-NA-QMc"/>
+                        <outlet property="confirmButton" destination="jH8-P5-iq5" id="C6j-1Z-yJR"/>
+                        <outlet property="hintLabel" destination="vV9-Dr-WLb" id="VVM-bD-UfZ"/>
+                        <outlet property="textField1" destination="fMe-b6-3QG" id="UFF-Uf-YzC"/>
+                        <outlet property="textField2" destination="7hw-ne-tMj" id="B4h-RD-NuR"/>
+                        <outlet property="textField3" destination="xli-th-GVJ" id="pf2-R2-HgN"/>
+                        <outlet property="textField4" destination="agO-ju-R9f" id="erI-cF-fId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jb3-iB-j33" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="743"/>
         </scene>
         <!--No Camera Access View Controller-->
         <scene sceneID="nYJ-za-v7n">

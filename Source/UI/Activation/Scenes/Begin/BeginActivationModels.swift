@@ -21,10 +21,10 @@ public enum BeginActivation {
     public struct UIData {
         
         public struct Strings {
-            let sceneTitle: String          // "Enter the Activation code"
-            let sceneDescription: String    // "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen."
-            let scanButton: String          // "Scan the Activation QR code"
-            let enterButton: String         // "Retype the Activation code manually"
+            let sceneTitle: String
+            let sceneDescription: String
+            let scanButton: String
+            let enterButton: String
         }
         
         public struct Images {

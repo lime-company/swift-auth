@@ -18,7 +18,7 @@ import UIKit
 
 public protocol EnterActivationCodeRoutingLogic {
     func routeToPreviousScene()
-    func routeToKeyExchange()
+    func routeToKeyExchange(activationCode: String)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
@@ -32,7 +32,8 @@ public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, Activat
         viewController?.navigationController?.popViewController(animated: true)
     }
     
-    public func routeToKeyExchange() {
+    public func routeToKeyExchange(activationCode: String) {
+        activationProcess?.activationData.activationCode = activationCode
         viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
     }
     

@@ -68,26 +68,6 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         }
     }
     
-    
-    public func isCameraAccessGranted() -> Bool {
-        return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
-    }
-    
-    
-    public func needsCameraAccessApproval() -> Bool {
-        return AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined
-    }
-    
-    
-    public func requestCameraAccess(completion: @escaping (Bool) -> Void) {
-        AVCaptureDevice.requestAccess(for: .video) { (approved) in
-            DispatchQueue.main.async {
-                completion(approved)
-            }
-        }
-    }
-    
-    
     // MARK: - AVCaptureMetadataOutputObjectsDelegate protocol
     
     @objc public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
