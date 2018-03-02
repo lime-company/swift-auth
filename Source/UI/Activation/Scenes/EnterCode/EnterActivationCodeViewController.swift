@@ -317,6 +317,7 @@ open class EnterActivationCodeViewController: UIViewController, ActivationProces
         for textField in [ tf1, tf2, tf3, tf4 ] {
             textField.text = ""
             textField.delegate = self
+            textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
             textField.font = font
             if let insetTextField = textField as? TextFieldWithInset {
                 insetTextField.textContentInset = textInset
