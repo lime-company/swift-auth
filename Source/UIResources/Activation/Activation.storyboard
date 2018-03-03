@@ -170,7 +170,7 @@ Mobile Key</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of8-Mk-NMH" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="38" width="237" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="1dA-gF-zHC"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="30" id="1dA-gF-zHC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.49928477110000002" colorSpace="calibratedRGB"/>
