@@ -35,7 +35,7 @@ public enum ScanActivationCode {
         
         public static func fallbackData() -> UIData {
             let strings = Strings(sceneTitle: "Scan the activation QR code",
-                                  enterCodeFallbackButton:  "Unsuccessful? Please retype the code manually.")
+                                  enterCodeFallbackButton:  "Unsuccessful? Rewrite the code.")
             let images = Images(crossHair: .empty(), cancelButton: .empty())
             return UIData(strings: strings, images: images)
         }

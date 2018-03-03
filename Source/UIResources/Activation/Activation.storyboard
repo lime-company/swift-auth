@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
-                                                <rect key="frame" x="43" y="44" width="256.5" height="257.5"/>
+                                                <rect key="frame" x="43" y="44" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
                                                 </constraints>
@@ -153,10 +153,10 @@ Mobile Key</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-AX-xFe" userLabel="Black overlay">
-                                <rect key="frame" x="0.0" y="20" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-1L-2hR">
-                                        <rect key="frame" x="69" y="40" width="237" height="68"/>
+                                        <rect key="frame" x="69" y="60" width="237" height="68"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the activation QR code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vc-Kz-i7z">
                                                 <rect key="frame" x="0.0" y="0.0" width="237" height="30"/>
@@ -195,22 +195,22 @@ Mobile Key</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nE5-1L-2hR" secondAttribute="trailing" constant="32" id="8qr-1i-0RH"/>
-                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zet-AX-xFe" secondAttribute="leading" constant="32" id="P2t-MC-JSm"/>
-                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="top" secondItem="Zet-AX-xFe" secondAttribute="top" constant="40" id="XDm-x4-jFc"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nE5-1L-2hR" secondAttribute="trailing" constant="24" id="8qr-1i-0RH"/>
+                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zet-AX-xFe" secondAttribute="leading" constant="24" id="P2t-MC-JSm"/>
+                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="top" secondItem="Zet-AX-xFe" secondAttribute="top" constant="60" id="XDm-x4-jFc"/>
                                     <constraint firstAttribute="bottom" secondItem="nE5-1L-2hR" secondAttribute="bottom" constant="24" id="iqT-Pf-are"/>
                                     <constraint firstItem="nE5-1L-2hR" firstAttribute="centerX" secondItem="Zet-AX-xFe" secondAttribute="centerX" id="m4e-Qe-KN9"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-qr-scanner" translatesAutoresizingMaskIntoConstraints="NO" id="KhT-QU-fEB">
-                                <rect key="frame" x="67" y="213" width="240" height="240"/>
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="36a-wp-Zi0"/>
                                     <constraint firstAttribute="height" constant="240" id="Aot-lm-LCv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-P2-5Gn" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
-                                <rect key="frame" x="157" y="587" width="60" height="60"/>
+                                <rect key="frame" x="157.5" y="587" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="j71-nS-rd1"/>
@@ -230,7 +230,7 @@ Mobile Key</string>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Zet-AX-xFe" firstAttribute="top" secondItem="kiO-by-AoC" secondAttribute="bottom" id="3ED-2m-2OP"/>
+                            <constraint firstItem="Zet-AX-xFe" firstAttribute="top" secondItem="ENf-gB-MuH" secondAttribute="top" id="3ED-2m-2OP"/>
                             <constraint firstItem="Zet-AX-xFe" firstAttribute="leading" secondItem="ENf-gB-MuH" secondAttribute="leading" id="FCb-99-Dsi"/>
                             <constraint firstItem="7QT-oh-bYB" firstAttribute="top" secondItem="ZkK-P2-5Gn" secondAttribute="bottom" constant="20" id="XEd-f0-AHb"/>
                             <constraint firstAttribute="trailing" secondItem="Zet-AX-xFe" secondAttribute="trailing" id="YJS-Tp-LhC"/>
@@ -265,16 +265,16 @@ Mobile Key</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-VD-fb1" userLabel="Top">
-                                <rect key="frame" x="16" y="72" width="343" height="7817.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="99"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište aktivační kód zobrazený v Internetbankingu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV9-Dr-WLb">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="7761.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Q1-ydZ" userLabel="Text Fields">
-                                        <rect key="frame" x="0.0" y="7773.5" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="55" width="343" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-b6-3QG" userLabel="AC2" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
@@ -459,7 +459,7 @@ Mobile Key</string>
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
-                                                <rect key="frame" x="43" y="52" width="256.5" height="257.5"/>
+                                                <rect key="frame" x="43" y="52" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
                                                 </constraints>
