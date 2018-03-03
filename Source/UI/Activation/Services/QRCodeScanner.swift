@@ -109,9 +109,17 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         }
         
         let output = AVCaptureMetadataOutput()
+        captureSession.addOutput(output)
+        guard output.availableMetadataObjectTypes.index(of: .qr) != nil else {
+            // Camera doesn't support QR code scanner :(
+            print("QR code scanner is not supported")
+            reportResult(code: nil, error: nil)
+            return
+        }
+        
         output.setMetadataObjectsDelegate(self, queue: .main)
         output.metadataObjectTypes = [ .qr ]
-        captureSession.addOutput(output)
+        
         
         if let preview = delegate?.qrCodeProviderCameraPreview(self, forSession: captureSession) {
             // Attach preview layer into the provided view
