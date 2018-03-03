@@ -245,6 +245,7 @@ Mobile Key</string>
                         <outlet property="enterCodeFallbackButton" destination="of8-Mk-NMH" id="RNE-37-O9V"/>
                         <outlet property="sceneTitleLabel" destination="6Vc-Kz-i7z" id="luw-Hf-P4F"/>
                         <segue destination="xao-2H-SKp" kind="show" identifier="KeyExchange" id="KEQ-ev-lI5"/>
+                        <segue destination="eK1-vA-Ad8" kind="show" identifier="EnterCode" id="IJ1-g6-hd0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eji-mV-UxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,6 +632,7 @@ Mobile Key</string>
         <image name="ic-close" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LPC-QH-zn5"/>
+        <segue reference="KEQ-ev-lI5"/>
+        <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>
 </document>
