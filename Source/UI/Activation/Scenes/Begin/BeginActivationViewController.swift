@@ -88,7 +88,7 @@ open class BeginActivationViewController: UIViewController, ActivationProcessCon
     }
     
     public func scanActivationCode() {
-        if cameraAccessProvider.needsCameraAccessApproval() {
+        if cameraAccessProvider.needsCameraAccessApproval {
             cameraAccessProvider.requestCameraAccess { (granted) in
                 if granted {
                     self.router?.routeToScanCode()
@@ -96,7 +96,7 @@ open class BeginActivationViewController: UIViewController, ActivationProcessCon
                     self.router?.routeToNoCameraAccess()
                 }
             }
-        } else if cameraAccessProvider.isCameraAccessGranted() {
+        } else if cameraAccessProvider.isCameraAccessGranted {
             self.router?.routeToScanCode()
         } else {
             self.router?.routeToNoCameraAccess()
@@ -133,5 +133,7 @@ open class BeginActivationViewController: UIViewController, ActivationProcessCon
         enterAccessCodeButton?.setTitle(uiData.strings.enterButton, for: .normal)
         scanAccessCodeButton?.setTitle(uiData.strings.scanButton, for: .normal)
         cancelActivationButton?.setTitle(commonStrings.cancelTitle, for: .normal)
+        
+        scanAccessCodeButton?.isHidden = !cameraAccessProvider.isCameraDeviceAvailable
     }
 }

@@ -33,6 +33,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationProcessRout
     public func routeToCreatePassword(with result: PA2ActivationResult) {
         // TODO
         activationProcess.activationData.createActivationResult = result
+        viewController?.performSegue(withIdentifier: "FakePassword", sender: nil)
     }
     
     public func routeToError(with error: Error) {

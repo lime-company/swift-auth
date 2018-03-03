@@ -63,11 +63,14 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startScanner()
+        animateInitialUI(animated: animated)
+        startFallbackTimer()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopScanner()
+        cancelFallbackTimer()
     }
     
     // MARK: - Routing
@@ -145,6 +148,7 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     @IBOutlet weak var sceneTitleLabel: UILabel?
     @IBOutlet weak var enterCodeFallbackButton: UIButton?
     @IBOutlet weak var closeSceneButton: UIButton?
+	@IBOutlet weak var crossHairImageView: UIImageView?
     
     
     open func prepareUI() {
@@ -152,6 +156,71 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         enterCodeFallbackButton?.setTitle(uiData.strings.enterCodeFallbackButton, for: .normal)
+		enterCodeFallbackButton?.isHidden = true
+        
+        // Assign optional images
+        if uiData.images.crossHair.hasImage {
+            crossHairImageView?.image = uiData.images.crossHair.image
+        }
+        if uiData.images.cancelButton.hasImage {
+            enterCodeFallbackButton?.setImage(uiData.images.cancelButton.image, for: .normal)
+        }
+    }
+	
+    private func animateInitialUI(animated: Bool) {
+        // Initial state
+        sceneTitleLabel?.alpha = 0.0
+        crossHairImageView?.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
+        crossHairImageView?.alpha = 0.0
+        closeSceneButton?.transform = CGAffineTransform.init(translationX: 0, y: 120)
+        enterCodeFallbackButton?.isHidden = true
+        
+        // Animation
+        let animationsBlock1 = {
+            self.sceneTitleLabel?.alpha = 0.8
+            self.crossHairImageView?.transform = CGAffineTransform.identity
+            self.crossHairImageView?.alpha = 0.8
+        }
+        let animationsBlock2 = {
+            self.closeSceneButton?.transform = CGAffineTransform.identity
+        }
+        if animated {
+            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.66, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                animationsBlock1()
+            }) { (finished) in
+                if finished {
+                    UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.66, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                        animationsBlock2()
+                    })
+                }
+            }
+        } else {
+            animationsBlock1()
+            animationsBlock2()
+        }
+	}
+    
+    // MARK: - Fallback timer
+    
+    var task: DispatchWorkItem? = nil
+    
+    private func startFallbackTimer() {
+        guard task == nil else {
+            return
+        }
+        let t = DispatchWorkItem {
+            UIView.animate(withDuration: 0.33) {
+                self.enterCodeFallbackButton?.isHidden = false
+            }
+        }
+        task = t;
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: t)
+    }
+    
+    private func cancelFallbackTimer() {
+        if let t = task {
+            t.cancel()
+        }
     }
     
     // TODO: show fallback button...

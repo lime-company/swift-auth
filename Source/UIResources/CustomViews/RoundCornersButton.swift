@@ -16,7 +16,7 @@
 
 import UIKit
 
-@IBDesignable class RoundCornersButton: UIButton {
+class RoundCornersButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -38,19 +38,19 @@ import UIKit
         }
     }
     
-    @IBInspectable var highlightedBackgroundColor: UIColor = .clear {
+    @objc var highlightedBackgroundColor: UIColor = .clear {
         didSet {
             updateHighlightedBackground(isHighlighted)
         }
     }
     
-    @IBInspectable var borderCornerRadius: CGFloat = 4.0 {
+    @objc var borderCornerRadius: CGFloat = 4.0 {
         didSet {
             updateCornerRadius()
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 2.0 {
+    @objc var borderWidth: CGFloat = 2.0 {
         didSet {
             updateCornerRadius()
         }

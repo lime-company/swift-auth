@@ -28,6 +28,7 @@
 		BF565FAE2047432E00B9C897 /* ConfirmActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565FAD2047432E00B9C897 /* ConfirmActivationViewController.swift */; };
 		BF565FB0204743F300B9C897 /* ConfirmActivationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565FAF204743F300B9C897 /* ConfirmActivationRouter.swift */; };
 		BF565FB22047440000B9C897 /* ConfirmActivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565FB12047440000B9C897 /* ConfirmActivationModels.swift */; };
+		BF5E3F96204B09570064EF7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5E3F95204B09560064EF7B /* Assets.xcassets */; };
 		BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134312044765E00164496 /* QRCodeScanner.swift */; };
 		BF613434204485B400164496 /* BeginActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF613433204485B400164496 /* BeginActivationViewController.swift */; };
 		BF6134372044863A00164496 /* BeginActivationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134362044863A00164496 /* BeginActivationRouter.swift */; };
@@ -86,6 +87,7 @@
 		BF565FAD2047432E00B9C897 /* ConfirmActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmActivationViewController.swift; sourceTree = "<group>"; };
 		BF565FAF204743F300B9C897 /* ConfirmActivationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmActivationRouter.swift; sourceTree = "<group>"; };
 		BF565FB12047440000B9C897 /* ConfirmActivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmActivationModels.swift; sourceTree = "<group>"; };
+		BF5E3F95204B09560064EF7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6134312044765E00164496 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		BF613433204485B400164496 /* BeginActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginActivationViewController.swift; sourceTree = "<group>"; };
 		BF6134362044863A00164496 /* BeginActivationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginActivationRouter.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				BF688096204811E100351112 /* Activation */,
 				BF565F87204717C900B9C897 /* CustomViews */,
+				BF5E3F95204B09560064EF7B /* Assets.xcassets */,
 			);
 			path = UIResources;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5E3F96204B09570064EF7B /* Assets.xcassets in Resources */,
 				BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

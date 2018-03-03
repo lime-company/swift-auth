@@ -41,6 +41,10 @@ public class LazyUIImage {
         return UIImage()
     }
     
+    public var hasImage: Bool {
+        return construction != nil
+    }
+    
     public static func named(_ name: String) -> LazyUIImage {
         return LazyUIImage(named: name)
     }
@@ -52,5 +56,4 @@ public class LazyUIImage {
     public static func empty() -> LazyUIImage {
         return LazyUIImage()
     }
-    
 }

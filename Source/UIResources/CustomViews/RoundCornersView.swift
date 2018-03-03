@@ -23,13 +23,13 @@ class RoundCornersView: UIView {
         updateCornerRadius()
     }
     
-    @IBInspectable var borderCornerRadius: CGFloat = 16 {
+    @objc var borderCornerRadius: CGFloat = 16 {
         didSet {
             updateCornerRadius()
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat    = 2.0 {
+    @objc var borderWidth: CGFloat    = 2.0 {
         didSet {
             updateCornerRadius()
         }

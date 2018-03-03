@@ -26,7 +26,7 @@ public enum ScanActivationCode {
         }
         
         public struct Images {
-            let qrScanner: LazyUIImage
+            let crossHair: LazyUIImage
             let cancelButton: LazyUIImage
         }
         
@@ -36,7 +36,7 @@ public enum ScanActivationCode {
         public static func fallbackData() -> UIData {
             let strings = Strings(sceneTitle: "Scan the activation QR code",
                                   enterCodeFallbackButton:  "Unsuccessful? Please retype the code manually.")
-            let images = Images(qrScanner: .empty(), cancelButton: .empty())
+            let images = Images(crossHair: .empty(), cancelButton: .empty())
             return UIData(strings: strings, images: images)
         }
         
