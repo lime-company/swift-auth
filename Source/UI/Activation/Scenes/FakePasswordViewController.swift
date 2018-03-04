@@ -43,6 +43,15 @@ public class FakePasswordViewController: UIViewController, ActivationProcessCont
 		}
 	}
 	
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationVC = segue.destination
+        if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
+            destinationVC = first
+        }
+        if let activationVC = destinationVC as? ActivationProcessController, let ap = activationProcess {
+            activationVC.connect(activationProcess: ap)
+        }
+    }
     
 }
 
