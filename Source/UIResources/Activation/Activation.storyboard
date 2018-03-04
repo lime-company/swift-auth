@@ -621,7 +621,7 @@
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Close"/>
                                                 <connections>
-                                                    <action selector="scanActivationCodeAction:" destination="woQ-PU-JYk" eventType="touchUpInside" id="OuJ-eU-0Gc"/>
+                                                    <action selector="closeErrorAction:" destination="woQ-PU-JYk" eventType="touchUpInside" id="8v0-RF-5So"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -638,8 +638,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeSceneButton" destination="Iwr-fb-dIw" id="gek-Ny-B20"/>
                         <outlet property="promoImageView" destination="30b-PX-4CN" id="aSJ-l3-KmA"/>
-                        <outlet property="scanAccessCodeButton" destination="Iwr-fb-dIw" id="4LQ-lI-jZT"/>
                         <outlet property="sceneDescriptionLabel" destination="DQz-h8-PBT" id="PNH-1T-r73"/>
                         <outlet property="sceneTitleLabel" destination="Vbz-O5-Vml" id="A36-kT-AGE"/>
                     </connections>
@@ -705,7 +705,7 @@
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Enable biometry"/>
                                                 <connections>
-                                                    <action selector="enableBiometryAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="PvP-G7-e4X"/>
+                                                    <action selector="enableBiometryAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="A9v-ff-Kxx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-DG-BRq" customClass="SecondaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
@@ -720,7 +720,7 @@
                                                     <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="enableLaterAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="zkf-kR-dWB"/>
+                                                    <action selector="enableLaterAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="tel-Kd-zz0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -737,11 +737,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="enableBiometryButton" destination="gSy-Ha-PU1" id="FlU-FO-a2q"/>
-                        <outlet property="enableLaterButton" destination="M3O-DG-BRq" id="ryJ-4M-KNx"/>
+                        <outlet property="enableBiometryButton" destination="gSy-Ha-PU1" id="XLK-XR-BPQ"/>
+                        <outlet property="enableLaterButton" destination="M3O-DG-BRq" id="WFG-R7-vwZ"/>
                         <outlet property="promoImageView" destination="ij2-gv-yvF" id="ibT-Wx-94m"/>
-                        <outlet property="sceneDescriptionLabel" destination="ifN-wc-5sn" id="boh-2P-u4j"/>
-                        <outlet property="sceneTitleLabel" destination="kE1-gP-Jni" id="RTT-hS-GqV"/>
+                        <outlet property="sceneDescriptionLabel" destination="ifN-wc-5sn" id="sLp-d3-Saj"/>
+                        <outlet property="sceneTitleLabel" destination="kE1-gP-Jni" id="XTw-1h-22N"/>
                         <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="C7r-zI-zbv"/>
                     </connections>
                 </viewController>
@@ -827,7 +827,7 @@
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Remove activation"/>
                                                 <connections>
-                                                    <action selector="enableBiometryAction:" destination="L15-9s-8t6" eventType="touchUpInside" id="m9Q-Y7-DGv"/>
+                                                    <action selector="removeActivationAction:" destination="L15-9s-8t6" eventType="touchUpInside" id="0a8-hw-GBt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -844,11 +844,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="enableBiometryButton" destination="xFS-SY-2vK" id="bym-Uz-8wu"/>
+                        <outlet property="activityIndicatorView" destination="Hoc-dC-Vh1" id="7dt-2h-dsK"/>
                         <outlet property="promoImageView" destination="KgQ-bV-0oe" id="LWL-JK-T20"/>
-                        <outlet property="sceneDescriptionLabel" destination="rec-it-akc" id="Jo0-Jh-hIN"/>
-                        <outlet property="sceneTitleLabel" destination="mVD-Hf-krI" id="ThD-qp-e6x"/>
-                        <outlet property="waitingForActivationLabel" destination="cvA-NH-oHg" id="UEB-s6-SHt"/>
+                        <outlet property="removeActivationButton" destination="xFS-SY-2vK" id="CaN-4v-6UC"/>
+                        <outlet property="sceneDescriptionLabel" destination="rec-it-akc" id="8t8-Yv-gur"/>
+                        <outlet property="sceneTitleLabel" destination="mVD-Hf-krI" id="iPJ-qO-bkx"/>
+                        <outlet property="waitingForActivationLabel" destination="cvA-NH-oHg" id="scr-Tx-JgQ"/>
                         <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="BzB-ih-qyI"/>
                     </connections>
                 </viewController>
@@ -868,7 +869,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="C7r-zI-zbv"/>
-        <segue reference="2Jb-20-RaX"/>
+        <segue reference="BzB-ih-qyI"/>
         <segue reference="KEQ-ev-lI5"/>
         <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>

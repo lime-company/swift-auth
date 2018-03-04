@@ -77,12 +77,11 @@ public class ErrorActivationViewController: UIViewController, ActivationProcessC
     
     // MARK: - Presentation
     
-//    @IBOutlet weak var sceneTitleLabel: UILabel?
-//    @IBOutlet weak var sceneDescriptionLabel: UILabel?
-//    @IBOutlet weak var promoImageView: UIImageView?
-//    @IBOutlet weak var openSettingsButton: UIButton?
-//    @IBOutlet weak var closeSceneButton: UIButton?
-    
+    @IBOutlet weak var sceneTitleLabel: UILabel?
+    @IBOutlet weak var sceneDescriptionLabel: UILabel?
+    @IBOutlet weak var promoImageView: UIImageView?
+    @IBOutlet weak var closeSceneButton: UIButton?
+	
     // MARK: -
     
     open func prepareUI() {
