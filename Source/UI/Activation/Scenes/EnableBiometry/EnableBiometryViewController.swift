@@ -15,12 +15,15 @@
 //
 
 import UIKit
+import PowerAuth2
 
 public class EnableBiometryViewController: UIViewController, ActivationProcessController {
     
     public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
-    
+	
+	var isTouchId: Bool = PA2Keychain.supportedBiometricAuthentication == .touchID
+	
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -48,6 +51,9 @@ public class EnableBiometryViewController: UIViewController, ActivationProcessCo
         guard let _ = router?.activationProcess else {
             fatalError("EnableBiometryViewController is not configured properly.")
         }
+		guard PA2Keychain.supportedBiometricAuthentication != .none else {
+			fatalError("EnableBiometryViewController biometry is not supported.")
+		}
         
         prepareUI()
     }
@@ -82,23 +88,29 @@ public class EnableBiometryViewController: UIViewController, ActivationProcessCo
     
     // MARK: - Presentation
     
-    //    @IBOutlet weak var sceneTitleLabel: UILabel?
-    //    @IBOutlet weak var sceneDescriptionLabel: UILabel?
-    //    @IBOutlet weak var promoImageView: UIImageView?
-    //    @IBOutlet weak var openSettingsButton: UIButton?
-    //    @IBOutlet weak var closeSceneButton: UIButton?
-    
+	@IBOutlet weak var sceneTitleLabel: UILabel?
+	@IBOutlet weak var sceneDescriptionLabel: UILabel?
+	@IBOutlet weak var promoImageView: UIImageView?
+	@IBOutlet weak var enableBiometryButton: UIButton?
+	@IBOutlet weak var enableLaterButton: UIButton?
+	
     // MARK: -
     
     open func prepareUI() {
-        //        let uiData = router.activationProcess.uiDataForNoCameraAccess
-        //        let commonStrings = router.activationProcess.uiCommonStrings
-        //
-        //        promoImageView?.image = uiData.images.noAccess.image
-        //        sceneTitleLabel?.text = uiData.strings.sceneTitle
-        //        sceneDescriptionLabel?.text = uiData.strings.sceneDescription
-        //        openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)
-        //        closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
+		let uiData = uiDataProvider.uiDataForEnableBiometry
+        let isTouchId = PA2Keychain.supportedBiometricAuthentication == .touchID
+        
+        let sceneTitle          = isTouchId ? uiData.strings.touchIdSceneTitle : uiData.strings.faceIdSceneTitle
+        let description         = isTouchId ? uiData.strings.touchIdDescription : uiData.strings.faceIdDescription
+        let enableButtonTitle   = isTouchId ? uiData.strings.enableTouchIdButton : uiData.strings.enableFaceIdButton
+        
+		sceneTitleLabel?.text = sceneTitle
+        sceneDescriptionLabel?.text = description
+        enableBiometryButton?.setTitle(enableButtonTitle, for: .normal)
+        enableLaterButton?.setTitle(uiData.strings.enableLaterButton, for: .normal)
+        if uiData.images.biometry.hasImage {
+            promoImageView?.image = uiData.images.biometry.image
+        }
     }
     
 }

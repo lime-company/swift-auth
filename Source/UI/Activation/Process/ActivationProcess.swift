@@ -39,7 +39,6 @@ public protocol ActivationUIDataProvider {
     var uiDataForKeysExchange: KeysExchange.UIData { get }
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
     var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
-    var uiDataForSuccessActivation: SuccessActivation.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
     
 }

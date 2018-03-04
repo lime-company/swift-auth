@@ -84,10 +84,14 @@ public class KeysExchangeViewController: UIViewController, ActivationProcessCont
         let activationCode = process.activationData.activationCode ?? ""
         
         sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode) { [weak self] (result, error) in
+            guard let `self` = self else {
+                return
+            }
+            self.sessionOperation = nil
             if let result = result {
-                self?.router.routeToCreatePassword(with: result)
+                self.router.routeToCreatePassword(with: result)
             } else if let error = error {
-                self?.router.routeToError(with: error)
+                self.router.routeToError(with: error)
             }
         }
     }

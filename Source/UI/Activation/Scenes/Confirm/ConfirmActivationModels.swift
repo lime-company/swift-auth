@@ -23,6 +23,7 @@ public enum ConfirmActivation {
         public struct Strings {
             let sceneTitle: String
             let sceneDescription: String
+            let waitingLabel: String
             let removeActivationButton: String
         }
         
@@ -34,9 +35,10 @@ public enum ConfirmActivation {
         public let images: Images
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(sceneTitle: "",
-                                  sceneDescription: "",
-                                  removeActivationButton: "")
+            let strings = Strings(sceneTitle: "Complete the activation",
+                                  sceneDescription: "Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal.",
+                                  waitingLabel: "Waiting for activation completion",
+                                  removeActivationButton: "Cancel operation")
             let images = Images(confirm: .empty())
             return UIData(strings: strings, images: images)
         }

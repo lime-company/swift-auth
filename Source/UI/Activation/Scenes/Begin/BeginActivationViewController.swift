@@ -127,7 +127,9 @@ open class BeginActivationViewController: UIViewController, ActivationProcessCon
         let uiData = uiDataProvider.uiDataForBeginActivation
         let commonStrings = uiDataProvider.uiCommonStrings
         
-        promoImageView?.image = uiData.images.scenePromo.image
+        if uiData.images.scenePromo.hasImage {
+            promoImageView?.image = uiData.images.scenePromo.image
+        }
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         enterAccessCodeButton?.setTitle(uiData.strings.enterButton, for: .normal)

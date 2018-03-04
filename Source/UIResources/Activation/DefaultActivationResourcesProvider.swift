@@ -111,10 +111,6 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return .fallbackData()
     }
     
-    public var uiDataForSuccessActivation: SuccessActivation.UIData {
-        return .fallbackData()
-    }
-    
     public var uiDataForErrorActivation: ErrorActivation.UIData {
         return .fallbackData()
     }

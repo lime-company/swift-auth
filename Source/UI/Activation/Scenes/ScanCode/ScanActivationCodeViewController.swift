@@ -145,7 +145,8 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     
     // MARK: - Presentation
     
-    @IBOutlet weak var sceneTitleLabel: UILabel?
+	@IBOutlet weak var topViewConstraint: NSLayoutConstraint?
+	@IBOutlet weak var sceneTitleLabel: UILabel?
     @IBOutlet weak var enterCodeFallbackButton: UIButton?
     @IBOutlet weak var closeSceneButton: UIButton?
 	@IBOutlet weak var crossHairImageView: UIImageView?
@@ -222,6 +223,4 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
             t.cancel()
         }
     }
-    
-    // TODO: show fallback button...
 }

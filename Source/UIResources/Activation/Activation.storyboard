@@ -35,7 +35,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-Y9-YNr" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-3" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="44" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
@@ -68,16 +68,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ggz-XZ-xiy" userLabel="Bottom">
                                         <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpd-v2-qJI">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
-                                                <string key="text">Welcome to the 
-Mobile Key</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpd-v2-qJI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7h-Vt-Vpi">
-                                                <rect key="frame" x="0.0" y="65.5" width="343" height="154"/>
+                                                <rect key="frame" x="0.0" y="37" width="343" height="182.5"/>
                                                 <string key="text">Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
@@ -209,7 +207,7 @@ Mobile Key</string>
                                     <constraint firstAttribute="height" constant="240" id="Aot-lm-LCv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-P2-5Gn" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-P2-5Gn" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="157.5" y="587" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -244,6 +242,7 @@ Mobile Key</string>
                         <outlet property="crossHairImageView" destination="KhT-QU-fEB" id="zgD-Ht-Ukf"/>
                         <outlet property="enterCodeFallbackButton" destination="of8-Mk-NMH" id="RNE-37-O9V"/>
                         <outlet property="sceneTitleLabel" destination="6Vc-Kz-i7z" id="luw-Hf-P4F"/>
+                        <outlet property="topViewConstraint" destination="XDm-x4-jFc" id="aCR-RG-hAj"/>
                         <segue destination="xao-2H-SKp" kind="show" identifier="KeyExchange" id="KEQ-ev-lI5"/>
                         <segue destination="eK1-vA-Ad8" kind="show" identifier="EnterCode" id="IJ1-g6-hd0"/>
                     </connections>
@@ -378,12 +377,12 @@ Mobile Key</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-13-Uxn">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-13-Uxn">
                                 <rect key="frame" x="169" y="328.5" width="37" height="37"/>
                                 <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending activation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-u5-MvB">
-                                <rect key="frame" x="48" y="288" width="279" height="21"/>
+                                <rect key="frame" x="48" y="287.5" width="279" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -410,10 +409,10 @@ Mobile Key</string>
             </objects>
             <point key="canvasLocation" x="2503" y="160"/>
         </scene>
-        <!--View Controller-->
+        <!--Fake Password View Controller-->
         <scene sceneID="Fvi-Pi-5nC">
             <objects>
-                <viewController id="j7Z-wc-sfZ" sceneMemberID="viewController">
+                <viewController id="j7Z-wc-sfZ" customClass="FakePasswordViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aYZ-GC-I1t"/>
                         <viewControllerLayoutGuide type="bottom" id="jce-af-iZG"/>
@@ -423,22 +422,45 @@ Mobile Key</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fake password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-Ak-wgG">
-                                <rect key="frame" x="132" y="323" width="111" height="21"/>
+                                <rect key="frame" x="132" y="52" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-hB-TL6">
+                                <rect key="frame" x="132" y="113" width="203" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-2d-zIR">
+                                <rect key="frame" x="305" y="190" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="fakeOk:" destination="j7Z-wc-sfZ" eventType="touchUpInside" id="qU9-LO-mM7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cpp-Ak-wgG" firstAttribute="centerX" secondItem="SWc-1g-1kh" secondAttribute="centerX" id="G7C-zZ-3BR"/>
-                            <constraint firstItem="cpp-Ak-wgG" firstAttribute="centerY" secondItem="SWc-1g-1kh" secondAttribute="centerY" id="tZc-gi-NnD"/>
+                            <constraint firstItem="l7W-2d-zIR" firstAttribute="trailing" secondItem="g0m-hB-TL6" secondAttribute="trailing" id="JWh-KO-nIB"/>
+                            <constraint firstItem="g0m-hB-TL6" firstAttribute="leading" secondItem="cpp-Ak-wgG" secondAttribute="leading" id="MEY-1g-W0G"/>
+                            <constraint firstAttribute="trailing" secondItem="g0m-hB-TL6" secondAttribute="trailing" constant="40" id="OsF-8r-Wgb"/>
+                            <constraint firstItem="cpp-Ak-wgG" firstAttribute="top" secondItem="aYZ-GC-I1t" secondAttribute="bottom" constant="32" id="TT1-9m-o3T"/>
+                            <constraint firstItem="g0m-hB-TL6" firstAttribute="top" secondItem="cpp-Ak-wgG" secondAttribute="bottom" constant="40" id="pnB-jf-fNE"/>
+                            <constraint firstItem="l7W-2d-zIR" firstAttribute="top" secondItem="g0m-hB-TL6" secondAttribute="bottom" constant="47" id="shI-mO-9bT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fakePassword" destination="g0m-hB-TL6" id="FbQ-c0-BjS"/>
+                        <segue destination="Gx2-LX-rdX" kind="show" identifier="EnableBiometry" id="hee-vt-k61"/>
+                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="geM-9q-kL1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMh-cz-YCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="160"/>
+            <point key="canvasLocation" x="3508" y="159.67016491754123"/>
         </scene>
         <!--No Camera Access View Controller-->
         <scene sceneID="nYJ-za-v7n">
@@ -458,7 +480,7 @@ Mobile Key</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHr-bB-U3x" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-3" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="52" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
@@ -560,7 +582,7 @@ Mobile Key</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-cg-Sb8" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="30b-PX-4CN" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-welcome-3" translatesAutoresizingMaskIntoConstraints="NO" id="30b-PX-4CN" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="33.5" width="256.5" height="256.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="30b-PX-4CN" secondAttribute="height" multiplier="1:1" id="bz1-cl-Dm3"/>
@@ -624,15 +646,230 @@ Mobile Key</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcP-Hb-ubh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="1053"/>
+            <point key="canvasLocation" x="3508" y="1053"/>
+        </scene>
+        <!--Enable Biometry View Controller-->
+        <scene sceneID="Oy6-hw-0Wb">
+            <objects>
+                <viewController id="Gx2-LX-rdX" customClass="EnableBiometryViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bz7-gQ-kaO"/>
+                        <viewControllerLayoutGuide type="bottom" id="8f2-91-KhQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hf8-Ra-5nA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iHH-eI-Oac">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-1A-tg4" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-1" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-gv-yvF" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="33.5" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ij2-gv-yvF" secondAttribute="height" multiplier="1:1" id="u4Z-nw-puR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="width" secondItem="dUL-1A-tg4" secondAttribute="width" multiplier="0.75" id="6wX-vW-gXc"/>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="centerX" secondItem="dUL-1A-tg4" secondAttribute="centerX" id="GRm-f0-w6J"/>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="centerY" secondItem="dUL-1A-tg4" secondAttribute="centerY" priority="750" id="Smd-Lt-p5z"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u0p-Xe-1eO" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable biometry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-gP-Jni">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Enable biometry description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-wc-5sn">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="182.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSy-Ha-PU1" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="227.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="ViS-Zm-faH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Enable biometry"/>
+                                                <connections>
+                                                    <action selector="enableBiometryAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="PvP-G7-e4X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-DG-BRq" customClass="SecondaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="lp3-Rz-AGX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Enable later">
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enableLaterAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="zkf-kR-dWB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iHH-eI-Oac" firstAttribute="leading" secondItem="hf8-Ra-5nA" secondAttribute="leadingMargin" id="QRR-5k-yS1"/>
+                            <constraint firstItem="iHH-eI-Oac" firstAttribute="top" secondItem="bz7-gQ-kaO" secondAttribute="bottom" id="Qzg-MB-gnt"/>
+                            <constraint firstItem="8f2-91-KhQ" firstAttribute="top" secondItem="iHH-eI-Oac" secondAttribute="bottom" id="UeQ-ob-L5s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iHH-eI-Oac" secondAttribute="trailing" id="W7r-NP-dBa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enableBiometryButton" destination="gSy-Ha-PU1" id="FlU-FO-a2q"/>
+                        <outlet property="enableLaterButton" destination="M3O-DG-BRq" id="ryJ-4M-KNx"/>
+                        <outlet property="promoImageView" destination="ij2-gv-yvF" id="ibT-Wx-94m"/>
+                        <outlet property="sceneDescriptionLabel" destination="ifN-wc-5sn" id="boh-2P-u4j"/>
+                        <outlet property="sceneTitleLabel" destination="kE1-gP-Jni" id="RTT-hS-GqV"/>
+                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="C7r-zI-zbv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpp-vi-xFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702" y="-743"/>
+        </scene>
+        <!--Confirm Activation View Controller-->
+        <scene sceneID="gYb-ZM-TfI">
+            <objects>
+                <viewController id="L15-9s-8t6" customClass="ConfirmActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uxj-Uf-5eI"/>
+                        <viewControllerLayoutGuide type="bottom" id="zUL-OW-Yt7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U35-zg-StT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pia-J1-mEz">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-9r-gSh" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-4" translatesAutoresizingMaskIntoConstraints="NO" id="KgQ-bV-0oe" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="33.5" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KgQ-bV-0oe" secondAttribute="height" multiplier="1:1" id="QWE-ua-aTn"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="centerY" secondItem="oAi-9r-gSh" secondAttribute="centerY" priority="750" id="CCL-sX-Tc6"/>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="width" secondItem="oAi-9r-gSh" secondAttribute="width" multiplier="0.75" id="erb-uL-qs5"/>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="centerX" secondItem="oAi-9r-gSh" secondAttribute="centerX" id="jkp-zh-M9o"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VPN-V6-SEl" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for confirm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVD-Hf-krI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Confirmation description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rec-it-akc">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="134"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-NH-oHg">
+                                                <rect key="frame" x="0.0" y="179" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiN-ow-dua">
+                                                <rect key="frame" x="0.0" y="207.5" width="343" height="64"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hoc-dC-Vh1">
+                                                        <rect key="frame" x="153" y="0.0" width="37" height="37"/>
+                                                        <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Hoc-dC-Vh1" firstAttribute="top" secondItem="OiN-ow-dua" secondAttribute="top" id="CGg-Rv-QCv"/>
+                                                    <constraint firstItem="Hoc-dC-Vh1" firstAttribute="centerX" secondItem="OiN-ow-dua" secondAttribute="centerX" id="i5L-Sh-IxO"/>
+                                                    <constraint firstAttribute="height" constant="64" id="uLB-N3-bSf"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-SY-2vK" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="QiQ-IN-V6A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Remove activation"/>
+                                                <connections>
+                                                    <action selector="enableBiometryAction:" destination="L15-9s-8t6" eventType="touchUpInside" id="m9Q-Y7-DGv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pia-J1-mEz" firstAttribute="leading" secondItem="U35-zg-StT" secondAttribute="leadingMargin" id="F3t-xs-Y0F"/>
+                            <constraint firstItem="pia-J1-mEz" firstAttribute="top" secondItem="Uxj-Uf-5eI" secondAttribute="bottom" id="U3X-E2-7w8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pia-J1-mEz" secondAttribute="trailing" id="cWw-eR-Tzj"/>
+                            <constraint firstItem="zUL-OW-Yt7" firstAttribute="top" secondItem="pia-J1-mEz" secondAttribute="bottom" id="pax-79-C0n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enableBiometryButton" destination="xFS-SY-2vK" id="bym-Uz-8wu"/>
+                        <outlet property="promoImageView" destination="KgQ-bV-0oe" id="LWL-JK-T20"/>
+                        <outlet property="sceneDescriptionLabel" destination="rec-it-akc" id="Jo0-Jh-hIN"/>
+                        <outlet property="sceneTitleLabel" destination="mVD-Hf-krI" id="ThD-qp-e6x"/>
+                        <outlet property="waitingForActivationLabel" destination="cvA-NH-oHg" id="UEB-s6-SHt"/>
+                        <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="BzB-ih-qyI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rov-kv-VcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702" y="160"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg-qr-scanner" width="240" height="240"/>
         <image name="ic-close" width="25" height="25"/>
+        <image name="illustration-wizard-pair-3" width="220" height="220"/>
+        <image name="illustration-wizard-pair-4" width="220" height="220"/>
+        <image name="illustration-wizard-settings-1" width="220" height="220"/>
+        <image name="illustration-wizard-settings-3" width="220" height="220"/>
+        <image name="illustration-wizard-welcome-3" width="220" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="C7r-zI-zbv"/>
+        <segue reference="BzB-ih-qyI"/>
         <segue reference="KEQ-ev-lI5"/>
-        <segue reference="IJ1-g6-hd0"/>
+        <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>
 </document>

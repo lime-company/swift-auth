@@ -40,6 +40,8 @@ public enum Activation {
         public var result: Result?
         
         public var failureReason: Error?
+        
+        public var failureReasonString: String?
     }
 
     

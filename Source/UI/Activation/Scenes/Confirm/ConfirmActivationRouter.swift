@@ -30,13 +30,16 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationP
     
 
     public func routeToSuccess() {
+        activationProcess.completeActivation(controller: viewController)
     }
     
     public func routeToError(with error: Error) {
+        activationProcess.activationData.failureReason = error
+        self.viewController?.performSegue(withIdentifier: "ErrorActivation", sender: nil)
     }
 
     public func routeToCancel() {
-        
+        activationProcess.cancelActivation(controller: viewController)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

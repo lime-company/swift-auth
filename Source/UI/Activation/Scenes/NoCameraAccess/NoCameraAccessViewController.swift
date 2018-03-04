@@ -97,7 +97,9 @@ open class NoCameraAccessViewController: UIViewController, ActivationProcessCont
         let uiData = uiDataProvider.uiDataForNoCameraAccess
         let commonStrings = uiDataProvider.uiCommonStrings
         
-        promoImageView?.image = uiData.images.noAccess.image
+        if uiData.images.noAccess.hasImage {
+            promoImageView?.image = uiData.images.noAccess.image
+        }
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)
