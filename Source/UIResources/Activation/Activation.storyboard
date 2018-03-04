@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4qz-fD-Xx7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CourierNew.ttf">
+            <string>CourierNewPSMT</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Begin Activation View Controller-->
+        <scene sceneID="oBi-Od-bnS">
+            <objects>
+                <viewController id="4qz-fD-Xx7" customClass="BeginActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8uX-Bw-pzG"/>
+                        <viewControllerLayoutGuide type="bottom" id="z0v-r2-iWI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u31-gJ-5iD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5Y5-bA-44k">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-Y9-YNr" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-3" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="44" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-vZ-QYO" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="80" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="dMI-1c-G0r"/>
+                                                    <constraint firstAttribute="width" constant="80" id="vQP-la-4Z6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="tintColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelActivationAction:" destination="4qz-fD-Xx7" eventType="touchUpInside" id="UyS-BG-jxJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Dex-vZ-QYO" firstAttribute="leading" secondItem="2jN-Y9-YNr" secondAttribute="leading" constant="10" id="B7W-l6-NMM"/>
+                                            <constraint firstItem="e1t-28-nyH" firstAttribute="width" secondItem="2jN-Y9-YNr" secondAttribute="width" multiplier="0.75" id="PLf-cb-5di"/>
+                                            <constraint firstItem="Dex-vZ-QYO" firstAttribute="top" secondItem="2jN-Y9-YNr" secondAttribute="top" id="WXp-6k-w9S"/>
+                                            <constraint firstItem="e1t-28-nyH" firstAttribute="centerY" secondItem="2jN-Y9-YNr" secondAttribute="centerY" priority="750" id="cGN-3e-HWS"/>
+                                            <constraint firstItem="e1t-28-nyH" firstAttribute="centerX" secondItem="2jN-Y9-YNr" secondAttribute="centerX" id="efi-Sk-mZe"/>
+                                            <constraint firstItem="e1t-28-nyH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dex-vZ-QYO" secondAttribute="bottom" id="k5r-eq-GK5"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ggz-XZ-xiy" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpd-v2-qJI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7h-Vt-Vpi">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="182.5"/>
+                                                <string key="text">Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sH-Zk-aua" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="227.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="GXC-1t-VAB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Scan Code"/>
+                                                <connections>
+                                                    <action selector="scanActivationCodeAction:" destination="4qz-fD-Xx7" eventType="touchUpInside" id="OhF-un-zvn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsI-lV-Q5k" customClass="SecondaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="CId-2a-4g8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Enter code">
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enterActivationCodeAction:" destination="4qz-fD-Xx7" eventType="touchUpInside" id="rZO-h1-wiA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z0v-r2-iWI" firstAttribute="top" secondItem="5Y5-bA-44k" secondAttribute="bottom" id="4WF-DK-OxC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Y5-bA-44k" secondAttribute="trailing" id="aHR-An-YlH"/>
+                            <constraint firstItem="5Y5-bA-44k" firstAttribute="leading" secondItem="u31-gJ-5iD" secondAttribute="leadingMargin" id="eaI-Pt-MDU"/>
+                            <constraint firstItem="5Y5-bA-44k" firstAttribute="top" secondItem="8uX-Bw-pzG" secondAttribute="bottom" id="osS-KS-MlD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelActivationButton" destination="Dex-vZ-QYO" id="2QR-JP-azL"/>
+                        <outlet property="enterAccessCodeButton" destination="EsI-lV-Q5k" id="BpC-x2-ITH"/>
+                        <outlet property="promoImageView" destination="e1t-28-nyH" id="R69-kP-d2y"/>
+                        <outlet property="scanAccessCodeButton" destination="9sH-Zk-aua" id="PjB-YE-Sk6"/>
+                        <outlet property="sceneDescriptionLabel" destination="c7h-Vt-Vpi" id="N9n-wH-ilR"/>
+                        <outlet property="sceneTitleLabel" destination="fpd-v2-qJI" id="1fB-Rd-sah"/>
+                        <segue destination="Yer-ZO-Hol" kind="presentation" identifier="NoCameraAccess" id="dMI-iE-RGQ"/>
+                        <segue destination="eK1-vA-Ad8" kind="show" identifier="EnterCode" id="K2W-jD-OVp"/>
+                        <segue destination="s6U-Ia-WUV" kind="show" identifier="ScanCode" id="dBO-yU-Nqi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oex-Vh-dTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="160"/>
+        </scene>
+        <!--Scan Activation Code View Controller-->
+        <scene sceneID="oFt-EC-onb">
+            <objects>
+                <viewController id="s6U-Ia-WUV" customClass="ScanActivationCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kiO-by-AoC"/>
+                        <viewControllerLayoutGuide type="bottom" id="7QT-oh-bYB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ENf-gB-MuH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-AX-xFe" userLabel="Black overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-1L-2hR">
+                                        <rect key="frame" x="69" y="60" width="237" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the activation QR code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vc-Kz-i7z">
+                                                <rect key="frame" x="0.0" y="0.0" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="3Lo-8a-idO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of8-Mk-NMH" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="38" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="30" id="1dA-gF-zHC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.49928477110000002" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Unable to scan? Rewrite the code">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enterCodeFallbackAction:" destination="s6U-Ia-WUV" eventType="touchUpInside" id="Xdo-Nz-RNF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nE5-1L-2hR" secondAttribute="trailing" constant="24" id="8qr-1i-0RH"/>
+                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zet-AX-xFe" secondAttribute="leading" constant="24" id="P2t-MC-JSm"/>
+                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="top" secondItem="Zet-AX-xFe" secondAttribute="top" constant="60" id="XDm-x4-jFc"/>
+                                    <constraint firstAttribute="bottom" secondItem="nE5-1L-2hR" secondAttribute="bottom" constant="24" id="iqT-Pf-are"/>
+                                    <constraint firstItem="nE5-1L-2hR" firstAttribute="centerX" secondItem="Zet-AX-xFe" secondAttribute="centerX" id="m4e-Qe-KN9"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-qr-scanner" translatesAutoresizingMaskIntoConstraints="NO" id="KhT-QU-fEB">
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="36a-wp-Zi0"/>
+                                    <constraint firstAttribute="height" constant="240" id="Aot-lm-LCv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-P2-5Gn" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="157.5" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="j71-nS-rd1"/>
+                                    <constraint firstAttribute="height" constant="60" id="lSl-IC-DAe"/>
+                                </constraints>
+                                <color key="tintColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="ic-close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeSceneAction:" destination="s6U-Ia-WUV" eventType="touchUpInside" id="YP3-f9-rI8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zet-AX-xFe" firstAttribute="top" secondItem="ENf-gB-MuH" secondAttribute="top" id="3ED-2m-2OP"/>
+                            <constraint firstItem="Zet-AX-xFe" firstAttribute="leading" secondItem="ENf-gB-MuH" secondAttribute="leading" id="FCb-99-Dsi"/>
+                            <constraint firstItem="7QT-oh-bYB" firstAttribute="top" secondItem="ZkK-P2-5Gn" secondAttribute="bottom" constant="20" id="XEd-f0-AHb"/>
+                            <constraint firstAttribute="trailing" secondItem="Zet-AX-xFe" secondAttribute="trailing" id="YJS-Tp-LhC"/>
+                            <constraint firstItem="ZkK-P2-5Gn" firstAttribute="centerX" secondItem="ENf-gB-MuH" secondAttribute="centerX" id="j3l-Tt-no3"/>
+                            <constraint firstItem="KhT-QU-fEB" firstAttribute="centerY" secondItem="ENf-gB-MuH" secondAttribute="centerY" id="mJd-hG-4Zn"/>
+                            <constraint firstItem="KhT-QU-fEB" firstAttribute="centerX" secondItem="ENf-gB-MuH" secondAttribute="centerX" id="pdA-Cv-goN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeSceneButton" destination="ZkK-P2-5Gn" id="4md-7P-tgJ"/>
+                        <outlet property="crossHairImageView" destination="KhT-QU-fEB" id="zgD-Ht-Ukf"/>
+                        <outlet property="enterCodeFallbackButton" destination="of8-Mk-NMH" id="RNE-37-O9V"/>
+                        <outlet property="sceneTitleLabel" destination="6Vc-Kz-i7z" id="luw-Hf-P4F"/>
+                        <outlet property="topViewConstraint" destination="XDm-x4-jFc" id="aCR-RG-hAj"/>
+                        <segue destination="xao-2H-SKp" kind="show" identifier="KeyExchange" id="KEQ-ev-lI5"/>
+                        <segue destination="eK1-vA-Ad8" kind="show" identifier="EnterCode" id="IJ1-g6-hd0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eji-mV-UxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-253.2233883058471"/>
+        </scene>
+        <!--Enter Code-->
+        <scene sceneID="kDS-qH-A8s">
+            <objects>
+                <viewController storyboardIdentifier="EnterCode" id="eK1-vA-Ad8" customClass="EnterActivationCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rzn-M3-u5h"/>
+                        <viewControllerLayoutGuide type="bottom" id="ShW-VG-inx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EsR-aR-P33">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-VD-fb1" userLabel="Top">
+                                <rect key="frame" x="16" y="72" width="343" height="99"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište aktivační kód zobrazený v Internetbankingu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV9-Dr-WLb">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Q1-ydZ" userLabel="Text Fields">
+                                        <rect key="frame" x="0.0" y="55" width="343" height="44"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-b6-3QG" userLabel="AC2" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="sEa-dw-wcV"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hw-ne-tMj" userLabel="AC4" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="87" y="0.0" width="82.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="kOU-fy-3sp"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xli-th-GVJ" userLabel="AC1" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="173.5" y="0.0" width="83" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="WKS-8A-XQZ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agO-ju-R9f" userLabel="AC3" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="260.5" y="0.0" width="82.5" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="gsS-Be-WHu"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-P5-iq5" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="16" y="311" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="qDx-Jz-YWg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmAction:" destination="eK1-vA-Ad8" eventType="touchUpInside" id="s9s-xi-5Zb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jH8-P5-iq5" firstAttribute="leading" secondItem="EsR-aR-P33" secondAttribute="leadingMargin" id="5de-rF-iHk"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="leading" secondItem="EsR-aR-P33" secondAttribute="leadingMargin" id="Fpi-Le-orn"/>
+                            <constraint firstItem="ShW-VG-inx" firstAttribute="top" secondItem="jH8-P5-iq5" secondAttribute="bottom" constant="312" id="Hos-n9-Zhj"/>
+                            <constraint firstItem="jH8-P5-iq5" firstAttribute="trailing" secondItem="EsR-aR-P33" secondAttribute="trailingMargin" id="Kgr-WK-eRV"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="trailing" secondItem="EsR-aR-P33" secondAttribute="trailingMargin" id="TWB-Bu-iFb"/>
+                            <constraint firstItem="6EV-VD-fb1" firstAttribute="top" secondItem="rzn-M3-u5h" secondAttribute="bottom" constant="8" id="Y5B-1Z-N37"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Enter Code" id="2z8-m3-91a">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="UFc-Mz-u8Z">
+                            <connections>
+                                <action selector="cancelAction:" destination="eK1-vA-Ad8" id="DPA-sW-s8B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomKeyboardConstraint" destination="Hos-n9-Zhj" id="HAE-Mo-PAJ"/>
+                        <outlet property="cancelButtonItem" destination="UFc-Mz-u8Z" id="gck-NA-QMc"/>
+                        <outlet property="confirmButton" destination="jH8-P5-iq5" id="C6j-1Z-yJR"/>
+                        <outlet property="hintLabel" destination="vV9-Dr-WLb" id="VVM-bD-UfZ"/>
+                        <outlet property="textField1" destination="fMe-b6-3QG" id="UFF-Uf-YzC"/>
+                        <outlet property="textField2" destination="7hw-ne-tMj" id="B4h-RD-NuR"/>
+                        <outlet property="textField3" destination="xli-th-GVJ" id="pf2-R2-HgN"/>
+                        <outlet property="textField4" destination="agO-ju-R9f" id="erI-cF-fId"/>
+                        <segue destination="xao-2H-SKp" kind="show" identifier="KeyExchange" id="LPC-QH-zn5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jb3-iB-j33" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="603"/>
+        </scene>
+        <!--Keys Exchange View Controller-->
+        <scene sceneID="ZEZ-Of-im9">
+            <objects>
+                <viewController id="xao-2H-SKp" customClass="KeysExchangeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="avf-zo-gVC"/>
+                        <viewControllerLayoutGuide type="bottom" id="tEA-0k-GN4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8dt-VJ-rt6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-13-Uxn">
+                                <rect key="frame" x="169" y="328.5" width="37" height="37"/>
+                                <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending activation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-u5-MvB">
+                                <rect key="frame" x="48" y="287.5" width="279" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="prJ-13-Uxn" firstAttribute="top" secondItem="HZ4-u5-MvB" secondAttribute="bottom" constant="19.5" id="AqA-Va-zIZ"/>
+                            <constraint firstItem="prJ-13-Uxn" firstAttribute="centerY" secondItem="8dt-VJ-rt6" secondAttribute="centerY" multiplier="1.04" id="JYD-CO-QDb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HZ4-u5-MvB" secondAttribute="trailing" constant="32" id="en4-mj-P59"/>
+                            <constraint firstItem="prJ-13-Uxn" firstAttribute="centerX" secondItem="8dt-VJ-rt6" secondAttribute="centerX" id="pe1-1j-bPo"/>
+                            <constraint firstItem="HZ4-u5-MvB" firstAttribute="leading" secondItem="8dt-VJ-rt6" secondAttribute="leadingMargin" constant="32" id="r4P-1k-YXe"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="pendingActivityIndicator" destination="prJ-13-Uxn" id="5b0-XB-ycI"/>
+                        <outlet property="pendingDescriptionLabel" destination="HZ4-u5-MvB" id="Q5t-zW-ygZ"/>
+                        <segue destination="j7Z-wc-sfZ" kind="show" identifier="FakePassword" id="Ph6-CK-K81"/>
+                        <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="2Jb-20-RaX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcX-w3-1dP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="160"/>
+        </scene>
+        <!--Fake Password View Controller-->
+        <scene sceneID="Fvi-Pi-5nC">
+            <objects>
+                <viewController id="j7Z-wc-sfZ" customClass="FakePasswordViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aYZ-GC-I1t"/>
+                        <viewControllerLayoutGuide type="bottom" id="jce-af-iZG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SWc-1g-1kh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fake password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-Ak-wgG">
+                                <rect key="frame" x="132" y="52" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-hB-TL6">
+                                <rect key="frame" x="132" y="113" width="203" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-2d-zIR">
+                                <rect key="frame" x="305" y="190" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="fakeOk:" destination="j7Z-wc-sfZ" eventType="touchUpInside" id="qU9-LO-mM7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cpp-Ak-wgG" firstAttribute="centerX" secondItem="SWc-1g-1kh" secondAttribute="centerX" id="G7C-zZ-3BR"/>
+                            <constraint firstItem="l7W-2d-zIR" firstAttribute="trailing" secondItem="g0m-hB-TL6" secondAttribute="trailing" id="JWh-KO-nIB"/>
+                            <constraint firstItem="g0m-hB-TL6" firstAttribute="leading" secondItem="cpp-Ak-wgG" secondAttribute="leading" id="MEY-1g-W0G"/>
+                            <constraint firstAttribute="trailing" secondItem="g0m-hB-TL6" secondAttribute="trailing" constant="40" id="OsF-8r-Wgb"/>
+                            <constraint firstItem="cpp-Ak-wgG" firstAttribute="top" secondItem="aYZ-GC-I1t" secondAttribute="bottom" constant="32" id="TT1-9m-o3T"/>
+                            <constraint firstItem="g0m-hB-TL6" firstAttribute="top" secondItem="cpp-Ak-wgG" secondAttribute="bottom" constant="40" id="pnB-jf-fNE"/>
+                            <constraint firstItem="l7W-2d-zIR" firstAttribute="top" secondItem="g0m-hB-TL6" secondAttribute="bottom" constant="47" id="shI-mO-9bT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fakePassword" destination="g0m-hB-TL6" id="FbQ-c0-BjS"/>
+                        <segue destination="Gx2-LX-rdX" kind="show" identifier="EnableBiometry" id="hee-vt-k61"/>
+                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="geM-9q-kL1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMh-cz-YCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508" y="159.67016491754123"/>
+        </scene>
+        <!--No Camera Access View Controller-->
+        <scene sceneID="nYJ-za-v7n">
+            <objects>
+                <viewController id="Yer-ZO-Hol" customClass="NoCameraAccessViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RxL-zz-W6m"/>
+                        <viewControllerLayoutGuide type="bottom" id="LOC-IT-gDo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oE2-i3-HmI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tHT-O7-Oyl">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHr-bB-U3x" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-3" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="52" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qem-gU-P5o" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="8" width="80" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="D2s-v0-F0C"/>
+                                                    <constraint firstAttribute="height" constant="44" id="jJU-Wa-gu8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="tintColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Close"/>
+                                                <connections>
+                                                    <action selector="closeSceneAction:" destination="Yer-ZO-Hol" eventType="touchUpInside" id="XLD-8j-3El"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="qem-gU-P5o" firstAttribute="top" secondItem="bHr-bB-U3x" secondAttribute="top" constant="8" id="I7M-lE-JGu"/>
+                                            <constraint firstItem="BW1-MN-0Bl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qem-gU-P5o" secondAttribute="bottom" id="MW9-ZH-ARV"/>
+                                            <constraint firstItem="BW1-MN-0Bl" firstAttribute="centerX" secondItem="bHr-bB-U3x" secondAttribute="centerX" id="kVw-pH-1dT"/>
+                                            <constraint firstItem="BW1-MN-0Bl" firstAttribute="centerY" secondItem="bHr-bB-U3x" secondAttribute="centerY" priority="750" id="nRW-fh-2zE"/>
+                                            <constraint firstItem="qem-gU-P5o" firstAttribute="leading" secondItem="bHr-bB-U3x" secondAttribute="leading" constant="10" id="ofg-S0-0rC"/>
+                                            <constraint firstItem="BW1-MN-0Bl" firstAttribute="width" secondItem="bHr-bB-U3x" secondAttribute="width" multiplier="0.75" id="xGl-Ch-iyV"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ldD-Np-PYQ" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Camera Access" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-gk-bfY">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RZ-ne-3d1">
+                                                <rect key="frame" x="0.0" y="33" width="343" height="242.5"/>
+                                                <string key="text">Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ac9-Qy-yfy" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="i5s-es-umA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Open Settings"/>
+                                                <connections>
+                                                    <action selector="openSettingsAction:" destination="Yer-ZO-Hol" eventType="touchUpInside" id="1Ui-Ri-fXb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tHT-O7-Oyl" firstAttribute="leading" secondItem="oE2-i3-HmI" secondAttribute="leadingMargin" id="bVC-cP-Ufv"/>
+                            <constraint firstItem="tHT-O7-Oyl" firstAttribute="top" secondItem="RxL-zz-W6m" secondAttribute="bottom" id="hG5-FB-rtA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tHT-O7-Oyl" secondAttribute="trailing" id="k7i-Lr-NEs"/>
+                            <constraint firstItem="LOC-IT-gDo" firstAttribute="top" secondItem="tHT-O7-Oyl" secondAttribute="bottom" id="lqa-Q7-VD3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeSceneButton" destination="qem-gU-P5o" id="ATT-r7-0FF"/>
+                        <outlet property="openSettingsButton" destination="ac9-Qy-yfy" id="qzi-Js-bxr"/>
+                        <outlet property="promoImageView" destination="BW1-MN-0Bl" id="Vjl-FU-rO4"/>
+                        <outlet property="sceneDescriptionLabel" destination="1RZ-ne-3d1" id="tgA-0m-JaD"/>
+                        <outlet property="sceneTitleLabel" destination="Bfg-gk-bfY" id="RaX-pM-c2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="os9-a9-PLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="1053"/>
+        </scene>
+        <!--Error Activation View Controller-->
+        <scene sceneID="AUi-3X-aVa">
+            <objects>
+                <viewController id="woQ-PU-JYk" customClass="ErrorActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="inz-RC-M90"/>
+                        <viewControllerLayoutGuide type="bottom" id="YdK-Ad-5lI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xor-Qa-zVf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lEu-QL-eEI">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-cg-Sb8" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-welcome-3" translatesAutoresizingMaskIntoConstraints="NO" id="30b-PX-4CN" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="33.5" width="256.5" height="256.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="30b-PX-4CN" secondAttribute="height" multiplier="1:1" id="bz1-cl-Dm3"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="30b-PX-4CN" firstAttribute="width" secondItem="dJl-cg-Sb8" secondAttribute="width" multiplier="0.75" id="KSs-n2-TIN"/>
+                                            <constraint firstItem="30b-PX-4CN" firstAttribute="centerX" secondItem="dJl-cg-Sb8" secondAttribute="centerX" id="ao4-2B-CdV"/>
+                                            <constraint firstItem="30b-PX-4CN" firstAttribute="centerY" secondItem="dJl-cg-Sb8" secondAttribute="centerY" priority="750" id="vpL-YY-pqd"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hzN-my-aGN" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbz-O5-Vml">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Error Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQz-h8-PBT">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="234.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwr-fb-dIw" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="p8K-sw-O0q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Close"/>
+                                                <connections>
+                                                    <action selector="closeErrorAction:" destination="woQ-PU-JYk" eventType="touchUpInside" id="8v0-RF-5So"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="lEu-QL-eEI" secondAttribute="trailing" id="AdG-oe-18J"/>
+                            <constraint firstItem="lEu-QL-eEI" firstAttribute="top" secondItem="inz-RC-M90" secondAttribute="bottom" id="JVp-jc-waC"/>
+                            <constraint firstItem="lEu-QL-eEI" firstAttribute="leading" secondItem="xor-Qa-zVf" secondAttribute="leadingMargin" id="hfB-6s-PzA"/>
+                            <constraint firstItem="YdK-Ad-5lI" firstAttribute="top" secondItem="lEu-QL-eEI" secondAttribute="bottom" id="vxb-uC-xvs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeSceneButton" destination="Iwr-fb-dIw" id="gek-Ny-B20"/>
+                        <outlet property="promoImageView" destination="30b-PX-4CN" id="aSJ-l3-KmA"/>
+                        <outlet property="sceneDescriptionLabel" destination="DQz-h8-PBT" id="PNH-1T-r73"/>
+                        <outlet property="sceneTitleLabel" destination="Vbz-O5-Vml" id="A36-kT-AGE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcP-Hb-ubh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508" y="1053"/>
+        </scene>
+        <!--Enable Biometry View Controller-->
+        <scene sceneID="Oy6-hw-0Wb">
+            <objects>
+                <viewController id="Gx2-LX-rdX" customClass="EnableBiometryViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bz7-gQ-kaO"/>
+                        <viewControllerLayoutGuide type="bottom" id="8f2-91-KhQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hf8-Ra-5nA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iHH-eI-Oac">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-1A-tg4" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-1" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-gv-yvF" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="33.5" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ij2-gv-yvF" secondAttribute="height" multiplier="1:1" id="u4Z-nw-puR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="width" secondItem="dUL-1A-tg4" secondAttribute="width" multiplier="0.75" id="6wX-vW-gXc"/>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="centerX" secondItem="dUL-1A-tg4" secondAttribute="centerX" id="GRm-f0-w6J"/>
+                                            <constraint firstItem="ij2-gv-yvF" firstAttribute="centerY" secondItem="dUL-1A-tg4" secondAttribute="centerY" priority="750" id="Smd-Lt-p5z"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u0p-Xe-1eO" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable biometry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-gP-Jni">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Enable biometry description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-wc-5sn">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="182.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSy-Ha-PU1" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="227.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="ViS-Zm-faH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Enable biometry"/>
+                                                <connections>
+                                                    <action selector="enableBiometryAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="A9v-ff-Kxx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-DG-BRq" customClass="SecondaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="lp3-Rz-AGX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Enable later">
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enableLaterAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="tel-Kd-zz0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iHH-eI-Oac" firstAttribute="leading" secondItem="hf8-Ra-5nA" secondAttribute="leadingMargin" id="QRR-5k-yS1"/>
+                            <constraint firstItem="iHH-eI-Oac" firstAttribute="top" secondItem="bz7-gQ-kaO" secondAttribute="bottom" id="Qzg-MB-gnt"/>
+                            <constraint firstItem="8f2-91-KhQ" firstAttribute="top" secondItem="iHH-eI-Oac" secondAttribute="bottom" id="UeQ-ob-L5s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iHH-eI-Oac" secondAttribute="trailing" id="W7r-NP-dBa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enableBiometryButton" destination="gSy-Ha-PU1" id="XLK-XR-BPQ"/>
+                        <outlet property="enableLaterButton" destination="M3O-DG-BRq" id="WFG-R7-vwZ"/>
+                        <outlet property="promoImageView" destination="ij2-gv-yvF" id="ibT-Wx-94m"/>
+                        <outlet property="sceneDescriptionLabel" destination="ifN-wc-5sn" id="sLp-d3-Saj"/>
+                        <outlet property="sceneTitleLabel" destination="kE1-gP-Jni" id="XTw-1h-22N"/>
+                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="C7r-zI-zbv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpp-vi-xFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702" y="-743"/>
+        </scene>
+        <!--Confirm Activation View Controller-->
+        <scene sceneID="gYb-ZM-TfI">
+            <objects>
+                <viewController id="L15-9s-8t6" customClass="ConfirmActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uxj-Uf-5eI"/>
+                        <viewControllerLayoutGuide type="bottom" id="zUL-OW-Yt7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U35-zg-StT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pia-J1-mEz">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-9r-gSh" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-4" translatesAutoresizingMaskIntoConstraints="NO" id="KgQ-bV-0oe" userLabel="Illustration">
+                                                <rect key="frame" x="43" y="33.5" width="256.5" height="257"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KgQ-bV-0oe" secondAttribute="height" multiplier="1:1" id="QWE-ua-aTn"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="centerY" secondItem="oAi-9r-gSh" secondAttribute="centerY" priority="750" id="CCL-sX-Tc6"/>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="width" secondItem="oAi-9r-gSh" secondAttribute="width" multiplier="0.75" id="erb-uL-qs5"/>
+                                            <constraint firstItem="KgQ-bV-0oe" firstAttribute="centerX" secondItem="oAi-9r-gSh" secondAttribute="centerX" id="jkp-zh-M9o"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VPN-V6-SEl" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="323.5" width="343" height="323.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for confirm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVD-Hf-krI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Confirmation description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rec-it-akc">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="134"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-NH-oHg">
+                                                <rect key="frame" x="0.0" y="179" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OiN-ow-dua">
+                                                <rect key="frame" x="0.0" y="207.5" width="343" height="64"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hoc-dC-Vh1">
+                                                        <rect key="frame" x="153" y="0.0" width="37" height="37"/>
+                                                        <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Hoc-dC-Vh1" firstAttribute="top" secondItem="OiN-ow-dua" secondAttribute="top" id="CGg-Rv-QCv"/>
+                                                    <constraint firstItem="Hoc-dC-Vh1" firstAttribute="centerX" secondItem="OiN-ow-dua" secondAttribute="centerX" id="i5L-Sh-IxO"/>
+                                                    <constraint firstAttribute="height" constant="64" id="uLB-N3-bSf"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-SY-2vK" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="279.5" width="343" height="44"/>
+                                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="QiQ-IN-V6A"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Remove activation"/>
+                                                <connections>
+                                                    <action selector="removeActivationAction:" destination="L15-9s-8t6" eventType="touchUpInside" id="0a8-hw-GBt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pia-J1-mEz" firstAttribute="leading" secondItem="U35-zg-StT" secondAttribute="leadingMargin" id="F3t-xs-Y0F"/>
+                            <constraint firstItem="pia-J1-mEz" firstAttribute="top" secondItem="Uxj-Uf-5eI" secondAttribute="bottom" id="U3X-E2-7w8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pia-J1-mEz" secondAttribute="trailing" id="cWw-eR-Tzj"/>
+                            <constraint firstItem="zUL-OW-Yt7" firstAttribute="top" secondItem="pia-J1-mEz" secondAttribute="bottom" id="pax-79-C0n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Hoc-dC-Vh1" id="7dt-2h-dsK"/>
+                        <outlet property="promoImageView" destination="KgQ-bV-0oe" id="LWL-JK-T20"/>
+                        <outlet property="removeActivationButton" destination="xFS-SY-2vK" id="CaN-4v-6UC"/>
+                        <outlet property="sceneDescriptionLabel" destination="rec-it-akc" id="8t8-Yv-gur"/>
+                        <outlet property="sceneTitleLabel" destination="mVD-Hf-krI" id="iPJ-qO-bkx"/>
+                        <outlet property="waitingForActivationLabel" destination="cvA-NH-oHg" id="scr-Tx-JgQ"/>
+                        <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="BzB-ih-qyI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rov-kv-VcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4702" y="160"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg-qr-scanner" width="240" height="240"/>
+        <image name="ic-close" width="25" height="25"/>
+        <image name="illustration-wizard-pair-3" width="220" height="220"/>
+        <image name="illustration-wizard-pair-4" width="220" height="220"/>
+        <image name="illustration-wizard-settings-1" width="220" height="220"/>
+        <image name="illustration-wizard-settings-3" width="220" height="220"/>
+        <image name="illustration-wizard-welcome-3" width="220" height="220"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C7r-zI-zbv"/>
+        <segue reference="BzB-ih-qyI"/>
+        <segue reference="KEQ-ev-lI5"/>
+        <segue reference="IJ1-g6-hd0"/>
+    </inferredMetricsTieBreakers>
+</document>
