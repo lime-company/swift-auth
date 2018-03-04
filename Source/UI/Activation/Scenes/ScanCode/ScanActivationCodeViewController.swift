@@ -101,10 +101,12 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     public func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error) {
         D.print("ScanActivationCodeViewController: Scanner failed on error: \(error.localizedDescription)")
         router.activationProcess.completeActivation(controller: self, with: error)
+        stopScanner()
     }
     
     public func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithCode code: String) {
         router.routeToKeyExchange(activationCode: code)
+        stopScanner()
     }
     
     public func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool {
