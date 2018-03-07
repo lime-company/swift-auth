@@ -141,7 +141,7 @@
         <!--Scan Activation Code View Controller-->
         <scene sceneID="oFt-EC-onb">
             <objects>
-                <viewController id="s6U-Ia-WUV" customClass="ScanActivationCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanCode" id="s6U-Ia-WUV" customClass="ScanActivationCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kiO-by-AoC"/>
                         <viewControllerLayoutGuide type="bottom" id="7QT-oh-bYB"/>
@@ -752,7 +752,7 @@
         <!--Confirm Activation View Controller-->
         <scene sceneID="gYb-ZM-TfI">
             <objects>
-                <viewController id="L15-9s-8t6" customClass="ConfirmActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Confirm" id="L15-9s-8t6" customClass="ConfirmActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uxj-Uf-5eI"/>
                         <viewControllerLayoutGuide type="bottom" id="zUL-OW-Yt7"/>
@@ -871,6 +871,6 @@
         <segue reference="C7r-zI-zbv"/>
         <segue reference="BzB-ih-qyI"/>
         <segue reference="KEQ-ev-lI5"/>
-        <segue reference="IJ1-g6-hd0"/>
+        <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>
 </document>
