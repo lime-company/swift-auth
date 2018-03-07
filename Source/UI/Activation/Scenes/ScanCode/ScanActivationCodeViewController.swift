@@ -62,6 +62,7 @@ public class ScanActivationCodeViewController: UIViewController, ActivationProce
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         startScanner()
         animateInitialUI(animated: animated)
         startFallbackTimer()
