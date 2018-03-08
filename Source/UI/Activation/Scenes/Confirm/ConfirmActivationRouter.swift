@@ -34,7 +34,7 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationP
     }
     
     public func routeToError(with error: Error) {
-        activationProcess.activationData.failureReason = error
+        activationProcess.storeFailureReason(error: error)
         self.viewController?.performSegue(withIdentifier: "ErrorActivation", sender: nil)
     }
 

@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-open class EnterActivationCodeViewController: UIViewController, ActivationProcessController, UITextFieldDelegate {
+open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, ActivationProcessController, UITextFieldDelegate {
 
     public var router: (ActivationProcessRouter & EnterActivationCodeRoutingLogic)?
     public var uiDataProvider: ActivationUIDataProvider!

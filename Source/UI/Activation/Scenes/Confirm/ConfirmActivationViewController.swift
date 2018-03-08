@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-public class ConfirmActivationViewController: UIViewController, ActivationProcessController {
+public class ConfirmActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ConfirmActivationRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!

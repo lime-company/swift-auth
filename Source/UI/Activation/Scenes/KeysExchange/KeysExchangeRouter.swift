@@ -37,7 +37,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationProcessRout
     }
     
     public func routeToError(with error: Error) {
-        activationProcess.activationData.failureReason = error
+        activationProcess.storeFailureReason(error: error)
         viewController?.performSegue(withIdentifier: "ErrorActivation", sender: nil)
     }
     

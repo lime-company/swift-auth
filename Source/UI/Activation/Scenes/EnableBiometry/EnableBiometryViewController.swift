@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-public class EnableBiometryViewController: UIViewController, ActivationProcessController {
+public class EnableBiometryViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!

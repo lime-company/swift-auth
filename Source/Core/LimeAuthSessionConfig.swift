@@ -45,7 +45,7 @@ public class MutableLimeAuthSessionConfig: LimeAuthSessionConfig, MutableConfig 
 
     public init(powerAuth: PowerAuthConfiguration = PowerAuthConfiguration(),
                 keychain: PA2KeychainConfiguration = .sharedInstance(),
-                httpClient:PA2ClientConfiguration = .sharedInstance()) {
+                httpClient: PA2ClientConfiguration = .sharedInstance()) {
         self.powerAuth = powerAuth
         self.powerAuthKeychain = keychain
         self.powerAuthHttpClient = httpClient

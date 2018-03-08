@@ -20,9 +20,13 @@ public class LazyUIImage {
     
     private let construction: (()->UIImage?)?
     
-    public init(named name: String) {
+    public init(named name: String, bundle: Bundle? = nil) {
         construction = { ()->UIImage? in
-            return UIImage(named: name)
+            if let bundle = bundle {
+                return UIImage(named: name, in: bundle, compatibleWith: nil)
+            } else {
+                return UIImage(named: name)
+            }
         }
     }
     
@@ -45,8 +49,8 @@ public class LazyUIImage {
         return construction != nil
     }
     
-    public static func named(_ name: String) -> LazyUIImage {
-        return LazyUIImage(named: name)
+    public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
+        return LazyUIImage(named: name, bundle: bundle)
     }
     
     public static func build(_ closure: @escaping ()->UIImage?) -> LazyUIImage {

@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class ErrorActivationViewController: UIViewController, ActivationProcessController {
+public class ErrorActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ErrorActivationRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!

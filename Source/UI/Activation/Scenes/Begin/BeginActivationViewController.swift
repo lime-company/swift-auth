@@ -16,7 +16,7 @@
 
 import UIKit
 
-open class BeginActivationViewController: UIViewController, ActivationProcessController {
+open class BeginActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ActivationProcessRouter & BeginActivationRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!

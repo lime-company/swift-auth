@@ -112,7 +112,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         captureSession.addOutput(output)
         guard output.availableMetadataObjectTypes.index(of: .qr) != nil else {
             // Camera doesn't support QR code scanner :(
-            print("QR code scanner is not supported")
+            D.print("QR code scanner is not supported")
             reportResult(code: nil, error: nil)
             return
         }

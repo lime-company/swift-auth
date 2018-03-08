@@ -45,8 +45,9 @@ public protocol ActivationUIDataProvider {
 
 public class ActivationProcess {
     
-    public private(set) var session: LimeAuthSession
-    public private(set) var uiDataProvider: ActivationUIDataProvider
+    public let session: LimeAuthSession
+    public let uiDataProvider: ActivationUIDataProvider
+    public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
     
     public internal(set) weak var initialController: UIViewController?
@@ -54,10 +55,11 @@ public class ActivationProcess {
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiDataProvider: ActivationUIDataProvider) {
+    public init(session: LimeAuthSession, uiDataProvider: ActivationUIDataProvider, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
         self.uiDataProvider = uiDataProvider
         self.activationData = Activation.Data()
+        self.credentialsProvider = credentialsProvider
     }
     
     // MARK: - Activation control
@@ -76,12 +78,26 @@ public class ActivationProcess {
         presentResult()
     }
     
-    public func completeActivation(controller: UIViewController?, with error: Error) {
+    public func failActivation(controller: UIViewController?, with error: Error? = nil) {
         // activation error
         finalController = controller
         activationData.result = .failure
-        activationData.failureReason = error
+        if error != nil {
+            activationData.failureReason = error
+        }
         presentResult()
+    }
+    
+    public func storeFailureReason(error: Error) {
+        activationData.failureReason = error
+    }
+    
+    public func clearActivationData() {
+        // Restart activation process
+        activationData = Activation.Data()
+        if session.hasPendingActivation || session.hasValidActivation {
+            session.removeActivationLocal()
+        }
     }
     
     private func presentResult() {

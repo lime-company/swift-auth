@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class KeysExchangeViewController: UIViewController, ActivationProcessController {
+public class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ActivationProcessRouter & KeysExchangeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!

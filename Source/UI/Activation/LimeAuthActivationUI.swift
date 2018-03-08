@@ -45,8 +45,8 @@ public class LimeAuthActivationUI {
     private var completion: ((Activation.Result, UIViewController?)->Void)?
     
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
-        self.activationProcess = ActivationProcess(session: session, uiDataProvider: uiProvider.uiDataProvider)
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
+        self.activationProcess = ActivationProcess(session: session, uiDataProvider: uiProvider.uiDataProvider, credentialsProvider: credentialsProvider)
         self.uiProvider = uiProvider
         self.completion = completion
         self.entryScene = .default

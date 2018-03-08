@@ -16,7 +16,7 @@
 
 import UIKit
 
-open class NoCameraAccessViewController: UIViewController, ActivationProcessController {
+open class NoCameraAccessViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (NoCameraAccessRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
