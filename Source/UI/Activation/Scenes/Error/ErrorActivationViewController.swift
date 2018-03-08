@@ -85,14 +85,15 @@ public class ErrorActivationViewController: LimeAuthUIBaseViewController, Activa
     // MARK: -
     
     open func prepareUI() {
-//        let uiData = router.activationProcess.uiDataForNoCameraAccess
-//        let commonStrings = router.activationProcess.uiCommonStrings
-//
-//        promoImageView?.image = uiData.images.noAccess.image
-//        sceneTitleLabel?.text = uiData.strings.sceneTitle
-//        sceneDescriptionLabel?.text = uiData.strings.sceneDescription
-//        openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)
-//        closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
+        let uiData = uiDataProvider.uiDataForErrorActivation
+        let commonStrings = uiDataProvider.uiCommonStrings
+
+        if uiData.images.errorIllustration.hasImage {
+            promoImageView?.image = uiData.images.errorIllustration.image
+        }
+        sceneTitleLabel?.text = uiData.strings.sceneTitle
+        sceneDescriptionLabel?.text = uiData.strings.genericError
+        closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
     }
     
 }

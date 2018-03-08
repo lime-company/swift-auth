@@ -22,8 +22,7 @@ public enum ErrorActivation {
         
         public struct Strings {
             let sceneTitle: String
-            let sceneDescription: String
-            let openSettingsButton: String
+            let genericError: String
         }
         
         public struct Images {
@@ -34,9 +33,8 @@ public enum ErrorActivation {
         public let images: Images
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(sceneTitle: "Allow camera access",
-                                  sceneDescription: "Application cannot use camera. You can permit it in Settings.",
-                                  openSettingsButton: "Open settings")
+            let strings = Strings(sceneTitle: "Error",
+                                  genericError: "The activation did fail. Please try again.")
             let images = Images(errorIllustration: .empty())
             return UIData(strings: strings, images: images)
         }
