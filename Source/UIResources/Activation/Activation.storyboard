@@ -430,16 +430,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-gU-4Fp">
-                                <rect key="frame" x="16" y="20" width="343" height="122.5"/>
+                                <rect key="frame" x="16" y="36" width="343" height="167.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temporary password picker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-Ak-wgG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-Ak-wgG">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a temporary solution. The full feature password / PIN creation screen will be displayed in this step." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLa-Qa-t8V">
+                                        <rect key="frame" x="0.0" y="36.5" width="343" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-hB-TL6">
-                                        <rect key="frame" x="0.0" y="36.5" width="343" height="40"/>
+                                        <rect key="frame" x="0.0" y="81.5" width="343" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rit-2L-Frt"/>
                                         </constraints>
@@ -448,8 +454,8 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-2d-zIR">
-                                        <rect key="frame" x="0.0" y="92.5" width="343" height="30"/>
-                                        <state key="normal" title="OK"/>
+                                        <rect key="frame" x="0.0" y="137.5" width="343" height="30"/>
+                                        <state key="normal" title="Next"/>
                                         <connections>
                                             <action selector="fakeOk:" destination="j7Z-wc-sfZ" eventType="touchUpInside" id="qU9-LO-mM7"/>
                                         </connections>
@@ -459,7 +465,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uOK-gU-4Fp" firstAttribute="top" secondItem="aYZ-GC-I1t" secondAttribute="bottom" id="72p-vZ-xMU"/>
+                            <constraint firstItem="uOK-gU-4Fp" firstAttribute="top" secondItem="aYZ-GC-I1t" secondAttribute="bottom" constant="16" id="72p-vZ-xMU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uOK-gU-4Fp" secondAttribute="trailing" id="HbD-PR-eFs"/>
                             <constraint firstItem="uOK-gU-4Fp" firstAttribute="leading" secondItem="SWc-1g-1kh" secondAttribute="leadingMargin" id="iLz-Yc-ykn"/>
                         </constraints>
