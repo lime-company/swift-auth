@@ -28,7 +28,14 @@ public class ErrorActivationRouter: ErrorActivationRoutingLogic, ActivationProce
     
 
     public func routeToEnd() {
-        
+        if activationProcess.initialController is BeginActivationViewController {
+            // UI flow has been invoked with begin controller, we can pop to that controller
+            viewController?.navigationController?.popToViewController(activationProcess.initialController!, animated: true)
+            activationProcess.clearActivationData()
+        } else {
+            // Otherwise report error immediately
+            activationProcess.failActivation(controller: viewController, with: nil)
+        }
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
