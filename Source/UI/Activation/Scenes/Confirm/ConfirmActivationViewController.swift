@@ -43,18 +43,27 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
     
     // MARK: - View lifecycle
     
+    private var recoveryFromBrokenActivation = false
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let _ = router?.activationProcess,
-			let _ = router?.activationProcess.activationData.password else {
+        guard let _ = router?.activationProcess else {
             fatalError("ConfirmActivationViewController is not configured properly.")
         }
 		let ad = router.activationProcess.activationData
-		if ad.createActivationResult == nil && ad.noActivationResult == false {
-			fatalError("ConfirmActivationViewController createActivationResult or noActivationResult is not configured.")
-		}
-		
+        if ad.noActivationResult {
+            // this is recovery from crashed application
+            recoveryFromBrokenActivation = true
+            //
+        } else {
+            guard ad.createActivationResult != nil else {
+                fatalError("ConfirmActivationViewController createActivationResult or noActivationResult is not configured.")
+            }
+            guard let _ = ad.password, let _ = ad.createActivationResult?.activationFingerprint else {
+                fatalError("ConfirmActivationViewController missing password or fingerprint.")
+            }
+        }
         prepareUI()
 		commitActivation()
     }
@@ -84,6 +93,7 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
     }
     
     public func removeActivation() {
+        stopWaiting()
 		router.activationProcess.session.removeActivationLocal()
         router.routeToCancel()
     }
@@ -195,8 +205,8 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
 		sceneDescriptionLabel?.text = uiData.strings.sceneDescription
 		waitingForActivationLabel?.text = uiData.strings.waitingLabel
 		removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
-		// Hide remove button in initial state
-		removeActivationButton?.alpha = 0
+		// Hide remove button in initial state, or show it when it's recovery from crashed activation
+        removeActivationButton?.alpha = recoveryFromBrokenActivation ? 1.0 : 0.0
     }
 }
 

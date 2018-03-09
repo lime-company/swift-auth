@@ -52,6 +52,8 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         guard let _ = router?.activationProcess else {
             fatalError("BeginActivationViewController is not configured properly.")
         }
+        // Change behavior of cancel operation
+        router.activationProcess.cancelShouldRouteToBegin = true
         
         prepareUI()
     }

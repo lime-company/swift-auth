@@ -50,6 +50,7 @@ public class ActivationProcess {
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
     
+    public internal(set) var cancelShouldRouteToBegin = false
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     

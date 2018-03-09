@@ -39,7 +39,12 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationP
     }
 
     public func routeToCancel() {
-        activationProcess.cancelActivation(controller: viewController)
+        if activationProcess.cancelShouldRouteToBegin, let initialVC = activationProcess.initialController {
+            activationProcess.clearActivationData()
+            viewController?.navigationController?.popToViewController(initialVC, animated: true)
+        } else {
+            activationProcess.cancelActivation(controller: viewController)
+        }
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

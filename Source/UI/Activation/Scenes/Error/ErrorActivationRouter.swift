@@ -28,9 +28,9 @@ public class ErrorActivationRouter: ErrorActivationRoutingLogic, ActivationProce
     
 
     public func routeToEnd() {
-        if activationProcess.initialController is BeginActivationViewController {
+        if activationProcess.cancelShouldRouteToBegin, let initialVC = activationProcess.initialController {
             // UI flow has been invoked with begin controller, we can pop to that controller
-            viewController?.navigationController?.popToViewController(activationProcess.initialController!, animated: true)
+            viewController?.navigationController?.popToViewController(initialVC, animated: true)
             activationProcess.clearActivationData()
         } else {
             // Otherwise report error immediately

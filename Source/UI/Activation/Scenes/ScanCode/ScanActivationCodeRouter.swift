@@ -30,11 +30,11 @@ public class ScanActivationCodeRouter: ScanActivationCodeRoutingLogic, Activatio
     public var activationProcess: ActivationProcess!
     
     public func routeToPreviousScene() {
-        if activationProcess.initialController === viewController {
-            // This scene is the initial one, we need to report cancel immediately
-            activationProcess.cancelActivation(controller: viewController)
-        } else {
+        if activationProcess.cancelShouldRouteToBegin {
+            // BeginScene is at the top of the stack
             viewController?.navigationController?.popViewController(animated: true)
+        } else {
+            activationProcess.cancelActivation(controller: viewController)
         }
     }
     
