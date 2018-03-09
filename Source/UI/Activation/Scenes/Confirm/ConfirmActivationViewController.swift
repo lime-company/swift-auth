@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-public class ConfirmActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class ConfirmActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ConfirmActivationRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -45,7 +45,7 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
     
     private var recoveryFromBrokenActivation = false
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = router?.activationProcess else {
@@ -68,7 +68,12 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
 		commitActivation()
     }
 	
-	public override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+	open override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		stopWaiting()
 	}
@@ -76,12 +81,12 @@ public class ConfirmActivationViewController: LimeAuthUIBaseViewController, Acti
 	
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     

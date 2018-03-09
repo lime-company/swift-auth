@@ -18,7 +18,7 @@ import UIKit
 import PowerAuth2
 import AVKit
 
-public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationProcessController, QRCodeProviderDelegate {
+open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationProcessController, QRCodeProviderDelegate {
     
     
     public var router: (ActivationProcessRouter & ScanActivationCodeRoutingLogic)!
@@ -50,7 +50,7 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = router?.activationProcess, let _ = qrCodeProvider else {
@@ -60,7 +60,7 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
         prepareUI()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         startScanner()
@@ -68,7 +68,7 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
         startFallbackTimer()
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopScanner()
         cancelFallbackTimer()
@@ -76,12 +76,12 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
     
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     
@@ -99,18 +99,18 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
     
     // MARK: - QRCodeProviderDelegate
     
-    public func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error) {
+    open func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error) {
         D.print("ScanActivationCodeViewController: Scanner failed on error: \(error.localizedDescription)")
         router.activationProcess.failActivation(controller: self, with: error)
         stopScanner()
     }
     
-    public func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithCode code: String) {
+    open func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithCode code: String) {
         router.routeToKeyExchange(activationCode: code)
         stopScanner()
     }
     
-    public func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool {
+    open func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool {
         guard let otp = PA2OtpUtil.parse(fromActivationCode: code) else {
             return false
         }
@@ -121,7 +121,7 @@ public class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Act
         return true
     }
     
-    public func qrCodeProviderCameraPreview(_ provider: QRCodeProvider, forSession session: AVCaptureSession?) -> UIView? {
+    open func qrCodeProviderCameraPreview(_ provider: QRCodeProvider, forSession session: AVCaptureSession?) -> UIView? {
         return self.view
     }
     

@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (ActivationProcessRouter & KeysExchangeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -43,7 +43,7 @@ public class KeysExchangeViewController: LimeAuthUIBaseViewController, Activatio
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = router?.activationProcess,
@@ -55,19 +55,19 @@ public class KeysExchangeViewController: LimeAuthUIBaseViewController, Activatio
         createActivation()
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         sessionOperation?.cancel()
     }
     
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     

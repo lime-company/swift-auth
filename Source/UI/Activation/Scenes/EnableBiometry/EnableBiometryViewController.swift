@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-public class EnableBiometryViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class EnableBiometryViewController: LimeAuthUIBaseViewController, ActivationProcessController {
     
     public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -45,7 +45,7 @@ public class EnableBiometryViewController: LimeAuthUIBaseViewController, Activat
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let _ = router?.activationProcess else {
@@ -60,12 +60,12 @@ public class EnableBiometryViewController: LimeAuthUIBaseViewController, Activat
     
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     
