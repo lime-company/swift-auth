@@ -15,6 +15,7 @@
 //
 
 import Foundation
+import PowerAuth2
 
 /// The LimeAuthCredentials structure contains a configuration for types of crendentials
 /// used in the application.
@@ -173,5 +174,20 @@ public extension LimeAuthCredentials.Password {
     }
 }
 
+
+public extension LimeAuthCredentials.Biometry {
+    
+    /// Contains true whether biometry configuration matches actual support on the device.
+    public var isSupportedOnDevice: Bool {
+        var supported = PA2Keychain.supportedBiometricAuthentication
+        if supported == .touchID && touchId == .disabled {
+            supported = .none
+        } else if supported == .faceID && faceId == .disabled {
+            supported = .none
+        }
+        return supported != .none
+    }
+
+}
 
 

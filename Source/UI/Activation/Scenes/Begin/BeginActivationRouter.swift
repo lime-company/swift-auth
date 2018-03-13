@@ -26,10 +26,10 @@ public protocol BeginActivationRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class BeginActivationRouter: BeginActivationRoutingLogic, ActivationProcessRouter {
+public class BeginActivationRouter: BeginActivationRoutingLogic, ActivationUIProcessRouter {
     
     public weak var viewController: BeginActivationViewController?
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     
     public func routeToScanCode() {
         viewController?.performSegue(withIdentifier: "ScanCode", sender: nil)
@@ -52,7 +52,7 @@ public class BeginActivationRouter: BeginActivationRoutingLogic, ActivationProce
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }

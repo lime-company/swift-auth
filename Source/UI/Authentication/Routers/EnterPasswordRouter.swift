@@ -16,20 +16,30 @@
 
 import UIKit
 
-public protocol EnableBiometryRoutingLogic {
-    func routeToConfirm(withBiometryEnabled enabled: Bool)
+public protocol EnterPasswordRoutingLogic {
+
+    func routeToCancel()
+    func routeToSuccess()
+    func routeToError()
+    
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProcessRouter {
+public class EnterPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
-    public var activationProcess: ActivationUIProcess!
-    public weak var viewController: EnableBiometryViewController?
+    public weak var viewController: (UIViewController & AuthenticationUIProcessController)?
+    public var authenticationProcess: AuthenticationUIProcess!
     
+    public func routeToCancel() {
+        authenticationProcess.cancelAuthentication(controller: viewController)
+    }
     
-    public func routeToConfirm(withBiometryEnabled enabled: Bool) {
-        activationProcess.activationData.useBiometry = enabled
-        viewController?.performSegue(withIdentifier: "Confirm", sender: nil)
+    public func routeToSuccess() {
+        authenticationProcess.completeAuthentication(controller: viewController)
+    }
+    
+    public func routeToError() {
+        authenticationProcess.failAuthentication(controller: viewController)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,9 +47,8 @@ public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProce
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationUIProcessController {
-            activationVC.connect(activationProcess: activationProcess)
+        if let authenticationVC = destinationVC as? AuthenticationUIProcessController {
+            authenticationVC.connect(authenticationProcess: authenticationProcess)
         }
     }
 }
-

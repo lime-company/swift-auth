@@ -68,6 +68,11 @@ public class LimeAuthError: Error {
         self.nestedDescription = string
     }
     
+    public init(error: Error, string: String) {
+        self.nestedError = error
+        self.nestedDescription = string
+    }
+    
 //    init(response: MTokenErrorResponse) {
 //        self.errorResponse = response
 //    }

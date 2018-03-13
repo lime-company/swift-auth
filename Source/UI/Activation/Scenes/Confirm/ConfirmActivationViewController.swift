@@ -17,9 +17,9 @@
 import UIKit
 import PowerAuth2
 
-open class ConfirmActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class ConfirmActivationViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (ConfirmActivationRoutingLogic & ActivationProcessRouter)!
+    public var router: (ConfirmActivationRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
     
     // MARK: - Object lifecycle
@@ -81,7 +81,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
 	
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
@@ -124,7 +124,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
 
 		let _ = session.commitActivation(authentication: authentication) { [weak self] (error) in
 			if let error = error {
-				self?.router.routeToError(with: error)
+                self?.router.routeToError(with: LimeAuthError(error: error))
 			} else {
 				self?.waitForActivationConfirmation()
 			}
@@ -175,7 +175,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             if (error as NSError).domain != PA2ErrorDomain {
                 return true
             } else {
-                router.routeToError(with: error)
+                router.routeToError(with: LimeAuthError(error: error))
             }
         }
         return false

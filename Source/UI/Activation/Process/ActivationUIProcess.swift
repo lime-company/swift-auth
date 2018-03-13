@@ -43,7 +43,7 @@ public protocol ActivationUIDataProvider {
     
 }
 
-public class ActivationProcess {
+public class ActivationUIProcess {
     
     public let session: LimeAuthSession
     public let uiDataProvider: ActivationUIDataProvider
@@ -79,7 +79,7 @@ public class ActivationProcess {
         presentResult()
     }
     
-    public func failActivation(controller: UIViewController?, with error: Error? = nil) {
+    public func failActivation(controller: UIViewController?, with error: LimeAuthError? = nil) {
         // activation error
         finalController = controller
         activationData.result = .failure
@@ -89,7 +89,7 @@ public class ActivationProcess {
         presentResult()
     }
     
-    public func storeFailureReason(error: Error) {
+    public func storeFailureReason(error: LimeAuthError) {
         activationData.failureReason = error
     }
     
@@ -111,10 +111,10 @@ public class ActivationProcess {
 }
 
 
-public protocol ActivationProcessRouter {
-    var activationProcess: ActivationProcess! { get set }
+public protocol ActivationUIProcessRouter {
+    var activationProcess: ActivationUIProcess! { get set }
 }
 
-public protocol ActivationProcessController {
-    func connect(activationProcess process: ActivationProcess)
+public protocol ActivationUIProcessController {
+    func connect(activationProcess process: ActivationUIProcess)
 }

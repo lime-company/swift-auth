@@ -22,9 +22,9 @@ public protocol NoCameraAccessRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class NoCameraAccessRouter: NoCameraAccessRoutingLogic, ActivationProcessRouter {
+public class NoCameraAccessRouter: NoCameraAccessRoutingLogic, ActivationUIProcessRouter {
     
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     public weak var viewController: NoCameraAccessViewController?
     
     public func routeToPreviousScene() {

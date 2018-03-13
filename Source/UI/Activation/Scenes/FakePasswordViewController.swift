@@ -17,11 +17,11 @@
 import UIKit
 import PowerAuth2
 
-public class FakePasswordViewController: UIViewController, ActivationProcessController {
+public class FakePasswordViewController: UIViewController, ActivationUIProcessController {
     
-    public var activationProcess: ActivationProcess?
+    public var activationProcess: ActivationUIProcess?
     
-    public func connect(activationProcess process: ActivationProcess) {
+    public func connect(activationProcess process: ActivationUIProcess) {
         self.activationProcess = process
     }
     
@@ -48,7 +48,7 @@ public class FakePasswordViewController: UIViewController, ActivationProcessCont
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController, let ap = activationProcess {
+        if let activationVC = destinationVC as? ActivationUIProcessController, let ap = activationProcess {
             activationVC.connect(activationProcess: ap)
         }
     }

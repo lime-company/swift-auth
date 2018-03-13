@@ -36,17 +36,17 @@ public class LimeAuthActivationUI {
     public var entryScene: EntryScene
     
     /// UI provider
-    private var uiProvider: ActivationUIProvider
+    private let uiProvider: ActivationUIProvider
     
     /// Internal activation process
-    private var activationProcess: ActivationProcess
+    private let activationProcess: ActivationUIProcess
     
     /// Completion closure
     private var completion: ((Activation.Result, UIViewController?)->Void)?
     
     
     public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
-        self.activationProcess = ActivationProcess(session: session, uiDataProvider: uiProvider.uiDataProvider, credentialsProvider: credentialsProvider)
+        self.activationProcess = ActivationUIProcess(session: session, uiDataProvider: uiProvider.uiDataProvider, credentialsProvider: credentialsProvider)
         self.uiProvider = uiProvider
         self.completion = completion
         self.entryScene = .default
@@ -58,7 +58,7 @@ public class LimeAuthActivationUI {
         // Validate whether this invoke can be processed
         validateEntryScene()
         // Construct appropriate controller
-        var controller: UIViewController & ActivationProcessController
+        var controller: UIViewController & ActivationUIProcessController
         switch entryScene {
         case .initial:
             controller = uiProvider.instantiateInitialScene()

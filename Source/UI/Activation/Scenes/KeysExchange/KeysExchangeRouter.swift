@@ -20,15 +20,15 @@ import PowerAuth2
 public protocol KeysExchangeRoutingLogic {
 
     func routeToCreatePassword(with result: PA2ActivationResult)
-    func routeToError(with error: Error)
+    func routeToError(with error: LimeAuthError)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationProcessRouter {
+public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRouter {
     
     public weak var viewController: KeysExchangeViewController?
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     
     public func routeToCreatePassword(with result: PA2ActivationResult) {
         // TODO
@@ -36,7 +36,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationProcessRout
         viewController?.performSegue(withIdentifier: "FakePassword", sender: nil)
     }
     
-    public func routeToError(with error: Error) {
+    public func routeToError(with error: LimeAuthError) {
         activationProcess.storeFailureReason(error: error)
         viewController?.performSegue(withIdentifier: "ErrorActivation", sender: nil)
     }
@@ -46,7 +46,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationProcessRout
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }

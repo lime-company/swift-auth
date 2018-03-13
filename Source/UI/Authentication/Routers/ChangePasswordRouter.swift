@@ -16,15 +16,9 @@
 
 import UIKit
 
-public class LimeAuthAuthenticationUI {
-//    
-//    private let uiProvider: AuthenticationUIProvider
-//    private let authenticationProcess: AuthenticationUIProcess
-//    
-//    public static func uiForCreatePassword() -> LimeAuthAuthenticationUI {
-//    }
-//    
-//    public static func uiForChangePassword() -> LimeAuthAuthenticationUI {
-//        
-//    }
-}
+//public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
+//}
+//
+//public class EnterNewPasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIProcessRouter {
+//}
+

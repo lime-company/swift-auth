@@ -16,9 +16,9 @@
 
 import UIKit
 
-open class NoCameraAccessViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class NoCameraAccessViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (NoCameraAccessRoutingLogic & ActivationProcessRouter)!
+    public var router: (NoCameraAccessRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
     
     // MARK: - Object lifecycle
@@ -54,7 +54,7 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }

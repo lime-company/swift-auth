@@ -39,7 +39,7 @@ public enum Activation {
         
         public var result: Result?
         
-        public var failureReason: Error?
+        public var failureReason: LimeAuthError?
         
         public var failureReasonString: String?
     }

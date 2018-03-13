@@ -17,9 +17,9 @@
 import UIKit
 import PowerAuth2
 
-open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, ActivationProcessController, UITextFieldDelegate {
+open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, UITextFieldDelegate {
 
-    public var router: (ActivationProcessRouter & EnterActivationCodeRoutingLogic)?
+    public var router: (ActivationUIProcessRouter & EnterActivationCodeRoutingLogic)?
     public var uiDataProvider: ActivationUIDataProvider!
     
     // MARK: - Object lifecycle
@@ -78,7 +78,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }

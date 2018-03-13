@@ -18,14 +18,14 @@ import UIKit
 
 public protocol ConfirmActivationRoutingLogic {
     func routeToSuccess()
-    func routeToError(with error: Error)
+    func routeToError(with error: LimeAuthError)
     func routeToCancel()
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationProcessRouter {
+public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationUIProcessRouter {
     
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     public weak var viewController: ConfirmActivationViewController?
     
 
@@ -33,7 +33,7 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationP
         activationProcess.completeActivation(controller: viewController)
     }
     
-    public func routeToError(with error: Error) {
+    public func routeToError(with error: LimeAuthError) {
         activationProcess.storeFailureReason(error: error)
         self.viewController?.performSegue(withIdentifier: "ErrorActivation", sender: nil)
     }
@@ -52,7 +52,7 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationP
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }
