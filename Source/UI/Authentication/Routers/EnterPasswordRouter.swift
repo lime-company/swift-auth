@@ -25,9 +25,14 @@ public protocol EnterPasswordRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
+public protocol EnterPasswordRoutableController: AuthenticationUIProcessController {
+    
+    func connectEnterPasswordRouter(router: EnterPasswordRoutingLogic)
+}
+
 public class EnterPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
-    public weak var viewController: (UIViewController & AuthenticationUIProcessController)?
+    public weak var viewController: (UIViewController & EnterPasswordRoutableController)?
     public var authenticationProcess: AuthenticationUIProcess!
     
     public func routeToCancel() {

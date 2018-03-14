@@ -19,16 +19,17 @@ import PowerAuth2
 
 public protocol AuthenticationUIProvider {
 
-    func instantiateCreateCredentialsScene() -> (UIViewController & AuthenticationUIProcessController)
+    func instantiateCreateCredentialsScene() -> (UIViewController & CreatePasswordRoutableController)
     
-    func instantiateEnterPasswordScene() -> (UIViewController & AuthenticationUIProcessController)
-    func instantiateExterPasscodeScene() -> (UIViewController & AuthenticationUIProcessController)
-    func instantiateEnterFixedPasscodeScene() -> (UIViewController & AuthenticationUIProcessController)
+    func instantiateEnterPasswordScene() -> (UIViewController & EnterPasswordRoutableController)
+    func instantiateExterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
+    func instantiateEnterFixedPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
     
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
     var uiDataProvider: AuthenticationUIDataProvider { get }
 }
+
 
 public protocol AuthenticationUIDataProvider {
     
@@ -84,10 +85,10 @@ public class AuthenticationUIProcess {
     }
     
     // Special constructor for activation purposes.
-    public init(session: LimeAuthSession, uiProvider: AuthenticationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, activation: ActivationUIProcess) {
-        self.session = session
+    public init(activation: ActivationUIProcess, uiProvider: AuthenticationUIProvider) {
+        self.session = activation.session
         self.uiProvider = uiProvider
-        self.credentialsProvider = credentialsProvider
+        self.credentialsProvider = activation.credentialsProvider
         self.uiRequest = nil
         self.operationExecution = nil
         self.activationProcess = activation

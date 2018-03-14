@@ -16,8 +16,34 @@
 
 import UIKit
 
-//public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
-//}
+public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
+    
+    public weak var viewController: (UIViewController & AuthenticationUIProcessController)?
+    public var authenticationProcess: AuthenticationUIProcess!
+    
+    public func routeToCancel() {
+        authenticationProcess.cancelAuthentication(controller: viewController)
+    }
+    
+    public func routeToSuccess() {
+        authenticationProcess.completeAuthentication(controller: viewController)
+    }
+    
+    public func routeToError() {
+        authenticationProcess.failAuthentication(controller: viewController)
+    }
+    
+    public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destinationVC = segue.destination
+        if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
+            destinationVC = first
+        }
+        if let authenticationVC = destinationVC as? AuthenticationUIProcessController {
+            authenticationVC.connect(authenticationProcess: authenticationProcess)
+        }
+    }
+    
+}
 //
 //public class EnterNewPasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIProcessRouter {
 //}

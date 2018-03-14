@@ -33,6 +33,9 @@ public protocol AuthenticationUIOperation {
     /// Finish operation. You can use this for internal class cleanup (if required)
     //func finish()
 
+    /// Returns true if operation is executing now.
+    var isExecuting: Bool { get }
+    
     /// Returns true if operation is cancelled.
     var isCancelled: Bool { get }
     

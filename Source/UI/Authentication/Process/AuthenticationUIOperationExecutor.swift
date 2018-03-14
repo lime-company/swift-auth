@@ -18,7 +18,7 @@
 import Foundation
 import PowerAuth2
 
-internal class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecutionLogic {
+public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecutionLogic {
 
     private enum State {
         case initialized
@@ -48,11 +48,11 @@ internal class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecu
 
     // MARK: - AuthenticationUIOperationExecutionLogic protocol
     
-    func willUseBiometryFirst() -> Bool {
+    public func willUseBiometryFirst() -> Bool {
         return requestOptions.contains(.askFirstForBiometryFactor)
     }
     
-    func execute(for authentication: PowerAuthAuthentication, callback: @escaping (AuthenticationUIOperationResult) -> Void) {
+    public func execute(for authentication: PowerAuthAuthentication, callback: @escaping (AuthenticationUIOperationResult) -> Void) {
         if let failure = validateExecution(authentication) {
             callback(failure)
             return
@@ -60,7 +60,7 @@ internal class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecu
         doExecute(authentication, callback)
     }
     
-    func cancel() {
+    public func cancel() {
         if state != .completed && state != .cancelled {
             // allow cancel in any state, except cancelled & completed
             state = .cancelled
@@ -72,19 +72,19 @@ internal class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecu
         }
     }
     
-    var isCancelled: Bool {
+    public var isCancelled: Bool {
         return state == .cancelled
     }
     
-    var isRetryAllowed: Bool {
+    public var isRetryAllowed: Bool {
         return canRetryAfterFailedBiometry
     }
     
-    var isBiometryAllowed: Bool {
+    public var isBiometryAllowed: Bool {
         return requestOptions.contains(.allowBiometryFactor)
     }
     
-    var isOfflineOperation: Bool {
+    public var isOfflineOperation: Bool {
         return operation.isOffline
     }
     
@@ -155,7 +155,7 @@ internal class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecu
                         }
                     }
                 }
-                // Is network available?
+                // If not offline, then check whether is network available.
                 if !self.operation.isOffline {
                     if self.checkOnlineConnection(&response) {
                         // Looks like we're still connected to the internet, so update PA status now

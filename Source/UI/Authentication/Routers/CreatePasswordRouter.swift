@@ -25,6 +25,14 @@ public protocol CreatePasswordRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
+
+public protocol CreatePasswordRoutableController: AuthenticationUIProcessController {
+    
+    func connectCreatePasswordRouter(router: CreatePasswordRoutingLogic)
+
+}
+
+
 public class CreatePasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIProcessRouter, ActivationUIProcessRouter {
     
     public var activationProcess: ActivationUIProcess! {
@@ -41,7 +49,7 @@ public class CreatePasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIP
         }
     }
     public var authenticationProcess: AuthenticationUIProcess!
-    public var viewController: (UIViewController & AuthenticationUIProcessController)?
+    public var viewController: (UIViewController & CreatePasswordRoutableController)?
     
     public func routeToCancel() {
         authenticationProcess.cancelAuthentication(controller: viewController)
