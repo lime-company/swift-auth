@@ -30,10 +30,38 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
     public weak var viewController: KeysExchangeViewController?
     public var activationProcess: ActivationUIProcess!
     
+    private var authenticationUI: LimeAuthAuthenticationUI?
+    
     public func routeToCreatePassword(with result: PA2ActivationResult) {
-        // TODO
+        // Keep activation result
         activationProcess.activationData.createActivationResult = result
-        viewController?.performSegue(withIdentifier: "FakePassword", sender: nil)
+        // Present create password UI
+        let authUI = LimeAuthAuthenticationUI.uiForCreatePassword(activationProcess: activationProcess, uiProvider: activationProcess.uiProvider.authenticationUIProvider) { (result, error, _) in
+            self.authenticationUI = nil
+            if result == .success {
+                self.routeToNextScene()
+            } else if result == .failure {
+                self.routeToError(with: error!)
+            } else {
+                // Otherwise cancel the operation
+                self.activationProcess.cancelActivation(controller: self.viewController?.navigationController?.viewControllers.last)
+            }
+        }
+        authenticationUI = authUI
+        
+        // Present AuthUI to activation flow
+        if let navigationVC = viewController?.navigationController {
+            authUI.pushEntryScene(to: navigationVC, animated: true)
+        }
+    }
+    
+    public func routeToNextScene() {
+        let credentials = activationProcess.credentialsProvider.credentials
+        if credentials.biometry.isSupportedOnDevice {
+            viewController?.performSegue(withIdentifier: "EnableBiometry", sender: nil)
+        } else {
+            viewController?.performSegue(withIdentifier: "Confirm", sender: nil)
+        }
     }
     
     public func routeToError(with error: LimeAuthError) {

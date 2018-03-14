@@ -33,8 +33,10 @@ public enum ErrorActivation {
         public let images: Images
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(sceneTitle: "Error",
-                                  genericError: "The activation did fail. Please try again.")
+            let strings = Strings(
+                sceneTitle: "Error",
+                genericError: "The activation did fail. Please try again."
+            )
             let images = Images(errorIllustration: .empty())
             return UIData(strings: strings, images: images)
         }

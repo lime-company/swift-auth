@@ -17,12 +17,12 @@
 import Foundation
 import PowerAuth2
 
-public protocol AuthenticationUIProvider {
+public protocol AuthenticationUIProvider: class {
 
-    func instantiateCreateCredentialsScene() -> (UIViewController & CreatePasswordRoutableController)
+    func instantiateCreateCredentialsScene() -> (UIViewController & CreateNewPasswordRoutableController)
     
     func instantiateEnterPasswordScene() -> (UIViewController & EnterPasswordRoutableController)
-    func instantiateExterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
+    func instantiateEnterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
     func instantiateEnterFixedPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
     
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
@@ -30,15 +30,30 @@ public protocol AuthenticationUIProvider {
     var uiDataProvider: AuthenticationUIDataProvider { get }
 }
 
-
-public protocol AuthenticationUIDataProvider {
+public protocol AuthenticationUIDataProvider: class {
     
     var uiCommonStrings: Authentication.UIData.CommonStrings { get }
     var uiCommonImages: Authentication.UIData.CommonImages { get }
     var uiCommonStyle: Authentication.UIData.CommonStyle { get }
+    var uiCommonErrors: Authentication.UIData.CommonErrors { get }
+    
+    // Per scene getters
+    
+    var uiForCreateNewPassword: CreateNewPassword.UIData { get }
+    
+    // Localization function
     
     func localizePasswordComplexity(option: LimeAuthCredentials.Password) -> String
 }
+
+public protocol AuthenticationUIProcessRouter: class {
+    var authenticationProcess: AuthenticationUIProcess! { get set }
+}
+
+public protocol AuthenticationUIProcessController: class {
+    func connect(authenticationProcess process: AuthenticationUIProcess)
+}
+
 
 
 public class AuthenticationUIProcess {
@@ -64,15 +79,19 @@ public class AuthenticationUIProcess {
         return activationProcess != nil
     }
     
-    public internal(set) var uiResponse: Authentication.UIResponse?
-    
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     
-    public internal(set) var validCredentials: PowerAuthAuthentication?
-    public internal(set) var nextCredentials: PowerAuthAuthentication?
+    public private(set) var processResult: Authentication.Result = .cancel
+    public private(set) var processError: LimeAuthError?
+    public private(set) var operationResponse: Any?
     
-    public var completion: ((Authentication.UIResponse)->Void)?
+    public private(set) var currentCredentials: Authentication.UICredentials?
+    public private(set) var nextCredentials: Authentication.UICredentials?
+    
+    // Completion closures
+    public var operationCompletion: ((Authentication.Result, LimeAuthError?, Any?)->Void)?
+    public var credentialsCompletion: ((Authentication.Result, LimeAuthError?, Authentication.UICredentials?)->Void)?
     
     // Constructor for authentication operations
     public init(session: LimeAuthSession, uiProvider: AuthenticationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, request: Authentication.UIRequest, executor: AuthenticationUIOperationExecutionLogic) {
@@ -99,57 +118,53 @@ public class AuthenticationUIProcess {
     
     public func completeAuthentication(controller: UIViewController?, response: Any? = nil) {
         finalController = controller
-        if response != nil {
-            uiResponse = Authentication.UIResponse(result: response, error: nil, cancelled: false)
+        if !isPartOfActivation {
+            // not a part of activation
+            if response != nil {
+                operationResponse = response
+            }
+        } else {
+            // part of activation, check whether password has been set
+            assert(nextCredentials != nil, "Password is missing")
         }
-        presentResult()
+        presentResult(result: .success)
     }
     
     public func cancelAuthentication(controller: UIViewController?) {
         finalController = controller
-        uiResponse = Authentication.UIResponse(result: nil, error: nil, cancelled: true)
-        presentResult()
+        presentResult(result: .cancel)
     }
     
     public func failAuthentication(controller: UIViewController?, with error: LimeAuthError? = nil) {
         finalController = controller
         if error != nil {
-            uiResponse = Authentication.UIResponse(result: nil, error: error, cancelled: false)
+            processError = error
         }
-        presentResult()
+        presentResult(result: .failure)
     }
     
     public func storeSuccessObject(response: Any) {
-        uiResponse = Authentication.UIResponse(result: response, error: nil, cancelled: false)
+        operationResponse = response
     }
     
     public func storeFailureReason(error: LimeAuthError) {
-        uiResponse = Authentication.UIResponse(result: nil, error: error, cancelled: false)
+        processError = error
     }
     
-    public func storeValidCredentials(authentication: PowerAuthAuthentication) {
-        validCredentials = authentication
+    public func storeCurrentCredentials(credentials: Authentication.UICredentials) {
+        currentCredentials = credentials
     }
     
-    public func storeNextCredentials(authentication: PowerAuthAuthentication) {
-        nextCredentials = authentication
+    public func storeNextCredentials(credentials: Authentication.UICredentials) {
+        nextCredentials = credentials
     }
     
-    private func presentResult() {
-        if let completion = completion {
-            let response = uiResponse ?? Authentication.UIResponse(result: nil, error: nil, cancelled: true)
-            completion(response)
-        } else {
-            D.print("AuthenticationUIProcess: There's no completion block assigned.")
+    private func presentResult(result: Authentication.Result) {
+        processResult = result
+        if let completion = operationCompletion {
+            completion(processResult, processError, operationResponse)
+        } else if let completion = credentialsCompletion {
+            completion(processResult, processError, nextCredentials)
         }
     }
-}
-
-
-public protocol AuthenticationUIProcessRouter: class {
-    var authenticationProcess: AuthenticationUIProcess! { get set }
-}
-
-public protocol AuthenticationUIProcessController: class {
-    func connect(authenticationProcess process: AuthenticationUIProcess)
 }

@@ -16,50 +16,36 @@
 
 import UIKit
 
-public protocol CreatePasswordRoutingLogic {
+public protocol CreateNewPasswordRoutingLogic {
     
     func routeToCancel()
-    func routeToSuccess()
-    func routeToError()
+    func routeToSuccess(password: String)
+    func routeToError(error: LimeAuthError?)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-
-public protocol CreatePasswordRoutableController: AuthenticationUIProcessController {
+/// Protocol for controller covering a whole "create password" operation
+public protocol CreateNewPasswordRoutableController: AuthenticationUIProcessController {
     
-    func connectCreatePasswordRouter(router: CreatePasswordRoutingLogic)
-
+    func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic)
 }
 
 
-public class CreatePasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIProcessRouter, ActivationUIProcessRouter {
+public class CreateNewPasswordRouter: CreateNewPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
-    public var activationProcess: ActivationUIProcess! {
-        set {
-            if !authenticationProcess.isPartOfActivation {
-                D.print("CreatePasswordRouter: assigning activation process when not in activation.")
-            }
-        }
-        get {
-            if authenticationProcess.isPartOfActivation {
-                return authenticationProcess.activationProcess
-            }
-            return nil
-        }
-    }
     public var authenticationProcess: AuthenticationUIProcess!
-    public var viewController: (UIViewController & CreatePasswordRoutableController)?
+    public var viewController: (UIViewController & CreateNewPasswordRoutableController)?
     
     public func routeToCancel() {
         authenticationProcess.cancelAuthentication(controller: viewController)
     }
     
-    public func routeToSuccess() {
+    public func routeToSuccess(password: String) {
         authenticationProcess.completeAuthentication(controller: viewController)
     }
     
-    public func routeToError() {
+    public func routeToError(error: LimeAuthError?) {
         authenticationProcess.failAuthentication(controller: viewController)
     }
     
@@ -73,7 +59,7 @@ public class CreatePasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIP
         }
         if authenticationProcess.isPartOfActivation {
             if let activationVC = destinationVC as? ActivationUIProcessController {
-                activationVC.connect(activationProcess: activationProcess)
+                activationVC.connect(activationProcess: authenticationProcess.activationProcess)
             }
         }
     }

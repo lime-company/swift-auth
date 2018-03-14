@@ -34,9 +34,11 @@ public enum NoCameraAccess {
         public let images: Images
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(sceneTitle: "Allow camera access",
-                                  sceneDescription: "Application cannot use camera. You can permit it in Settings.",
-                                  openSettingsButton: "Open settings")
+            let strings = Strings(
+                sceneTitle: "Allow camera access",
+                sceneDescription: "Application cannot use camera. You can permit it in Settings.",
+                openSettingsButton: "Open settings"
+            )
             let images = Images(noAccess: .empty())
             return UIData(strings: strings, images: images)
         }

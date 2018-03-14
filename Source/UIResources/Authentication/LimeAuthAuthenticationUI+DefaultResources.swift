@@ -14,23 +14,12 @@
 // and limitations under the License.
 //
 
-import UIKit
+import Foundation
 
-public enum KeysExchange {
+public extension LimeAuthAuthenticationUI {
     
-    public struct UIData {
-        
-        public struct Strings {
-            let pendingActivationTitle: String
-        }
-        
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            let strings = Strings(
-                pendingActivationTitle: "Pairing your device..."
-            )
-            return UIData(strings: strings)
-        }
+    public static func defaultResourcesProvider(bundle: Bundle? = nil) -> AuthenticationUIProvider {
+        return DefaultAuthenticationResourcesProvider(bundle: bundle)
     }
 }
+

@@ -110,3 +110,4 @@ public struct AuthenticationUIOperationResult {
         return error != nil
     }
 }
+

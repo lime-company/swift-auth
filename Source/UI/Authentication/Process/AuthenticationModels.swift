@@ -33,12 +33,13 @@ public enum Authentication {
         public struct CommonStrings {
             
             public let enterPin: String
-            public let enterPassword: String
-            
+            public let enterNewPin: String
             public let retypePin: String
-            public let retypePassword: String
-            
             public let pinNoMatch: String
+            
+            public let enterPassword: String
+            public let enterNewPassword: String
+            public let retypePassword: String
             public let passwordNoMatch: String
             
             public let useTouchId: String
@@ -50,22 +51,35 @@ public enum Authentication {
             public let noButton: String
             
             public static func fallbackStrings() -> CommonStrings {
-                return CommonStrings(enterPin: "Enter PIN",
-                                     enterPassword: "Enter password",
-                                     
-                                     retypePin: "Retype PIN",
-                                     retypePassword: "Retype Password",
-                                     
-                                     pinNoMatch: "Passcodes did not match. Try again.",
-                                     passwordNoMatch: "Passwords did not match. Try again.",
-                                     
-                                     useTouchId: "Use Touch ID",
-                                     useFaceId: "Use Face ID",
-                                     
-                                     okButton: "OK",
-                                     cancelButton: "Cancel",
-                                     yesButton: "Yes",
-                                     noButton: "No")
+                return CommonStrings(
+                    enterPin: "Enter PIN",
+                    enterNewPin: "Enter new PIN",
+                    retypePin: "Retype PIN",
+                    pinNoMatch: "Passcodes did not match. Try again.",
+                    
+                    enterPassword: "Enter password",
+                    enterNewPassword: "Enter new password",
+                    retypePassword: "Retype Password",
+                    passwordNoMatch: "Passwords did not match. Try again.",
+                    
+                    useTouchId: "Use Touch ID",
+                    useFaceId: "Use Face ID",
+                    
+                    okButton: "OK",
+                    cancelButton: "Cancel",
+                    yesButton: "Yes",
+                    noButton: "No"
+                )
+            }
+        }
+        
+        public struct CommonErrors {
+            public let passwordChangeDidFail: String
+            
+            public static func fallbackErrors() -> CommonErrors {
+                return CommonErrors(
+                    passwordChangeDidFail: "Password change did fail on unknown error."
+                )
             }
         }
         
@@ -191,6 +205,17 @@ public enum Authentication {
             self.error = error
             self.result = result
             self.cancelled = cancelled
+        }
+    }
+    
+    
+    public struct UICredentials {
+        public let password: String?
+        public let paswordOptionsIndex: Int?
+        
+        public init(password: String, optionsIndex: Int? = nil) {
+            self.password = password
+            self.paswordOptionsIndex = optionsIndex
         }
     }
 }

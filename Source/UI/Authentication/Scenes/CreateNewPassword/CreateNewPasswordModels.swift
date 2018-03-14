@@ -16,26 +16,24 @@
 
 import UIKit
 
-public enum EnterActivationCode {
+public enum CreateNewPassword {
     
     public struct UIData {
         
         public struct Strings {
-            let sceneTitle: String
-            let sceneDescription: String
-            let confirmButton: String
+            let changeComplexityTitle: String
+            let changeComplexityButton: String
         }
         
         public let strings: Strings
         
+        
         public static func fallbackData() -> UIData {
             let strings = Strings(
-                sceneTitle: "Enter the Activation code manually",
-                sceneDescription: "Please retype the Activation code in its numeric format from the ePortal screen.",
-                confirmButton: "Confirm")
+                changeComplexityTitle: "Choose password complexity",
+                changeComplexityButton: "Choose password complexity"
+            )
             return UIData(strings: strings)
         }
-        
     }
 }
-

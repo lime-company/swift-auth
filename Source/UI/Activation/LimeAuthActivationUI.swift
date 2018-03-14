@@ -35,9 +35,6 @@ public class LimeAuthActivationUI {
     /// Entry scene. You can adjust this variable before you invoke UI construction.
     public var entryScene: EntryScene
     
-    /// UI provider
-    private let uiProvider: ActivationUIProvider
-    
     /// Internal activation process
     private let activationProcess: ActivationUIProcess
     
@@ -46,8 +43,7 @@ public class LimeAuthActivationUI {
     
     
     public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
-        self.activationProcess = ActivationUIProcess(session: session, uiDataProvider: uiProvider.uiDataProvider, credentialsProvider: credentialsProvider)
-        self.uiProvider = uiProvider
+        self.activationProcess = ActivationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider)
         self.completion = completion
         self.entryScene = .default
     }
@@ -58,6 +54,7 @@ public class LimeAuthActivationUI {
         // Validate whether this invoke can be processed
         validateEntryScene()
         // Construct appropriate controller
+        let uiProvider = activationProcess.uiProvider
         var controller: UIViewController & ActivationUIProcessController
         switch entryScene {
         case .initial:
@@ -96,7 +93,7 @@ public class LimeAuthActivationUI {
     public func present(to controller: UIViewController, animated: Bool = true, completion: (()->Void)? = nil) {
         let entryScene = instantiateEntryScene()
         var controllerToPresent = entryScene
-        if let navigationController = uiProvider.instantiateNavigationController(with: entryScene) {
+        if let navigationController = activationProcess.uiProvider.instantiateNavigationController(with: entryScene) {
             controllerToPresent = navigationController
         }
         controller.present(controllerToPresent, animated: animated, completion: completion)

@@ -16,7 +16,7 @@
 
 import UIKit
 
-public protocol ActivationUIProvider {
+public protocol ActivationUIProvider: class {
     
     func instantiateInitialScene() -> BeginActivationViewController
     func instantiateConfirmScene() -> ConfirmActivationViewController
@@ -26,10 +26,10 @@ public protocol ActivationUIProvider {
     
     var uiDataProvider: ActivationUIDataProvider { get }
     
-    //var authenticationUIProvider: AuthenticationUIProvider { get }
+    var authenticationUIProvider: AuthenticationUIProvider { get }
 }
 
-public protocol ActivationUIDataProvider {
+public protocol ActivationUIDataProvider: class {
     
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     var uiCommonStyle: Activation.UIData.CommonStyle { get }
@@ -45,9 +45,19 @@ public protocol ActivationUIDataProvider {
     
 }
 
+public protocol ActivationUIProcessRouter: class {
+    var activationProcess: ActivationUIProcess! { get set }
+}
+
+public protocol ActivationUIProcessController: class {
+    func connect(activationProcess process: ActivationUIProcess)
+}
+
+
 public class ActivationUIProcess {
     
     public let session: LimeAuthSession
+    public let uiProvider: ActivationUIProvider
     public let uiDataProvider: ActivationUIDataProvider
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
@@ -58,9 +68,10 @@ public class ActivationUIProcess {
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiDataProvider: ActivationUIDataProvider, credentialsProvider: LimeAuthCredentialsProvider) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
-        self.uiDataProvider = uiDataProvider
+        self.uiProvider = uiProvider
+        self.uiDataProvider = uiProvider.uiDataProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
     }
@@ -110,13 +121,4 @@ public class ActivationUIProcess {
         }
         completion?(activationData)
     }
-}
-
-
-public protocol ActivationUIProcessRouter {
-    var activationProcess: ActivationUIProcess! { get set }
-}
-
-public protocol ActivationUIProcessController {
-    func connect(activationProcess process: ActivationUIProcess)
 }

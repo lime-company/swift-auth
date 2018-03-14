@@ -38,13 +38,15 @@ public enum EnableBiometry {
         public let images: Images
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(touchIdSceneTitle: "Confirm payments by fingerprint",
-                                  faceIdSceneTitle: "Confirm payments by face",
-                                  touchIdDescription: "You can sign in and confirm operations just with your fingerprint.",
-                                  faceIdDescription: "You can sign in and confirm operations just with your face.",
-                                  enableTouchIdButton: "Allow Touch ID",
-                                  enableFaceIdButton: "Allow Face ID",
-                                  enableLaterButton: "Not now, thank you")
+            let strings = Strings(
+                touchIdSceneTitle: "Confirm payments by fingerprint",
+                faceIdSceneTitle: "Confirm payments by face",
+                touchIdDescription: "You can sign in and confirm operations just with your fingerprint.",
+                faceIdDescription: "You can sign in and confirm operations just with your face.",
+                enableTouchIdButton: "Allow Touch ID",
+                enableFaceIdButton: "Allow Face ID",
+                enableLaterButton: "Not now, thank you"
+            )
             let images = Images(biometry: .empty())
             return UIData(strings: strings, images: images)
         }

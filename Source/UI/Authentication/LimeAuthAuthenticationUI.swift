@@ -32,7 +32,7 @@ public class LimeAuthAuthenticationUI {
     public var entryScene: EntryScene = .enterPassword
     
     /// Optional, you can adjust router which will be used
-    public var createPasswordRouter: CreatePasswordRoutingLogic?
+    public var createPasswordRouter: CreateNewPasswordRoutingLogic?
     public var enterPasswordRouter: EnterPasswordRoutingLogic?
     
     public init(authenticationProcess: AuthenticationUIProcess) {
@@ -45,7 +45,7 @@ public class LimeAuthAuthenticationUI {
         var controller: UIViewController & AuthenticationUIProcessController
         switch entryScene {
         case .createPassword:
-            controller = instantiateCreatePassword(router: CreatePasswordRouter())
+            controller = instantiateCreatePassword(router: CreateNewPasswordRouter())
         case .enterPassword:
             controller = instantiateEnterPasswordScene(router: EnterPasswordRouter())
         case .changePassword:
@@ -80,7 +80,7 @@ public class LimeAuthAuthenticationUI {
     // MARK: - Private methods
     
     
-    private func instantiateCreatePassword(router: CreatePasswordRoutingLogic) -> (UIViewController & CreatePasswordRoutableController) {
+    private func instantiateCreatePassword(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic) -> (UIViewController & CreateNewPasswordRoutableController) {
         let controller = authenticationProcess.uiProvider.instantiateCreateCredentialsScene()
         controller.connectCreatePasswordRouter(router: router)
         return controller
@@ -96,7 +96,7 @@ public class LimeAuthAuthenticationUI {
         case .fixedPin:
             controller = uiProvider.instantiateEnterFixedPasscodeScene()
         case .variablePin:
-            controller = uiProvider.instantiateEnterPasswordScene()
+            controller = uiProvider.instantiateEnterPasscodeScene()
         case .password:
             controller = uiProvider.instantiateEnterPasswordScene()
         }
@@ -108,9 +108,19 @@ public class LimeAuthAuthenticationUI {
 
 public extension LimeAuthAuthenticationUI {
     
-    /// Function returns Authentication UI
-    public static func uiForCreatePassword(activationProcess: ActivationUIProcess, uiProvider: AuthenticationUIProvider) -> LimeAuthAuthenticationUI {
+    /// Function returns Authentication UI preconfigured as a part of activation UI flow
+    public static func uiForCreatePassword(activationProcess: ActivationUIProcess, uiProvider: AuthenticationUIProvider, completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?)->Void) -> LimeAuthAuthenticationUI {
         let authenticationProcess = AuthenticationUIProcess(activation: activationProcess, uiProvider: uiProvider)
+        authenticationProcess.credentialsCompletion = { (result, error, credentials) in
+            // Check result and if operation succeeded, then keep password in activation data & store selected complexity
+            if result == .success, let password = credentials?.password {
+                activationProcess.activationData.password = password
+                if let passwordOptionsIndex = credentials?.paswordOptionsIndex {
+                    _ = activationProcess.credentialsProvider.changePasswordComplexity(passwordIndex: passwordOptionsIndex)
+                }
+            }
+            completion(result, error, credentials)
+        }
         let ui = LimeAuthAuthenticationUI(authenticationProcess: authenticationProcess)
         ui.entryScene = .createPassword
         return ui
