@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF312409205ACFC700E7533F /* CreateVariablePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF312408205ACFC700E7533F /* CreateVariablePasscodeViewController.swift */; };
 		BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */; };
 		BF49642920598EF3002560A8 /* PinKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642820598EF3002560A8 /* PinKeyboardView.swift */; };
 		BF49642B20598FCA002560A8 /* PinKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF312408205ACFC700E7533F /* CreateVariablePasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVariablePasscodeViewController.swift; sourceTree = "<group>"; };
 		BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFixedPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF49642820598EF3002560A8 /* PinKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardView.swift; sourceTree = "<group>"; };
 		BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardButton.swift; sourceTree = "<group>"; };
@@ -192,6 +194,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF312407205ACF4100E7533F /* CreateVariablePasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF312408205ACFC700E7533F /* CreateVariablePasscodeViewController.swift */,
+			);
+			path = CreateVariablePasscode;
+			sourceTree = "<group>";
+		};
 		BF49642220598CD5002560A8 /* CreateFixedPasscode */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +529,7 @@
 				BF49642320598CFE002560A8 /* CommonLogic */,
 				BFAE06AD2059687E003485D7 /* CreateNewPassword */,
 				BF49642220598CD5002560A8 /* CreateFixedPasscode */,
+				BF312407205ACF4100E7533F /* CreateVariablePasscode */,
 				BF49643A205A6C04002560A8 /* EnterFixedPasscode */,
 			);
 			path = Scenes;
@@ -717,6 +728,7 @@
 				BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
 				BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */,
+				BF312409205ACFC700E7533F /* CreateVariablePasscodeViewController.swift in Sources */,
 				BF85E597203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift in Sources */,
 				BF565F9920473B9A00B9C897 /* ErrorActivationViewController.swift in Sources */,
 				BFDB8CEA2056ABE40063C5EA /* AuthenticationUIProcess.swift in Sources */,

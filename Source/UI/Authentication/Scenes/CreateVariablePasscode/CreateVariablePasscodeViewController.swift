@@ -16,7 +16,7 @@
 
 import UIKit
 
-open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate {
+open class CreateVariablePasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate  {
     
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
@@ -24,7 +24,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     //
     
     public func canHandlePasswordCreation(for passwordType: LimeAuthCredentials.Password.PasswordType) -> Bool {
-        return passwordType == .fixedPin
+        return passwordType == .variablePin
     }
     
     public func prepareForNewPassword(option: LimeAuthCredentials.Password) {
@@ -42,9 +42,11 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         uiDataProvider = process.uiDataProvider
     }
     
-    
     // MARK: - Outlets -
+    
+    /// Image view dedicated for logo
     @IBOutlet weak var logoImage: UIImageView!
+    /// PIN keyboard view
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
     
     // Group of views for first password
@@ -52,17 +54,19 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     @IBOutlet weak var prompt1Label: UILabel!       // prompt
     @IBOutlet weak var error1Label: UILabel!        // label for error, displayed when passwords doesn't match
     @IBOutlet weak var password1Label: UILabel!     // label for bullets
+    @IBOutlet weak var confirm1Button: UIButton!    // OK button
     
     // Group of views for second password
     @IBOutlet weak var group2: UIView!              // grouping view
     @IBOutlet weak var prompt2Label: UILabel!       // prompt (e.g. retype your pin)
     @IBOutlet weak var password2Label: UILabel!     // bullets
+    @IBOutlet weak var confirm2Button: UIButton!    // OK button
     
     // Constraint for movement animating
     @IBOutlet weak var groupsAnimationConstraint: NSLayoutConstraint!
     // Change complexity button
     @IBOutlet weak var changeComplexityButton: UIButton!
-    // Success checkmark
+    /// An activity indicator
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
     
     // Layout adjustments
@@ -88,8 +92,12 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     /// Complexity required for this PIN (initial value is invalid)
     private var requiredPasswordComplexity: LimeAuthCredentials.Password = .fixedPin(length: 0)
     /// Returns required lenght for this PIN
-    private var requiredPasswordLength: Int {
+    private var minimumPasswordLength: Int {
         return self.requiredPasswordComplexity.minimumLength
+    }
+    /// Returns maximum length for this PIN
+    private var maximumPasswordLength: Int {
+        return self.requiredPasswordComplexity.maximumLength
     }
     /// Modifies whether complexity button is visible or not
     private var complexityButtonIsHidden = false
@@ -103,7 +111,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.isLoaded = true
         
         guard let _ = router?.authenticationProcess else {
-            fatalError("CreateFixedPasscodeViewController is not configured properly")
+            fatalError("CreateVariablePasscodeViewController is not configured properly")
         }
         
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
@@ -143,9 +151,16 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         }
     }
     
+    @IBAction private func confirmPinAction(_ sender: Any) {
+        if self.passwordLength >= self.minimumPasswordLength {
+            self.doNext()
+        }
+    }
+    
     // MARK: - Localizations
     
     open func updateLocalizedStrings() {
+        
         let commonStrings = uiDataProvider.uiCommonStrings
         let uiData = uiDataProvider.uiForCreateNewPassword
         
@@ -154,15 +169,17 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.error1Label.text = commonStrings.pinNoMatch
         
         self.changeComplexityButton.setTitle(uiData.strings.changeComplexityButton, for: .normal)
+        self.confirm1Button.setTitle(commonStrings.okButton, for: .normal)
+        self.confirm2Button.setTitle(commonStrings.okButton, for: .normal)
     }
     
     // MARK: - PIN keyboard view delegate
     
-    open func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnDigit digit: Int) {
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnDigit digit: Int) {
         self.appendDigit(digit)
     }
     
-    open func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnSpecialKey key: PinKeyboardSpecialKey) {
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnSpecialKey key: PinKeyboardSpecialKey) {
         if key == .backspace {
             self.removeLastDigit()
         } else if key == .cancel {
@@ -170,7 +187,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         }
     }
     
-    open func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
         let commonImages = uiDataProvider.uiCommonImages
         let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
         if lazyImage.hasImage {
@@ -178,7 +195,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         }
         return nil
     }
-   
+    
     // MARK: - Private functions
     
     /// Length of current password (in characters)
@@ -212,7 +229,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     /// Appends digit to currently edited password
     private func appendDigit(_ digit: Int) {
         self.updatePassword { (p) in
-            if p.count < self.requiredPasswordLength {
+            if p.count < self.maximumPasswordLength {
                 p.append(Character(UnicodeScalar(48 + digit)!))
             } else {
                 D.print("WARNING: trying to add more digits than allowed")
@@ -234,10 +251,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     /// Called after editing password is changed
     private func afterPassowrdChange() {
         self.updatePasswordLabel()
-        let length = self.passwordLength
-        if length == self.requiredPasswordLength {
-            self.doNext()
-        } else if length == 1 && self.currentState == .firstPass {
+        if self.passwordLength == 1 && self.currentState == .firstPass {
             // Hide error after first typed digit
             self.error1Label.isHidden = true
         }
@@ -246,7 +260,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     /// Resets passwords to empty strings
     private func getAndResetPasswords() -> String {
         let password = self.password1
-        let stars = String(repeating: "*", count: 2*self.requiredPasswordLength)
+        let stars = String(repeating: "*", count: 2*self.maximumPasswordLength)
         self.password1.append(stars)
         self.password2.append(stars)
         self.password1.removeAll()
@@ -254,22 +268,20 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         return password
     }
     
+    
     // MARK: - Update UI
     
     open func updatePasswordLabel() {
+        // Update bullets
         let filledBulletsCount = self.passwordLength
-        var bulletsText = String(repeating: "• ", count: filledBulletsCount)
-        let emptyBulletsCount = self.requiredPasswordLength - filledBulletsCount
-        if (emptyBulletsCount > 0) {
-            bulletsText.append(String(repeating: "◦ ", count: emptyBulletsCount))
-        }
+        let bulletsText = String(repeating: "• ", count: filledBulletsCount)
         let currentLabel = self.currentState == .firstPass ? self.password1Label : self.password2Label
         currentLabel?.text = bulletsText
+        // update confirm button
+        let confirmButton = self.currentState == .firstPass ? self.confirm1Button : self.confirm2Button
+        confirmButton?.isEnabled = self.passwordLength >= self.minimumPasswordLength
         // update backspace / cancel button
-        let visibleBackspace = filledBulletsCount > 0
-        let visibleCancel = self.currentState == .secondPass
-        self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: visibleBackspace)
-        self.pinKeyboard.setSpecialKeyVisible(.cancel, visible: visibleCancel)
+        self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: filledBulletsCount > 0)
     }
     
     //
@@ -310,7 +322,6 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             self.groupsAnimationConstraint.constant = 0.0
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
     }
     
     open func presentSecondGroup() {
@@ -318,7 +329,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.updatePasswordLabel()
         
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
-            self.changeComplexityButton.alpha = 00.0
+            self.changeComplexityButton.alpha = 0
             self.groupsAnimationConstraint.constant = -self.view.frame.width
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -332,7 +343,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             self.view.layoutIfNeeded()
         }, completion: nil)
         
-        self.activityIndicator.showSuccess(animated: true) {
+        self.activityIndicator.showSuccess {
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
                 completion()
             }
@@ -346,5 +357,6 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             completion()
         }
     }
+    
 }
 

@@ -143,6 +143,6 @@ public extension LimeAuthAuthenticationUI {
         ui.entryScene = .createPassword
         return ui
     }
-    
+
 }
 

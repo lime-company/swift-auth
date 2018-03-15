@@ -182,16 +182,11 @@ class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         }
     }
     
-    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryType: PA2SupportedBiometricAuthentication) -> UIImage? {
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
         let commonImages = uiDataProvider.uiCommonImages
-        var lazyImage: LazyUIImage?
-        if biometryType == .touchID {
-            lazyImage = commonImages.touchIdButton
-        } else if biometryType == .faceID {
-            lazyImage = commonImages.faceIdButton
-        }
-        if lazyImage?.hasImage ?? false {
-            return lazyImage?.image
+        let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
+        if lazyImage.hasImage {
+            return lazyImage.image
         }
         return nil
     }
