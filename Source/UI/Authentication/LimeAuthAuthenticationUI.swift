@@ -41,9 +41,18 @@ public class LimeAuthAuthenticationUI {
         self.authenticationProcess = authenticationProcess
     }
     
-    public convenience init(session: LimeAuthSession, uiProvider: AuthenticationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, request: Authentication.UIRequest, operation: AuthenticationUIOperation) {
+    public convenience init(session: LimeAuthSession,
+                            uiProvider: AuthenticationUIProvider,
+                            credentialsProvider: LimeAuthCredentialsProvider,
+                            request: Authentication.UIRequest,
+                            operation: AuthenticationUIOperation,
+                            completion: @escaping (Authentication.Result, Authentication.UIResponse)->Void) {
         let executor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: request.options, credentialsProvider: credentialsProvider)
         let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: request, executor: executor)
+        process.operationCompletion = { (result, error, object) in
+            // high level completion
+            completion(result, Authentication.UIResponse(result: object, error: error, cancelled: result == .cancel))
+        }
         self.init(authenticationProcess: process)
     }
     

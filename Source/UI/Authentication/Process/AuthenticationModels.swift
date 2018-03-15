@@ -135,6 +135,9 @@ public enum Authentication {
             
             /// A success message displayed when operation ends correctly
             public var successMessage: String?
+            
+            public init() {
+            }
         }
         
         public struct Options : OptionSet {
@@ -169,21 +172,30 @@ public enum Authentication {
         public struct Tweaks {
             /// If true, keyboard was presented as modal, with its own navigation controller.
             /// The keyboard can use this as hint for arranging UI components
-            var presentedAsModal: Bool = false
+            public var presentedAsModal: Bool = false
             
             /// If true, keyboard implementation should hide its navigation bar.
-            var hideNavigationBar: Bool = true
+            public var hideNavigationBar: Bool = true
             
             /// Delay between operation success and keyboard dismiss
-            var successAnimationDelay: Int = 3000
+            public var successAnimationDelay: Int = 3000
             
             /// Delay between operation failure and retry
-            var errorAnimationDelay: Int = 1500
+            public var errorAnimationDelay: Int = 1500
+            
+            public init() {
+            }
         }
         
         public var options: Options
         public var prompts: Prompts
         public var tweaks: Tweaks
+        
+        public init(options: Options = .defaultValues, prompts: Prompts = Prompts(), tweaks: Tweaks = Tweaks()) {
+            self.options = options
+            self.prompts = prompts
+            self.tweaks = tweaks
+        }
     }
     
     
