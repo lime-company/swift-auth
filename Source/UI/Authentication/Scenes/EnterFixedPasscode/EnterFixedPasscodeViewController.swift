@@ -127,7 +127,7 @@ class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         }
         
         let credentials = authenticationProcess.credentialsProvider.credentials
-        guard credentials.password.type != .fixedPin else {
+        guard credentials.password.type == .fixedPin else {
             fatalError("This controller implements different credentials input method than is requested.")
         }
         requiredPasswordLength = credentials.password.maximumLength

@@ -92,8 +92,8 @@ public class AuthenticationUIProcess {
     public private(set) var nextCredentials: Authentication.UICredentials?
     
     // Completion closures
-    public var operationCompletion: ((Authentication.Result, LimeAuthError?, Any?)->Void)?
-    public var credentialsCompletion: ((Authentication.Result, LimeAuthError?, Authentication.UICredentials?)->Void)?
+    public var operationCompletion: ((Authentication.Result, LimeAuthError?, Any?, UIViewController?)->Void)?
+    public var credentialsCompletion: ((Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void)?
     
     // Constructor for authentication operations
     public init(session: LimeAuthSession, uiProvider: AuthenticationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, request: Authentication.UIRequest, executor: AuthenticationUIOperationExecutionLogic) {
@@ -164,9 +164,9 @@ public class AuthenticationUIProcess {
     private func presentResult(result: Authentication.Result) {
         processResult = result
         if let completion = operationCompletion {
-            completion(processResult, processError, operationResponse)
+            completion(processResult, processError, operationResponse, finalController)
         } else if let completion = credentialsCompletion {
-            completion(processResult, processError, nextCredentials)
+            completion(processResult, processError, nextCredentials, finalController)
         }
     }
 }

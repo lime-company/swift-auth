@@ -46,12 +46,12 @@ public class LimeAuthAuthenticationUI {
                             credentialsProvider: LimeAuthCredentialsProvider,
                             request: Authentication.UIRequest,
                             operation: AuthenticationUIOperation,
-                            completion: @escaping (Authentication.Result, Authentication.UIResponse)->Void) {
+                            completion: @escaping (Authentication.Result, Authentication.UIResponse, UIViewController?)->Void) {
         let executor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: request.options, credentialsProvider: credentialsProvider)
         let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: request, executor: executor)
-        process.operationCompletion = { (result, error, object) in
+        process.operationCompletion = { (result, error, object, finalController) in
             // high level completion
-            completion(result, Authentication.UIResponse(result: object, error: error, cancelled: result == .cancel))
+            completion(result, Authentication.UIResponse(result: object, error: error, cancelled: result == .cancel), finalController)
         }
         self.init(authenticationProcess: process)
     }
@@ -125,9 +125,11 @@ public class LimeAuthAuthenticationUI {
 public extension LimeAuthAuthenticationUI {
     
     /// Function returns Authentication UI preconfigured as a part of activation UI flow
-    public static func uiForCreatePassword(activationProcess: ActivationUIProcess, uiProvider: AuthenticationUIProvider, completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?)->Void) -> LimeAuthAuthenticationUI {
+    public static func uiForCreatePassword(activationProcess: ActivationUIProcess,
+                                           uiProvider: AuthenticationUIProvider,
+                                           completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         let authenticationProcess = AuthenticationUIProcess(activation: activationProcess, uiProvider: uiProvider)
-        authenticationProcess.credentialsCompletion = { (result, error, credentials) in
+        authenticationProcess.credentialsCompletion = { (result, error, credentials, finalController) in
             // Check result and if operation succeeded, then keep password in activation data & store selected complexity
             if result == .success, let password = credentials?.password {
                 activationProcess.activationData.password = password
@@ -135,7 +137,7 @@ public extension LimeAuthAuthenticationUI {
                     _ = activationProcess.credentialsProvider.changePasswordComplexity(passwordIndex: passwordOptionsIndex)
                 }
             }
-            completion(result, error, credentials)
+            completion(result, error, credentials, finalController)
         }
         let ui = LimeAuthAuthenticationUI(authenticationProcess: authenticationProcess)
         ui.entryScene = .createPassword

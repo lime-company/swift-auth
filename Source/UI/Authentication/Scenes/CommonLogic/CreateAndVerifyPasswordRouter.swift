@@ -46,6 +46,7 @@ public class CreateAndVerifyPasswordRouter: CreateAndVerifyPasswordRoutingLogic,
         self.parentRouter = parentRouter
         self.changeComplexity = changeComplexity
         self.beforeSuccess = beforeSuccess
+        self.authenticationProcess = parentRouter.authenticationProcess
     }
     
     public func connect(controller: AuthenticationUIProcessController) {

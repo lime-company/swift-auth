@@ -36,7 +36,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
         // Keep activation result
         activationProcess.activationData.createActivationResult = result
         // Present create password UI
-        let authUI = LimeAuthAuthenticationUI.uiForCreatePassword(activationProcess: activationProcess, uiProvider: activationProcess.uiProvider.authenticationUIProvider) { (result, error, _) in
+        let authUI = LimeAuthAuthenticationUI.uiForCreatePassword(activationProcess: activationProcess, uiProvider: activationProcess.uiProvider.authenticationUIProvider) { (result, error, _, finalController) in
             self.authenticationUI = nil
             if result == .success {
                 self.routeToNextScene()
@@ -44,7 +44,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
                 self.routeToError(with: error!)
             } else {
                 // Otherwise cancel the operation
-                self.activationProcess.cancelActivation(controller: self.viewController?.navigationController?.viewControllers.last)
+                self.activationProcess.cancelActivation(controller: finalController)
             }
         }
         authenticationUI = authUI
