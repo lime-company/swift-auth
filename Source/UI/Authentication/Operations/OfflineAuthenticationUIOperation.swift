@@ -19,10 +19,10 @@ import PowerAuth2
 
 public class OfflineAuthenticationUIOperation: AuthenticationUIOperation {
     
-    private var executionBlock: (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation
+    private var executionBlock: (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?
     private var underlyingOperation: Operation?
     
-    public init(execution: @escaping (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation) {
+    public init(execution: @escaping (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?) {
         self.executionBlock = execution
     }
     

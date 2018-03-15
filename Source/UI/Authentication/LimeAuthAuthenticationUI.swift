@@ -35,11 +35,17 @@ public class LimeAuthAuthenticationUI {
     public var createPasswordRouter: CreateNewPasswordRoutingLogic?
     public var enterPasswordRouter: EnterPasswordRoutingLogic?
     
+
+    /// Designated constructor
     public init(authenticationProcess: AuthenticationUIProcess) {
         self.authenticationProcess = authenticationProcess
     }
     
-    
+    public convenience init(session: LimeAuthSession, uiProvider: AuthenticationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, request: Authentication.UIRequest, operation: AuthenticationUIOperation) {
+        let executor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: request.options, credentialsProvider: credentialsProvider)
+        let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: request, executor: executor)
+        self.init(authenticationProcess: process)
+    }
     
     public func instantiateEntryScene() -> UIViewController {
         var controller: UIViewController & AuthenticationUIProcessController
