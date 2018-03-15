@@ -151,7 +151,9 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.prompt1Label.text = commonStrings.enterNewPin
         self.prompt2Label.text = commonStrings.retypePin
         self.error1Label.text = commonStrings.pinNoMatch
+        
         self.changeComplexityButton.setTitle(uiData.strings.changeComplexityButton, for: .normal)
+        self.changeComplexityButton.isHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
     }
     
     // MARK: - PIN keyboard view delegate
