@@ -37,6 +37,11 @@ public class CreateNewPasswordRouter: CreateNewPasswordRoutingLogic, Authenticat
     public var authenticationProcess: AuthenticationUIProcess!
     public var viewController: (UIViewController & CreateNewPasswordRoutableController)?
     
+    public func connect(controller: AuthenticationUIProcessController) {
+        viewController = controller as? (UIViewController & CreateNewPasswordRoutableController)
+        assert(viewController != nil)
+    }
+    
     public func routeToCancel() {
         authenticationProcess.cancelAuthentication(controller: viewController)
     }

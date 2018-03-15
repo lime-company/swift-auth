@@ -100,4 +100,14 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             return "\(option.minimumLength) and more characters long password"
         }
     }
+    
+    func localizeRemainingAttempts(attempts: UInt32) -> String {
+        if attempts > 1 {
+            return "\(attempts) remaining attempts"
+        } else if attempts == 1 {
+            return "Last attempt"
+        } else {
+            return "No attempts left"
+        }
+    }
 }

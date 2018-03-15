@@ -50,6 +50,9 @@ public enum Authentication {
             public let yesButton: String
             public let noButton: String
             
+            public let pleaseWait: String
+            public let success: String
+            
             public static func fallbackStrings() -> CommonStrings {
                 return CommonStrings(
                     enterPin: "Enter PIN",
@@ -68,7 +71,10 @@ public enum Authentication {
                     okButton: "OK",
                     cancelButton: "Cancel",
                     yesButton: "Yes",
-                    noButton: "No"
+                    noButton: "No",
+                    
+                    pleaseWait: "Please wait...",
+                    success: "Operation did finish"
                 )
             }
         }
@@ -166,7 +172,7 @@ public enum Authentication {
             var presentedAsModal: Bool = false
             
             /// If true, keyboard implementation should hide its navigation bar.
-            var hideNavigationBar: Bool = false
+            var hideNavigationBar: Bool = true
             
             /// Delay between operation success and keyboard dismiss
             var successAnimationDelay: Int = 3000

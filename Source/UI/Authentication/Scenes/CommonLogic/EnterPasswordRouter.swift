@@ -27,13 +27,18 @@ public protocol EnterPasswordRoutingLogic {
 
 public protocol EnterPasswordRoutableController: AuthenticationUIProcessController {
     
-    func connectEnterPasswordRouter(router: EnterPasswordRoutingLogic)
+    func connectEnterPasswordRouter(router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic))
 }
 
 public class EnterPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
     public weak var viewController: (UIViewController & EnterPasswordRoutableController)?
     public var authenticationProcess: AuthenticationUIProcess!
+    
+    public func connect(controller: AuthenticationUIProcessController) {
+        viewController = controller as? (UIViewController & EnterPasswordRoutableController)
+        assert(viewController != nil)
+    }
     
     public func routeToCancel() {
         authenticationProcess.cancelAuthentication(controller: viewController)

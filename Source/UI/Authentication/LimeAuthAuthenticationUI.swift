@@ -87,7 +87,7 @@ public class LimeAuthAuthenticationUI {
     }
     
     
-    private func instantiateEnterPasswordScene(router: EnterPasswordRoutingLogic) -> (UIViewController & EnterPasswordRoutableController) {
+    private func instantiateEnterPasswordScene(router: AuthenticationUIProcessRouter & EnterPasswordRoutingLogic) -> (UIViewController & EnterPasswordRoutableController) {
         let credentials = authenticationProcess.credentialsProvider.credentials
         let uiProvider = authenticationProcess.uiProvider
         let controller: UIViewController & EnterPasswordRoutableController
@@ -104,6 +104,7 @@ public class LimeAuthAuthenticationUI {
         return controller
     }
 }
+
 
 
 public extension LimeAuthAuthenticationUI {

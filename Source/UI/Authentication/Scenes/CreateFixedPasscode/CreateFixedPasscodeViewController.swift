@@ -36,6 +36,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     
     public func connectCreateAndVerifyPasswordRouter(router: AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic) {
         self.router = router
+        router.connect(controller: self)
     }
     
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
@@ -100,6 +101,11 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.isLoaded = true
+        
+        guard let _ = router?.authenticationProcess else {
+            fatalError("CreateFixedPasscodeViewController is not configured properly")
+        }
+        
         prepareUIForFirstUse()
     }
     

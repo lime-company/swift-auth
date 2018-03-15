@@ -48,6 +48,11 @@ public class CreateAndVerifyPasswordRouter: CreateAndVerifyPasswordRoutingLogic,
         self.beforeSuccess = beforeSuccess
     }
     
+    public func connect(controller: AuthenticationUIProcessController) {
+        viewController = controller as? (UIViewController & CreateAndVerifyPasswordRoutableController)
+        assert(viewController != nil)
+    }
+    
     public func routeToCancel() {
         parentRouter.routeToCancel()
     }

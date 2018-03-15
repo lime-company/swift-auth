@@ -16,6 +16,7 @@
 		BF496435205995FC002560A8 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF496434205995FC002560A8 /* Authentication.storyboard */; };
 		BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF496436205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift */; };
 		BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF496438205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift */; };
+		BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */; };
 		BF4BD1342049A26200A2E52C /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */; };
 		BF565F822045E59C00B9C897 /* EnterActivationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F812045E59C00B9C897 /* EnterActivationCodeModels.swift */; };
 		BF565F842045E70000B9C897 /* ScanActivationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F832045E70000B9C897 /* ScanActivationCodeModels.swift */; };
@@ -98,6 +99,7 @@
 		BF496434205995FC002560A8 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		BF496436205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationResourcesProvider.swift; sourceTree = "<group>"; };
 		BF496438205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthAuthenticationUI+DefaultResources.swift"; sourceTree = "<group>"; };
+		BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterFixedPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		BF565F812045E59C00B9C897 /* EnterActivationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterActivationCodeModels.swift; sourceTree = "<group>"; };
 		BF565F832045E70000B9C897 /* ScanActivationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanActivationCodeModels.swift; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 				BF496434205995FC002560A8 /* Authentication.storyboard */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		BF49643A205A6C04002560A8 /* EnterFixedPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */,
+			);
+			path = EnterFixedPasscode;
 			sourceTree = "<group>";
 		};
 		BF565F87204717C900B9C897 /* CustomViews */ = {
@@ -509,6 +519,7 @@
 				BF49642320598CFE002560A8 /* CommonLogic */,
 				BFAE06AD2059687E003485D7 /* CreateNewPassword */,
 				BF49642220598CD5002560A8 /* CreateFixedPasscode */,
+				BF49643A205A6C04002560A8 /* EnterFixedPasscode */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -716,6 +727,7 @@
 				BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */,
 				BF565F842045E70000B9C897 /* ScanActivationCodeModels.swift in Sources */,
 				BF61344C2045A97E00164496 /* BeginActivationModels.swift in Sources */,
+				BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */,
 				BFDB8CD020516D680063C5EA /* LimeAuthError.swift in Sources */,
 				BF61344120448DA900164496 /* ScanActivationCodeViewController.swift in Sources */,
 				BF49642D20598FF8002560A8 /* PinClearKeyboardButton.swift in Sources */,

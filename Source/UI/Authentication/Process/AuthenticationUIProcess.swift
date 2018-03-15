@@ -44,10 +44,12 @@ public protocol AuthenticationUIDataProvider: class {
     // Localization function
     
     func localizePasswordComplexity(option: LimeAuthCredentials.Password) -> String
+    func localizeRemainingAttempts(attempts: UInt32) -> String
 }
 
 public protocol AuthenticationUIProcessRouter: class {
     var authenticationProcess: AuthenticationUIProcess! { get set }
+    func connect(controller: AuthenticationUIProcessController)
 }
 
 public protocol AuthenticationUIProcessController: class {

@@ -36,9 +36,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     private func setup() {
         let viewController = self
-        let router = CreateNewPasswordRouter()
-        router.viewController = self
-        viewController.router = router
+        viewController.connectCreatePasswordRouter(router: CreateNewPasswordRouter())
     }
     
     // MARK: - View lifecycle
@@ -61,6 +59,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     public func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic) {
         self.router = router
+        router.connect(controller: self)
     }
     
     public func connect(authenticationProcess process: AuthenticationUIProcess) {
