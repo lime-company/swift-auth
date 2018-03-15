@@ -18,10 +18,10 @@ import UIKit
 import PowerAuth2
 import AVKit
 
-open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationProcessController, QRCodeProviderDelegate {
+open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, QRCodeProviderDelegate {
     
     
-    public var router: (ActivationProcessRouter & ScanActivationCodeRoutingLogic)!
+    public var router: (ActivationUIProcessRouter & ScanActivationCodeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     public var qrCodeProvider: QRCodeProvider?
     
@@ -76,7 +76,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
@@ -100,8 +100,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     // MARK: - QRCodeProviderDelegate
     
     open func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error) {
-        D.print("ScanActivationCodeViewController: Scanner failed on error: \(error.localizedDescription)")
-        router.activationProcess.failActivation(controller: self, with: error)
+        router.activationProcess.failActivation(controller: self, with: LimeAuthError(error: error))
         stopScanner()
     }
     

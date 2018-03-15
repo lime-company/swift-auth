@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */; };
+		BF49642920598EF3002560A8 /* PinKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642820598EF3002560A8 /* PinKeyboardView.swift */; };
+		BF49642B20598FCA002560A8 /* PinKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */; };
+		BF49642D20598FF8002560A8 /* PinClearKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642C20598FF8002560A8 /* PinClearKeyboardButton.swift */; };
+		BF49642F20599022002560A8 /* CheckmarkWithActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */; };
+		BF49643220599074002560A8 /* LayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49643120599074002560A8 /* LayoutHelper.swift */; };
+		BF496435205995FC002560A8 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF496434205995FC002560A8 /* Authentication.storyboard */; };
+		BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF496436205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift */; };
+		BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF496438205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift */; };
+		BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */; };
 		BF4BD1342049A26200A2E52C /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */; };
 		BF565F822045E59C00B9C897 /* EnterActivationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F812045E59C00B9C897 /* EnterActivationCodeModels.swift */; };
 		BF565F842045E70000B9C897 /* ScanActivationCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565F832045E70000B9C897 /* ScanActivationCodeModels.swift */; };
@@ -26,7 +36,6 @@
 		BF565FB0204743F300B9C897 /* ConfirmActivationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565FAF204743F300B9C897 /* ConfirmActivationRouter.swift */; };
 		BF565FB22047440000B9C897 /* ConfirmActivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF565FB12047440000B9C897 /* ConfirmActivationModels.swift */; };
 		BF5E3F96204B09570064EF7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5E3F95204B09560064EF7B /* Assets.xcassets */; };
-		BF5E3F98204B19E70064EF7B /* FakePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E3F97204B19E70064EF7B /* FakePasswordViewController.swift */; };
 		BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134312044765E00164496 /* QRCodeScanner.swift */; };
 		BF613434204485B400164496 /* BeginActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF613433204485B400164496 /* BeginActivationViewController.swift */; };
 		BF6134372044863A00164496 /* BeginActivationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6134362044863A00164496 /* BeginActivationRouter.swift */; };
@@ -50,6 +59,15 @@
 		BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF45520320ACA002A6B6E /* LimeImports.swift */; };
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
 		BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */; };
+		BFAE069920582CF7003485D7 /* EnterPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */; };
+		BFAE069B20582E5F003485D7 /* CreateNewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069A20582E5F003485D7 /* CreateNewPasswordRouter.swift */; };
+		BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */; };
+		BFAE069F20583D55003485D7 /* AuthenticationUIOperationExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069E20583D55003485D7 /* AuthenticationUIOperationExecutor.swift */; };
+		BFAE06A7205933B3003485D7 /* OnlineAuthenticationUIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06A6205933B3003485D7 /* OnlineAuthenticationUIOperation.swift */; };
+		BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06A820593692003485D7 /* OfflineAuthenticationUIOperation.swift */; };
+		BFAE06AC2059685C003485D7 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06AB2059685C003485D7 /* CreateNewPasswordViewController.swift */; };
+		BFAE06AF20596D2D003485D7 /* CreateNewPasswordModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06AE20596D2D003485D7 /* CreateNewPasswordModels.swift */; };
+		BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */; };
 		BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */; };
 		BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */; };
 		BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */; };
@@ -59,9 +77,12 @@
 		BFDB8CD320516DB30063C5EA /* LimeAuthUIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CD220516DB30063C5EA /* LimeAuthUIBaseViewController.swift */; };
 		BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CD420516DE00063C5EA /* LimeAuthCredentialsProvider.swift */; };
 		BFDB8CD720516DE00063C5EA /* LimeAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CD520516DE00063C5EA /* LimeAuthCredentials.swift */; };
+		BFDB8CE82056ABE40063C5EA /* AuthenticationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CE52056ABE40063C5EA /* AuthenticationModels.swift */; };
+		BFDB8CE92056ABE40063C5EA /* AuthenticationUIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CE62056ABE40063C5EA /* AuthenticationUIOperation.swift */; };
+		BFDB8CEA2056ABE40063C5EA /* AuthenticationUIProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CE72056ABE40063C5EA /* AuthenticationUIProcess.swift */; };
 		BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDBCBB32045CFFE001585BF /* Activation.storyboard */; };
 		BFDBCBC02045DDEA001585BF /* NoCameraAccessModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBCBBF2045DDEA001585BF /* NoCameraAccessModels.swift */; };
-		BFDBCBC22045E1AD001585BF /* ActivationProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBCBC12045E1AD001585BF /* ActivationProcess.swift */; };
+		BFDBCBC22045E1AD001585BF /* ActivationUIProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBCBC12045E1AD001585BF /* ActivationUIProcess.swift */; };
 		BFDE279220359A37004BC16D /* ActivationStatusFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE279120359A37004BC16D /* ActivationStatusFetcher.swift */; };
 		BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */; };
 		BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27952035A929004BC16D /* AsyncOperation.swift */; };
@@ -69,6 +90,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFixedPasscodeViewController.swift; sourceTree = "<group>"; };
+		BF49642820598EF3002560A8 /* PinKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardView.swift; sourceTree = "<group>"; };
+		BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardButton.swift; sourceTree = "<group>"; };
+		BF49642C20598FF8002560A8 /* PinClearKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinClearKeyboardButton.swift; sourceTree = "<group>"; };
+		BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkWithActivity.swift; sourceTree = "<group>"; };
+		BF49643120599074002560A8 /* LayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutHelper.swift; sourceTree = "<group>"; };
+		BF496434205995FC002560A8 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		BF496436205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationResourcesProvider.swift; sourceTree = "<group>"; };
+		BF496438205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthAuthenticationUI+DefaultResources.swift"; sourceTree = "<group>"; };
+		BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterFixedPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		BF565F812045E59C00B9C897 /* EnterActivationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterActivationCodeModels.swift; sourceTree = "<group>"; };
 		BF565F832045E70000B9C897 /* ScanActivationCodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanActivationCodeModels.swift; sourceTree = "<group>"; };
@@ -88,7 +119,6 @@
 		BF565FAF204743F300B9C897 /* ConfirmActivationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmActivationRouter.swift; sourceTree = "<group>"; };
 		BF565FB12047440000B9C897 /* ConfirmActivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmActivationModels.swift; sourceTree = "<group>"; };
 		BF5E3F95204B09560064EF7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF5E3F97204B19E70064EF7B /* FakePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePasswordViewController.swift; sourceTree = "<group>"; };
 		BF6134312044765E00164496 /* QRCodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		BF613433204485B400164496 /* BeginActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginActivationViewController.swift; sourceTree = "<group>"; };
 		BF6134362044863A00164496 /* BeginActivationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginActivationRouter.swift; sourceTree = "<group>"; };
@@ -119,6 +149,15 @@
 		BF8CF45920320B17002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
 		BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSession.swift; sourceTree = "<group>"; };
 		BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSessionConfig.swift; sourceTree = "<group>"; };
+		BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordRouter.swift; sourceTree = "<group>"; };
+		BFAE069A20582E5F003485D7 /* CreateNewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordRouter.swift; sourceTree = "<group>"; };
+		BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRouter.swift; sourceTree = "<group>"; };
+		BFAE069E20583D55003485D7 /* AuthenticationUIOperationExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUIOperationExecutor.swift; sourceTree = "<group>"; };
+		BFAE06A6205933B3003485D7 /* OnlineAuthenticationUIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineAuthenticationUIOperation.swift; sourceTree = "<group>"; };
+		BFAE06A820593692003485D7 /* OfflineAuthenticationUIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineAuthenticationUIOperation.swift; sourceTree = "<group>"; };
+		BFAE06AB2059685C003485D7 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
+		BFAE06AE20596D2D003485D7 /* CreateNewPasswordModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordModels.swift; sourceTree = "<group>"; };
+		BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndVerifyPasswordRouter.swift; sourceTree = "<group>"; };
 		BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PowerAuthSDK+Config.swift"; sourceTree = "<group>"; };
 		BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Singleton.swift"; sourceTree = "<group>"; };
 		BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Status.swift"; sourceTree = "<group>"; };
@@ -128,9 +167,12 @@
 		BFDB8CD220516DB30063C5EA /* LimeAuthUIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeAuthUIBaseViewController.swift; sourceTree = "<group>"; };
 		BFDB8CD420516DE00063C5EA /* LimeAuthCredentialsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeAuthCredentialsProvider.swift; sourceTree = "<group>"; };
 		BFDB8CD520516DE00063C5EA /* LimeAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimeAuthCredentials.swift; sourceTree = "<group>"; };
+		BFDB8CE52056ABE40063C5EA /* AuthenticationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationModels.swift; sourceTree = "<group>"; };
+		BFDB8CE62056ABE40063C5EA /* AuthenticationUIOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUIOperation.swift; sourceTree = "<group>"; };
+		BFDB8CE72056ABE40063C5EA /* AuthenticationUIProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationUIProcess.swift; sourceTree = "<group>"; };
 		BFDBCBB32045CFFE001585BF /* Activation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activation.storyboard; sourceTree = "<group>"; };
 		BFDBCBBF2045DDEA001585BF /* NoCameraAccessModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCameraAccessModels.swift; sourceTree = "<group>"; };
-		BFDBCBC12045E1AD001585BF /* ActivationProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationProcess.swift; sourceTree = "<group>"; };
+		BFDBCBC12045E1AD001585BF /* ActivationUIProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationUIProcess.swift; sourceTree = "<group>"; };
 		BFDE279120359A37004BC16D /* ActivationStatusFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationStatusFetcher.swift; sourceTree = "<group>"; };
 		BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		BFDE27952035A929004BC16D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -150,12 +192,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF49642220598CD5002560A8 /* CreateFixedPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */,
+			);
+			path = CreateFixedPasscode;
+			sourceTree = "<group>";
+		};
+		BF49642320598CFE002560A8 /* CommonLogic */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */,
+				BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */,
+			);
+			path = CommonLogic;
+			sourceTree = "<group>";
+		};
+		BF49643020599069002560A8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF49643120599074002560A8 /* LayoutHelper.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF496433205995D2002560A8 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				BF496438205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift */,
+				BF496436205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift */,
+				BF496434205995FC002560A8 /* Authentication.storyboard */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		BF49643A205A6C04002560A8 /* EnterFixedPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */,
+			);
+			path = EnterFixedPasscode;
+			sourceTree = "<group>";
+		};
 		BF565F87204717C900B9C897 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
 				BF565F8A2047191300B9C897 /* RoundCornersView.swift */,
 				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
+				BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */,
+				BF49642C20598FF8002560A8 /* PinClearKeyboardButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -241,7 +328,6 @@
 				BF565FA52047400900B9C897 /* EnableBiometry */,
 				BF565FA6204740E100B9C897 /* Confirm */,
 				BF565F9720473B6300B9C897 /* Error */,
-				BF5E3F97204B19E70064EF7B /* FakePasswordViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -260,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				BF61344D2045AD3E00164496 /* ActivationModels.swift */,
-				BFDBCBC12045E1AD001585BF /* ActivationProcess.swift */,
+				BFDBCBC12045E1AD001585BF /* ActivationUIProcess.swift */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -299,6 +385,11 @@
 		BF85E593203DBD7600B76FE8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				BF49643020599069002560A8 /* Services */,
+				BFAE06AA205967B7003485D7 /* Scenes */,
+				BFAE069720582CB6003485D7 /* Routers */,
+				BFDB8CE42056ABE40063C5EA /* Process */,
+				BFAE06A520593338003485D7 /* Operations */,
 				BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */,
 				BFDB8CD520516DE00063C5EA /* LimeAuthCredentials.swift */,
 				BFDB8CD420516DE00063C5EA /* LimeAuthCredentialsProvider.swift */,
@@ -367,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				BF688096204811E100351112 /* Activation */,
+				BF496433205995D2002560A8 /* Authentication */,
 				BF565F87204717C900B9C897 /* CustomViews */,
 				BF5E3F95204B09560064EF7B /* Assets.xcassets */,
 			);
@@ -404,6 +496,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BFAE069720582CB6003485D7 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		BFAE06A520593338003485D7 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE06A6205933B3003485D7 /* OnlineAuthenticationUIOperation.swift */,
+				BFAE06A820593692003485D7 /* OfflineAuthenticationUIOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		BFAE06AA205967B7003485D7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BF49642320598CFE002560A8 /* CommonLogic */,
+				BFAE06AD2059687E003485D7 /* CreateNewPassword */,
+				BF49642220598CD5002560A8 /* CreateFixedPasscode */,
+				BF49643A205A6C04002560A8 /* EnterFixedPasscode */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BFAE06AD2059687E003485D7 /* CreateNewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				BFAE069A20582E5F003485D7 /* CreateNewPasswordRouter.swift */,
+				BFAE06AE20596D2D003485D7 /* CreateNewPasswordModels.swift */,
+				BFAE06AB2059685C003485D7 /* CreateNewPasswordViewController.swift */,
+			);
+			path = CreateNewPassword;
+			sourceTree = "<group>";
+		};
 		BFD126002033421F001CE861 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,10 +559,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		BFDB8CE42056ABE40063C5EA /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				BFDB8CE52056ABE40063C5EA /* AuthenticationModels.swift */,
+				BFDB8CE72056ABE40063C5EA /* AuthenticationUIProcess.swift */,
+				BFDB8CE62056ABE40063C5EA /* AuthenticationUIOperation.swift */,
+				BFAE069E20583D55003485D7 /* AuthenticationUIOperationExecutor.swift */,
+			);
+			path = Process;
+			sourceTree = "<group>";
+		};
 		BFDBCBBE2045D409001585BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */,
+				BF49642820598EF3002560A8 /* PinKeyboardView.swift */,
+				BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -517,6 +660,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF496435205995FC002560A8 /* Authentication.storyboard in Resources */,
 				BF5E3F96204B09570064EF7B /* Assets.xcassets in Resources */,
 				BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */,
 			);
@@ -540,13 +684,16 @@
 				BF565FAA2047415900B9C897 /* EnableBiometryModels.swift in Sources */,
 				BFDE279220359A37004BC16D /* ActivationStatusFetcher.swift in Sources */,
 				BFDB8CD320516DB30063C5EA /* LimeAuthUIBaseViewController.swift in Sources */,
+				BF49642920598EF3002560A8 /* PinKeyboardView.swift in Sources */,
 				BF4BD1342049A26200A2E52C /* TextFieldWithInsets.swift in Sources */,
 				BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */,
 				BFDBCBC02045DDEA001585BF /* NoCameraAccessModels.swift in Sources */,
+				BFAE06A7205933B3003485D7 /* OnlineAuthenticationUIOperation.swift in Sources */,
 				BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */,
+				BFAE06AC2059685C003485D7 /* CreateNewPasswordViewController.swift in Sources */,
+				BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */,
 				BF6134372044863A00164496 /* BeginActivationRouter.swift in Sources */,
 				BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */,
-				BF5E3F98204B19E70064EF7B /* FakePasswordViewController.swift in Sources */,
 				BF565FAE2047432E00B9C897 /* ConfirmActivationViewController.swift in Sources */,
 				BF61344620448E7100164496 /* EnterActivationCodeRouter.swift in Sources */,
 				BF61343F20448D5400164496 /* EnterActivationCodeViewController.swift in Sources */,
@@ -559,28 +706,45 @@
 				BF565F92204728CC00B9C897 /* KeysExchangeViewController.swift in Sources */,
 				BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */,
 				BF565F94204728DE00B9C897 /* KeysExchangeRouter.swift in Sources */,
+				BFAE069920582CF7003485D7 /* EnterPasswordRouter.swift in Sources */,
 				BF85E595203DBDD600B76FE8 /* LimeAuthActivationUI.swift in Sources */,
 				BF565F9B20473BA900B9C897 /* ErrorActivationRouter.swift in Sources */,
+				BFDB8CE82056ABE40063C5EA /* AuthenticationModels.swift in Sources */,
 				BF565F89204717E100B9C897 /* RoundCornersButton.swift in Sources */,
 				BF6134522045C45300164496 /* LazyUIImage.swift in Sources */,
+				BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */,
 				BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */,
+				BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
+				BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */,
 				BF85E597203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift in Sources */,
 				BF565F9920473B9A00B9C897 /* ErrorActivationViewController.swift in Sources */,
+				BFDB8CEA2056ABE40063C5EA /* AuthenticationUIProcess.swift in Sources */,
 				BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */,
+				BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */,
+				BF49642F20599022002560A8 /* CheckmarkWithActivity.swift in Sources */,
 				BF61344320448DDF00164496 /* ScanActivationCodeRouter.swift in Sources */,
 				BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */,
 				BF565F842045E70000B9C897 /* ScanActivationCodeModels.swift in Sources */,
 				BF61344C2045A97E00164496 /* BeginActivationModels.swift in Sources */,
+				BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */,
 				BFDB8CD020516D680063C5EA /* LimeAuthError.swift in Sources */,
 				BF61344120448DA900164496 /* ScanActivationCodeViewController.swift in Sources */,
+				BF49642D20598FF8002560A8 /* PinClearKeyboardButton.swift in Sources */,
 				BFDB8CD720516DE00063C5EA /* LimeAuthCredentials.swift in Sources */,
 				BF61344820448EBD00164496 /* NoCameraAccessRouter.swift in Sources */,
 				BF565F822045E59C00B9C897 /* EnterActivationCodeModels.swift in Sources */,
+				BFAE069B20582E5F003485D7 /* CreateNewPasswordRouter.swift in Sources */,
+				BFDB8CE92056ABE40063C5EA /* AuthenticationUIOperation.swift in Sources */,
+				BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */,
 				BF613434204485B400164496 /* BeginActivationViewController.swift in Sources */,
+				BFAE06AF20596D2D003485D7 /* CreateNewPasswordModels.swift in Sources */,
+				BFAE069F20583D55003485D7 /* AuthenticationUIOperationExecutor.swift in Sources */,
 				BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */,
 				BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */,
-				BFDBCBC22045E1AD001585BF /* ActivationProcess.swift in Sources */,
+				BF49643220599074002560A8 /* LayoutHelper.swift in Sources */,
+				BF49642B20598FCA002560A8 /* PinKeyboardButton.swift in Sources */,
+				BFDBCBC22045E1AD001585BF /* ActivationUIProcess.swift in Sources */,
 				BF61344A204490E000164496 /* CameraAccess.swift in Sources */,
 				BFD126042034A03E001CE861 /* LimeAuthSession+Queue.swift in Sources */,
 			);

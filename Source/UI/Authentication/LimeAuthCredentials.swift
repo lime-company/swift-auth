@@ -15,6 +15,7 @@
 //
 
 import Foundation
+import PowerAuth2
 
 /// The LimeAuthCredentials structure contains a configuration for types of crendentials
 /// used in the application.
@@ -146,9 +147,9 @@ public extension LimeAuthCredentials {
     public static func defaultCredentials() -> LimeAuthCredentials {
         let passwordOptions: [LimeAuthCredentials.Password] = [
             .fixedPin(length: 4),
-            .fixedPin(length: 6),
-            .variablePin(min: 6, max: 9),
-            .alphanumeric(min: 6)
+//            .fixedPin(length: 6),
+//            .variablePin(min: 6, max: 9),
+//            .alphanumeric(min: 6)
         ]
         return LimeAuthCredentials(passwordOptions: passwordOptions, passwordIndex: 0, optionsOrder: nil, biometry: nil)
     }
@@ -173,5 +174,20 @@ public extension LimeAuthCredentials.Password {
     }
 }
 
+
+public extension LimeAuthCredentials.Biometry {
+    
+    /// Contains true whether biometry configuration matches actual support on the device.
+    public var isSupportedOnDevice: Bool {
+        var supported = PA2Keychain.supportedBiometricAuthentication
+        if supported == .touchID && touchId == .disabled {
+            supported = .none
+        } else if supported == .faceID && faceId == .disabled {
+            supported = .none
+        }
+        return supported != .none
+    }
+
+}
 
 

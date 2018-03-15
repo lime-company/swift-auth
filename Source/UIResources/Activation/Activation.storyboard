@@ -409,76 +409,14 @@
                     <connections>
                         <outlet property="pendingActivityIndicator" destination="prJ-13-Uxn" id="5b0-XB-ycI"/>
                         <outlet property="pendingDescriptionLabel" destination="HZ4-u5-MvB" id="Q5t-zW-ygZ"/>
-                        <segue destination="j7Z-wc-sfZ" kind="show" identifier="FakePassword" id="Ph6-CK-K81"/>
                         <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="2Jb-20-RaX"/>
+                        <segue destination="Gx2-LX-rdX" kind="show" identifier="EnableBiometry" id="2Jb-7u-Od2"/>
+                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="mys-65-odR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcX-w3-1dP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2503" y="160"/>
-        </scene>
-        <!--Fake Password View Controller-->
-        <scene sceneID="Fvi-Pi-5nC">
-            <objects>
-                <viewController id="j7Z-wc-sfZ" customClass="FakePasswordViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aYZ-GC-I1t"/>
-                        <viewControllerLayoutGuide type="bottom" id="jce-af-iZG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SWc-1g-1kh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uOK-gU-4Fp">
-                                <rect key="frame" x="16" y="36" width="343" height="167.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpp-Ak-wgG">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a temporary solution. The full feature password / PIN creation screen will be displayed in this step." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLa-Qa-t8V">
-                                        <rect key="frame" x="0.0" y="36.5" width="343" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0m-hB-TL6">
-                                        <rect key="frame" x="0.0" y="81.5" width="343" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="rit-2L-Frt"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-2d-zIR">
-                                        <rect key="frame" x="0.0" y="137.5" width="343" height="30"/>
-                                        <state key="normal" title="Next"/>
-                                        <connections>
-                                            <action selector="fakeOk:" destination="j7Z-wc-sfZ" eventType="touchUpInside" id="qU9-LO-mM7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="uOK-gU-4Fp" firstAttribute="top" secondItem="aYZ-GC-I1t" secondAttribute="bottom" constant="16" id="72p-vZ-xMU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uOK-gU-4Fp" secondAttribute="trailing" id="HbD-PR-eFs"/>
-                            <constraint firstItem="uOK-gU-4Fp" firstAttribute="leading" secondItem="SWc-1g-1kh" secondAttribute="leadingMargin" id="iLz-Yc-ykn"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="fakePassword" destination="g0m-hB-TL6" id="FbQ-c0-BjS"/>
-                        <segue destination="Gx2-LX-rdX" kind="show" identifier="EnableBiometry" id="hee-vt-k61"/>
-                        <segue destination="L15-9s-8t6" kind="show" identifier="Confirm" id="geM-9q-kL1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yMh-cz-YCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3508" y="159.67016491754123"/>
         </scene>
         <!--No Camera Access View Controller-->
         <scene sceneID="nYJ-za-v7n">
@@ -672,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcP-Hb-ubh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="1053"/>
+            <point key="canvasLocation" x="3598" y="1043"/>
         </scene>
         <!--Enable Biometry View Controller-->
         <scene sceneID="Oy6-hw-0Wb">
@@ -894,8 +832,8 @@
         <image name="illustration-wizard-welcome-3" width="220" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="geM-9q-kL1"/>
-        <segue reference="BzB-ih-qyI"/>
+        <segue reference="mys-65-odR"/>
+        <segue reference="2Jb-20-RaX"/>
         <segue reference="KEQ-ev-lI5"/>
         <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>

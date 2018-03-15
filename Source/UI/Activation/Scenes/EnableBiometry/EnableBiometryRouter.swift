@@ -21,9 +21,9 @@ public protocol EnableBiometryRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationProcessRouter {
+public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProcessRouter {
     
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     public weak var viewController: EnableBiometryViewController?
     
     
@@ -37,7 +37,7 @@ public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationProcess
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }

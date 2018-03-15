@@ -16,9 +16,9 @@
 
 import UIKit
 
-public class ErrorActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+public class ErrorActivationViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (ErrorActivationRoutingLogic & ActivationProcessRouter)!
+    public var router: (ErrorActivationRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
     
     // MARK: - Object lifecycle
@@ -54,7 +54,7 @@ public class ErrorActivationViewController: LimeAuthUIBaseViewController, Activa
     
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationProcess) {
+    public func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }

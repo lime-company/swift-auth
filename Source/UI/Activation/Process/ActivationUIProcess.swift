@@ -16,7 +16,7 @@
 
 import UIKit
 
-public protocol ActivationUIProvider {
+public protocol ActivationUIProvider: class {
     
     func instantiateInitialScene() -> BeginActivationViewController
     func instantiateConfirmScene() -> ConfirmActivationViewController
@@ -25,9 +25,11 @@ public protocol ActivationUIProvider {
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
     var uiDataProvider: ActivationUIDataProvider { get }
+    
+    var authenticationUIProvider: AuthenticationUIProvider { get }
 }
 
-public protocol ActivationUIDataProvider {
+public protocol ActivationUIDataProvider: class {
     
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     var uiCommonStyle: Activation.UIData.CommonStyle { get }
@@ -43,9 +45,19 @@ public protocol ActivationUIDataProvider {
     
 }
 
-public class ActivationProcess {
+public protocol ActivationUIProcessRouter: class {
+    var activationProcess: ActivationUIProcess! { get set }
+}
+
+public protocol ActivationUIProcessController: class {
+    func connect(activationProcess process: ActivationUIProcess)
+}
+
+
+public class ActivationUIProcess {
     
     public let session: LimeAuthSession
+    public let uiProvider: ActivationUIProvider
     public let uiDataProvider: ActivationUIDataProvider
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
@@ -56,9 +68,10 @@ public class ActivationProcess {
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiDataProvider: ActivationUIDataProvider, credentialsProvider: LimeAuthCredentialsProvider) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
-        self.uiDataProvider = uiDataProvider
+        self.uiProvider = uiProvider
+        self.uiDataProvider = uiProvider.uiDataProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
     }
@@ -79,7 +92,7 @@ public class ActivationProcess {
         presentResult()
     }
     
-    public func failActivation(controller: UIViewController?, with error: Error? = nil) {
+    public func failActivation(controller: UIViewController?, with error: LimeAuthError? = nil) {
         // activation error
         finalController = controller
         activationData.result = .failure
@@ -89,7 +102,7 @@ public class ActivationProcess {
         presentResult()
     }
     
-    public func storeFailureReason(error: Error) {
+    public func storeFailureReason(error: LimeAuthError) {
         activationData.failureReason = error
     }
     
@@ -108,13 +121,4 @@ public class ActivationProcess {
         }
         completion?(activationData)
     }
-}
-
-
-public protocol ActivationProcessRouter {
-    var activationProcess: ActivationProcess! { get set }
-}
-
-public protocol ActivationProcessController {
-    func connect(activationProcess process: ActivationProcess)
 }

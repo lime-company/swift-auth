@@ -17,6 +17,7 @@
 import UIKit
 
 public protocol ScanActivationCodeRoutingLogic {
+    
     func routeToPreviousScene()
     func routeToEnterCode()
     func routeToKeyExchange(activationCode: String)
@@ -24,10 +25,10 @@ public protocol ScanActivationCodeRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class ScanActivationCodeRouter: ScanActivationCodeRoutingLogic, ActivationProcessRouter {
+public class ScanActivationCodeRouter: ScanActivationCodeRoutingLogic, ActivationUIProcessRouter {
     
     public weak var viewController: ScanActivationCodeViewController?
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     
     public func routeToPreviousScene() {
         if activationProcess.cancelShouldRouteToBegin {
@@ -52,7 +53,7 @@ public class ScanActivationCodeRouter: ScanActivationCodeRoutingLogic, Activatio
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }

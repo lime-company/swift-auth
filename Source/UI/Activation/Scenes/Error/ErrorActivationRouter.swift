@@ -21,9 +21,9 @@ public protocol ErrorActivationRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class ErrorActivationRouter: ErrorActivationRoutingLogic, ActivationProcessRouter {
+public class ErrorActivationRouter: ErrorActivationRoutingLogic, ActivationUIProcessRouter {
     
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
     public weak var viewController: ErrorActivationViewController?
     
 

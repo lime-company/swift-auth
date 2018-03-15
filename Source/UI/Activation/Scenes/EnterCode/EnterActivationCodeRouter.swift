@@ -23,10 +23,10 @@ public protocol EnterActivationCodeRoutingLogic {
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, ActivationProcessRouter {
+public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, ActivationUIProcessRouter {
 
     public weak var viewController: EnterActivationCodeViewController?
-    public var activationProcess: ActivationProcess!
+    public var activationProcess: ActivationUIProcess!
 
     public func routeToPreviousScene() {
         if activationProcess.cancelShouldRouteToBegin {
@@ -47,7 +47,7 @@ public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, Activat
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
-        if let activationVC = destinationVC as? ActivationProcessController {
+        if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }

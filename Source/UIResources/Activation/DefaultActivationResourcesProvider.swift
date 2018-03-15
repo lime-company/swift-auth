@@ -67,6 +67,10 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return self
     }()
     
+    public lazy var authenticationUIProvider: AuthenticationUIProvider = {
+        return DefaultAuthenticationResourcesProvider(bundle: bundle)
+    }()
+    
     //
     
     private var storyboard: UIStoryboard {

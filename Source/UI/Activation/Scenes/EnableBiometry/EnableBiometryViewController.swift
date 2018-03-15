@@ -17,9 +17,9 @@
 import UIKit
 import PowerAuth2
 
-open class EnableBiometryViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class EnableBiometryViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (EnableBiometryRoutingLogic & ActivationProcessRouter)!
+    public var router: (EnableBiometryRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
 	
 	var isTouchId: Bool = PA2Keychain.supportedBiometricAuthentication == .touchID
@@ -60,7 +60,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }

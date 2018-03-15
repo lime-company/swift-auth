@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Create New Password View Controller-->
+        <scene sceneID="vN6-0v-QbQ">
+            <objects>
+                <tabBarController storyboardIdentifier="CreateNewPassword" id="v1e-b9-268" customClass="CreateNewPasswordViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nDs-cO-fVD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zeQ-AG-UAj" kind="relationship" relationship="viewControllers" id="TMD-lY-xUS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zf4-rF-prz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="94"/>
+        </scene>
+        <!--Create Fixed PIN-->
+        <scene sceneID="beJ-VL-aKM">
+            <objects>
+                <viewController title="Fixed Pin" id="zeQ-AG-UAj" userLabel="Create Fixed PIN" customClass="CreateFixedPasscodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hRT-Eh-fZQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HV7-zA-elE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="chz-yk-fKM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-jz-vKF" userLabel="Logo">
+                                <rect key="frame" x="87.5" y="52" width="200" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1OK-cg-mzm"/>
+                                    <constraint firstAttribute="height" constant="77" id="eTt-m9-LcR"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4le-cZ-li9" userLabel="Pin1 Group">
+                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obf-La-fic" userLabel="Prompt">
+                                        <rect key="frame" x="16" y="16" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="RhS-R8-8QW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93j-iV-PWx" userLabel="PIN">
+                                        <rect key="frame" x="16" y="68" width="343" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Y9U-KT-Qfk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnf-1B-H8s">
+                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dnf-1B-H8s" firstAttribute="trailing" secondItem="Obf-La-fic" secondAttribute="trailing" id="0CG-8Y-0q2"/>
+                                    <constraint firstItem="93j-iV-PWx" firstAttribute="leading" secondItem="Obf-La-fic" secondAttribute="leading" id="7lx-Pw-lxy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Obf-La-fic" secondAttribute="trailing" constant="16" id="97k-e4-7XC"/>
+                                    <constraint firstItem="Obf-La-fic" firstAttribute="top" secondItem="4le-cZ-li9" secondAttribute="top" constant="16" id="BKL-kU-B3i"/>
+                                    <constraint firstAttribute="bottom" secondItem="dnf-1B-H8s" secondAttribute="bottom" constant="14" id="J3M-tV-mvE"/>
+                                    <constraint firstItem="93j-iV-PWx" firstAttribute="trailing" secondItem="Obf-La-fic" secondAttribute="trailing" id="MZa-bi-aKM"/>
+                                    <constraint firstItem="Obf-La-fic" firstAttribute="leading" secondItem="4le-cZ-li9" secondAttribute="leading" constant="16" id="VKI-JP-pgN"/>
+                                    <constraint firstItem="93j-iV-PWx" firstAttribute="top" secondItem="Obf-La-fic" secondAttribute="bottom" constant="8" id="fIF-91-ICk"/>
+                                    <constraint firstItem="dnf-1B-H8s" firstAttribute="leading" secondItem="Obf-La-fic" secondAttribute="leading" id="kXw-hF-DOp"/>
+                                    <constraint firstItem="dnf-1B-H8s" firstAttribute="top" secondItem="93j-iV-PWx" secondAttribute="bottom" constant="8" id="wSF-xZ-K5o"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCK-89-phx" userLabel="Pin2 Group">
+                                <rect key="frame" x="375" y="129" width="375" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter second pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1l-8f-AvF" userLabel="Prompt">
+                                        <rect key="frame" x="16" y="24" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="XbJ-j7-XP8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KW-fh-9m1" userLabel="PIN">
+                                        <rect key="frame" x="16" y="76" width="343" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="cVu-nC-IhL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="J1l-8f-AvF" firstAttribute="leading" secondItem="cCK-89-phx" secondAttribute="leading" constant="16" id="3Gg-Ub-fch"/>
+                                    <constraint firstItem="9KW-fh-9m1" firstAttribute="trailing" secondItem="J1l-8f-AvF" secondAttribute="trailing" id="8Dl-mO-0oJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="J1l-8f-AvF" secondAttribute="trailing" constant="16" id="C7e-mp-tJ6"/>
+                                    <constraint firstItem="9KW-fh-9m1" firstAttribute="leading" secondItem="J1l-8f-AvF" secondAttribute="leading" id="EY3-bu-YyH"/>
+                                    <constraint firstItem="9KW-fh-9m1" firstAttribute="top" secondItem="J1l-8f-AvF" secondAttribute="bottom" constant="8" id="HGV-LG-HEM"/>
+                                    <constraint firstItem="J1l-8f-AvF" firstAttribute="top" secondItem="cCK-89-phx" secondAttribute="top" constant="24" id="gfy-wb-Boy"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-dE-S3L" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="MobileToken" customModuleProvider="target">
+                                <rect key="frame" x="137" y="145" width="100" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ba-DjQ" userLabel="Success Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-gD-viy" userLabel="Error Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9R6-Mm-8xq" userLabel="Activity">
+                                        <rect key="frame" x="32" y="32" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9R6-Mm-8xq" firstAttribute="centerY" secondItem="C5L-dE-S3L" secondAttribute="centerY" id="35Z-ab-h1j"/>
+                                    <constraint firstAttribute="bottom" secondItem="zU1-gD-viy" secondAttribute="bottom" id="6Hv-9e-BSJ"/>
+                                    <constraint firstItem="yFD-ba-DjQ" firstAttribute="leading" secondItem="C5L-dE-S3L" secondAttribute="leading" id="EKM-ke-ETY"/>
+                                    <constraint firstItem="zU1-gD-viy" firstAttribute="top" secondItem="C5L-dE-S3L" secondAttribute="top" id="QUT-mE-ika"/>
+                                    <constraint firstAttribute="trailing" secondItem="zU1-gD-viy" secondAttribute="trailing" id="SU4-Ch-i18"/>
+                                    <constraint firstItem="9R6-Mm-8xq" firstAttribute="centerX" secondItem="C5L-dE-S3L" secondAttribute="centerX" id="a2y-MR-czX"/>
+                                    <constraint firstItem="zU1-gD-viy" firstAttribute="leading" secondItem="C5L-dE-S3L" secondAttribute="leading" id="lCG-gc-gJH"/>
+                                    <constraint firstAttribute="width" constant="100" id="sZ0-pF-azk"/>
+                                    <constraint firstItem="yFD-ba-DjQ" firstAttribute="top" secondItem="C5L-dE-S3L" secondAttribute="top" id="tv9-C3-3R2"/>
+                                    <constraint firstAttribute="height" constant="100" id="vwE-Es-7nO"/>
+                                    <constraint firstAttribute="trailing" secondItem="yFD-ba-DjQ" secondAttribute="trailing" id="xKO-lH-wva"/>
+                                    <constraint firstAttribute="bottom" secondItem="yFD-ba-DjQ" secondAttribute="bottom" id="xaL-ag-UyI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicatorView" destination="9R6-Mm-8xq" id="vOK-PM-uh7"/>
+                                    <outlet property="failureImageView" destination="zU1-gD-viy" id="5cC-8y-E5r"/>
+                                    <outlet property="succesImageView" destination="yFD-ba-DjQ" id="qD1-oI-r5Q"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-hx-IPD">
+                                <rect key="frame" x="126.5" y="281" width="122" height="30"/>
+                                <state key="normal" title="Passphrase setup"/>
+                                <connections>
+                                    <action selector="passphraseSetupAction:" destination="zeQ-AG-UAj" eventType="touchUpInside" id="0TB-14-Lt6"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-cG-dFN" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="MobileToken" customModuleProvider="target">
+                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIM-cR-zu8" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="1"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-Vx-NmX" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="2"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-Wp-kzL" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="3"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miy-9h-fSa" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="4"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buu-7I-PM6" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Buu-7I-PM6" secondAttribute="height" multiplier="1:1" id="cIE-wr-ubV"/>
+                                            <constraint firstAttribute="width" constant="72" id="hjI-m2-UAb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="5"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hci-33-ra9" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="9np-pZ-rXL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="6"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-EG-79M" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="7"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-7B-sW3" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="g0V-7B-sW3" secondAttribute="height" multiplier="1:1" id="BR9-B2-0Ot"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="8"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-9x-a76" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="9"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Q0-imC" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="B41-Q0-imC" secondAttribute="height" multiplier="1:1" id="rbn-7O-FD2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="0"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN9-z5-e5b" customClass="PinClearKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VN9-z5-e5b" secondAttribute="height" multiplier="1:1" id="AU9-XA-YO1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <state key="normal" title="←"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="miy-9h-fSa" firstAttribute="width" secondItem="jHM-EG-79M" secondAttribute="width" id="09p-HH-e2T"/>
+                                    <constraint firstItem="pWJ-9x-a76" firstAttribute="width" secondItem="pWJ-9x-a76" secondAttribute="height" multiplier="1:1" id="3TI-Vx-g1G"/>
+                                    <constraint firstItem="xrH-Wp-kzL" firstAttribute="width" secondItem="hci-33-ra9" secondAttribute="width" id="5gt-QO-QWe"/>
+                                    <constraint firstItem="jHM-EG-79M" firstAttribute="width" secondItem="jHM-EG-79M" secondAttribute="height" multiplier="1:1" id="5iz-RE-yM7"/>
+                                    <constraint firstItem="B41-Q0-imC" firstAttribute="width" secondItem="VN9-z5-e5b" secondAttribute="width" id="7ra-tp-VFM"/>
+                                    <constraint firstItem="xrH-Wp-kzL" firstAttribute="width" secondItem="xrH-Wp-kzL" secondAttribute="height" multiplier="1:1" id="DiA-cK-q07"/>
+                                    <constraint firstItem="B41-Q0-imC" firstAttribute="top" secondItem="g0V-7B-sW3" secondAttribute="bottom" constant="16" id="Dkn-cJ-ECd"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="top" secondItem="xc1-Vx-NmX" secondAttribute="bottom" constant="16" id="ER9-1I-LBC"/>
+                                    <constraint firstItem="pWJ-9x-a76" firstAttribute="centerY" secondItem="g0V-7B-sW3" secondAttribute="centerY" id="Fa3-eU-Ast"/>
+                                    <constraint firstItem="pWJ-9x-a76" firstAttribute="centerX" secondItem="hci-33-ra9" secondAttribute="centerX" id="JYK-X5-MPM"/>
+                                    <constraint firstItem="g0V-7B-sW3" firstAttribute="width" secondItem="pWJ-9x-a76" secondAttribute="width" id="Ldf-35-3sw"/>
+                                    <constraint firstItem="pWJ-9x-a76" firstAttribute="centerX" secondItem="VN9-z5-e5b" secondAttribute="centerX" id="M96-xe-aM5"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="centerX" secondItem="xc1-Vx-NmX" secondAttribute="centerX" id="NSi-6F-efc"/>
+                                    <constraint firstItem="xrH-Wp-kzL" firstAttribute="leading" secondItem="xc1-Vx-NmX" secondAttribute="trailing" constant="32" id="PkW-ju-adQ"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="width" secondItem="xc1-Vx-NmX" secondAttribute="height" multiplier="1:1" id="R2h-9A-txl"/>
+                                    <constraint firstItem="hci-33-ra9" firstAttribute="width" secondItem="hci-33-ra9" secondAttribute="height" multiplier="1:1" id="Rt6-Sl-gTW"/>
+                                    <constraint firstItem="miy-9h-fSa" firstAttribute="width" secondItem="miy-9h-fSa" secondAttribute="height" multiplier="1:1" id="SKj-pd-jm1"/>
+                                    <constraint firstItem="tIM-cR-zu8" firstAttribute="width" secondItem="miy-9h-fSa" secondAttribute="width" id="Tch-FH-fnw"/>
+                                    <constraint firstItem="g0V-7B-sW3" firstAttribute="width" secondItem="B41-Q0-imC" secondAttribute="width" id="U4c-SR-lRR"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="width" secondItem="g0V-7B-sW3" secondAttribute="width" id="WtC-Sp-vwQ"/>
+                                    <constraint firstItem="miy-9h-fSa" firstAttribute="centerX" secondItem="jHM-EG-79M" secondAttribute="centerX" id="Xf4-LD-hWG"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="width" secondItem="tIM-cR-zu8" secondAttribute="width" id="YqM-yj-wcE"/>
+                                    <constraint firstItem="tIM-cR-zu8" firstAttribute="top" secondItem="xc1-Vx-NmX" secondAttribute="top" id="ayC-bo-BVr"/>
+                                    <constraint firstItem="tIM-cR-zu8" firstAttribute="width" secondItem="tIM-cR-zu8" secondAttribute="height" multiplier="1:1" id="bLM-I9-50N"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="centerX" secondItem="F7t-cG-dFN" secondAttribute="centerX" id="cB0-3a-8Cg"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="top" secondItem="F7t-cG-dFN" secondAttribute="top" id="dKe-23-hgN"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="centerY" secondItem="miy-9h-fSa" secondAttribute="centerY" id="dYu-s9-HMm"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="width" secondItem="Buu-7I-PM6" secondAttribute="width" id="g27-vl-gd2"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="centerX" secondItem="g0V-7B-sW3" secondAttribute="centerX" id="g4K-4y-bkm"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="width" secondItem="xrH-Wp-kzL" secondAttribute="width" id="gG8-AT-XI5"/>
+                                    <constraint firstItem="g0V-7B-sW3" firstAttribute="centerY" secondItem="jHM-EG-79M" secondAttribute="centerY" id="l1n-sC-iWt"/>
+                                    <constraint firstItem="Buu-7I-PM6" firstAttribute="centerY" secondItem="hci-33-ra9" secondAttribute="centerY" id="lUO-GO-4sr"/>
+                                    <constraint firstItem="B41-Q0-imC" firstAttribute="centerY" secondItem="VN9-z5-e5b" secondAttribute="centerY" id="lXK-5c-oC7"/>
+                                    <constraint firstItem="B41-Q0-imC" firstAttribute="centerX" secondItem="g0V-7B-sW3" secondAttribute="centerX" id="mj7-XC-J6P"/>
+                                    <constraint firstAttribute="height" constant="336" id="o2M-WX-swF"/>
+                                    <constraint firstItem="tIM-cR-zu8" firstAttribute="centerX" secondItem="miy-9h-fSa" secondAttribute="centerX" id="o35-MY-Q0q"/>
+                                    <constraint firstItem="g0V-7B-sW3" firstAttribute="top" secondItem="Buu-7I-PM6" secondAttribute="bottom" constant="16" id="sc6-FE-TGZ"/>
+                                    <constraint firstItem="xrH-Wp-kzL" firstAttribute="top" secondItem="xc1-Vx-NmX" secondAttribute="top" id="uu8-nX-sQ2"/>
+                                    <constraint firstItem="VN9-z5-e5b" firstAttribute="width" secondItem="VN9-z5-e5b" secondAttribute="height" multiplier="1:1" id="uuQ-Ot-5z4"/>
+                                    <constraint firstItem="xrH-Wp-kzL" firstAttribute="centerX" secondItem="hci-33-ra9" secondAttribute="centerX" id="v9P-9H-sbW"/>
+                                    <constraint firstItem="xc1-Vx-NmX" firstAttribute="leading" secondItem="tIM-cR-zu8" secondAttribute="trailing" constant="32" id="wWx-2M-OxW"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="backspaceButton" destination="VN9-z5-e5b" id="yCi-2K-mT7"/>
+                                    <outlet property="cancelButton" destination="VN9-z5-e5b" id="Bps-Jg-Axl"/>
+                                    <outletCollection property="numericButtonsCollection" destination="tIM-cR-zu8" collectionClass="NSMutableArray" id="qeu-NZ-Eh8"/>
+                                    <outletCollection property="numericButtonsCollection" destination="xc1-Vx-NmX" collectionClass="NSMutableArray" id="YEt-dN-RUl"/>
+                                    <outletCollection property="numericButtonsCollection" destination="xrH-Wp-kzL" collectionClass="NSMutableArray" id="OGC-8c-H1p"/>
+                                    <outletCollection property="numericButtonsCollection" destination="miy-9h-fSa" collectionClass="NSMutableArray" id="aXi-py-HK9"/>
+                                    <outletCollection property="numericButtonsCollection" destination="Buu-7I-PM6" collectionClass="NSMutableArray" id="byx-w7-eBT"/>
+                                    <outletCollection property="numericButtonsCollection" destination="hci-33-ra9" collectionClass="NSMutableArray" id="Seu-sw-6De"/>
+                                    <outletCollection property="numericButtonsCollection" destination="jHM-EG-79M" collectionClass="NSMutableArray" id="auO-jR-cwX"/>
+                                    <outletCollection property="numericButtonsCollection" destination="g0V-7B-sW3" collectionClass="NSMutableArray" id="ZzM-Ai-t6v"/>
+                                    <outletCollection property="numericButtonsCollection" destination="pWJ-9x-a76" collectionClass="NSMutableArray" id="ikm-2y-nl7"/>
+                                    <outletCollection property="numericButtonsCollection" destination="B41-Q0-imC" collectionClass="NSMutableArray" id="7Rz-Fc-XwR"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="F7t-cG-dFN" firstAttribute="leading" secondItem="chz-yk-fKM" secondAttribute="leadingMargin" id="5Cg-N3-Cfh"/>
+                            <constraint firstItem="C5L-dE-S3L" firstAttribute="centerY" secondItem="4le-cZ-li9" secondAttribute="centerY" id="9CP-m8-oEZ"/>
+                            <constraint firstItem="V8i-jz-vKF" firstAttribute="centerX" secondItem="chz-yk-fKM" secondAttribute="centerX" id="B20-0L-82o"/>
+                            <constraint firstItem="4le-cZ-li9" firstAttribute="top" secondItem="V8i-jz-vKF" secondAttribute="bottom" id="T88-we-75y"/>
+                            <constraint firstItem="4le-cZ-li9" firstAttribute="trailing" secondItem="cCK-89-phx" secondAttribute="leading" id="YH4-wB-EKt"/>
+                            <constraint firstItem="F7t-cG-dFN" firstAttribute="top" secondItem="k1K-hx-IPD" secondAttribute="bottom" id="ZIm-0U-Wjt"/>
+                            <constraint firstItem="V8i-jz-vKF" firstAttribute="top" secondItem="hRT-Eh-fZQ" secondAttribute="bottom" constant="32" id="ZZs-36-Zob"/>
+                            <constraint firstItem="4le-cZ-li9" firstAttribute="height" secondItem="cCK-89-phx" secondAttribute="height" id="bJj-N8-Vlo"/>
+                            <constraint firstItem="cCK-89-phx" firstAttribute="top" secondItem="4le-cZ-li9" secondAttribute="top" id="cg1-ff-WPj"/>
+                            <constraint firstItem="cCK-89-phx" firstAttribute="width" secondItem="4le-cZ-li9" secondAttribute="width" id="el9-gh-cC1"/>
+                            <constraint firstItem="F7t-cG-dFN" firstAttribute="trailing" secondItem="chz-yk-fKM" secondAttribute="trailingMargin" id="fOz-S8-r3n"/>
+                            <constraint firstItem="4le-cZ-li9" firstAttribute="width" secondItem="chz-yk-fKM" secondAttribute="width" id="kgF-Jl-xcx"/>
+                            <constraint firstItem="4le-cZ-li9" firstAttribute="leading" secondItem="chz-yk-fKM" secondAttribute="leading" id="mwa-l3-OUB"/>
+                            <constraint firstItem="HV7-zA-elE" firstAttribute="top" secondItem="F7t-cG-dFN" secondAttribute="bottom" constant="20" id="sbb-zd-ykH"/>
+                            <constraint firstItem="k1K-hx-IPD" firstAttribute="centerX" secondItem="chz-yk-fKM" secondAttribute="centerX" id="tPY-8x-Eyz"/>
+                            <constraint firstItem="C5L-dE-S3L" firstAttribute="centerX" secondItem="chz-yk-fKM" secondAttribute="centerX" id="vXY-yt-TDN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Fixed Pin" id="lCb-tA-cV5"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="C5L-dE-S3L" id="ONm-sU-vLd"/>
+                        <outlet property="changeComplexityButton" destination="k1K-hx-IPD" id="bKw-hG-4hc"/>
+                        <outlet property="error1Label" destination="dnf-1B-H8s" id="0Bh-aB-qQn"/>
+                        <outlet property="group1" destination="4le-cZ-li9" id="GlZ-ee-qha"/>
+                        <outlet property="group2" destination="cCK-89-phx" id="ZUY-et-buh"/>
+                        <outlet property="groupsAnimationConstraint" destination="mwa-l3-OUB" id="uF6-9s-3IX"/>
+                        <outlet property="logoImage" destination="V8i-jz-vKF" id="jlm-0e-Isa"/>
+                        <outlet property="logoImageTopConstraint" destination="ZZs-36-Zob" id="jhl-sW-TRK"/>
+                        <outlet property="password1Label" destination="93j-iV-PWx" id="Tgb-we-fMr"/>
+                        <outlet property="password2Label" destination="9KW-fh-9m1" id="rQr-hn-pwE"/>
+                        <outlet property="pinKeyboard" destination="F7t-cG-dFN" id="3we-7b-lcg"/>
+                        <outlet property="pinKeyboardBottomConstraint" destination="sbb-zd-ykH" id="JRg-gA-McT"/>
+                        <outlet property="prompt1Label" destination="Obf-La-fic" id="OXw-Wy-tLb"/>
+                        <outlet property="prompt2Label" destination="J1l-8f-AvF" id="k50-jc-TfE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehV-dn-d2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="-356"/>
+        </scene>
+        <!--Enter Fixed PIN-->
+        <scene sceneID="Vaf-on-aMN">
+            <objects>
+                <viewController storyboardIdentifier="EnterFixedPasscode" id="Q92-aI-fge" userLabel="Enter Fixed PIN" customClass="EnterFixedPasscodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VV4-dY-JA8"/>
+                        <viewControllerLayoutGuide type="bottom" id="aI2-Iz-kO8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kxP-un-uXV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="ei3-Jb-C6e" userLabel="Logo">
+                                <rect key="frame" x="87.5" y="52" width="200" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SC2-mx-75d"/>
+                                    <constraint firstAttribute="height" constant="77" id="xlY-nJ-PqQ"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3S-aK-umU" userLabel="Pin Group">
+                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-zY-kpZ" userLabel="Prompt">
+                                        <rect key="frame" x="16" y="16" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Bjc-1z-LmK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGi-tA-04H" userLabel="PIN">
+                                        <rect key="frame" x="16" y="68" width="343" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="N1m-Sl-AtO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attemps left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-jV-5ZV">
+                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="n3p-zY-kpZ" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="top" constant="16" id="AJ8-Yl-JSz"/>
+                                    <constraint firstItem="tGi-tA-04H" firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" id="LHq-eu-m5a"/>
+                                    <constraint firstItem="n3p-zY-kpZ" firstAttribute="leading" secondItem="Y3S-aK-umU" secondAttribute="leading" constant="16" id="ORS-4H-TwT"/>
+                                    <constraint firstItem="tGi-tA-04H" firstAttribute="leading" secondItem="n3p-zY-kpZ" secondAttribute="leading" id="RU4-JX-Qlm"/>
+                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="leading" secondItem="n3p-zY-kpZ" secondAttribute="leading" id="Unr-SJ-EZL"/>
+                                    <constraint firstAttribute="bottom" secondItem="jYc-jV-5ZV" secondAttribute="bottom" constant="14" id="X22-El-tsN"/>
+                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="top" secondItem="tGi-tA-04H" secondAttribute="bottom" constant="8" id="aW4-Fd-8oX"/>
+                                    <constraint firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" constant="16" id="aic-Ub-yer"/>
+                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" id="dyF-Pd-yLp"/>
+                                    <constraint firstItem="tGi-tA-04H" firstAttribute="top" secondItem="n3p-zY-kpZ" secondAttribute="bottom" constant="8" id="pfQ-lY-txF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W47-fr-Vv8" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="MobileToken" customModuleProvider="target">
+                                <rect key="frame" x="138" y="269" width="100" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-SY-YDF" userLabel="Success Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-cK-x2r" userLabel="Error Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KIX-5D-U6C" userLabel="Activity">
+                                        <rect key="frame" x="32" y="32" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1kg-y4-Q99"/>
+                                    <constraint firstItem="aEg-SY-YDF" firstAttribute="leading" secondItem="W47-fr-Vv8" secondAttribute="leading" id="8SF-lg-MsW"/>
+                                    <constraint firstItem="KIX-5D-U6C" firstAttribute="centerX" secondItem="W47-fr-Vv8" secondAttribute="centerX" id="Dl1-QT-yZm"/>
+                                    <constraint firstItem="Vqm-cK-x2r" firstAttribute="leading" secondItem="W47-fr-Vv8" secondAttribute="leading" id="Euu-Nu-QJQ"/>
+                                    <constraint firstItem="Vqm-cK-x2r" firstAttribute="top" secondItem="W47-fr-Vv8" secondAttribute="top" id="GcI-dr-dg4"/>
+                                    <constraint firstAttribute="trailing" secondItem="aEg-SY-YDF" secondAttribute="trailing" id="H3n-Tl-OTS"/>
+                                    <constraint firstAttribute="bottom" secondItem="aEg-SY-YDF" secondAttribute="bottom" id="Qls-4e-Y3s"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vqm-cK-x2r" secondAttribute="bottom" id="SNb-EA-RCg"/>
+                                    <constraint firstItem="KIX-5D-U6C" firstAttribute="centerY" secondItem="W47-fr-Vv8" secondAttribute="centerY" id="TrA-pB-pma"/>
+                                    <constraint firstItem="aEg-SY-YDF" firstAttribute="top" secondItem="W47-fr-Vv8" secondAttribute="top" id="UBx-aU-uXb"/>
+                                    <constraint firstAttribute="height" constant="100" id="WjE-0A-TGW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vqm-cK-x2r" secondAttribute="trailing" id="rQ3-A7-v2R"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicatorView" destination="KIX-5D-U6C" id="lUF-aX-ETY"/>
+                                    <outlet property="failureImageView" destination="Vqm-cK-x2r" id="bRG-HV-6Jv"/>
+                                    <outlet property="succesImageView" destination="aEg-SY-YDF" id="38I-Z0-Zd4"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qf-IN-V2z" userLabel="Close Error Button" customClass="ConfirmButton" customModule="MobileToken" customModuleProvider="target">
+                                <rect key="frame" x="20" y="591" width="335" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="HhF-Tv-Xas"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="confirmErrorAction:" destination="Q92-aI-fge" eventType="touchUpInside" id="mR0-BK-mhR"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-d1-ZHn" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="MobileToken" customModuleProvider="target">
+                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSf-Bo-idv" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="1"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-gl-O4i" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="2"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lN0-VB-fct" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="3"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-g2-sOx" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="4"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-9U-HU2" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KIv-9U-HU2" secondAttribute="height" multiplier="1:1" id="EOA-6Z-b0F"/>
+                                            <constraint firstAttribute="width" constant="72" id="g8h-eR-mrX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="5"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jW-BE-q62" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="7jB-if-WtU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="6"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-jd-2Xg" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="7"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-fD-U4Y" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VZb-fD-U4Y" secondAttribute="height" multiplier="1:1" id="QaR-51-DJM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="8"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij4-MK-RSW" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="9"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pa-oF-O21" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4Pa-oF-O21" secondAttribute="height" multiplier="1:1" id="re0-1Y-le7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
+                                        <state key="normal" title="0"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-Hr-Olh" customClass="PinClearKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5ML-Hr-Olh" secondAttribute="height" multiplier="1:1" id="OTi-K4-cNe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <state key="normal" title="←"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-Ey-RUk" userLabel="bio" customClass="PinClearKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="264" width="72" height="72"/>
+                                        <state key="normal" image="ic-touchid"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="uSf-Bo-idv" firstAttribute="centerX" secondItem="8Sp-g2-sOx" secondAttribute="centerX" id="14r-QY-8cp"/>
+                                    <constraint firstItem="8Sp-g2-sOx" firstAttribute="centerX" secondItem="omf-jd-2Xg" secondAttribute="centerX" id="1RG-k4-8Cg"/>
+                                    <constraint firstItem="ij4-MK-RSW" firstAttribute="centerY" secondItem="VZb-fD-U4Y" secondAttribute="centerY" id="3Nq-Le-Zla"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="top" secondItem="VZb-fD-U4Y" secondAttribute="bottom" constant="16" id="54a-aJ-g0J"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="width" secondItem="lN0-VB-fct" secondAttribute="width" id="5Q7-c2-MSS"/>
+                                    <constraint firstItem="8Sp-g2-sOx" firstAttribute="width" secondItem="8Sp-g2-sOx" secondAttribute="height" multiplier="1:1" id="5Vp-r4-bUd"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="top" secondItem="G3a-d1-ZHn" secondAttribute="top" id="64J-pP-9Z4"/>
+                                    <constraint firstItem="lN0-VB-fct" firstAttribute="top" secondItem="5fv-gl-O4i" secondAttribute="top" id="6ff-eh-f1Y"/>
+                                    <constraint firstItem="VZb-fD-U4Y" firstAttribute="width" secondItem="4Pa-oF-O21" secondAttribute="width" id="7Nt-FU-CnF"/>
+                                    <constraint firstItem="ij4-MK-RSW" firstAttribute="width" secondItem="ij4-MK-RSW" secondAttribute="height" multiplier="1:1" id="7Zd-wr-crd"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="width" secondItem="KIv-9U-HU2" secondAttribute="width" id="AbV-Ut-r74"/>
+                                    <constraint firstItem="ij4-MK-RSW" firstAttribute="centerX" secondItem="5ML-Hr-Olh" secondAttribute="centerX" id="Iku-EA-sS2"/>
+                                    <constraint firstItem="uSf-Bo-idv" firstAttribute="width" secondItem="8Sp-g2-sOx" secondAttribute="width" id="IyF-Ta-rIH"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="width" secondItem="ONq-Ey-RUk" secondAttribute="width" id="LLW-Cn-NqO"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="centerY" secondItem="3jW-BE-q62" secondAttribute="centerY" id="Lpf-Xa-d5g"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="centerX" secondItem="VZb-fD-U4Y" secondAttribute="centerX" id="MOd-ud-1qD"/>
+                                    <constraint firstItem="8Sp-g2-sOx" firstAttribute="width" secondItem="omf-jd-2Xg" secondAttribute="width" id="NBh-FN-wqg"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="width" secondItem="uSf-Bo-idv" secondAttribute="width" id="No6-Ig-1eP"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="centerX" secondItem="5fv-gl-O4i" secondAttribute="centerX" id="PUv-xb-mlx"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="width" secondItem="VZb-fD-U4Y" secondAttribute="width" id="QvC-kZ-GFo"/>
+                                    <constraint firstItem="lN0-VB-fct" firstAttribute="width" secondItem="3jW-BE-q62" secondAttribute="width" id="RDi-Wh-soU"/>
+                                    <constraint firstItem="VZb-fD-U4Y" firstAttribute="width" secondItem="ij4-MK-RSW" secondAttribute="width" id="X2T-5n-I6a"/>
+                                    <constraint firstItem="lN0-VB-fct" firstAttribute="centerX" secondItem="3jW-BE-q62" secondAttribute="centerX" id="XPm-hj-MKk"/>
+                                    <constraint firstItem="omf-jd-2Xg" firstAttribute="width" secondItem="omf-jd-2Xg" secondAttribute="height" multiplier="1:1" id="XRV-Cc-cp6"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="leading" secondItem="uSf-Bo-idv" secondAttribute="trailing" constant="32" id="YqG-05-3Ku"/>
+                                    <constraint firstItem="3jW-BE-q62" firstAttribute="width" secondItem="3jW-BE-q62" secondAttribute="height" multiplier="1:1" id="agR-lL-2p2"/>
+                                    <constraint firstItem="lN0-VB-fct" firstAttribute="width" secondItem="lN0-VB-fct" secondAttribute="height" multiplier="1:1" id="ahq-h0-1K4"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="centerX" secondItem="VZb-fD-U4Y" secondAttribute="centerX" id="bhZ-zx-Y0o"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="top" secondItem="5fv-gl-O4i" secondAttribute="bottom" constant="16" id="cF1-8M-e0Y"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="centerY" secondItem="ONq-Ey-RUk" secondAttribute="centerY" id="csA-6n-JDb"/>
+                                    <constraint firstAttribute="height" constant="336" id="j8p-kX-xgq"/>
+                                    <constraint firstItem="uSf-Bo-idv" firstAttribute="width" secondItem="uSf-Bo-idv" secondAttribute="height" multiplier="1:1" id="kF2-xr-tZn"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="centerY" secondItem="5ML-Hr-Olh" secondAttribute="centerY" id="kIm-t2-bCo"/>
+                                    <constraint firstItem="ij4-MK-RSW" firstAttribute="centerX" secondItem="3jW-BE-q62" secondAttribute="centerX" id="kLV-gQ-WUJ"/>
+                                    <constraint firstItem="5ML-Hr-Olh" firstAttribute="width" secondItem="5ML-Hr-Olh" secondAttribute="height" multiplier="1:1" id="laU-Sr-jgA"/>
+                                    <constraint firstItem="VZb-fD-U4Y" firstAttribute="top" secondItem="KIv-9U-HU2" secondAttribute="bottom" constant="16" id="lhc-wH-eZm"/>
+                                    <constraint firstItem="uSf-Bo-idv" firstAttribute="top" secondItem="5fv-gl-O4i" secondAttribute="top" id="m36-pg-T8p"/>
+                                    <constraint firstItem="omf-jd-2Xg" firstAttribute="centerX" secondItem="ONq-Ey-RUk" secondAttribute="centerX" id="rfo-gD-Ico"/>
+                                    <constraint firstItem="5fv-gl-O4i" firstAttribute="width" secondItem="5fv-gl-O4i" secondAttribute="height" multiplier="1:1" id="uDP-Ye-FgK"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="height" secondItem="ONq-Ey-RUk" secondAttribute="height" id="vVj-C7-pXP"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="centerY" secondItem="8Sp-g2-sOx" secondAttribute="centerY" id="xCr-8e-SNV"/>
+                                    <constraint firstItem="lN0-VB-fct" firstAttribute="leading" secondItem="5fv-gl-O4i" secondAttribute="trailing" constant="32" id="ygE-jQ-fwj"/>
+                                    <constraint firstItem="VZb-fD-U4Y" firstAttribute="centerY" secondItem="omf-jd-2Xg" secondAttribute="centerY" id="zFx-Ie-Vgv"/>
+                                    <constraint firstItem="4Pa-oF-O21" firstAttribute="width" secondItem="5ML-Hr-Olh" secondAttribute="width" id="zM8-ac-oy9"/>
+                                    <constraint firstItem="KIv-9U-HU2" firstAttribute="centerX" secondItem="G3a-d1-ZHn" secondAttribute="centerX" id="zy0-wK-yWI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="backspaceButton" destination="5ML-Hr-Olh" id="wqs-VU-umQ"/>
+                                    <outlet property="biometryButton" destination="ONq-Ey-RUk" id="2ab-nf-efs"/>
+                                    <outlet property="cancelButton" destination="5ML-Hr-Olh" id="6Wj-gn-ijl"/>
+                                    <outletCollection property="numericButtonsCollection" destination="uSf-Bo-idv" collectionClass="NSMutableArray" id="OcI-PV-CrA"/>
+                                    <outletCollection property="numericButtonsCollection" destination="5fv-gl-O4i" collectionClass="NSMutableArray" id="Uec-2C-Zht"/>
+                                    <outletCollection property="numericButtonsCollection" destination="lN0-VB-fct" collectionClass="NSMutableArray" id="dvX-YH-kuB"/>
+                                    <outletCollection property="numericButtonsCollection" destination="8Sp-g2-sOx" collectionClass="NSMutableArray" id="H3C-0G-enC"/>
+                                    <outletCollection property="numericButtonsCollection" destination="KIv-9U-HU2" collectionClass="NSMutableArray" id="GE5-sa-TGW"/>
+                                    <outletCollection property="numericButtonsCollection" destination="3jW-BE-q62" collectionClass="NSMutableArray" id="DJY-u6-JVc"/>
+                                    <outletCollection property="numericButtonsCollection" destination="omf-jd-2Xg" collectionClass="NSMutableArray" id="8Ta-SJ-ZPh"/>
+                                    <outletCollection property="numericButtonsCollection" destination="VZb-fD-U4Y" collectionClass="NSMutableArray" id="JWX-hr-Ze7"/>
+                                    <outletCollection property="numericButtonsCollection" destination="ij4-MK-RSW" collectionClass="NSMutableArray" id="SlF-hf-z4W"/>
+                                    <outletCollection property="numericButtonsCollection" destination="4Pa-oF-O21" collectionClass="NSMutableArray" id="Caa-IZ-ri8"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Qf-IN-V2z" firstAttribute="leading" secondItem="kxP-un-uXV" secondAttribute="leading" constant="20" id="Cn9-Ow-LyP"/>
+                            <constraint firstItem="ei3-Jb-C6e" firstAttribute="top" secondItem="VV4-dY-JA8" secondAttribute="bottom" constant="32" id="LUT-uW-nHe">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="leadingMargin" secondItem="G3a-d1-ZHn" secondAttribute="leading" id="Pcn-G8-7M8"/>
+                            <constraint firstItem="ei3-Jb-C6e" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="UOL-bR-Eko"/>
+                            <constraint firstItem="aI2-Iz-kO8" firstAttribute="top" secondItem="G3a-d1-ZHn" secondAttribute="bottom" constant="20" id="arB-Ac-rs8"/>
+                            <constraint firstItem="Vqm-cK-x2r" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="bkh-82-m2L"/>
+                            <constraint firstItem="Y3S-aK-umU" firstAttribute="width" secondItem="kxP-un-uXV" secondAttribute="width" id="fIV-b2-uAU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G3a-d1-ZHn" secondAttribute="trailing" id="gR5-M6-pAo"/>
+                            <constraint firstAttribute="trailing" secondItem="1Qf-IN-V2z" secondAttribute="trailing" constant="20" id="gxE-8Z-uvh"/>
+                            <constraint firstItem="Y3S-aK-umU" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="i4f-yR-jBP"/>
+                            <constraint firstItem="W47-fr-Vv8" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="bottom" constant="8" id="thc-sc-7AM"/>
+                            <constraint firstItem="aI2-Iz-kO8" firstAttribute="top" secondItem="1Qf-IN-V2z" secondAttribute="bottom" constant="20" id="uM8-w2-tZ3"/>
+                            <constraint firstItem="Y3S-aK-umU" firstAttribute="top" secondItem="ei3-Jb-C6e" secondAttribute="bottom" id="wng-5n-IkU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter Pin" id="tPn-J2-tWG">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="8hL-Ok-p5I">
+                            <connections>
+                                <action selector="cancelAction:" destination="Q92-aI-fge" id="M9d-wW-g3L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="W47-fr-Vv8" id="1iC-il-otA"/>
+                        <outlet property="attemptsLabel" destination="jYc-jV-5ZV" id="0iK-4f-jdU"/>
+                        <outlet property="closeErrorButton" destination="1Qf-IN-V2z" id="bDp-IE-Nh1"/>
+                        <outlet property="fixedPinLabel" destination="tGi-tA-04H" id="XqV-0S-JNk"/>
+                        <outlet property="logoImage" destination="ei3-Jb-C6e" id="dj5-NX-XHF"/>
+                        <outlet property="logoImageTopConstraint" destination="LUT-uW-nHe" id="onk-QK-i2Z"/>
+                        <outlet property="pinKeyboard" destination="G3a-d1-ZHn" id="F98-Mj-bBo"/>
+                        <outlet property="pinKeyboardBottomConstraint" destination="arB-Ac-rs8" id="obl-Xp-Gho"/>
+                        <outlet property="promptLabel" destination="n3p-zY-kpZ" id="HWj-g3-G3W"/>
+                        <segue destination="v1e-b9-268" kind="show" identifier="ChangePassword" id="mqI-kg-eut"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ooi-HR-9aB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1698" y="-357"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="error-ico" width="100" height="108"/>
+        <image name="ic-touchid" width="32" height="32"/>
+        <image name="logo-main" width="240" height="120"/>
+        <image name="success-ico" width="100" height="100"/>
+    </resources>
+</document>

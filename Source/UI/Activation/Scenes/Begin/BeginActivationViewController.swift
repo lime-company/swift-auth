@@ -16,9 +16,9 @@
 
 import UIKit
 
-open class BeginActivationViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class BeginActivationViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (ActivationProcessRouter & BeginActivationRoutingLogic)!
+    public var router: (ActivationUIProcessRouter & BeginActivationRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     public var cameraAccessProvider: CameraAccessProvider!
     
@@ -65,7 +65,7 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }

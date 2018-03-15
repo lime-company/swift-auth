@@ -16,9 +16,9 @@
 
 import UIKit
 
-open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationProcessController {
+open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
-    public var router: (ActivationProcessRouter & KeysExchangeRoutingLogic)!
+    public var router: (ActivationUIProcessRouter & KeysExchangeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     
     
@@ -62,7 +62,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationP
     
     // MARK: - Routing
     
-    open func connect(activationProcess process: ActivationProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
@@ -91,7 +91,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationP
             if let result = result {
                 self.router.routeToCreatePassword(with: result)
             } else if let error = error {
-                self.router.routeToError(with: error)
+                self.router.routeToError(with: LimeAuthError(error: error))
             }
         }
     }

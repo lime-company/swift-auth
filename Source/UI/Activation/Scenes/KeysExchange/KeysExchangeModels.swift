@@ -27,7 +27,9 @@ public enum KeysExchange {
         public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(pendingActivationTitle: "Pairing your device...")
+            let strings = Strings(
+                pendingActivationTitle: "Pairing your device..."
+            )
             return UIData(strings: strings)
         }
     }
