@@ -50,4 +50,11 @@ public extension LimeAuthSession {
         return self.addOperationToQueue(blockOperation, serialized: true)
     }
     
+    
+    /// Returns true if authentication with using biometry is supported on this device.
+    /// The implementation simply enumerates `PA2Keychain.supportedBiometricAuthentication != .none`
+    public static var canUseBiometricAuthentication: Bool {
+        return PA2Keychain.supportedBiometricAuthentication != .none
+    }
+    
 }
