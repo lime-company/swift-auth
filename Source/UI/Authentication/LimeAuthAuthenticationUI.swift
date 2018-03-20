@@ -243,8 +243,8 @@ public extension LimeAuthAuthenticationUI {
         }
         // TODO: loc
         var uiRequest = Authentication.UIRequest()
-        uiRequest.prompts.activityMessage = "Removing activation from this device..."
-        uiRequest.prompts.successMessage = "This device is no longer activated."
+        uiRequest.prompts.activityMessage = "Workinng..."
+        uiRequest.prompts.successMessage = "Biometric authentication has been enabled."
         
         return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
             completion(result, finalController)
