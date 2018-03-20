@@ -33,11 +33,13 @@ public enum Authentication {
         public struct CommonStrings {
             
             public let enterPin: String
+            public let enterOldPin: String
             public let enterNewPin: String
             public let retypePin: String
             public let pinNoMatch: String
             
             public let enterPassword: String
+            public let enterOldPassword: String
             public let enterNewPassword: String
             public let retypePassword: String
             public let passwordNoMatch: String
@@ -56,13 +58,15 @@ public enum Authentication {
             public static func fallbackStrings() -> CommonStrings {
                 return CommonStrings(
                     enterPin: "Enter PIN",
-                    enterNewPin: "Enter new PIN",
-                    retypePin: "Retype PIN",
+                    enterOldPin: "Enter old passcode",
+                    enterNewPin: "Enter new passcode",
+                    retypePin: "Retype new passcode",
                     pinNoMatch: "Passcodes did not match. Try again.",
                     
                     enterPassword: "Enter password",
+                    enterOldPassword: "Enter old password",
                     enterNewPassword: "Enter new password",
-                    retypePassword: "Retype Password",
+                    retypePassword: "Retype new password",
                     passwordNoMatch: "Passwords did not match. Try again.",
                     
                     useTouchId: "Use Touch ID",
@@ -228,12 +232,17 @@ public enum Authentication {
     
     
     public struct UICredentials {
-        public let password: String?
+        public let password: String
         public let paswordOptionsIndex: Int?
         
         public init(password: String, optionsIndex: Int? = nil) {
             self.password = password
             self.paswordOptionsIndex = optionsIndex
         }
+    }
+    
+    public struct UICredentialsChange {
+        public let current: UICredentials
+        public let next: UICredentials
     }
 }

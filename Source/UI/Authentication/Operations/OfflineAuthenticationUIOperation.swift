@@ -59,4 +59,8 @@ public class OfflineAuthenticationUIOperation: AuthenticationUIOperation {
     public private(set) var isCancelled = false
     
     public let isOffline = true
+    
+    /// Offline operation doesn't need serialization, so we can pretend
+    /// that it's already serialized.
+    public let isSerialized = true
 }
