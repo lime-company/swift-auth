@@ -22,7 +22,8 @@ public class OnlineAuthenticationUIOperation: AuthenticationUIOperation {
     private var executionBlock: (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?
     private var underlyingOperation: Operation?
     
-    public init(execution: @escaping (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?) {
+    public init(isSerialized: Bool, execution: @escaping (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?) {
+        self.isSerialized = isSerialized
         self.executionBlock = execution
     }
     
@@ -59,4 +60,6 @@ public class OnlineAuthenticationUIOperation: AuthenticationUIOperation {
     public private(set) var isCancelled = false
     
     public let isOffline = false
+    
+    public let isSerialized: Bool
 }
