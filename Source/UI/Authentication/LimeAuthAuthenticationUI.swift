@@ -237,7 +237,7 @@ public extension LimeAuthAuthenticationUI {
                                            completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         // Build operation object
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
-            return session.removeActivation(authentication: authentication) { (error) in
+            return session.addBiometryFactor(password: authentication.usePassword!) { (error) in
                 completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
             }
         }
