@@ -97,7 +97,7 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         case .variablePin:
             return "\(option.minimumLength) to \(option.maximumLength) digits long PIN"
         case .password:
-            return "\(option.minimumLength) and more characters long password"
+            return "Min. \(option.minimumLength) characters long password"
         }
     }
     

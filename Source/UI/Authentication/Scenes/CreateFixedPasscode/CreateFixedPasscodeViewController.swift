@@ -107,6 +107,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         }
         
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
+        updateLocalizedStrings()
         prepareUIForFirstUse()
     }
     
