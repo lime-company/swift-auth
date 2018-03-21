@@ -17,21 +17,20 @@
 import UIKit
 import PowerAuth2
 
-open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, EnterPasswordRoutableController, PinKeyboardViewDelegate {
+open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPasswordRoutableController, PinKeyboardViewDelegate {
     
     public var router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
-
-    public func connectEnterPasswordRouter(router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic)) {
+    
+    open func connectEnterPasswordRouter(router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic)) {
         self.router = router
         router.connect(controller: self)
     }
     
-    public func connect(authenticationProcess process: AuthenticationUIProcess) {
+    open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
     }
-
     
     // MARK: - Outlets -
     
@@ -43,9 +42,11 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     /// Label for PIN prompt
     @IBOutlet weak var promptLabel: UILabel!
     /// Label for PIN bullets
-    @IBOutlet weak var fixedPinLabel: UILabel!
+    @IBOutlet weak var variablePinLabel: UILabel!
     /// Label displaying remaining attempts
     @IBOutlet weak var attemptsLabel: UILabel!
+    /// PIN confirmation button
+    @IBOutlet weak var confirmPinButton: UIButton!
     
     /// An activity indicator
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
@@ -88,9 +89,9 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     /// Current UI state.
-    private var currentState    = InterfaceState.empty
+    private var currentState     = InterfaceState.empty
     /// Next UI state.
-    private var nextState       = InterfaceState.empty
+    private var nextState         = InterfaceState.empty
     
     /// Returns true if there's pending activity
     private var isPendingStateChange: Bool {
@@ -106,7 +107,9 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     /// The required length for PIN
-    private var requiredPasswordLength: Int = -1
+    private var minimumPasswordLength: Int = -1
+    /// The maximum length for this PIN
+    private var maximumPasswordLength: Int = -1
     
     /// Returns true if biometry is allowed for this operation.
     private var isBiometryAllowed: Bool {
@@ -115,6 +118,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     /// Error returned from operation execution
     private var error: LimeAuthError?
+    
     
     // MARK: - ViewController life cycle
     
@@ -127,10 +131,11 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         }
         
         let credentials = authenticationProcess.credentialsProvider.credentials
-        guard credentials.password.type == .fixedPin else {
+        guard credentials.password.type == .variablePin else {
             fatalError("This controller implements different credentials input method than is requested.")
         }
-        requiredPasswordLength = credentials.password.maximumLength
+        minimumPasswordLength = credentials.password.minimumLength
+        maximumPasswordLength = credentials.password.maximumLength
         
         // Prepare UI
         updateLocalizedStrings()
@@ -160,7 +165,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     open func updateLocalizedStrings() {
         let commonStrings = uiDataProvider.uiCommonStrings
-        self.closeErrorButton.setTitle(commonStrings.okButton, for: .normal)
+        self.confirmPinButton.setTitle(commonStrings.okButton, for: .normal)
+        self.closeErrorButton.setTitle(commonStrings.closeButton, for: .normal)
     }
     
     
@@ -195,7 +201,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     private func getAndResetPassword(keepFakePassword: Bool = false) -> String {
         let pass = self.password
-        let stars = String(repeating: "*", count: self.requiredPasswordLength)
+        let stars = String(repeating: "*", count: self.passwordLength)
         self.password.removeAll()
         self.password.append(stars)
         self.password.removeAll()
@@ -213,7 +219,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         if biometry {
             // simulate "full bullets" when biometry is used
             self.updatePasswordLabel()
-            // create biometry credentials object
+            // setup biometry credentials object
             authentication.useBiometry = true
             authentication.biometryPrompt = uiRequest.prompts.biometricPrompt
         } else {
@@ -227,6 +233,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         self.presentActivity(animated: true, afterDelay: changeStateDuration) {
             // And execute operation after
             self.operationExecution.execute(for: authentication) { (result) in
+                // Operation is completed, so process the result
                 if result.isError {
                     self.authenticationProcess.storeFailureReason(error: result.error!)
                     self.showFailureResult(result)
@@ -247,7 +254,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     private func showFailureResult(_ failure: AuthenticationUIOperationResult) {
         
         error = failure.error
-        self.fixedPinLabel?.isHidden = false
         if failure.isTouchIdCancel {
             // user did cancel TouchID dialog
             self.presentKeyboard(animated: true)
@@ -274,7 +280,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     private func appendDigit(_ digit: Int) {
-        if self.passwordLength < self.requiredPasswordLength {
+        if self.passwordLength < self.maximumPasswordLength {
             self.password.append(Character(UnicodeScalar(48 + digit)!))
         } else {
             D.print("WARNING: trying to add more digits than allowed")
@@ -295,11 +301,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     private func afterPassowrdChange() {
         self.updateViews()
-        if self.passwordLength == self.requiredPasswordLength {
-            // PIN is complete, so execute the operation immediately
-            executeOperation(biometry: false)
-        }
     }
+    
     
     // MARK: - IBActions -
     
@@ -307,9 +310,16 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         router.routeToError()
     }
     
+    @IBAction func confirmPinAction(_ sender: UIButton) {
+        if self.passwordLength >= self.minimumPasswordLength {
+            executeOperation(biometry: false)
+        }
+    }
+    
     private func doCancel() {
         router.routeToCancel()
     }
+    
     
     // MARK: - Present UI state change
     
@@ -339,7 +349,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         adjustLayout()
         
-        // Choose right initial mode
         if operationExecution.willUseBiometryFirst() {
             presentActivity(animated: false)
         } else {
@@ -361,7 +370,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.logoImageTopConstraint.constant = 20.0
         }
     }
-    
     
     open func presentActivity(animated: Bool, afterDelay: TimeInterval = 0, completion: (()->Void)? = nil) {
         self.changeState(to: .activity)
@@ -399,7 +407,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         let uiChange = { ()->Void in
             //
-            self.fixedPinLabel.textColor = UIColor.black
+            self.variablePinLabel.textColor = UIColor.black
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
@@ -409,7 +417,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             completion?()
         }
         self.updateViews()
-        
         UIView.animate(withDuration: animated ? 0.25 : 0, delay: 0, options: .curveEaseInOut, animations: {
             uiChange()
             self.view.layoutIfNeeded()
@@ -437,10 +444,10 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while
-            doShake(view: fixedPinLabel, time: 0.07 , start: {
-                self.fixedPinLabel?.textColor = UIColor(red:0.761, green:0.000, blue:0.502, alpha:1.000)
+            doShake(view: variablePinLabel, time: 0.07 , start: {
+                self.variablePinLabel?.textColor = UIColor(red:0.761, green:0.000, blue:0.502, alpha:1.000)
             }) {
-                self.fixedPinLabel?.textColor = UIColor.black
+                self.variablePinLabel?.textColor = UIColor.black
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.errorAnimationDelay)) {
                     self.commitChangeState()
                     completion?()
@@ -448,7 +455,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             }
         } else {
             // Non retry... We need to wait and then animate close button
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.errorAnimationDelay)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.errorAnimationDelay)) {
                 UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
                     self.closeErrorButton?.alpha = 1
                 }, completion: { (complete) in
@@ -469,7 +476,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
         }
-                
+        
         UIView.animate(withDuration: time, delay: 0, options: .curveEaseOut, animations: {
             start?()
             viewForShake.transform = CGAffineTransform.init(translationX: -10.0, y: 0.0)
@@ -504,13 +511,10 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     open func updatePasswordLabel() {
-        let filledBulletsCount = self.passwordLength
-        var bulletsText = String(repeating: "• ", count: filledBulletsCount)
-        let emptyBulletsCount = self.requiredPasswordLength - filledBulletsCount
-        if (emptyBulletsCount > 0) {
-            bulletsText.append(String(repeating: "◦ ", count: emptyBulletsCount))
-        }
-        self.fixedPinLabel?.text = bulletsText
+        let length = self.passwordLength
+        let bulletsText = String(repeating: "• ", count: length)
+        self.variablePinLabel?.text = bulletsText
+        self.confirmPinButton.isEnabled = length >= self.minimumPasswordLength && self.nextState == .password
         //D.print("Don't do this! Password is \(bulletsText) \(password!)")
     }
     
