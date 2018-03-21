@@ -147,9 +147,9 @@ public extension LimeAuthCredentials {
     public static func defaultCredentials() -> LimeAuthCredentials {
         let passwordOptions: [LimeAuthCredentials.Password] = [
             .fixedPin(length: 4),
-//            .fixedPin(length: 6),
-//            .variablePin(min: 6, max: 9),
-//            .alphanumeric(min: 6)
+            .fixedPin(length: 6),
+            .variablePin(min: 6, max: 9),
+            .alphanumeric(min: 6)
         ]
         return LimeAuthCredentials(passwordOptions: passwordOptions, passwordIndex: 0, optionsOrder: nil, biometry: nil)
     }

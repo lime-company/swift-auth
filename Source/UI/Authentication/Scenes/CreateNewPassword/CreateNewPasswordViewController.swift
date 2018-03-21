@@ -108,8 +108,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
         // Match controller to passwor type
         let allTabs = self.viewControllers ?? []
         self.typeToTabMapping.removeAll()
-        //var availableTypes: [LimeAuthCredentials.Password.PasswordType] = [ .fixedPin, .variablePin, .password ]
-        var availableTypes: [LimeAuthCredentials.Password.PasswordType] = [ .fixedPin ]    // temporary limited to one type
+        var availableTypes: [LimeAuthCredentials.Password.PasswordType] = [ .fixedPin, .variablePin, .password ]
         for (tabIndex, controller) in allTabs.enumerated() {
             if let picker = controller as? CreateAndVerifyPasswordRoutableController {
                 picker.connectCreateAndVerifyPasswordRouter(router: routerForChildren)

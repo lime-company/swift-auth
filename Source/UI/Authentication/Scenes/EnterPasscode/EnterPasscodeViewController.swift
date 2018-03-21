@@ -127,7 +127,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         
         // Initial checks
         guard let _ = router?.authenticationProcess else {
-            fatalError("EnterFixedPasscodeViewController is not configured properly")
+            fatalError("EnterPasscodeViewController is not configured properly")
         }
         
         let credentials = authenticationProcess.credentialsProvider.credentials
