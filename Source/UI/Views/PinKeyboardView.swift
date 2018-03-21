@@ -21,11 +21,18 @@ import PowerAuth2
 
 @objc public enum PinKeyboardSpecialKey: Int {
     /// Backspace key
-    case backspace     = 10
+    case backspace  = 10
     /// Cancel key
-    case cancel        = 11
+    case cancel     = 11
     /// Biometry key
-    case biometry    = 12
+    case biometry   = 12
+}
+
+@objc public enum PinKeyboardBiometryIcon: Int {
+    /// Icon for TouchID
+    case touchID
+    /// Icon for TaceID
+    case faceID
 }
 
 // MARK: - PIN keyboard delegate -
@@ -38,7 +45,7 @@ import PowerAuth2
     /// Called when user did tap on special button
     func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnSpecialKey key: PinKeyboardSpecialKey)
     /// Called when keyboard wants to setup image for biometry button.
-    func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryType: PA2SupportedBiometricAuthentication) -> UIImage?
+    func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage?
 }
 
 
@@ -186,7 +193,8 @@ open class PinKeyboardView : UIView {
             let biometryType = PA2Keychain.supportedBiometricAuthentication
             let image: UIImage?
             if biometryType != .none {
-                image = delegate.pinKeyboardView(self, imageFor: biometryType)
+                let iconType: PinKeyboardBiometryIcon = biometryType == .faceID ? .faceID : .touchID
+                image = delegate.pinKeyboardView(self, imageFor: iconType)
             } else {
                 image = nil
             }

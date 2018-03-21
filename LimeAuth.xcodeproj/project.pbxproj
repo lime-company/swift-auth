@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BF31240B2060079300E7533F /* LimeAuthSession+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31240A2060079300E7533F /* LimeAuthSession+Password.swift */; };
 		BF31240D206115EA00E7533F /* LimeAuthSession+Biometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31240C206115EA00E7533F /* LimeAuthSession+Biometry.swift */; };
+		BF3124152062A22300E7533F /* CreatePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3124142062A22300E7533F /* CreatePasscodeViewController.swift */; };
+		BF3124192062A26600E7533F /* EnterPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3124182062A26600E7533F /* EnterPasscodeViewController.swift */; };
+		BF31241C2062C32C00E7533F /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31241B2062C32C00E7533F /* CreatePasswordViewController.swift */; };
+		BF31241F2062CAF400E7533F /* EnterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31241E2062CAF400E7533F /* EnterPasswordViewController.swift */; };
 		BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */; };
 		BF49642920598EF3002560A8 /* PinKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642820598EF3002560A8 /* PinKeyboardView.swift */; };
 		BF49642B20598FCA002560A8 /* PinKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */; };
@@ -94,6 +98,10 @@
 /* Begin PBXFileReference section */
 		BF31240A2060079300E7533F /* LimeAuthSession+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Password.swift"; sourceTree = "<group>"; };
 		BF31240C206115EA00E7533F /* LimeAuthSession+Biometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Biometry.swift"; sourceTree = "<group>"; };
+		BF3124142062A22300E7533F /* CreatePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasscodeViewController.swift; sourceTree = "<group>"; };
+		BF3124182062A26600E7533F /* EnterPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasscodeViewController.swift; sourceTree = "<group>"; };
+		BF31241B2062C32C00E7533F /* CreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordViewController.swift; sourceTree = "<group>"; };
+		BF31241E2062CAF400E7533F /* EnterPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordViewController.swift; sourceTree = "<group>"; };
 		BF49642620598D4D002560A8 /* CreateFixedPasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFixedPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF49642820598EF3002560A8 /* PinKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardView.swift; sourceTree = "<group>"; };
 		BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinKeyboardButton.swift; sourceTree = "<group>"; };
@@ -196,6 +204,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3124132062A22300E7533F /* CreatePasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF3124142062A22300E7533F /* CreatePasscodeViewController.swift */,
+			);
+			path = CreatePasscode;
+			sourceTree = "<group>";
+		};
+		BF3124172062A24200E7533F /* EnterPasscode */ = {
+			isa = PBXGroup;
+			children = (
+				BF3124182062A26600E7533F /* EnterPasscodeViewController.swift */,
+			);
+			path = EnterPasscode;
+			sourceTree = "<group>";
+		};
+		BF31241A2062C2F600E7533F /* CreatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				BF31241B2062C32C00E7533F /* CreatePasswordViewController.swift */,
+			);
+			path = CreatePassword;
+			sourceTree = "<group>";
+		};
+		BF31241D2062CADD00E7533F /* EnterPassword */ = {
+			isa = PBXGroup;
+			children = (
+				BF31241E2062CAF400E7533F /* EnterPasswordViewController.swift */,
+			);
+			path = EnterPassword;
+			sourceTree = "<group>";
+		};
 		BF49642220598CD5002560A8 /* CreateFixedPasscode */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +249,7 @@
 			children = (
 				BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */,
 				BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */,
+				BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */,
 			);
 			path = CommonLogic;
 			sourceTree = "<group>";
@@ -391,7 +432,6 @@
 			children = (
 				BF49643020599069002560A8 /* Services */,
 				BFAE06AA205967B7003485D7 /* Scenes */,
-				BFAE069720582CB6003485D7 /* Routers */,
 				BFDB8CE42056ABE40063C5EA /* Process */,
 				BFAE06A520593338003485D7 /* Operations */,
 				BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */,
@@ -502,14 +542,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BFAE069720582CB6003485D7 /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */,
-			);
-			path = Routers;
-			sourceTree = "<group>";
-		};
 		BFAE06A520593338003485D7 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,7 +557,11 @@
 				BF49642320598CFE002560A8 /* CommonLogic */,
 				BFAE06AD2059687E003485D7 /* CreateNewPassword */,
 				BF49642220598CD5002560A8 /* CreateFixedPasscode */,
+				BF3124132062A22300E7533F /* CreatePasscode */,
+				BF31241A2062C2F600E7533F /* CreatePassword */,
 				BF49643A205A6C04002560A8 /* EnterFixedPasscode */,
+				BF3124172062A24200E7533F /* EnterPasscode */,
+				BF31241D2062CADD00E7533F /* EnterPassword */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -700,11 +736,13 @@
 				BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */,
 				BF6134372044863A00164496 /* BeginActivationRouter.swift in Sources */,
 				BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */,
+				BF3124192062A26600E7533F /* EnterPasscodeViewController.swift in Sources */,
 				BF565FAE2047432E00B9C897 /* ConfirmActivationViewController.swift in Sources */,
 				BF61344620448E7100164496 /* EnterActivationCodeRouter.swift in Sources */,
 				BF61343F20448D5400164496 /* EnterActivationCodeViewController.swift in Sources */,
 				BF31240B2060079300E7533F /* LimeAuthSession+Password.swift in Sources */,
 				BF61343D20448D2100164496 /* NoCameraAccessViewController.swift in Sources */,
+				BF31241C2062C32C00E7533F /* CreatePasswordViewController.swift in Sources */,
 				BF565FB0204743F300B9C897 /* ConfirmActivationRouter.swift in Sources */,
 				BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */,
 				BF68809520480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift in Sources */,
@@ -714,6 +752,7 @@
 				BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */,
 				BF565F94204728DE00B9C897 /* KeysExchangeRouter.swift in Sources */,
 				BFAE069920582CF7003485D7 /* EnterPasswordRouter.swift in Sources */,
+				BF3124152062A22300E7533F /* CreatePasscodeViewController.swift in Sources */,
 				BF85E595203DBDD600B76FE8 /* LimeAuthActivationUI.swift in Sources */,
 				BF565F9B20473BA900B9C897 /* ErrorActivationRouter.swift in Sources */,
 				BFDB8CE82056ABE40063C5EA /* AuthenticationModels.swift in Sources */,
@@ -744,6 +783,7 @@
 				BFAE069B20582E5F003485D7 /* CreateNewPasswordRouter.swift in Sources */,
 				BFDB8CE92056ABE40063C5EA /* AuthenticationUIOperation.swift in Sources */,
 				BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */,
+				BF31241F2062CAF400E7533F /* EnterPasswordViewController.swift in Sources */,
 				BF613434204485B400164496 /* BeginActivationViewController.swift in Sources */,
 				BFAE06AF20596D2D003485D7 /* CreateNewPasswordModels.swift in Sources */,
 				BFAE069F20583D55003485D7 /* AuthenticationUIOperationExecutor.swift in Sources */,

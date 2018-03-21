@@ -49,6 +49,7 @@ public enum Authentication {
             
             public let okButton: String
             public let cancelButton: String
+            public let closeButton: String
             public let yesButton: String
             public let noButton: String
             
@@ -74,6 +75,7 @@ public enum Authentication {
                     
                     okButton: "OK",
                     cancelButton: "Cancel",
+                    closeButton: "Close",
                     yesButton: "Yes",
                     noButton: "No",
                     
