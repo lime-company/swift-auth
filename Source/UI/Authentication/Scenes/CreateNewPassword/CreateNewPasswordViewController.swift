@@ -112,6 +112,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
         for (tabIndex, controller) in allTabs.enumerated() {
             if let picker = controller as? CreateAndVerifyPasswordRoutableController {
                 picker.connectCreateAndVerifyPasswordRouter(router: routerForChildren)
+                picker.connect(authenticationProcess: router.authenticationProcess)
                 for (typeIndex, type) in availableTypes.enumerated() {
                     if picker.canHandlePasswordCreation(for: type) {
                         availableTypes.remove(at: typeIndex)
