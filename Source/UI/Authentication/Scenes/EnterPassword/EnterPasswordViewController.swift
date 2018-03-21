@@ -136,7 +136,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         }
         
         let credentials = authenticationProcess.credentialsProvider.credentials
-        guard credentials.password.type == .variablePin else {
+        guard credentials.password.type == .password else {
             fatalError("This controller implements different credentials input method than is requested.")
         }
         minimumPasswordLength = credentials.password.minimumLength
