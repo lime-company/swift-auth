@@ -43,6 +43,10 @@ public protocol AuthenticationUIOperation {
     /// that network connection is not available)
     var isOffline: Bool { get }
     
+    /// Returns true if operation is already serialized in the session's queue. If operation's implementation
+    /// doesn't use session's queue, then must return false.
+    var isSerialized: Bool { get }
+    
 }
 
 

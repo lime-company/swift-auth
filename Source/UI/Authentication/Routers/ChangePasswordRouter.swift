@@ -31,7 +31,7 @@ public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUI
     }
 
     public func routeToSuccess() {
-        authenticationProcess.completeAuthentication(controller: viewController)
+        viewController?.performSegue(withIdentifier: "ChangePassword", sender: nil)
     }
 
     public func routeToError() {
@@ -47,10 +47,4 @@ public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUI
             authenticationVC.connect(authenticationProcess: authenticationProcess)
         }
     }
-
 }
-
-//
-//public class EnterNewPasswordRouter: CreatePasswordRoutingLogic, AuthenticationUIProcessRouter {
-//}
-

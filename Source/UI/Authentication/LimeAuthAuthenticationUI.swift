@@ -56,6 +56,8 @@ public class LimeAuthAuthenticationUI {
         self.init(authenticationProcess: process)
     }
     
+    // MARK: - UI instantiation
+    
     public func instantiateEntryScene() -> UIViewController {
         var controller: UIViewController & AuthenticationUIProcessController
         switch entryScene {
@@ -120,7 +122,7 @@ public class LimeAuthAuthenticationUI {
     }
 }
 
-
+// MARK: - UI for common operations
 
 public extension LimeAuthAuthenticationUI {
     
@@ -129,12 +131,16 @@ public extension LimeAuthAuthenticationUI {
                                            uiProvider: AuthenticationUIProvider,
                                            completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         let authenticationProcess = AuthenticationUIProcess(activation: activationProcess, uiProvider: uiProvider)
-        authenticationProcess.credentialsCompletion = { (result, error, credentials, finalController) in
+        authenticationProcess.createCredentialsCompletion = { (result, error, credentials, finalController) in
             // Check result and if operation succeeded, then keep password in activation data & store selected complexity
-            if result == .success, let password = credentials?.password {
-                activationProcess.activationData.password = password
-                if let passwordOptionsIndex = credentials?.paswordOptionsIndex {
-                    _ = activationProcess.credentialsProvider.changePasswordComplexity(passwordIndex: passwordOptionsIndex)
+            if result == .success {
+                if let credentials = credentials {
+                    activationProcess.activationData.password = credentials.password
+                    if let passwordOptionsIndex = credentials.paswordOptionsIndex {
+                        _ = activationProcess.credentialsProvider.changePasswordComplexity(passwordIndex: passwordOptionsIndex)
+                    }
+                } else {
+                    
                 }
             }
             completion(result, error, credentials, finalController)
@@ -143,6 +149,106 @@ public extension LimeAuthAuthenticationUI {
         ui.entryScene = .createPassword
         return ui
     }
+    
+    
+    public static func uiForChangePassword(session: LimeAuthSession,
+                                           uiProvider: AuthenticationUIProvider,
+                                           credentialsProvider: LimeAuthCredentialsProvider,
+                                           completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
 
+        let uiDataProvider = uiProvider.uiDataProvider
+        let commonStrings = uiDataProvider.uiCommonStrings
+        let credentials = credentialsProvider.credentials
+        
+        // UIRequest
+        var uiRequest = Authentication.UIRequest()
+        uiRequest.prompts.keyboardPrompt = credentials.password.type == .password ? commonStrings.enterOldPassword : commonStrings.enterOldPin
+        uiRequest.prompts.activityMessage = ""
+        uiRequest.prompts.successMessage = ""
+        uiRequest.tweaks.successAnimationDelay = 450
+        
+        // Operation for execution
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+            guard let password = authentication.usePassword else {
+                completionCallback(nil, LimeAuthError(string: "Internal error: Password is expected."))
+                return nil
+            }
+            return session.validatePassword(password: password) { (error) in
+                if let error = error {
+                    completionCallback(nil, LimeAuthError(error: error))
+                } else {
+                    completionCallback(nil, nil)
+                }
+            }
+        }
+        let operationExecutor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: uiRequest.options, credentialsProvider: credentialsProvider)
+        
+        // Construct authentication process with credentials change closure
+        let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, executor: operationExecutor)
+        process.changeCredentialsCompletion = { (result, error, credentialsChange, finalController) in
+            if let change = credentialsChange {
+                _ = session.changeValidatedPassword(from: change.current.password, to: change.next.password) { (success) in
+                    if success {
+                        // password change did succeeded
+                        if let passwordIndex = change.next.paswordOptionsIndex {
+                            _ = credentialsProvider.changePasswordComplexity(passwordIndex: passwordIndex)
+                        }
+                        completion(.success, finalController)
+                    } else {
+                        // this may happen when activation is no longer valid
+                        D.print("Cannot change password.")
+                        completion(.failure, finalController)
+                    }
+                }
+            } else {
+                assert(result != .success)
+                completion(result, finalController)
+            }
+        }
+        let ui = LimeAuthAuthenticationUI(authenticationProcess: process)
+        ui.entryScene = .changePassword
+        return ui
+    }
+    
+    
+    public static func uiForRemoveActivation(session: LimeAuthSession,
+                                             uiProvider: AuthenticationUIProvider,
+                                             credentialsProvider: LimeAuthCredentialsProvider,
+                                             completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+        // Build operation object
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+            return session.removeActivation(authentication: authentication) { (error) in
+                completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
+            }
+        }
+        // TODO: loc
+        var uiRequest = Authentication.UIRequest()
+        uiRequest.prompts.activityMessage = "Removing activation from this device..."
+        uiRequest.prompts.successMessage = "This device is no longer activated."
+        return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
+            completion(result, finalController)
+        }
+    }
+    
+    
+    public static func uiForEnableBiometry(session: LimeAuthSession,
+                                           uiProvider: AuthenticationUIProvider,
+                                           credentialsProvider: LimeAuthCredentialsProvider,
+                                           completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+        // Build operation object
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+            return session.addBiometryFactor(password: authentication.usePassword!) { (error) in
+                completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
+            }
+        }
+        // TODO: loc
+        var uiRequest = Authentication.UIRequest()
+        uiRequest.prompts.activityMessage = "Workinng..."
+        uiRequest.prompts.successMessage = "Biometric authentication has been enabled."
+        
+        return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
+            completion(result, finalController)
+        }
+    }
 }
 
