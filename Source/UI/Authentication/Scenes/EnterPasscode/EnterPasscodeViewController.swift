@@ -525,11 +525,13 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     open func updateRemainingAttemptsLabel() {
         // Attempts label
-        if let remainingAttempts = authenticationProcess.session.lastFetchedActivationStatus?.remainingAttempts {
-            self.attemptsLabel?.text = uiDataProvider.localizeRemainingAttempts(attempts: remainingAttempts)
-        } else {
-            self.attemptsLabel?.text = nil
+        var attemptsText: String?
+        if let lastStatus = authenticationProcess.session.lastFetchedActivationStatus {
+            if lastStatus.failCount > 0 {
+                attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
+            }
         }
+        self.attemptsLabel?.text = attemptsText
         self.attemptsLabel?.isHidden = !remainingAttemptsLabelIsVisible
     }
     
