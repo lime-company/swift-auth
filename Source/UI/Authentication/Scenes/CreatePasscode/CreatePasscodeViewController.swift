@@ -282,7 +282,10 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         let confirmButton = self.currentState == .firstPass ? self.confirm1Button : self.confirm2Button
         confirmButton?.isEnabled = self.passwordLength >= self.minimumPasswordLength
         // update backspace / cancel button
-        self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: filledBulletsCount > 0)
+        let visibleBackspace = filledBulletsCount > 0
+        let visibleCancel = !visibleBackspace && (self.currentState == .secondPass || !router.authenticationProcess.isPartOfActivation)
+        self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: visibleBackspace)
+        self.pinKeyboard.setSpecialKeyVisible(.cancel, visible: visibleCancel)
     }
     
     //

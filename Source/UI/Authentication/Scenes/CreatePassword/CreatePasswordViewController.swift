@@ -264,7 +264,9 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         self.password2TextField.inputAccessoryView = self.keyboardAccessoryView
         // keep tint in accessory view
         self.keyboardAccessoryView.tintColor = self.view.tintColor
-        
+        // cancel
+        self.cancelButton.isHidden = router.authenticationProcess.isPartOfActivation
+
         // adjust layout and present initial state
         self.adjustLayout()
         self.presentFirstGroup(animated: false, withError: false)

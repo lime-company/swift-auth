@@ -83,7 +83,7 @@ public extension LimeAuthError {
     public var networkIsNotReachable: Bool {
         if self.domain == NSURLErrorDomain || self.domain == kCFErrorDomainCFNetwork as String {
             let ec = CFNetworkErrors(rawValue: Int32(self.code))
-            return     ec == .cfurlErrorNotConnectedToInternet ||
+            return ec == .cfurlErrorNotConnectedToInternet ||
                 ec == .cfurlErrorInternationalRoamingOff ||
                 ec == .cfurlErrorDataNotAllowed
         }

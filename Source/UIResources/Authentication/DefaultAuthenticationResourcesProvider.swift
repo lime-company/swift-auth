@@ -34,8 +34,8 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     
     //
     
-    func instantiateCreateCredentialsScene() -> (UIViewController & CreateNewPasswordRoutableController) {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "CreateNewPassword") as? (UIViewController & CreateNewPasswordRoutableController) else {
+    func instantiateNewCredentialsScene() -> (UIViewController & NewCredentialsRoutableController) {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "NewCredentials") as? (UIViewController & NewCredentialsRoutableController) else {
             fatalError("Cannot instantiate CreateNewPassword scene")
         }
         return controller
@@ -86,7 +86,7 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         return .fallbackErrors()
     }
     
-    var uiForCreateNewPassword: CreateNewPassword.UIData {
+    var uiForCreateNewPassword: NewCredentials.UIData {
         return .fallbackData()
     }
     

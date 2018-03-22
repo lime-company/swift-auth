@@ -268,7 +268,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         currentLabel?.text = bulletsText
         // update backspace / cancel button
         let visibleBackspace = filledBulletsCount > 0
-        let visibleCancel = self.currentState == .secondPass
+        let visibleCancel = !visibleBackspace && (self.currentState == .secondPass || !router.authenticationProcess.isPartOfActivation)
         self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: visibleBackspace)
         self.pinKeyboard.setSpecialKeyVisible(.cancel, visible: visibleCancel)
     }

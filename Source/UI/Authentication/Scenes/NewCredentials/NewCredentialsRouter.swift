@@ -16,7 +16,7 @@
 
 import UIKit
 
-public protocol CreateNewPasswordRoutingLogic {
+public protocol NewCredentialsRoutingLogic {
     
     func routeToCancel()
     func routeToSuccess(password: String)
@@ -26,19 +26,19 @@ public protocol CreateNewPasswordRoutingLogic {
 }
 
 /// Protocol for controller covering a whole "create password" operation
-public protocol CreateNewPasswordRoutableController: AuthenticationUIProcessController {
+public protocol NewCredentialsRoutableController: AuthenticationUIProcessController {
     
-    func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic)
+    func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & NewCredentialsRoutingLogic)
 }
 
 
-public class CreateNewPasswordRouter: CreateNewPasswordRoutingLogic, AuthenticationUIProcessRouter {
+public class NewCredentialsRouter: NewCredentialsRoutingLogic, AuthenticationUIProcessRouter {
     
     public var authenticationProcess: AuthenticationUIProcess!
-    public var viewController: (UIViewController & CreateNewPasswordRoutableController)?
+    public var viewController: (UIViewController & NewCredentialsRoutableController)?
     
     public func connect(controller: AuthenticationUIProcessController) {
-        viewController = controller as? (UIViewController & CreateNewPasswordRoutableController)
+        viewController = controller as? (UIViewController & NewCredentialsRoutableController)
         assert(viewController != nil)
     }
     

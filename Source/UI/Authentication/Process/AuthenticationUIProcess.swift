@@ -19,7 +19,7 @@ import PowerAuth2
 
 public protocol AuthenticationUIProvider: class {
 
-    func instantiateCreateCredentialsScene() -> (UIViewController & CreateNewPasswordRoutableController)
+    func instantiateNewCredentialsScene() -> (UIViewController & NewCredentialsRoutableController)
     
     func instantiateEnterPasswordScene() -> (UIViewController & EnterPasswordRoutableController)
     func instantiateEnterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController)
@@ -39,7 +39,7 @@ public protocol AuthenticationUIDataProvider: class {
     
     // Per scene getters
     
-    var uiForCreateNewPassword: CreateNewPassword.UIData { get }
+    var uiForCreateNewPassword: NewCredentials.UIData { get }
     
     // Localization function
     

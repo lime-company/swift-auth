@@ -32,7 +32,7 @@ public class LimeAuthAuthenticationUI {
     public var entryScene: EntryScene = .enterPassword
     
     /// Optional, you can adjust router which will be used
-    public var createPasswordRouter: CreateNewPasswordRoutingLogic?
+    public var createPasswordRouter: NewCredentialsRoutingLogic?
     public var enterPasswordRouter: EnterPasswordRoutingLogic?
     
 
@@ -62,7 +62,7 @@ public class LimeAuthAuthenticationUI {
         var controller: UIViewController & AuthenticationUIProcessController
         switch entryScene {
         case .createPassword:
-            controller = instantiateCreatePassword(router: CreateNewPasswordRouter())
+            controller = instantiateCreatePassword(router: NewCredentialsRouter())
         case .enterPassword:
             controller = instantiateEnterPasswordScene(router: EnterPasswordRouter())
         case .changePassword:
@@ -97,8 +97,8 @@ public class LimeAuthAuthenticationUI {
     // MARK: - Private methods
     
     
-    private func instantiateCreatePassword(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic) -> (UIViewController & CreateNewPasswordRoutableController) {
-        let controller = authenticationProcess.uiProvider.instantiateCreateCredentialsScene()
+    private func instantiateCreatePassword(router: AuthenticationUIProcessRouter & NewCredentialsRoutingLogic) -> (UIViewController & NewCredentialsRoutableController) {
+        let controller = authenticationProcess.uiProvider.instantiateNewCredentialsScene()
         controller.connectCreatePasswordRouter(router: router)
         return controller
     }

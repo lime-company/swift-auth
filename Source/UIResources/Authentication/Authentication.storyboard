@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Create New Password View Controller-->
+        <!--New Credentials View Controller-->
         <scene sceneID="vN6-0v-QbQ">
             <objects>
-                <tabBarController storyboardIdentifier="CreateNewPassword" id="v1e-b9-268" customClass="CreateNewPasswordViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NewCredentials" id="v1e-b9-268" customClass="NewCredentialsViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nDs-cO-fVD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1117,7 +1117,7 @@
                                     <constraint firstAttribute="height" constant="2" id="SC4-xN-o0Q"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psw-AF-jq7" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="MobileToken" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psw-AF-jq7" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-8B-Zoq" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
@@ -1523,7 +1523,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-b4-4bh" userLabel="Variable Pin">
                                         <rect key="frame" x="47" y="44" width="280.5" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" customClass="RoundCornersView" customModule="MobileToken" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPJ-oQ-SsH" userLabel="Variable Pin Label">
@@ -1540,7 +1540,7 @@
                                                     <constraint firstItem="sPJ-oQ-SsH" firstAttribute="leading" secondItem="Tfr-fF-DZt" secondAttribute="leading" constant="20" id="rfM-bM-W80"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0w-3y-eKL" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0w-3y-eKL" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="224.5" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="0qE-EC-jRM"/>
@@ -1604,7 +1604,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-wo-W9H" userLabel="Variable Pin">
                                         <rect key="frame" x="47.5" y="44" width="280.5" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" customClass="RoundCornersView" customModule="MobileToken" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIC-5M-XyK" userLabel="Variable Pin Label">
@@ -1621,7 +1621,7 @@
                                                     <constraint firstItem="IIC-5M-XyK" firstAttribute="leading" secondItem="DhB-sI-Hi5" secondAttribute="leading" constant="20" id="YIo-LQ-d2J"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4a-8H-JpY" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4a-8H-JpY" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="224.5" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="Bc9-kE-IyP"/>
@@ -1660,7 +1660,7 @@
                                     <constraint firstAttribute="trailing" secondItem="dsP-fy-CwV" secondAttribute="trailing" constant="16" id="qXr-4Q-8TT"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-ZD-7tQ" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="MobileToken" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-ZD-7tQ" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="141" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-a9-26c" userLabel="Success Image">
@@ -1708,10 +1708,10 @@
                                     <constraint firstAttribute="height" constant="2" id="YYS-x5-8KA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-ji-KRP" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="MobileToken" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-ji-KRP" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-a2-yYJ" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-a2-yYJ" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="1"/>
@@ -1731,7 +1731,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVj-mE-LUu" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVj-mE-LUu" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="2"/>
@@ -1751,7 +1751,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-TN-PdZ" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-TN-PdZ" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="3"/>
@@ -1771,7 +1771,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-Hg-9ZI" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-Hg-9ZI" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="4"/>
@@ -1791,7 +1791,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56o-Xf-Ejj" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56o-Xf-Ejj" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="56o-Xf-Ejj" secondAttribute="height" multiplier="1:1" id="6Ic-Gw-BQz"/>
@@ -1815,7 +1815,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-C4-x7t" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-C4-x7t" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="QqZ-Rb-dy4"/>
@@ -1838,7 +1838,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-rM-gZh" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-rM-gZh" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="7"/>
@@ -1858,7 +1858,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-Kt-pCd" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-Kt-pCd" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BtS-Kt-pCd" secondAttribute="height" multiplier="1:1" id="DBp-8V-54G"/>
@@ -1881,7 +1881,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzq-La-TPb" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzq-La-TPb" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="9"/>
@@ -1901,7 +1901,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-79-nHy" customClass="PinKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-79-nHy" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="V1B-79-nHy" secondAttribute="height" multiplier="1:1" id="NGQ-jg-O9e"/>
@@ -1924,7 +1924,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-8A-aZj" customClass="PinClearKeyboardButton" customModule="MobileToken" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-8A-aZj" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="UDk-8A-aZj" secondAttribute="height" multiplier="1:1" id="m4O-T5-CYY"/>
@@ -2089,7 +2089,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX3-ZY-cuN" userLabel="Text field + OK">
                                         <rect key="frame" x="64" y="44" width="247" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl2-Ft-mqF" customClass="RoundCornersView" customModule="MobileToken" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl2-Ft-mqF" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Ip-W8U" userLabel="password">
@@ -2107,7 +2107,7 @@
                                                     <constraint firstItem="4hO-Ip-W8U" firstAttribute="leading" secondItem="Fl2-Ft-mqF" secondAttribute="leading" constant="12" id="saF-gE-Lag"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-cb-bj6" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-cb-bj6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="191" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="20H-Yu-BOQ"/>
@@ -2175,7 +2175,7 @@
                                     <action selector="cancelAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="fWI-Fi-HJh"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-Af-zdy" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="MobileToken" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-Af-zdy" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="261" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-nX-Rqo" userLabel="Success Image">
@@ -2397,7 +2397,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-RX-kIa" userLabel="Text field + OK">
                                         <rect key="frame" x="64" y="44" width="247" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qke-6k-UC2" customClass="RoundCornersView" customModule="MobileToken" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qke-6k-UC2" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-hX-8WI" userLabel="password">
@@ -2415,7 +2415,7 @@
                                                     <constraint firstItem="zmU-hX-8WI" firstAttribute="leading" secondItem="Qke-6k-UC2" secondAttribute="leading" constant="12" id="wPO-WA-h9Q"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-fw-N9K" customClass="RoundCornersButton" customModule="MobileToken" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-fw-N9K" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="191" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="12i-ys-siF"/>
@@ -2455,7 +2455,7 @@
                                     <constraint firstItem="3sr-ap-B9z" firstAttribute="top" secondItem="zjF-jL-NGv" secondAttribute="top" id="uqm-cy-mXy"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-4x-Jtx" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="MobileToken" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-4x-Jtx" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="145" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-P9-uUP" userLabel="Success Image">

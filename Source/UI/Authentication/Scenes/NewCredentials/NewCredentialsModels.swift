@@ -16,7 +16,7 @@
 
 import UIKit
 
-public enum CreateNewPassword {
+public enum NewCredentials {
     
     public struct UIData {
         

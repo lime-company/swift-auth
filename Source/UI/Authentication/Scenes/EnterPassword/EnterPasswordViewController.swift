@@ -508,7 +508,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         self.updateRemainingAttemptsLabel()
         self.updatePromptLabel()
         // disable cancel button during the activity
-        self.cancelButton.isEnabled = self.nextState != .password
+        self.cancelButton.isEnabled = self.nextState == .password
     }
     
     open func updatePasswordConfirmButton(for nextPassword: String) {

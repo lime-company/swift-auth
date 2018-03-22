@@ -16,7 +16,7 @@
 
 import Foundation
 
-public protocol CreateAndVerifyPasswordRoutingLogic: CreateNewPasswordRoutingLogic {
+public protocol CreateAndVerifyPasswordRoutingLogic: NewCredentialsRoutingLogic {
     func routeToChangeComplexity()
 }
 
@@ -36,7 +36,7 @@ public class CreateAndVerifyPasswordRouter: CreateAndVerifyPasswordRoutingLogic,
     public var viewController: (UIViewController & CreateAndVerifyPasswordRoutableController)?
     
     // Specific for this type of router
-    public typealias ParentRouterType = (CreateNewPasswordRoutingLogic & AuthenticationUIProcessRouter)
+    public typealias ParentRouterType = (NewCredentialsRoutingLogic & AuthenticationUIProcessRouter)
     private unowned let parentRouter: ParentRouterType
     
     private let changeComplexity: ()->Void

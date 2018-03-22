@@ -17,9 +17,9 @@
 import UIKit
 import PowerAuth2
 
-open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswordRoutableController {
+open class NewCredentialsViewController: UITabBarController, NewCredentialsRoutableController {
     
-    public var router: (AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic)!
+    public var router: (AuthenticationUIProcessRouter & NewCredentialsRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
     
     // MARK: - Object lifecycle
@@ -36,7 +36,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     private func setup() {
         let viewController = self
-        viewController.connectCreatePasswordRouter(router: CreateNewPasswordRouter())
+        viewController.connectCreatePasswordRouter(router: NewCredentialsRouter())
     }
     
     // MARK: - View lifecycle
@@ -45,7 +45,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
         super.viewDidLoad()
         // Check controller's setup
         guard let _ = router?.authenticationProcess else {
-            fatalError("CreateNewPasswordViewController is not configured properly")
+            fatalError("NewCredentialsViewController is not configured properly")
         }
         
         // Hide tabbar
@@ -57,7 +57,7 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     // MARK: - Routing
     
-    public func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & CreateNewPasswordRoutingLogic) {
+    public func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & NewCredentialsRoutingLogic) {
         self.router = router
         router.connect(controller: self)
     }
@@ -128,11 +128,11 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     private func changeComplexity(to option: LimeAuthCredentials.Password, optionIndex: Int?) {
         guard let index = self.typeToTabMapping[option.type] else {
-            D.warning("CreateNewPasswordViewController: Password type '\(option.type)' is not handled in UI.")
+            D.warning("NewCredentialsViewController: Password type '\(option.type)' is not handled in UI.")
             return
         }
         guard let picker = self.viewControllers?[index] as? CreateAndVerifyPasswordRoutableController else {
-            D.warning("CreateNewPasswordViewController: Tab at index \(index) doesn't implement CreateAndVerifyPasswordRoutableController.")
+            D.warning("NewCredentialsViewController: Tab at index \(index) doesn't implement CreateAndVerifyPasswordRoutableController.")
             return
         }
         picker.prepareForNewPassword(option: option)
