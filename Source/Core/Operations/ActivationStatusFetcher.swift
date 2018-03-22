@@ -174,7 +174,7 @@ internal class ActivationStatusFetcher {
                     self.finish(result: fetchedData)
                 } else {
                     // TODO: build regular error object
-                    D.print("ActivationStatusFetcher: Internal error: Unexpected result received from PowerAuth")
+                    D.error("ActivationStatusFetcher: Internal error: Unexpected result received from PowerAuth")
                 }
             }
         }

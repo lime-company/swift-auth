@@ -53,7 +53,7 @@ public struct LimeAuthCredentials {
             return passwordOptions[passwordIndex]
         }
         // Return some invalid object
-        D.print("LimeAuthCredentials config is not valid")
+        D.error("LimeAuthCredentials config is not valid")
         return .fixedPin(length: 0)
     }
     
@@ -124,7 +124,7 @@ public struct LimeAuthCredentials {
         let order = optionsOrder ?? [Int](0...passwordOptions.count-1)
         let index = passwordIndex ?? order.first ?? -1
         if index < 0 || index >= passwordOptions.count {
-            D.print("LimeAuthCredentials config contains invalid data")
+            D.error("LimeAuthCredentials config contains invalid data")
         }
         self.biometry = biometry ?? Biometry()
         self.passwordOptions = passwordOptions

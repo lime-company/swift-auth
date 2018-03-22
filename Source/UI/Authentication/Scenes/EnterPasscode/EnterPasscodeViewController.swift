@@ -283,7 +283,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         if self.passwordLength < self.maximumPasswordLength {
             self.password.append(Character(UnicodeScalar(48 + digit)!))
         } else {
-            D.print("WARNING: trying to add more digits than allowed")
+            D.warning("Trying to add more digits than allowed")
         }
         // hide remaining attempts label during the typing
         self.remainingAttemptsLabelIsVisible = false
@@ -294,7 +294,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         if !password.isEmpty {
             password.remove(at: password.index(before: password.endIndex))
         } else {
-            D.print("WARNING: Removing digit from already empty password")
+            D.warning("Removing digit from already empty password")
         }
         afterPassowrdChange()
     }
@@ -325,7 +325,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func changeState(to state: InterfaceState) {
         if isPendingStateChange {
-            D.print("WARNING: changing state to '\(state)' during ongoing switch to '\(nextState)' is not allowed!")
+            D.warning("Changing state to '\(state)' during ongoing switch to '\(nextState)' is not allowed!")
             return
         }
         D.print("Changing UI state from '\(currentState)' to \(state)'")
@@ -334,7 +334,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func commitChangeState() {
         if !isPendingStateChange {
-            D.print("WARNING: There's no pending state change")
+            D.warning("There's no pending state change")
             return
         }
         D.print("Changing UI state to '\(nextState)' is now completed")
@@ -515,7 +515,6 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         let bulletsText = String(repeating: "• ", count: length)
         self.variablePinLabel?.text = bulletsText
         self.confirmPinButton.isEnabled = length >= self.minimumPasswordLength && self.nextState == .password
-        //D.print("Don't do this! Password is \(bulletsText) \(password!)")
     }
     
     /// Triggers visibility of remaining attempts label

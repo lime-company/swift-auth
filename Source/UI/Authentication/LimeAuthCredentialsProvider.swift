@@ -61,7 +61,7 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
                 // This is bad, you have changed significantly `LimeAuthCredentials` structure, so it's not possible
                 // to map previously used index to a new content of structure. The user will not be able to authenticate
                 // with knowledge factor.
-                D.print("LimeAuthSharedCredentials: Restored passwordIndex \(restoredIndex) is out of bounds <0, \(credentials.passwordOptions.count)")
+                D.error("LimeAuthSharedCredentials: Restored passwordIndex \(restoredIndex) is out of bounds <0, \(credentials.passwordOptions.count)")
             }
         }
     }
@@ -76,7 +76,7 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     /// credential's passwordOptions array.
     public func changePasswordComplexity(passwordIndex: Int) -> Bool {
         guard isValid(passwordIndex: passwordIndex) else {
-            D.print("LimeAuthSharedCredentials: passwordIndex \(passwordIndex) is out of bounds <0, \(credentials.passwordOptions.count)")
+            D.error("LimeAuthSharedCredentials: passwordIndex \(passwordIndex) is out of bounds <0, \(credentials.passwordOptions.count)")
             return false
         }
         credentials.passwordIndex = passwordIndex

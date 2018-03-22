@@ -233,7 +233,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
             if p.count < self.maximumPasswordLength {
                 p.append(Character(UnicodeScalar(48 + digit)!))
             } else {
-                D.print("WARNING: trying to add more digits than allowed")
+                D.warning("Trying to add more digits than allowed")
             }
         }
     }
@@ -244,7 +244,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
             if !p.isEmpty {
                 p.remove(at: p.index(before: p.endIndex))
             } else {
-                D.print("WARNING: Removing digit from already empty password")
+                D.warning("Removing digit from already empty password")
             }
         }
     }

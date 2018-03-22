@@ -196,7 +196,7 @@ public extension LimeAuthAuthenticationUI {
                         completion(.success, finalController)
                     } else {
                         // this may happen when activation is no longer valid
-                        D.print("Cannot change password.")
+                        D.error("Cannot change password.")
                         completion(.failure, finalController)
                     }
                 }

@@ -216,7 +216,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             if p.count < self.requiredPasswordLength {
                 p.append(Character(UnicodeScalar(48 + digit)!))
             } else {
-                D.print("WARNING: trying to add more digits than allowed")
+                D.warning("Trying to add more digits than allowed")
             }
         }
     }
@@ -227,7 +227,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             if !p.isEmpty {
                 p.remove(at: p.index(before: p.endIndex))
             } else {
-                D.print("WARNING: Removing digit from already empty password")
+                D.warning("Removing digit from already empty password")
             }
         }
     }

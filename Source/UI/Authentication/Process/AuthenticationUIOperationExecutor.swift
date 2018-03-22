@@ -68,7 +68,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             updateStatusOperation?.cancel()
             updateStatusOperation = nil
         } else {
-            D.print("cancel() called when already cancelled or finished")
+            D.warning("cancel() called when already cancelled or finished")
         }
     }
     

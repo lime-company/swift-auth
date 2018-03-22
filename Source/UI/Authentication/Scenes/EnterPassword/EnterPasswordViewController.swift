@@ -321,7 +321,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func changeState(to state: InterfaceState) {
         if isPendingStateChange {
-            D.print("WARNING: changing state to '\(state)' during ongoing switch to '\(nextState)' is not allowed!")
+            D.warning("Changing state to '\(state)' during ongoing switch to '\(nextState)' is not allowed!")
             return
         }
         D.print("Changing UI state from '\(currentState)' to \(state)'")
@@ -330,7 +330,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func commitChangeState() {
         if !isPendingStateChange {
-            D.print("WARNING: There's no pending state change")
+            D.warning("There's no pending state change")
             return
         }
         D.print("Changing UI state to '\(nextState)' is now completed")

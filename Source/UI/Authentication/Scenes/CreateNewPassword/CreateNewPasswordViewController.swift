@@ -128,11 +128,11 @@ open class CreateNewPasswordViewController: UITabBarController, CreateNewPasswor
     
     private func changeComplexity(to option: LimeAuthCredentials.Password, optionIndex: Int?) {
         guard let index = self.typeToTabMapping[option.type] else {
-            D.print("WARNING: CreateNewPasswordViewController: Password type '\(option.type)' is not handled in UI.")
+            D.warning("CreateNewPasswordViewController: Password type '\(option.type)' is not handled in UI.")
             return
         }
         guard let picker = self.viewControllers?[index] as? CreateAndVerifyPasswordRoutableController else {
-            D.print("WARNING: CreateNewPasswordViewController: Tab at index \(index) doesn't implement CreateAndVerifyPasswordRoutableController.")
+            D.warning("CreateNewPasswordViewController: Tab at index \(index) doesn't implement CreateAndVerifyPasswordRoutableController.")
             return
         }
         picker.prepareForNewPassword(option: option)
