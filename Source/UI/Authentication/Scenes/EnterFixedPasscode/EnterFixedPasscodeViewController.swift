@@ -494,7 +494,10 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     open func updateViews() {
         // Update delete or cancel
-        pinKeyboard?.setSpecialKeyVisible(self.password.isEmpty ? .cancel : .backspace, visible: true)
+        let empty = self.password.isEmpty
+        pinKeyboard?.setSpecialKeyVisible(.cancel, visible: empty)
+        pinKeyboard?.setSpecialKeyVisible(.backspace, visible: !empty)
+        
         // Show or Hide biometry button
         pinKeyboard?.setSpecialKeyVisible(.biometry, visible: isBiometryAllowed)
         

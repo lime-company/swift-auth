@@ -103,12 +103,16 @@ open class PinKeyboardView : UIView {
             //
         } else if isBackspaceSharedWithCancel {
             // cancel & backspace are shared
-            if visible {
-                keyForSharedBackspaceAndCancel = specialKey
-            } else {
-                keyForSharedBackspaceAndCancel = specialKey == .cancel ? .backspace : .cancel
-            }
-            updateSharedBackspaceAndCancel(currentKey: keyForSharedBackspaceAndCancel)
+			let keyBefore = keyForSharedBackspaceAndCancel
+			if specialKey == .cancel {
+				isSharedCancelVisible = visible
+			} else if specialKey == .backspace {
+				isSharedBackspaceVisible = visible
+			}
+			let keyAfter = keyForSharedBackspaceAndCancel
+			if keyBefore != keyAfter {
+				updateSharedBackspaceAndCancel(currentKey: keyForSharedBackspaceAndCancel)
+			}
             //
         } else {
             // cancel & backspace have separate buttons
@@ -126,9 +130,9 @@ open class PinKeyboardView : UIView {
             }
         } else if isBackspaceSharedWithCancel {
             // Returns true if requested key is key currently in use
-            if backspaceButton != nil {
-                return keyForSharedBackspaceAndCancel == specialKey
-            }
+			if backspaceButton != nil, let currentKey = keyForSharedBackspaceAndCancel {
+				return currentKey == specialKey
+			}
         } else {
             if let b = specialKey == .cancel ? cancelButton : backspaceButton {
                 return !b.isHidden
@@ -141,10 +145,15 @@ open class PinKeyboardView : UIView {
     
     // Updates views according to current setup. You can override this method is derived class
     // to implement diffrent presentation of shared Backspace & Cancel key.
-    open func updateSharedBackspaceAndCancel(currentKey: PinKeyboardSpecialKey) {
-        let nextTitle = currentKey == .cancel ? titleForSharedCancelButton : titleForSharedBackspaceButton
-        backspaceButton?.setTitle(nextTitle, for: .normal)
-        backspaceButton?.isHidden = false
+    open func updateSharedBackspaceAndCancel(currentKey: PinKeyboardSpecialKey?) {
+		if let currentKey = currentKey {
+			let nextTitle = currentKey == .cancel ? titleForSharedCancelButton : titleForSharedBackspaceButton
+			backspaceButton?.setTitle(nextTitle, for: .normal)
+			backspaceButton?.isHidden = false
+		} else {
+			backspaceButton?.setTitle("", for: .normal)
+			backspaceButton?.isHidden = true
+		}
     }
     
     /// The `awakeFromNib` implementation setups buttons configuration. This means that this view should be instantiated
@@ -157,8 +166,17 @@ open class PinKeyboardView : UIView {
     // MARK: - Private variables
     
     /// Current behavior for shared cancel & backspace button
-    private var keyForSharedBackspaceAndCancel: PinKeyboardSpecialKey = .cancel
-    
+    private var isSharedCancelVisible: Bool = false
+	private var isSharedBackspaceVisible: Bool = false
+	private var keyForSharedBackspaceAndCancel: PinKeyboardSpecialKey? {
+		if isSharedCancelVisible {
+			return .cancel
+		} else if isSharedBackspaceVisible {
+			return .backspace
+		}
+		return nil
+	}
+	
     /// Permutations for button tags
     private var tagPermutations: [Int]!
     
@@ -288,5 +306,3 @@ open class PinKeyboardView : UIView {
         }
     }
 }
-
-
