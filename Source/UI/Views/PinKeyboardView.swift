@@ -200,6 +200,10 @@ open class PinKeyboardView : UIView {
         if !isBackspaceSharedWithCancel {
             cancelButton?.addTarget(self, action: #selector(PinKeyboardView.buttonAction(_:)), for: .touchUpInside)
         }
+        // make all special buttons as hidden
+        biometryButton?.isHidden = true
+        cancelButton?.isHidden = true
+        backspaceButton?.isHidden = true
         return true
     }
     
