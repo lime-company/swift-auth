@@ -37,7 +37,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
     private var state: State = .initialized
     private var canRetryAfterFailedBiometry: Bool = true
     private var updateStatusOperation: Operation? = nil
-    private var lastUsedCredentials: PowerAuthAuthentication? = nil
+    private weak var synchronizedOperation: Operation? = nil
     
     init(session: LimeAuthSession, operation: AuthenticationUIOperation, requestOptions: Authentication.UIRequest.Options, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
@@ -67,6 +67,8 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             operation.cancel()
             updateStatusOperation?.cancel()
             updateStatusOperation = nil
+            synchronizedOperation?.cancel()
+            synchronizedOperation = nil
         } else {
             D.warning("cancel() called when already cancelled or finished")
         }
@@ -125,62 +127,80 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         // change state
         canRetryAfterFailedBiometry = false
         state = .executing
-        lastUsedCredentials = nil
         
         // ...aand execute the operation
-        operation.execute(authentication: auth) { (result, error) in
-            // Completion block, called from operation
-            if let err = error {
-                var response = AuthenticationUIOperationResult(error: error)
-                // At first, check if it's Touch-ID cancel or error, we can report this immediately to the completion
-                if self.checkTouchIdError(&response, auth) {
-                    self.state = .failed
-                    callback(response)
-                    return
+        if operation.isSerialized {
+            // Already serialized operations can be executed directly. We're expecting that callback is called to main thread.
+            operation.execute(authentication: auth) { (result, error) in
+                self.processExecutionResult(result: result, error: error, callback: callback)
+            }
+            //
+        } else {
+            // Wrap execution to operation serialized in session's serialization queue
+            let op = session.buildBlockOperation(execute: { (op) -> Void in
+                // Now execute that embedded operation
+                self.operation.execute(authentication: auth) { (result, error) in
+                    // Propagate result to the serialized operation
+                    op.finish(result: result, error: error)
                 }
-                // Check if operation ended on auth error
-                if (err.httpStatusCode == 401) ||
-                    (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
-                    response.isAuthenticationError = true
-                }
-                // Workaround for crappy error processing inside the PA2 SDK
-                if err.domain == PA2ErrorDomain {
-                    if let nested:NSError = err.nestedError as NSError? {
-                        if let errorResponse = nested.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
-                            if let mightyErrorResponse = errorResponse.responseObject {
-                                if mightyErrorResponse.code == "ERR_AUTHENTICATION" {
-                                    response.isAuthenticationError = true
-                                }
+            }, completion: { (op, result, error) in
+                // ...and back to executor
+                let laError = error != nil ? LimeAuthError(error: error!) : nil
+                self.processExecutionResult(result: result, error: laError, callback: callback)
+            })
+            synchronizedOperation = session.addOperationToQueue(op, serialized: true)
+        }
+    }
+    
+    private func processExecutionResult(result: Any?, error: LimeAuthError?, callback: @escaping (AuthenticationUIOperationResult) -> Void) {
+        if let err = error {
+            var response = AuthenticationUIOperationResult(error: error)
+            // At first, check if it's Touch-ID cancel or error, we can report this immediately to the completion
+            if self.checkTouchIdError(&response) {
+                self.state = .failed
+                callback(response)
+                return
+            }
+            // Check if operation ended on auth error
+            if (err.httpStatusCode == 401) ||
+                (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
+                response.isAuthenticationError = true
+            }
+            // Workaround for crappy error processing inside the PA2 SDK
+            if err.domain == PA2ErrorDomain {
+                if let nested:NSError = err.nestedError as NSError? {
+                    if let errorResponse = nested.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
+                        if let mightyErrorResponse = errorResponse.responseObject {
+                            if mightyErrorResponse.code == "ERR_AUTHENTICATION" {
+                                response.isAuthenticationError = true
                             }
                         }
                     }
                 }
-                // If not offline, then check whether is network available.
-                if !self.operation.isOffline {
-                    if self.checkOnlineConnection(&response) {
-                        // Looks like we're still connected to the internet, so update PA status now
-                        self.updateActivationStatus(response, .failed, callback)
-                        return
-                    }
-                }
-                // Operation is "offline" or network is not available
-                self.state = .failed
-                callback(response)
-            } else {
-                self.state = .succeeded
-                self.lastUsedCredentials = auth
-                let response = AuthenticationUIOperationResult(result: result)
-                callback(response)
-                // Check silently for status update. If status is not available, then defaulting to 1, to force update
-                if (self.session.lastFetchedActivationStatus?.failCount ?? 1) != 0 {
-                    self.session.setNeedUpdateActivationStatus()
+            }
+            // If not offline, then check whether is network available.
+            if !self.operation.isOffline {
+                if self.checkOnlineConnection(&response) {
+                    // Looks like we're still connected to the internet, so update PA status now
+                    self.updateActivationStatus(response, .failed, callback)
+                    return
                 }
             }
-            // End of operation's completion block
+            // Operation is "offline" or network is not available
+            self.state = .failed
+            callback(response)
+        } else {
+            self.state = .succeeded
+            let response = AuthenticationUIOperationResult(result: result)
+            callback(response)
+            // Check silently for status update. If status is not available, then defaulting to 1, to force update
+            if (self.session.lastFetchedActivationStatus?.failCount ?? 1) != 0 {
+                self.session.setNeedUpdateActivationStatus()
+            }
         }
     }
     
-    private func checkTouchIdError(_ response: inout AuthenticationUIOperationResult, _ auth: PowerAuthAuthentication) -> Bool {
+    private func checkTouchIdError(_ response: inout AuthenticationUIOperationResult) -> Bool {
         // At first, validate whether touchid is still available
         if requestOptions.contains([.allowBiometryFactor]) {
             let credentials = credentialsProvider.credentials
