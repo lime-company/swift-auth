@@ -171,7 +171,7 @@ public extension LimeAuthAuthenticationUI {
         uiRequest.tweaks.successAnimationDelay = 450
         
         // Operation for execution
-        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             guard let password = authentication.usePassword else {
                 completionCallback(nil, LimeAuthError(string: "Internal error: Password is expected."))
                 return nil
@@ -219,7 +219,7 @@ public extension LimeAuthAuthenticationUI {
                                              credentialsProvider: LimeAuthCredentialsProvider,
                                              completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         // Build operation object
-        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.removeActivation(authentication: authentication) { (error) in
                 completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
             }
@@ -239,7 +239,7 @@ public extension LimeAuthAuthenticationUI {
                                            credentialsProvider: LimeAuthCredentialsProvider,
                                            completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         // Build operation object
-        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (authentication, completionCallback) -> Operation? in
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.addBiometryFactor(password: authentication.usePassword!) { (error) in
                 completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
             }

@@ -131,7 +131,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         // ...aand execute the operation
         if operation.isSerialized {
             // Already serialized operations can be executed directly. We're expecting that callback is called to main thread.
-            operation.execute(authentication: auth) { (result, error) in
+            operation.execute(session: session, authentication: auth) { (result, error) in
                 self.processExecutionResult(result: result, error: error, callback: callback)
             }
             //
@@ -139,7 +139,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             // Wrap execution to operation serialized in session's serialization queue
             let op = session.buildBlockOperation(execute: { (op) -> Void in
                 // Now execute that embedded operation
-                self.operation.execute(authentication: auth) { (result, error) in
+                self.operation.execute(session: self.session, authentication: auth) { (result, error) in
                     // Propagate result to the serialized operation
                     op.finish(result: result, error: error)
                 }

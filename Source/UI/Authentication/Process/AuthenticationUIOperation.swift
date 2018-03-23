@@ -25,7 +25,7 @@ public protocol AuthenticationUIOperation {
     typealias ExecutionCallback = (Any?, LimeAuthError?)->Void
     
     /// Executes an operation
-    func execute(authentication: PowerAuthAuthentication, callback: @escaping ExecutionCallback)
+    func execute(session: LimeAuthSession, authentication: PowerAuthAuthentication, callback: @escaping ExecutionCallback)
     
     /// Cancels an execution of the opreation.
     func cancel()

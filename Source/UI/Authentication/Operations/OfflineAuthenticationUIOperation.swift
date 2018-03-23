@@ -19,14 +19,14 @@ import PowerAuth2
 
 public class OfflineAuthenticationUIOperation: AuthenticationUIOperation {
     
-    private var executionBlock: (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?
+    private var executionBlock: (LimeAuthSession, PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?
     private var underlyingOperation: Operation?
     
-    public init(execution: @escaping (PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?) {
+    public init(execution: @escaping (LimeAuthSession, PowerAuthAuthentication, @escaping ExecutionCallback) -> Operation?) {
         self.executionBlock = execution
     }
     
-    public func execute(authentication: PowerAuthAuthentication, callback: @escaping ExecutionCallback) {
+    public func execute(session: LimeAuthSession, authentication: PowerAuthAuthentication, callback: @escaping ExecutionCallback) {
         if isExecuting {
             callback(nil, LimeAuthError(string: "Operation is already executing"))
             return
@@ -35,7 +35,7 @@ public class OfflineAuthenticationUIOperation: AuthenticationUIOperation {
         isExecuting = true
         isCancelled = false
         
-        underlyingOperation = executionBlock(authentication) { (response, error) in
+        underlyingOperation = executionBlock(session, authentication) { (response, error) in
             self.underlyingOperation = nil
             self.isExecuting = false
             
