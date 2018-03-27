@@ -67,6 +67,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         unregisterForKeyboardNotifications()
+        self.view.resignFirstResponder()
     }
     
     open override func viewSafeAreaInsetsDidChange() {

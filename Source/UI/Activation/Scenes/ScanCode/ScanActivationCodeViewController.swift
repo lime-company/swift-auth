@@ -68,10 +68,14 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         startFallbackTimer()
     }
     
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         stopScanner()
         cancelFallbackTimer()
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return uiDataProvider?.uiDataForScanActivationCode.style.statusBarStyle ?? .lightContent
     }
     
     // MARK: - Routing
@@ -223,6 +227,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     private func cancelFallbackTimer() {
         if let t = task {
             t.cancel()
+            task = nil
         }
     }
 }

@@ -30,8 +30,13 @@ public enum ScanActivationCode {
             let cancelButton: LazyUIImage
         }
         
+        public struct Style {
+            let statusBarStyle: UIStatusBarStyle
+        }
+        
         public let strings: Strings
         public let images: Images
+        public let style: Style
         
         public static func fallbackData() -> UIData {
             let strings = Strings(
@@ -39,7 +44,8 @@ public enum ScanActivationCode {
                 enterCodeFallbackButton:  "Unsuccessful? Rewrite the code."
             )
             let images = Images(crossHair: .empty(), cancelButton: .empty())
-            return UIData(strings: strings, images: images)
+            let style = Style(statusBarStyle: .default)
+            return UIData(strings: strings, images: images, style: style)
         }
         
     }
