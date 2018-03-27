@@ -33,7 +33,7 @@ public protocol CreateAndVerifyPasswordRoutableController: AuthenticationUIProce
 public class CreateAndVerifyPasswordRouter: CreateAndVerifyPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
     public var authenticationProcess: AuthenticationUIProcess!
-    public var viewController: (UIViewController & CreateAndVerifyPasswordRoutableController)?
+    public weak var viewController: (UIViewController & CreateAndVerifyPasswordRoutableController)?
     
     // Specific for this type of router
     public typealias ParentRouterType = (NewCredentialsRoutingLogic & AuthenticationUIProcessRouter)

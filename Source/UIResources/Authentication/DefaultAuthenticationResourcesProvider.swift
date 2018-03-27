@@ -18,9 +18,9 @@ import UIKit
 
 internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider, AuthenticationUIDataProvider {
 
-    public lazy var bundle: Bundle = {
+    public var bundle: Bundle {
         return providedBundle ?? Bundle(for: type(of: self))
-    }()
+    }
     
     private var providedBundle: Bundle?
     

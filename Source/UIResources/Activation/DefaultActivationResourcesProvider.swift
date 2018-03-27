@@ -18,9 +18,9 @@ import UIKit
 
 internal class DefaultActivationResourcesProvider: ActivationUIProvider, ActivationUIDataProvider {
     
-    public lazy var bundle: Bundle = {
+    public var bundle: Bundle {
         return providedBundle ?? Bundle(for: type(of: self))
-    }()
+    }
     
     private var providedBundle: Bundle?
     
@@ -63,9 +63,9 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return UINavigationController(rootViewController: rootController)
     }
     
-    public lazy var uiDataProvider: ActivationUIDataProvider = {
+    public var uiDataProvider: ActivationUIDataProvider {
         return self
-    }()
+    }
     
     public lazy var authenticationUIProvider: AuthenticationUIProvider = {
         return DefaultAuthenticationResourcesProvider(bundle: bundle)

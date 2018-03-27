@@ -35,7 +35,7 @@ public protocol NewCredentialsRoutableController: AuthenticationUIProcessControl
 public class NewCredentialsRouter: NewCredentialsRoutingLogic, AuthenticationUIProcessRouter {
     
     public var authenticationProcess: AuthenticationUIProcess!
-    public var viewController: (UIViewController & NewCredentialsRoutableController)?
+    public weak var viewController: (UIViewController & NewCredentialsRoutableController)?
     
     public func connect(controller: AuthenticationUIProcessController) {
         viewController = controller as? (UIViewController & NewCredentialsRoutableController)
