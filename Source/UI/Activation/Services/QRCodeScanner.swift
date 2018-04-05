@@ -28,7 +28,7 @@ public protocol QRCodeProviderDelegate: class {
 
 public protocol QRCodeProvider: CameraAccessProvider {
         
-    weak var delegate: QRCodeProviderDelegate? { get set }
+    var delegate: QRCodeProviderDelegate? { get set }
  
     var isScannerStarted: Bool { get }
     
