@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'LimeAuth'
-  s.version = '0.1.0'
+  s.version = '0.2.0'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'High level PowerAuth based authentication library written in swift'
@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   # Deployment targets
   s.swift_version = '4.0'
   s.ios.deployment_target = '8.0'
-  s.watchos.deployment_target = '2.0'
   
   # Sources
   s.default_subspec = 'Core'
