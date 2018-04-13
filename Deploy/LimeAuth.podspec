@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   # Deployment targets
   s.swift_version = '4.0'
   s.ios.deployment_target = '8.0'
-  s.watchos.deployment_target = '2.0'
   
   # Sources
   s.default_subspec = 'Core'
