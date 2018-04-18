@@ -77,17 +77,20 @@ public class LimeAuthError: Error {
         return e.userInfo
     }
     
-    ///
+    /// Initialize object with nested error
     public init(error: Error) {
         self.nestedError = error
         self.nestedDescription = nil
     }
     
+    /// Initialize object with string describing error.
     public init(string: String) {
         self.nestedError = nil
         self.nestedDescription = string
     }
     
+    /// Initialize object with nesteed error and additional string describing
+    /// that error.
     public init(error: Error, string: String) {
         self.nestedError = error
         self.nestedDescription = string
@@ -100,7 +103,8 @@ public class LimeAuthError: Error {
 
 public extension LimeAuthError {
     
-    /// Returns true if nested error contains information about
+    /// Returns true if nested error has information about missing network connection.
+    /// The device is typically not connected to the internet.
     public var networkIsNotReachable: Bool {
         if self.domain == NSURLErrorDomain || self.domain == kCFErrorDomainCFNetwork as String {
             let ec = CFNetworkErrors(rawValue: Int32(self.code))
