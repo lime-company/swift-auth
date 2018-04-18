@@ -15,20 +15,31 @@
 //
 
 import Foundation
+import PowerAuth2
 
 /// A class returned as Error when error occurs
 public class LimeAuthError: Error {
     
     public static let limeAuthDomain = "limeAuthDomain"
     
-    /// Status code from HTTPURLResponse
-    public private(set) var httpStatusCode: Int = 0
+    /// Status code from `HTTPURLResponse` or from `PA2ErrorResponse`
+    public var httpStatusCode: Int {
+        if _httpStatusCode != 0 {
+            return _httpStatusCode
+        } else if let responseObject = self.powerAuthErrorResponse {
+            _httpStatusCode = Int(responseObject.httpStatusCode)
+            return _httpStatusCode
+        }
+        return 0
+    }
+    
+    private var _httpStatusCode: Int = 0
     
     /// A full response received from server
     public var urlResponse: URLResponse? {
         didSet {
             if let resp = urlResponse as? HTTPURLResponse {
-                httpStatusCode = resp.statusCode
+                _httpStatusCode = resp.statusCode
             }
         }
     }
@@ -58,6 +69,15 @@ public class LimeAuthError: Error {
         return e.domain
     }
     
+    /// If nestedError is valid, then returns its user info.
+    public var userInfo: [String:Any] {
+        guard let e = nestedError as NSError? else {
+            return [:]
+        }
+        return e.userInfo
+    }
+    
+    ///
     public init(error: Error) {
         self.nestedError = error
         self.nestedDescription = nil
@@ -80,6 +100,7 @@ public class LimeAuthError: Error {
 
 public extension LimeAuthError {
     
+    /// Returns true if nested error contains information about
     public var networkIsNotReachable: Bool {
         if self.domain == NSURLErrorDomain || self.domain == kCFErrorDomainCFNetwork as String {
             let ec = CFNetworkErrors(rawValue: Int32(self.code))
@@ -90,4 +111,12 @@ public extension LimeAuthError {
         return false
     }
     
+    /// Returns `PA2ErrorResponse` if such object is embedded in nested error. This is typically useful
+    /// for getting response created in the PowerAuth2 library.
+    public var powerAuthErrorResponse: PA2ErrorResponse? {
+        if let responseObject = self.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
+            return responseObject
+        }
+        return nil
+    }
 }
