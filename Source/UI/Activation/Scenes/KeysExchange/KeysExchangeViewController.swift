@@ -45,19 +45,19 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess,
-            let _ = router?.activationProcess.activationData.activationCode else {
-                fatalError("KeysExchangeViewController is not configured properly.")
-        }
-        
-        prepareUI()
         createActivation()
     }
     
     open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         sessionOperation?.cancel()
+    }
+    
+    open override func configureController() {
+        guard let _ = router?.activationProcess,
+            let _ = router?.activationProcess.activationData.activationCode else {
+                fatalError("KeysExchangeViewController is not configured properly.")
+        }
     }
     
     // MARK: - Routing
@@ -104,7 +104,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
     
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
         
         let uiData = uiDataProvider.uiDataForKeysExchange
         

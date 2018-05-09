@@ -47,15 +47,6 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess else {
-            fatalError("EnableBiometryViewController is not configured properly.")
-        }
-		guard PA2Keychain.supportedBiometricAuthentication != .none else {
-			fatalError("EnableBiometryViewController biometry is not supported.")
-		}
-        
-        prepareUI()
     }
     
     // MARK: - Routing
@@ -69,6 +60,14 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         router?.prepare(for: segue, sender: sender)
     }
     
+    open override func configureController() {
+        guard let _ = router?.activationProcess else {
+            fatalError("EnableBiometryViewController is not configured properly.")
+        }
+        guard PA2Keychain.supportedBiometricAuthentication != .none else {
+            fatalError("EnableBiometryViewController biometry is not supported.")
+        }
+    }
     
     // MARK: - Interactions
     
@@ -96,7 +95,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
 	
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForEnableBiometry
         let isTouchId = PA2Keychain.supportedBiometricAuthentication == .touchID
         

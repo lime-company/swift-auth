@@ -49,12 +49,6 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess else {
-            fatalError("EnterActivationCodeViewController is not configured properly.")
-        }
-        
-        prepareUI()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +68,12 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         if #available(iOS 11.0, *) {
             super.viewSafeAreaInsetsDidChange()
             self.bottomSafeArea = view.safeAreaInsets.bottom
+        }
+    }
+    
+    open override func configureController() {
+        guard let _ = router?.activationProcess else {
+            fatalError("EnterActivationCodeViewController is not configured properly.")
         }
     }
     
@@ -288,7 +288,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForEnterActivationCode
         let commonStrings = uiDataProvider.uiCommonStrings
         

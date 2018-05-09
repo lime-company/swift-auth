@@ -44,12 +44,12 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    open override func configureController() {
         guard let _ = router?.activationProcess else {
             fatalError("NoCameraAccessViewController is not configured properly.")
         }
-        
-        prepareUI()
     }
     
     // MARK: - Routing
@@ -93,7 +93,7 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForNoCameraAccess
         let commonStrings = uiDataProvider.uiCommonStrings
         
