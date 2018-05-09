@@ -87,7 +87,10 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForErrorActivation
         let commonStrings = uiDataProvider.uiCommonStrings
-
+        let commonStyle = uiDataProvider.uiCommonStyle
+        
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        
         if uiData.images.errorIllustration.hasImage {
             promoImageView?.image = uiData.images.errorIllustration.image
         }

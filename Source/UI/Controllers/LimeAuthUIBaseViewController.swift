@@ -24,6 +24,9 @@ open class LimeAuthUIBaseViewController: UIViewController {
         prepareUI()
     }
     
+    
+    // MARK: - Overridable functions
+    
     /// Overridable method, automatically called from `viewDidLoad()` and before `prepareUI()`
     open func configureController() {
         // Empty
@@ -34,26 +37,48 @@ open class LimeAuthUIBaseViewController: UIViewController {
         // Empty
     }
     
+    
+    // MARK: - Controller's background
+    
     /// If true, then background of the controller was already configured
     private var backgroundIsAlreadyConfigured = false
     
-    /// Function configures background of this instance of controller, with provided image or color.
-    /// If image is used, then image view's content mode will be `.scaleAspectFill`
+    /// Function configures background of this instance of controller, with provided image and color.
+    /// If you provide both parameters, then both are applied:
+    /// - the color is set to controller's main view
+    /// - `UIImageView` is constructed for image and inserted as first subview to `parentViewForBackgroundImage`.
+    ///   The `.scaleAspectFill` content mode will be used for that constructed image view and will fill a whole
+    ///   area of `parentViewForBackgroundImage`
     public func configureBackground(image: LazyUIImage?, color: UIColor?) {
         // Configuration should be performed only once per controller's lifetime
         if !backgroundIsAlreadyConfigured {
             backgroundIsAlreadyConfigured = true
-            // Now apply image or color
-            if let image = image {
-                if image.hasImage {
-                    let imageView = UIImageView(image: image.image)
-                    imageView.contentMode = .scaleAspectFill
-                    self.view.insertSubview(imageView, at: 0)
-                }
-            } else if let color = color {
+            // Now apply image if is provided
+            if let image = image?.optionalImage {
+                // Build image view
+                let imageView = UIImageView(image: image)
+                imageView.contentMode = .scaleAspectFill
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                self.parentViewForBackgroundImageView.insertSubview(imageView, at: 0)
+                self.backgroundImageView = imageView
+                // Build constraints
+                let bindings = [ "image" : imageView ]
+                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[image]|", options: [], metrics: nil, views: bindings))
+                self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[image]|", options: [], metrics: nil, views: bindings))
+            }
+            // And color
+            if let color = color {
                 self.view.backgroundColor = color
             }
         }
     }
     
+    /// Contains a parent view for background image view, required for background image presentation.
+    /// You can override this getter in subclass. By default contains `self.view`
+    open var parentViewForBackgroundImageView: UIView {
+        return self.view
+    }
+    
+    /// If controller's background was configured with image, then this property contains a view with that image.
+    public private(set) weak var backgroundImageView: UIImageView?
 }

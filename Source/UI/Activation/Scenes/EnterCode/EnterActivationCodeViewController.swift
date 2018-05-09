@@ -291,6 +291,9 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForEnterActivationCode
         let commonStrings = uiDataProvider.uiCommonStrings
+        let commonStyle = uiDataProvider.uiCommonStyle
+        
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
         
         self.title = uiData.strings.sceneTitle
         hintLabel?.text = uiData.strings.confirmButton

@@ -96,7 +96,10 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForNoCameraAccess
         let commonStrings = uiDataProvider.uiCommonStrings
+        let commonStyle = uiDataProvider.uiCommonStyle
         
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+
         if uiData.images.noAccess.hasImage {
             promoImageView?.image = uiData.images.noAccess.image
         }

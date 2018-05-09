@@ -203,7 +203,10 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForConfirmActivation
-		
+        let commonStyle = uiDataProvider.uiCommonStyle
+        
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        
         if uiData.images.confirm.hasImage {
             promoImageView?.image = uiData.images.confirm.image
         }

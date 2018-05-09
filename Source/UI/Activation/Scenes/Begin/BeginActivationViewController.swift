@@ -128,6 +128,9 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         
         let uiData = uiDataProvider.uiDataForBeginActivation
         let commonStrings = uiDataProvider.uiCommonStrings
+        let commonStyle = uiDataProvider.uiCommonStyle
+        
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
         
         if uiData.images.scenePromo.hasImage {
             promoImageView?.image = uiData.images.scenePromo.image
