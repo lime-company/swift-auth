@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4qz-fD-Xx7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4qz-fD-Xx7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="CourierNew.ttf">
-            <string>CourierNewPSMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Begin Activation View Controller-->
         <scene sceneID="oBi-Od-bnS">
@@ -63,7 +58,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Dex-vZ-QYO" firstAttribute="leading" secondItem="2jN-Y9-YNr" secondAttribute="leading" constant="10" id="B7W-l6-NMM"/>
                                             <constraint firstItem="e1t-28-nyH" firstAttribute="width" secondItem="2jN-Y9-YNr" secondAttribute="width" multiplier="0.75" id="PLf-cb-5di"/>
@@ -118,8 +113,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -322,6 +319,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-P5-iq5" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="44"/>
@@ -464,7 +462,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="qem-gU-P5o" firstAttribute="top" secondItem="bHr-bB-U3x" secondAttribute="top" constant="8" id="I7M-lE-JGu"/>
                                             <constraint firstItem="BW1-MN-0Bl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qem-gU-P5o" secondAttribute="bottom" id="MW9-ZH-ARV"/>
@@ -504,8 +502,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -553,7 +553,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="30b-PX-4CN" firstAttribute="width" secondItem="dJl-cg-Sb8" secondAttribute="width" multiplier="0.75" id="KSs-n2-TIN"/>
                                             <constraint firstItem="30b-PX-4CN" firstAttribute="centerX" secondItem="dJl-cg-Sb8" secondAttribute="centerX" id="ao4-2B-CdV"/>
@@ -589,8 +589,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -637,7 +639,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ij2-gv-yvF" firstAttribute="width" secondItem="dUL-1A-tg4" secondAttribute="width" multiplier="0.75" id="6wX-vW-gXc"/>
                                             <constraint firstItem="ij2-gv-yvF" firstAttribute="centerX" secondItem="dUL-1A-tg4" secondAttribute="centerX" id="GRm-f0-w6J"/>
@@ -688,8 +690,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -738,7 +742,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="KgQ-bV-0oe" firstAttribute="centerY" secondItem="oAi-9r-gSh" secondAttribute="centerY" priority="750" id="CCL-sX-Tc6"/>
                                             <constraint firstItem="KgQ-bV-0oe" firstAttribute="width" secondItem="oAi-9r-gSh" secondAttribute="width" multiplier="0.75" id="erb-uL-qs5"/>
@@ -795,8 +799,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -832,9 +838,9 @@
         <image name="illustration-wizard-welcome-3" width="220" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mys-65-odR"/>
-        <segue reference="2Jb-20-RaX"/>
-        <segue reference="KEQ-ev-lI5"/>
+        <segue reference="C7r-zI-zbv"/>
+        <segue reference="BzB-ih-qyI"/>
+        <segue reference="LPC-QH-zn5"/>
         <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>
 </document>

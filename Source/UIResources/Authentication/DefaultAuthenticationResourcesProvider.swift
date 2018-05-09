@@ -19,7 +19,7 @@ import UIKit
 internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider, AuthenticationUIDataProvider {
 
     public var bundle: Bundle {
-        return providedBundle ?? Bundle(for: type(of: self))
+        return providedBundle ?? .limeAuthResourcesBundle
     }
     
     private var providedBundle: Bundle?

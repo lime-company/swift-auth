@@ -20,6 +20,8 @@ public class LazyUIImage {
     
     private let construction: (()->UIImage?)?
     
+    // MARK: - Construction
+    
     public init(named name: String, bundle: Bundle? = nil) {
         construction = { ()->UIImage? in
             if let bundle = bundle {
@@ -38,6 +40,8 @@ public class LazyUIImage {
         construction = nil
     }
     
+    // MARK: - Properties
+    
     public var image: UIImage {
         if let image = construction?() {
             return image
@@ -45,9 +49,15 @@ public class LazyUIImage {
         return UIImage()
     }
     
+    public var optionalImage: UIImage? {
+        return construction?()
+    }
+    
     public var hasImage: Bool {
         return construction != nil
     }
+    
+    // MARK: - Static methods
     
     public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
         return LazyUIImage(named: name, bundle: bundle)
@@ -59,5 +69,23 @@ public class LazyUIImage {
     
     public static func empty() -> LazyUIImage {
         return LazyUIImage()
+    }
+    
+    public static func tinted(_ image: LazyUIImage, with color: UIColor) -> LazyUIImage {
+        return LazyUIImage {
+            guard let image = image.optionalImage else {
+                return nil
+            }
+            UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+            let context = UIGraphicsGetCurrentContext()!
+            let rect = CGRect(origin: CGPoint.zero, size: image.size)
+            color.setFill()
+            image.draw(in: rect)
+            context.setBlendMode(.sourceIn)
+            context.fill(rect)
+            let tintedImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            return tintedImage
+        }
     }
 }

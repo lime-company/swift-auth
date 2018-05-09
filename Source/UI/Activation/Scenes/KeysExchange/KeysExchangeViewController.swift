@@ -107,9 +107,11 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
     open override func prepareUI() {
         
         let uiData = uiDataProvider.uiDataForKeysExchange
+        let commonStyle = uiDataProvider.uiCommonStyle
+        
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
         
         pendingDescriptionLabel?.text = uiData.strings.pendingActivationTitle
-
     }
     
 }

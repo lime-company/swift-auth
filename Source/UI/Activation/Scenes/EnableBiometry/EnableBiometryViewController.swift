@@ -97,6 +97,10 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForEnableBiometry
+        let commonStyle = uiDataProvider.uiCommonStyle
+
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+
         let isTouchId = PA2Keychain.supportedBiometricAuthentication == .touchID
         
         let sceneTitle          = isTouchId ? uiData.strings.touchIdSceneTitle : uiData.strings.faceIdSceneTitle

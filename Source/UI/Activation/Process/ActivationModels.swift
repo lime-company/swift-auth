@@ -61,11 +61,13 @@ public enum Activation {
         
         public struct CommonStyle {
             public let tintColor: UIColor
-            public let backgroundColor: UIColor
+            public let backgroundColor: UIColor?
+            public let backgroundImage: LazyUIImage?
             
             public static func fallbackStyle() -> CommonStyle {
                 return CommonStyle(tintColor: .blue,
-                                   backgroundColor: .white)
+                                   backgroundColor: .white,
+                                   backgroundImage: nil)
             }
         }
         
