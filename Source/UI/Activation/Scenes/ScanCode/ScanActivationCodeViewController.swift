@@ -52,12 +52,6 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess, let _ = qrCodeProvider else {
-            fatalError("ScanActivationCodeViewController is not configured properly.")
-        }
-        
-        prepareUI()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +70,12 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return uiDataProvider?.uiDataForScanActivationCode.style.statusBarStyle ?? .lightContent
+    }
+    
+    open override func configureController() {
+        guard let _ = router?.activationProcess, let _ = qrCodeProvider else {
+            fatalError("ScanActivationCodeViewController is not configured properly.")
+        }
     }
     
     // MARK: - Routing
@@ -158,7 +158,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
 	@IBOutlet weak var crossHairImageView: UIImageView?
     
     
-    open func prepareUI() {
+    open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForScanActivationCode
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle

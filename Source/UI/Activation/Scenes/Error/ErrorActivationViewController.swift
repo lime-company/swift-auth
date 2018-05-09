@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class ErrorActivationViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
+open class ErrorActivationViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
     public var router: (ErrorActivationRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -42,27 +42,27 @@ public class ErrorActivationViewController: LimeAuthUIBaseViewController, Activa
     
     // MARK: - View lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess else {
-            fatalError("ErrorActivationViewController is not configured properly.")
-        }
-        
-        prepareUI()
     }
     
     // MARK: - Routing
     
-    public func connect(activationProcess process: ActivationUIProcess) {
+    open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
     }
     
+    open override func configureController() {
+        
+        guard let _ = router?.activationProcess else {
+            fatalError("ErrorActivationViewController is not configured properly.")
+        }
+    }
     
     // MARK: - Interactions
 
@@ -84,7 +84,7 @@ public class ErrorActivationViewController: LimeAuthUIBaseViewController, Activa
 	
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForErrorActivation
         let commonStrings = uiDataProvider.uiCommonStrings
 

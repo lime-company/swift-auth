@@ -48,19 +48,19 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess else {
-            fatalError("BeginActivationViewController is not configured properly.")
-        }
-        // Change behavior of cancel operation
-        router.activationProcess.cancelShouldRouteToBegin = true
-        
-        prepareUI()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    open override func configureController() {
+        guard let _ = router?.activationProcess else {
+            fatalError("BeginActivationViewController is not configured properly.")
+        }
+        // Change behavior of cancel operation
+        router.activationProcess.cancelShouldRouteToBegin = true
     }
     
     // MARK: - Routing
@@ -124,7 +124,7 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
     
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
         
         let uiData = uiDataProvider.uiDataForBeginActivation
         let commonStrings = uiDataProvider.uiCommonStrings

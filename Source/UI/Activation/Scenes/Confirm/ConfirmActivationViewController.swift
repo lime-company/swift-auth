@@ -43,28 +43,8 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     // MARK: - View lifecycle
     
-    private var recoveryFromBrokenActivation = false
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let _ = router?.activationProcess else {
-            fatalError("ConfirmActivationViewController is not configured properly.")
-        }
-		let ad = router.activationProcess.activationData
-        if ad.noActivationResult {
-            // this is recovery from crashed application
-            recoveryFromBrokenActivation = true
-            //
-        } else {
-            guard ad.createActivationResult != nil else {
-                fatalError("ConfirmActivationViewController createActivationResult or noActivationResult is not configured.")
-            }
-            guard let _ = ad.password, let _ = ad.createActivationResult?.activationFingerprint else {
-                fatalError("ConfirmActivationViewController missing password or fingerprint.")
-            }
-        }
-        prepareUI()
 		commitActivation()
     }
 	
@@ -77,6 +57,27 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
 		super.viewWillDisappear(animated)
 		stopWaiting()
 	}
+    
+    private var recoveryFromBrokenActivation = false
+    
+    open override func configureController() {
+        guard let _ = router?.activationProcess else {
+            fatalError("ConfirmActivationViewController is not configured properly.")
+        }
+        let ad = router.activationProcess.activationData
+        if ad.noActivationResult {
+            // this is recovery from crashed application
+            recoveryFromBrokenActivation = true
+            //
+        } else {
+            guard ad.createActivationResult != nil else {
+                fatalError("ConfirmActivationViewController createActivationResult or noActivationResult is not configured.")
+            }
+            guard let _ = ad.password, let _ = ad.createActivationResult?.activationFingerprint else {
+                fatalError("ConfirmActivationViewController missing password or fingerprint.")
+            }
+        }
+    }
 	
 	
     // MARK: - Routing
@@ -200,7 +201,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     // MARK: -
     
-    open func prepareUI() {
+    open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForConfirmActivation
 		
         if uiData.images.confirm.hasImage {
