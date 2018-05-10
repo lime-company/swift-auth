@@ -130,11 +130,8 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         let commonStrings = uiDataProvider.uiCommonStrings
         let commonStyle = uiDataProvider.uiCommonStyle
         
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        
-        if uiData.images.scenePromo.hasImage {
-            promoImageView?.image = uiData.images.scenePromo.image
-        }
+        // Apply texts & icons
+        promoImageView?.setLazyImage(uiData.images.scenePromo)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         enterAccessCodeButton?.setTitle(uiData.strings.enterButton, for: .normal)
@@ -142,5 +139,13 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         cancelActivationButton?.setTitle(commonStrings.cancelTitle, for: .normal)
         
         scanAccessCodeButton?.isHidden = !cameraAccessProvider.isCameraDeviceAvailable
+        
+        // Apply styles
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
+        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
+        scanAccessCodeButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
+        enterAccessCodeButton?.applyButtonStyle(commonStyle.buttonWizardSecondary)
+        cancelActivationButton?.applyButtonStyle(commonStyle.buttonWizardCancel)
     }
 }

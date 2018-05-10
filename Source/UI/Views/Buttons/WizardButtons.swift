@@ -17,21 +17,21 @@
 import UIKit
 
 /// Primary button, used in activation UI flow
-class PrimaryWizardButton: RoundCornersButton {
+open class PrimaryWizardButton: RoundCornersButton {
 }
 
 /// Secondary button, used in activation UI flow
-class SecondaryWizardButton: RoundCornersButton {
+open class SecondaryWizardButton: RoundCornersButton {
 }
 
 /// Button with destructive action, used in activation UI flow.
-class DestructiveWizardButton: RoundCornersButton {
+open class DestructiveWizardButton: RoundCornersButton {
 }
 
 /// Button used in the QR scanner
-class CameraOverlayButton: RoundCornersButton {
+open class CameraOverlayButton: RoundCornersButton {
 }
 
 /// Button used for cancel operation.
-class CancelWizardButton: RoundCornersButton {
+open class CancelWizardButton: RoundCornersButton {
 }

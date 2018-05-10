@@ -89,14 +89,16 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
         let commonStrings = uiDataProvider.uiCommonStrings
         let commonStyle = uiDataProvider.uiCommonStyle
         
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        
-        if uiData.images.errorIllustration.hasImage {
-            promoImageView?.image = uiData.images.errorIllustration.image
-        }
+        // Apply texts & images
+        promoImageView?.setLazyImage(uiData.images.errorIllustration)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.genericError
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
+        // Apply styles
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
+        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
+        closeSceneButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
     }
     
 }

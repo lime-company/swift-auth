@@ -97,16 +97,19 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
         let uiData = uiDataProvider.uiDataForNoCameraAccess
         let commonStrings = uiDataProvider.uiCommonStrings
         let commonStyle = uiDataProvider.uiCommonStyle
-        
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
 
-        if uiData.images.noAccess.hasImage {
-            promoImageView?.image = uiData.images.noAccess.image
-        }
+        // Apply texts & icons
+        promoImageView?.setLazyImage(uiData.images.noAccess)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
+        // Apply styles
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
+        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
+        openSettingsButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
+        closeSceneButton?.applyButtonStyle(commonStyle.buttonWizardCancel)
     }
     
 }

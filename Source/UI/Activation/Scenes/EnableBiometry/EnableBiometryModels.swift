@@ -47,7 +47,7 @@ public enum EnableBiometry {
                 enableFaceIdButton: "Allow Face ID",
                 enableLaterButton: "Not now, thank you"
             )
-            let images = Images(biometry: .empty())
+            let images = Images(biometry: .empty)
             return UIData(strings: strings, images: images)
         }
         

@@ -668,7 +668,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="ViS-Zm-faH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Enable biometry"/>
                                                 <connections>
                                                     <action selector="enableBiometryAction:" destination="Gx2-LX-rdX" eventType="touchUpInside" id="A9v-ff-Kxx"/>
@@ -838,9 +838,9 @@
         <image name="illustration-wizard-welcome-3" width="220" height="220"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C7r-zI-zbv"/>
+        <segue reference="mys-65-odR"/>
         <segue reference="BzB-ih-qyI"/>
-        <segue reference="LPC-QH-zn5"/>
-        <segue reference="K2W-jD-OVp"/>
+        <segue reference="KEQ-ev-lI5"/>
+        <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>
 </document>

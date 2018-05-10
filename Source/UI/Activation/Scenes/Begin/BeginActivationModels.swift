@@ -41,7 +41,7 @@ public enum BeginActivation {
                 scanButton: "Scan the Activation QR code",
                 enterButton: "Retype the Activation code manually"
             )
-            let images = Images(scenePromo: .empty())
+            let images = Images(scenePromo: .empty)
             return UIData(strings: strings, images: images)
         }
     }

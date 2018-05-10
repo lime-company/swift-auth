@@ -16,41 +16,20 @@
 
 import UIKit
 
-class RoundCornersButton: UIButton {
+open class RoundCornersView: UIView {
     
-    override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         updateCornerRadius()
     }
     
-    override var isHighlighted: Bool {
-        didSet {
-            updateHighlightedBackground(isHighlighted)
-        }
-    }
-    
-    private var storedBackgroundColor: UIColor? = .clear
-    
-    override var backgroundColor: UIColor? {
-        didSet {
-            storedBackgroundColor = backgroundColor
-            updateHighlightedBackground(isHighlighted)
-        }
-    }
-    
-    @objc var highlightedBackgroundColor: UIColor = .clear {
-        didSet {
-            updateHighlightedBackground(isHighlighted)
-        }
-    }
-    
-    @objc var borderCornerRadius: CGFloat = 4.0 {
+    @objc public var borderCornerRadius: CGFloat = 16 {
         didSet {
             updateCornerRadius()
         }
     }
     
-    @objc var borderWidth: CGFloat = 2.0 {
+    @objc public var borderWidth: CGFloat    = 2.0 {
         didSet {
             updateCornerRadius()
         }
@@ -61,10 +40,4 @@ class RoundCornersButton: UIButton {
         layer.borderColor = tintColor.cgColor
         layer.borderWidth = borderWidth
     }
-    
-    func updateHighlightedBackground(_ highlight: Bool) {
-        super.backgroundColor = highlight ? highlightedBackgroundColor : storedBackgroundColor
-    }
-    
 }
-

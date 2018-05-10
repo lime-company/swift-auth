@@ -42,7 +42,6 @@ public protocol ActivationUIDataProvider: class {
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
     var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
-    
 }
 
 public protocol ActivationUIProcessRouter: class {

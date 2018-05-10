@@ -174,10 +174,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
         let commonImages = uiDataProvider.uiCommonImages
         let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
-        if lazyImage.hasImage {
-            return lazyImage.image
-        }
-        return nil
+        return lazyImage.optionalImage
     }
    
     // MARK: - Private functions

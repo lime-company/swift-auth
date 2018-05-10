@@ -14,16 +14,47 @@
 // and limitations under the License.
 //
 
-import Foundation
+import UIKit
 
 public class LazyUIImage {
     
     private let construction: (()->UIImage?)?
     
     // MARK: - Construction
+
+    /// Constructs an lazy image with closure, which will later provide
+    /// an actual UIImage
+    public init(closure: @escaping ()->UIImage?) {
+        construction = closure
+    }
     
-    public init(named name: String, bundle: Bundle? = nil) {
-        construction = { ()->UIImage? in
+    /// Constructs an empty object, which will later provide an empty UIImage.
+    public init() {
+        construction = nil
+    }
+    
+    // MARK: - Properties
+    
+    /// Contains an image provided by construction closure. If closure is not set,
+    /// or it doesn't provide image, then simply empty UIImage object is returned.
+    public var image: UIImage {
+        if let image = construction?() {
+            return image
+        }
+        return UIImage()
+    }
+    
+    /// Contains an image provided by construction closure or nil if image cannot
+    /// be constructed.
+    public var optionalImage: UIImage? {
+        return construction?()
+    }
+    
+    // MARK: - Static methods
+    
+    /// Returns `LazyUIImage` object which will construct a named image from desired bundle.
+    public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
+        return LazyUIImage { ()->UIImage? in
             if let bundle = bundle {
                 return UIImage(named: name, in: bundle, compatibleWith: nil)
             } else {
@@ -32,45 +63,15 @@ public class LazyUIImage {
         }
     }
     
-    public init(closure: @escaping ()->UIImage?) {
-        construction = closure
-    }
-    
-    public init() {
-        construction = nil
-    }
-    
-    // MARK: - Properties
-    
-    public var image: UIImage {
-        if let image = construction?() {
-            return image
-        }
-        return UIImage()
-    }
-    
-    public var optionalImage: UIImage? {
-        return construction?()
-    }
-    
-    public var hasImage: Bool {
-        return construction != nil
-    }
-    
-    // MARK: - Static methods
-    
-    public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
-        return LazyUIImage(named: name, bundle: bundle)
-    }
-    
+    /// Returns `LazyUIImage` object
     public static func build(_ closure: @escaping ()->UIImage?) -> LazyUIImage {
         return LazyUIImage(closure: closure)
     }
     
-    public static func empty() -> LazyUIImage {
-        return LazyUIImage()
-    }
+    /// Returns empty `LazyUIImage`.
+    public static let empty = LazyUIImage()
     
+    /// Returns a lazy image from another one, but tinted with required color.
     public static func tinted(_ image: LazyUIImage, with color: UIColor) -> LazyUIImage {
         return LazyUIImage {
             guard let image = image.optionalImage else {
