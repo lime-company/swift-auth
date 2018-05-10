@@ -39,7 +39,7 @@ public enum NoCameraAccess {
                 sceneDescription: "Application cannot use camera. You can permit it in Settings.",
                 openSettingsButton: "Open settings"
             )
-            let images = Images(noAccess: .empty())
+            let images = Images(noAccess: .empty)
             return UIData(strings: strings, images: images)
         }
         

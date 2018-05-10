@@ -66,6 +66,11 @@
 		BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF45520320ACA002A6B6E /* LimeImports.swift */; };
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
 		BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */; };
+		BFA49C2120A465B9000D82B6 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */; };
+		BFA49C2320A46640000D82B6 /* HighlightedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2220A46640000D82B6 /* HighlightedColor.swift */; };
+		BFA49C2620A47CF2000D82B6 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */; };
+		BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */; };
+		BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */; };
 		BFAE069920582CF7003485D7 /* EnterPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */; };
 		BFAE069B20582E5F003485D7 /* NewCredentialsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069A20582E5F003485D7 /* NewCredentialsRouter.swift */; };
 		BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */; };
@@ -163,6 +168,11 @@
 		BF8CF45920320B17002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
 		BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSession.swift; sourceTree = "<group>"; };
 		BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSessionConfig.swift; sourceTree = "<group>"; };
+		BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		BFA49C2220A46640000D82B6 /* HighlightedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedColor.swift; sourceTree = "<group>"; };
+		BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedImage.swift; sourceTree = "<group>"; };
+		BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStylingExtensions.swift; sourceTree = "<group>"; };
+		BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorStyle.swift; sourceTree = "<group>"; };
 		BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordRouter.swift; sourceTree = "<group>"; };
 		BFAE069A20582E5F003485D7 /* NewCredentialsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCredentialsRouter.swift; sourceTree = "<group>"; };
 		BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordRouter.swift; sourceTree = "<group>"; };
@@ -209,6 +219,8 @@
 		BF2EBB5820A34B520079C465 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BFA49C1F20A4653D000D82B6 /* Styles */,
+				BFA49C2920A480BE000D82B6 /* Private */,
 				BF6134512045C45300164496 /* LazyUIImage.swift */,
 				BF2EBB5920A34C720079C465 /* BundleExtension.swift */,
 			);
@@ -289,18 +301,6 @@
 				BF49643B205A6C33002560A8 /* EnterFixedPasscodeViewController.swift */,
 			);
 			path = EnterFixedPasscode;
-			sourceTree = "<group>";
-		};
-		BF565F87204717C900B9C897 /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
-				BF565F8A2047191300B9C897 /* RoundCornersView.swift */,
-				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
-				BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */,
-				BF49642C20598FF8002560A8 /* PinClearKeyboardButton.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		BF565F902047288B00B9C897 /* KeysExchange */ = {
@@ -516,7 +516,6 @@
 			children = (
 				BF688096204811E100351112 /* Activation */,
 				BF496433205995D2002560A8 /* Authentication */,
-				BF565F87204717C900B9C897 /* CustomViews */,
 				BF5E3F95204B09560064EF7B /* Assets.xcassets */,
 			);
 			path = UIResources;
@@ -551,6 +550,37 @@
 				BF6880AF2048713E00351112 /* LimeCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFA49C1F20A4653D000D82B6 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BFA49C2220A46640000D82B6 /* HighlightedColor.swift */,
+				BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */,
+				BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */,
+				BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		BFA49C2420A4762D000D82B6 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
+				BF565F8A2047191300B9C897 /* RoundCornersView.swift */,
+				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
+				BF49642A20598FCA002560A8 /* PinKeyboardButton.swift */,
+				BF49642C20598FF8002560A8 /* PinClearKeyboardButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		BFA49C2920A480BE000D82B6 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		BFAE06A520593338003485D7 /* Operations */ = {
@@ -626,6 +656,7 @@
 		BFDBCBBE2045D409001585BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFA49C2420A4762D000D82B6 /* Buttons */,
 				BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */,
 				BF49642820598EF3002560A8 /* PinKeyboardView.swift */,
 				BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */,
@@ -741,8 +772,10 @@
 				BF4BD1342049A26200A2E52C /* TextFieldWithInsets.swift in Sources */,
 				BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */,
 				BFDBCBC02045DDEA001585BF /* NoCameraAccessModels.swift in Sources */,
+				BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */,
 				BFAE06A7205933B3003485D7 /* OnlineAuthenticationUIOperation.swift in Sources */,
 				BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */,
+				BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */,
 				BFAE06AC2059685C003485D7 /* NewCredentialsViewController.swift in Sources */,
 				BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */,
 				BF6134372044863A00164496 /* BeginActivationRouter.swift in Sources */,
@@ -751,6 +784,7 @@
 				BF565FAE2047432E00B9C897 /* ConfirmActivationViewController.swift in Sources */,
 				BF61344620448E7100164496 /* EnterActivationCodeRouter.swift in Sources */,
 				BF61343F20448D5400164496 /* EnterActivationCodeViewController.swift in Sources */,
+				BFA49C2620A47CF2000D82B6 /* HighlightedImage.swift in Sources */,
 				BF31240B2060079300E7533F /* LimeAuthSession+Password.swift in Sources */,
 				BF61343D20448D2100164496 /* NoCameraAccessViewController.swift in Sources */,
 				BF31241C2062C32C00E7533F /* CreatePasswordViewController.swift in Sources */,
@@ -772,6 +806,7 @@
 				BF6134522045C45300164496 /* LazyUIImage.swift in Sources */,
 				BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */,
 				BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */,
+				BFA49C2320A46640000D82B6 /* HighlightedColor.swift in Sources */,
 				BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
 				BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */,
@@ -805,6 +840,7 @@
 				BF49643220599074002560A8 /* LayoutHelper.swift in Sources */,
 				BF49642B20598FCA002560A8 /* PinKeyboardButton.swift in Sources */,
 				BFDBCBC22045E1AD001585BF /* ActivationUIProcess.swift in Sources */,
+				BFA49C2120A465B9000D82B6 /* ButtonStyle.swift in Sources */,
 				BF61344A204490E000164496 /* CameraAccess.swift in Sources */,
 				BFD126042034A03E001CE861 /* LimeAuthSession+Queue.swift in Sources */,
 			);

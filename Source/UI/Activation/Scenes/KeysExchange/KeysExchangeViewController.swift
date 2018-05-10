@@ -109,9 +109,13 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         let uiData = uiDataProvider.uiDataForKeysExchange
         let commonStyle = uiDataProvider.uiCommonStyle
         
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        
+        // Apply image & texts
         pendingDescriptionLabel?.text = uiData.strings.pendingActivationTitle
+        
+        // Apply styles
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        pendingDescriptionLabel?.textColor = commonStyle.wizardTextColor
+        pendingActivityIndicator?.applyIndicatorStyle(commonStyle.activityIndicator)
     }
     
 }

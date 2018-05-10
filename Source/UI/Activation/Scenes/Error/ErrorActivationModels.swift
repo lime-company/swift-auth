@@ -37,7 +37,7 @@ public enum ErrorActivation {
                 sceneTitle: "Error",
                 genericError: "The activation did fail. Please try again."
             )
-            let images = Images(errorIllustration: .empty())
+            let images = Images(errorIllustration: .empty)
             return UIData(strings: strings, images: images)
         }
         

@@ -1,5 +1,5 @@
 //
-// Copyright 2017 Lime - HighTech Solutions s.r.o.
+// Copyright 2018 Lime - HighTech Solutions s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,28 +16,16 @@
 
 import UIKit
 
-class RoundCornersView: UIView {
+public struct ActivityIndicatorStyle {
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        updateCornerRadius()
+    public let style: UIActivityIndicatorViewStyle
+    public let color: UIColor
+    
+    public func large(_ color: UIColor) -> ActivityIndicatorStyle {
+        return ActivityIndicatorStyle(style: .whiteLarge, color: color)
     }
     
-    @objc var borderCornerRadius: CGFloat = 16 {
-        didSet {
-            updateCornerRadius()
-        }
-    }
-    
-    @objc var borderWidth: CGFloat    = 2.0 {
-        didSet {
-            updateCornerRadius()
-        }
-    }
-    
-    func updateCornerRadius() {
-        layer.cornerRadius = borderCornerRadius
-        layer.borderColor = tintColor.cgColor
-        layer.borderWidth = borderWidth
+    public func small(_ color: UIColor) -> ActivityIndicatorStyle {
+        return ActivityIndicatorStyle(style: .white, color: color)
     }
 }

@@ -205,17 +205,22 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
 		let uiData = uiDataProvider.uiDataForConfirmActivation
         let commonStyle = uiDataProvider.uiCommonStyle
         
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        
-        if uiData.images.confirm.hasImage {
-            promoImageView?.image = uiData.images.confirm.image
-        }
+        // Apply texts & images
+        promoImageView?.setLazyImage(uiData.images.confirm)
 		sceneTitleLabel?.text = uiData.strings.sceneTitle
 		sceneDescriptionLabel?.text = uiData.strings.sceneDescription
 		waitingForActivationLabel?.text = uiData.strings.waitingLabel
 		removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
 		// Hide remove button in initial state, or show it when it's recovery from crashed activation
         removeActivationButton?.alpha = recoveryFromBrokenActivation ? 1.0 : 0.0
+        
+        // Apply styles
+        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
+        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
+        waitingForActivationLabel?.textColor = commonStyle.wizardTextColor
+        removeActivationButton?.applyButtonStyle(commonStyle.buttonWizardDestructive)
+        activityIndicatorView?.applyIndicatorStyle(commonStyle.activityIndicator)
     }
 }
 

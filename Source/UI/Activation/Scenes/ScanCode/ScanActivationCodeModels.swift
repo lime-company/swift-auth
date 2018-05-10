@@ -27,11 +27,13 @@ public enum ScanActivationCode {
         
         public struct Images {
             let crossHair: LazyUIImage
-            let cancelButton: LazyUIImage
         }
         
         public struct Style {
             let statusBarStyle: UIStatusBarStyle
+            let promptColor: UIColor
+            let fallbackButton: ButtonStyle?
+            let closeButton: ButtonStyle?
         }
         
         public let strings: Strings
@@ -43,8 +45,13 @@ public enum ScanActivationCode {
                 sceneTitle: "Scan the activation QR code",
                 enterCodeFallbackButton:  "Unsuccessful? Rewrite the code."
             )
-            let images = Images(crossHair: .empty(), cancelButton: .empty())
-            let style = Style(statusBarStyle: .default)
+            let images = Images(crossHair: .empty)
+            let style = Style(
+                statusBarStyle: .default,
+                promptColor: .white,
+                fallbackButton: nil,
+                closeButton: nil
+            )
             return UIData(strings: strings, images: images, style: style)
         }
         

@@ -41,7 +41,7 @@ public enum ConfirmActivation {
                 waitingLabel: "Waiting for activation completion",
                 removeActivationButton: "Cancel operation"
             )
-            let images = Images(confirm: .empty())
+            let images = Images(confirm: .empty)
             return UIData(strings: strings, images: images)
         }
         

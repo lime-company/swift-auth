@@ -60,14 +60,35 @@ public enum Activation {
         }
         
         public struct CommonStyle {
+            
             public let tintColor: UIColor
+            
             public let backgroundColor: UIColor?
             public let backgroundImage: LazyUIImage?
+            
+            public let wizardTitleColor: UIColor
+            public let wizardTextColor: UIColor
+            public let wizardAltTextColor: UIColor
+            
+            public let buttonWizardPrimary: ButtonStyle?
+            public let buttonWizardSecondary: ButtonStyle?
+            public let buttonWizardCancel: ButtonStyle?
+            public let buttonWizardDestructive: ButtonStyle?
+            
+            public let activityIndicator: ActivityIndicatorStyle?
             
             public static func fallbackStyle() -> CommonStyle {
                 return CommonStyle(tintColor: .blue,
                                    backgroundColor: .white,
-                                   backgroundImage: nil)
+                                   backgroundImage: nil,
+                                   wizardTitleColor: .black,
+                                   wizardTextColor: .black,
+                                   wizardAltTextColor: .black,
+                                   buttonWizardPrimary: nil,
+                                   buttonWizardSecondary: nil,
+                                   buttonWizardCancel: nil,
+                                   buttonWizardDestructive: nil,
+                                   activityIndicator: nil)
             }
         }
         

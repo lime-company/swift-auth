@@ -166,12 +166,10 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
 		enterCodeFallbackButton?.isHidden = true
         
         // Assign optional images
-        if uiData.images.crossHair.hasImage {
-            crossHairImageView?.image = uiData.images.crossHair.image
-        }
-        if uiData.images.cancelButton.hasImage {
-            enterCodeFallbackButton?.setImage(uiData.images.cancelButton.image, for: .normal)
-        }
+        sceneTitleLabel?.textColor = uiData.style.promptColor
+        crossHairImageView?.setLazyImage(uiData.images.crossHair)
+        enterCodeFallbackButton?.applyButtonStyle(uiData.style.fallbackButton)
+        closeSceneButton?.applyButtonStyle(uiData.style.closeButton)
     }
 	
     private func animateInitialUI(animated: Bool) {
