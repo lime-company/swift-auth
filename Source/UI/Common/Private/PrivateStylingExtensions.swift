@@ -74,6 +74,7 @@ extension UIButton {
             rcSelf.borderCornerRadius = style.borderCornerRadius
 			rcSelf.borderWidth = style.borderWidth
             rcSelf.isRounded = style.options.contains(.isRounded)
+			rcSelf.adjustsAlphaWhenDisabled = style.options.contains(.adjustsAlphaWhenDisabled)
         }
     }
     
