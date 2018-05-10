@@ -298,13 +298,14 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         hintLabel?.text = uiData.strings.sceneDescription
         confirmButton?.setTitle(uiData.strings.confirmButton, for: .normal)
         cancelButtonItem.title = commonStrings.cancelTitle
-        prepareTextFields()
 
 		// Apply themes
 		configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
 		hintLabel?.textColor = commonStyle.wizardTextColor
 		confirmButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
-        
+		
+		// Prepare text fields
+		prepareTextFields()
         if let tf1 = textField1, let tf2 = textField2, let tf3 = textField3, let tf4 = textField4 {
             for textField in [ tf1, tf2, tf3, tf4 ] {
                 // TODO: we should create TextFieldStyle and apply that just like we do for buttons

@@ -28,6 +28,12 @@ open class RoundCornersButton: UIButton {
             updateHighlightedBackground(isHighlighted)
         }
     }
+	
+	open override var isEnabled: Bool {
+		didSet {
+			updateHighlightedBackground(isHighlighted)
+		}
+	}
     
     private var storedBackgroundColor: UIColor? = .clear
     
@@ -83,11 +89,13 @@ open class RoundCornersButton: UIButton {
         }
     }
     
-    @objc public var isRounded: Bool = false {
+    @objc public dynamic var isRounded: Bool = false {
         didSet {
             updateCornerRadius()
         }
     }
+	
+	@objc public dynamic var adjustsAlphaWhenDisabled: Bool = false
     
     private var storedHighlightedColor: UIColor?
     
@@ -100,6 +108,7 @@ open class RoundCornersButton: UIButton {
     private func updateHighlightedBackground(_ highlight: Bool) {
         super.backgroundColor = highlight ? highlightedBackgroundColor : storedBackgroundColor
         layer.borderColor = (highlight ? highlightedBorderColor : borderColor).cgColor
+		self.alpha = self.isEnabled ? 1.0 : (adjustsAlphaWhenDisabled ? 0.5 : 1.0)
     }
     
 }

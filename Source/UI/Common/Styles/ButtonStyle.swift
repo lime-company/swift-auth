@@ -24,8 +24,9 @@ public struct ButtonStyle {
         
         static let adjustsImageWhenHighlighted = Options(rawValue: 1 << 1)
         static let adjustsImageWhenDisabled = Options(rawValue: 1 << 2)
+		static let adjustsAlphaWhenDisabled = Options(rawValue: 1 << 3)
         
-        static let `default`: Options = [.adjustsImageWhenHighlighted, .adjustsImageWhenDisabled]
+        static let `default`: Options = [.adjustsImageWhenHighlighted, .adjustsImageWhenDisabled, .adjustsAlphaWhenDisabled]
         
         public let rawValue: Int
         
