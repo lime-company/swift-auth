@@ -21,11 +21,11 @@ public struct ActivityIndicatorStyle {
     public let style: UIActivityIndicatorViewStyle
     public let color: UIColor
     
-    public func large(_ color: UIColor) -> ActivityIndicatorStyle {
+    public static func large(_ color: UIColor) -> ActivityIndicatorStyle {
         return ActivityIndicatorStyle(style: .whiteLarge, color: color)
     }
     
-    public func small(_ color: UIColor) -> ActivityIndicatorStyle {
+    public static func small(_ color: UIColor) -> ActivityIndicatorStyle {
         return ActivityIndicatorStyle(style: .white, color: color)
     }
 }

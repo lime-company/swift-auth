@@ -59,6 +59,8 @@ extension UIButton {
         if let title = style.title {
             setTitle(title, for: .normal)
         }
+        self.adjustsImageWhenHighlighted = style.options.contains(.adjustsImageWhenHighlighted)
+        self.adjustsImageWhenDisabled = style.options.contains(.adjustsImageWhenDisabled)
         
         // Round corners button
         if let rcSelf = self as? RoundCornersButton {
@@ -70,6 +72,8 @@ extension UIButton {
                 rcSelf.highlightedBorderColor = borderColor.highlighted
             }
             rcSelf.borderCornerRadius = style.borderCornerRadius
+			rcSelf.borderWidth = style.borderWidth
+            rcSelf.isRounded = style.options.contains(.isRounded)
         }
     }
     
@@ -83,7 +87,7 @@ extension UIActivityIndicatorView {
             return
         }
         self.activityIndicatorViewStyle = style.style
-        self.tintColor = style.color
+        self.color = style.color
     }
     
 }

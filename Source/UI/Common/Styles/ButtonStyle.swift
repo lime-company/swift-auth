@@ -18,6 +18,22 @@ import UIKit
 
 public struct ButtonStyle {
     
+    public struct Options : OptionSet {
+        /// If set, and button is `RoundCornersButton`, then it will be displayed as circle.
+        static let isRounded = Options(rawValue: 1 << 0)
+        
+        static let adjustsImageWhenHighlighted = Options(rawValue: 1 << 1)
+        static let adjustsImageWhenDisabled = Options(rawValue: 1 << 2)
+        
+        static let `default`: Options = [.adjustsImageWhenHighlighted, .adjustsImageWhenDisabled]
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+    }
+    
     // Regular button
     public let tintColor: UIColor?
     public let backgrdoundColor: HighlightedColor?
@@ -32,16 +48,21 @@ public struct ButtonStyle {
     public let borderColor: HighlightedColor?
     public let borderCornerRadius: CGFloat
     
+    // Various options
+    public let options: Options
+    
     public static var noStyle: ButtonStyle {
-        return ButtonStyle(tintColor: nil,
-                           backgrdoundColor: nil,
-                           titleColor: nil,
-                           titleFont: nil,
-                           title: nil,
-                           image: nil,
-                           borderWidth: 0.0,
-                           borderColor: nil,
-                           borderCornerRadius: 0.0)
+        return ButtonStyle(
+            tintColor: nil,
+            backgrdoundColor: nil,
+            titleColor: nil,
+            titleFont: nil,
+            title: nil,
+            image: nil,
+            borderWidth: 0.0,
+            borderColor: nil,
+            borderCornerRadius: 0.0,
+            options: [])
     }
     
 }

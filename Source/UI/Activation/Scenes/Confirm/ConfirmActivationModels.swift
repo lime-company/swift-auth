@@ -28,11 +28,11 @@ public enum ConfirmActivation {
         }
         
         public struct Images {
-            let confirm: LazyUIImage
+            var confirm: LazyUIImage
         }
         
-        public let strings: Strings
-        public let images: Images
+        public var strings: Strings
+        public var images: Images
         
         public static func fallbackData() -> UIData {
             let strings = Strings(

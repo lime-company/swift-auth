@@ -220,12 +220,7 @@
                                     <constraint firstAttribute="height" constant="60" id="lSl-IC-DAe"/>
                                 </constraints>
                                 <color key="tintColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="ic-close"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="closeSceneAction:" destination="s6U-Ia-WUV" eventType="touchUpInside" id="YP3-f9-rI8"/>
                                 </connections>
@@ -778,7 +773,7 @@
                                                         <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </activityIndicatorView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Hoc-dC-Vh1" firstAttribute="top" secondItem="OiN-ow-dua" secondAttribute="top" id="CGg-Rv-QCv"/>
                                                     <constraint firstItem="Hoc-dC-Vh1" firstAttribute="centerX" secondItem="OiN-ow-dua" secondAttribute="centerX" id="i5L-Sh-IxO"/>
@@ -830,7 +825,6 @@
     </scenes>
     <resources>
         <image name="bg-qr-scanner" width="240" height="240"/>
-        <image name="ic-close" width="25" height="25"/>
         <image name="illustration-wizard-pair-3" width="220" height="220"/>
         <image name="illustration-wizard-pair-4" width="220" height="220"/>
         <image name="illustration-wizard-settings-1" width="220" height="220"/>
@@ -841,6 +835,6 @@
         <segue reference="mys-65-odR"/>
         <segue reference="BzB-ih-qyI"/>
         <segue reference="KEQ-ev-lI5"/>
-        <segue reference="IJ1-g6-hd0"/>
+        <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>
 </document>

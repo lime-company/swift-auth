@@ -24,7 +24,7 @@ public enum KeysExchange {
             let pendingActivationTitle: String
         }
         
-        public let strings: Strings
+        public var strings: Strings
         
         public static func fallbackData() -> UIData {
             let strings = Strings(

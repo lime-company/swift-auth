@@ -47,4 +47,9 @@ public struct HighlightedColor {
     public static func same(_ color: UIColor) -> HighlightedColor {
         return HighlightedColor(normal: color, highlighted: color)
     }
+    
+    /// Returns `HighlightedColor` with two different colors.
+    public static func colors(_ normal: UIColor, _ highlighted: UIColor) -> HighlightedColor {
+        return HighlightedColor(normal: normal, highlighted: highlighted)
+    }
 }

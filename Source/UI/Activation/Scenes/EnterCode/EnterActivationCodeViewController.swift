@@ -292,15 +292,30 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         let uiData = uiDataProvider.uiDataForEnterActivationCode
         let commonStrings = uiDataProvider.uiCommonStrings
         let commonStyle = uiDataProvider.uiCommonStyle
-        
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        
+		
+		// Apply texts & images
         self.title = uiData.strings.sceneTitle
-        hintLabel?.text = uiData.strings.confirmButton
+        hintLabel?.text = uiData.strings.sceneDescription
         confirmButton?.setTitle(uiData.strings.confirmButton, for: .normal)
         cancelButtonItem.title = commonStrings.cancelTitle
-        
         prepareTextFields()
+
+		// Apply themes
+		configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
+		hintLabel?.textColor = commonStyle.wizardTextColor
+		confirmButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
+        
+        if let tf1 = textField1, let tf2 = textField2, let tf3 = textField3, let tf4 = textField4 {
+            for textField in [ tf1, tf2, tf3, tf4 ] {
+                // TODO: we should create TextFieldStyle and apply that just like we do for buttons
+                textField.backgroundColor = commonStyle.backgroundColor
+                textField.textColor = commonStyle.wizardTextColor
+                textField.layer.borderWidth = 1
+                textField.layer.cornerRadius = 8.0
+                textField.layer.borderColor = commonStyle.wizardTextColor.cgColor
+                textField.keyboardAppearance = commonStyle.keyboardAppearance
+            }
+        }
     }
     
     open func prepareTextFields() {

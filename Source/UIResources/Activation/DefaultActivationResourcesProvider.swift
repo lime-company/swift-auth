@@ -71,6 +71,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return DefaultAuthenticationResourcesProvider(bundle: bundle)
     }()
     
+    
     //
     
     private var storyboard: UIStoryboard {
@@ -79,44 +80,46 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     
     // MARK: - LimeAuthActivationUIDataProvider
     
-    public var uiCommonStrings: Activation.UIData.CommonStrings {
-        return .fallbackStrings()
-    }
+    public var uiCommonStrings: Activation.UIData.CommonStrings = .fallbackStrings()
+    public var uiCommonStyle: Activation.UIData.CommonStyle = .fallbackStyle()
+    public var uiDataForBeginActivation: BeginActivation.UIData = .fallbackData()
+    public var uiDataForNoCameraAccess: NoCameraAccess.UIData = .fallbackData()
+    public var uiDataForEnterActivationCode: EnterActivationCode.UIData = .fallbackData()
+    public var uiDataForScanActivationCode: ScanActivationCode.UIData = .fallbackData()
+    public var uiDataForKeysExchange: KeysExchange.UIData = .fallbackData()
+    public var uiDataForEnableBiometry: EnableBiometry.UIData = .fallbackData()
+    public var uiDataForConfirmActivation: ConfirmActivation.UIData = .fallbackData()
+    public var uiDataForErrorActivation: ErrorActivation.UIData = .fallbackData()
 
-    public var uiCommonStyle: Activation.UIData.CommonStyle {
-        return .fallbackStyle()
-    }
-    
-    public var uiDataForBeginActivation: BeginActivation.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForNoCameraAccess: NoCameraAccess.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForEnterActivationCode: EnterActivationCode.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForScanActivationCode: ScanActivationCode.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForKeysExchange: KeysExchange.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForEnableBiometry: EnableBiometry.UIData  {
-        return .fallbackData()
-    }
-    
-    public var uiDataForConfirmActivation: ConfirmActivation.UIData {
-        return .fallbackData()
-    }
-    
-    public var uiDataForErrorActivation: ErrorActivation.UIData {
-        return .fallbackData()
+    public func loadTheme(theme: LimeAuthActivationUI.Theme) {
+        // Create common style
+        uiCommonStyle = Activation.UIData.CommonStyle(
+            backgroundColor: theme.common.backgroundColor,
+            backgroundImage: theme.common.backgroundImage,
+            wizardTitleColor: theme.common.titleColor,
+            wizardTextColor: theme.common.textColor,
+            wizardAltTextColor: theme.common.highlightedTextColor,
+            buttonWizardPrimary: theme.buttons.primary,
+            buttonWizardSecondary: theme.buttons.secondary,
+            buttonWizardCancel: theme.buttons.cancel,
+            buttonWizardDestructive: theme.buttons.destructive,
+            activityIndicator: theme.common.activityIndicator,
+            keyboardAppearance: theme.common.keyboardAppearance
+        )
+        
+        // Apply illustrations
+        uiDataForBeginActivation.images.scenePromo = theme.illustrations.beginScene
+        uiDataForNoCameraAccess.images.noAccess = theme.illustrations.noCameraScene
+        uiDataForEnableBiometry.images.biometry = theme.illustrations.enableBiometryScene
+        uiDataForConfirmActivation.images.confirm = theme.illustrations.confirmScene
+        uiDataForErrorActivation.images.errorIllustration = theme.illustrations.errorScene
+        // Scanner
+        uiDataForScanActivationCode.images.crossHair = theme.images.scannerCrosshair
+        uiDataForScanActivationCode.style = ScanActivationCode.UIData.Style(
+            statusBarStyle: theme.scannerScene.statusBarStyle,
+            promptColor: theme.scannerScene.titleColor,
+            fallbackButton: theme.scannerScene.fallbackButton,
+            closeButton: theme.scannerScene.closeButton)        
     }
 }
 
