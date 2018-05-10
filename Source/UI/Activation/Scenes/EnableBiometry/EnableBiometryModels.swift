@@ -31,11 +31,11 @@ public enum EnableBiometry {
         }
         
         public struct Images {
-            let biometry: LazyUIImage
+            var biometry: LazyUIImage
         }
         
-        public let strings: Strings
-        public let images: Images
+        public var strings: Strings
+        public var images: Images
         
         public static func fallbackData() -> UIData {
             let strings = Strings(

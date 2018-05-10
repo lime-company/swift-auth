@@ -27,11 +27,11 @@ public enum NoCameraAccess {
         }
         
         public struct Images {
-            let noAccess: LazyUIImage
+            var noAccess: LazyUIImage
         }
         
-        public let strings: Strings
-        public let images: Images
+        public var strings: Strings
+        public var images: Images
         
         public static func fallbackData() -> UIData {
             let strings = Strings(

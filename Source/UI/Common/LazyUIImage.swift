@@ -52,7 +52,8 @@ public class LazyUIImage {
     
     // MARK: - Static methods
     
-    /// Returns `LazyUIImage` object which will construct a named image from desired bundle.
+    /// Returns `LazyUIImage` object which will construct a named image from given bundle.
+    /// If bundle parameter is nil, then MainBundle is used.
     public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
         return LazyUIImage { ()->UIImage? in
             if let bundle = bundle {

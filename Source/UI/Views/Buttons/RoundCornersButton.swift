@@ -83,10 +83,16 @@ open class RoundCornersButton: UIButton {
         }
     }
     
+    @objc public var isRounded: Bool = false {
+        didSet {
+            updateCornerRadius()
+        }
+    }
+    
     private var storedHighlightedColor: UIColor?
     
     private func updateCornerRadius() {
-        layer.cornerRadius = borderCornerRadius
+        layer.cornerRadius = isRounded ? frame.size.height * 0.5 : borderCornerRadius
         layer.borderColor = (isHighlighted ? highlightedBorderColor : borderColor).cgColor
         layer.borderWidth = borderWidth
     }

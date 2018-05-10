@@ -26,19 +26,19 @@ public enum ScanActivationCode {
         }
         
         public struct Images {
-            let crossHair: LazyUIImage
+            var crossHair: LazyUIImage
         }
         
         public struct Style {
-            let statusBarStyle: UIStatusBarStyle
-            let promptColor: UIColor
-            let fallbackButton: ButtonStyle?
-            let closeButton: ButtonStyle?
+            var statusBarStyle: UIStatusBarStyle
+            var promptColor: UIColor
+            var fallbackButton: ButtonStyle?
+            var closeButton: ButtonStyle?
         }
         
-        public let strings: Strings
-        public let images: Images
-        public let style: Style
+        public var strings: Strings
+        public var images: Images
+        public var style: Style
         
         public static func fallbackData() -> UIData {
             let strings = Strings(

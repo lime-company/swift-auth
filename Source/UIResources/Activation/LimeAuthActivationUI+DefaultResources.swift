@@ -18,8 +18,205 @@ import UIKit
 
 public extension LimeAuthActivationUI {
     
-    public static func defaultResourcesProvider(bundle: Bundle? = nil) -> ActivationUIProvider {
-        return DefaultActivationResourcesProvider(bundle: bundle)
+    public static func defaultResourcesProvider(bundle: Bundle? = nil, theme: LimeAuthActivationUI.Theme? = nil) -> ActivationUIProvider {
+        let provider = DefaultActivationResourcesProvider(bundle: bundle)
+        provider.loadTheme(theme: theme ?? LimeAuthActivationUI.defaultLightTheme())
+        return provider
+    }
+    
+    
+    public static func defaultLightTheme(illustrations: LimeAuthActivationUI.Theme.Illustrations? = nil) -> LimeAuthActivationUI.Theme {
+        
+        let illustrations = illustrations ??
+            LimeAuthActivationUI.Theme.Illustrations(
+                beginScene: .empty,
+                noCameraScene: .empty,
+                enableBiometryScene: .empty,
+                confirmScene: .empty,
+                errorScene: .empty)
+        
+        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
+        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
+        
+        return LimeAuthActivationUI.Theme(
+            common: LimeAuthActivationUI.Theme.Common(
+                backgroundColor: .white,
+                backgroundImage: nil,
+                titleColor: .orange,
+                textColor: .black,
+                highlightedTextColor: .orange,
+                activityIndicator: .small(.orange),
+                keyboardAppearance: .default
+            ),
+            illustrations: illustrations,
+            images: LimeAuthActivationUI.Theme.Images(
+                scannerCrosshair: .empty
+            ),
+            buttons: LimeAuthActivationUI.Theme.Buttons(
+                primary: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .clear,
+                    titleColor: .same(.orange),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 2.0,
+                    borderColor: .same(.orange),
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                secondary: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .clear,
+                    titleColor: .normal(.orange),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                destructive: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .clear,
+                    titleColor: .normal(.red),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 2,
+                    borderColor: .same(.red),
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                cancel: ButtonStyle(
+                    tintColor: .orange,
+                    backgrdoundColor: .clear,
+                    titleColor: nil,
+                    titleFont: smallButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                )
+            ),
+            scannerScene: LimeAuthActivationUI.Theme.ScannerScene(
+                statusBarStyle: .default,
+                titleColor: .white,
+				closeButton: ButtonStyle(
+					tintColor: nil,
+					backgrdoundColor: .colors(.orange, .black),
+					titleColor: .colors(.white, .darkGray),
+					titleFont: .systemFont(ofSize: 32.0),
+					title: "✕",
+					image: nil,
+					borderWidth: 0.0,
+					borderColor: nil,
+					borderCornerRadius: 0.0,
+					options: [.isRounded]
+				),
+                fallbackButton: .noStyle
+            )
+        )
+    }
+    
+    public static func defaultDarkTheme(illustrations: LimeAuthActivationUI.Theme.Illustrations? = nil) -> LimeAuthActivationUI.Theme {
+        
+        let illustrations = illustrations ??
+            LimeAuthActivationUI.Theme.Illustrations(
+                beginScene: .empty,
+                noCameraScene: .empty,
+                enableBiometryScene: .empty,
+                confirmScene: .empty,
+                errorScene: .empty)
+        
+        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
+        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
+        
+        return LimeAuthActivationUI.Theme(
+            common: LimeAuthActivationUI.Theme.Common(
+                backgroundColor: .black,
+                backgroundImage: nil,
+                titleColor: .orange,
+                textColor: .white,
+                highlightedTextColor: .orange,
+                activityIndicator: .small(.orange),
+                keyboardAppearance: .dark
+            ),
+            illustrations: illustrations,
+            images: LimeAuthActivationUI.Theme.Images(
+                scannerCrosshair: .empty
+            ),
+            buttons: LimeAuthActivationUI.Theme.Buttons(
+                primary: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .same(.orange),
+                    titleColor: .same(.white),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                secondary: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .clear,
+                    titleColor: .same(.orange),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                destructive: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .clear,
+                    titleColor: .normal(.red),
+                    titleFont: bigButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                ),
+                cancel: ButtonStyle(
+                    tintColor: .orange,
+                    backgrdoundColor: .clear,
+                    titleColor: nil,
+                    titleFont: smallButtonFont,
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                )
+            ),
+            scannerScene: LimeAuthActivationUI.Theme.ScannerScene(
+                statusBarStyle: .default,
+                titleColor: .white,
+                closeButton: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .colors(.orange, .black),
+                    titleColor: .colors(.white, .darkGray),
+                    titleFont: .systemFont(ofSize: 32.0),
+                    title: "✕",
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 0.0,
+                    options: [.isRounded]
+                ),
+                fallbackButton: .noStyle
+            )
+        )
     }
 }
 
