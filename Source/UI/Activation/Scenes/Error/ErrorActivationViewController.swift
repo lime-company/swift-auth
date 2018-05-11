@@ -87,7 +87,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForErrorActivation
         let commonStrings = uiDataProvider.uiCommonStrings
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
         
         // Apply texts & images
         promoImageView?.setLazyImage(uiData.images.errorIllustration)
@@ -95,10 +95,10 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
         sceneDescriptionLabel?.text = uiData.strings.genericError
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
         // Apply styles
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
-        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
-        closeSceneButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        sceneTitleLabel?.textColor = theme.common.titleColor
+        sceneDescriptionLabel?.textColor = theme.common.textColor
+        closeSceneButton?.applyButtonStyle(theme.buttons.primary)
     }
     
 }

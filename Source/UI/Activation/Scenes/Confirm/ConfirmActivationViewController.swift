@@ -203,10 +203,10 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForConfirmActivation
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
         
         // Apply texts & images
-        promoImageView?.setLazyImage(uiData.images.confirm)
+        promoImageView?.setLazyImage(theme.illustrations.confirmScene)
 		sceneTitleLabel?.text = uiData.strings.sceneTitle
 		sceneDescriptionLabel?.text = uiData.strings.sceneDescription
 		waitingForActivationLabel?.text = uiData.strings.waitingLabel
@@ -215,12 +215,12 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         removeActivationButton?.alpha = recoveryFromBrokenActivation ? 1.0 : 0.0
         
         // Apply styles
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
-        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
-        waitingForActivationLabel?.textColor = commonStyle.wizardTextColor
-        removeActivationButton?.applyButtonStyle(commonStyle.buttonWizardDestructive)
-        activityIndicatorView?.applyIndicatorStyle(commonStyle.activityIndicator)
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        sceneTitleLabel?.textColor = theme.common.titleColor
+        sceneDescriptionLabel?.textColor = theme.common.textColor
+        waitingForActivationLabel?.textColor = theme.common.textColor
+        removeActivationButton?.applyButtonStyle(theme.buttons.destructive)
+        activityIndicatorView?.applyIndicatorStyle(theme.common.activityIndicator)
     }
 }
 

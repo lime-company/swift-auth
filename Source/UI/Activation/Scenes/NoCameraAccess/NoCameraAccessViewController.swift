@@ -96,20 +96,20 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForNoCameraAccess
         let commonStrings = uiDataProvider.uiCommonStrings
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
 
         // Apply texts & icons
-        promoImageView?.setLazyImage(uiData.images.noAccess)
+        promoImageView?.setLazyImage(theme.illustrations.noCameraScene)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
         // Apply styles
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
-        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
-        openSettingsButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
-        closeSceneButton?.applyButtonStyle(commonStyle.buttonWizardCancel)
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        sceneTitleLabel?.textColor = theme.common.titleColor
+        sceneDescriptionLabel?.textColor = theme.common.textColor
+        openSettingsButton?.applyButtonStyle(theme.buttons.primary)
+        closeSceneButton?.applyButtonStyle(theme.buttons.cancel)
     }
     
 }

@@ -69,7 +69,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return uiDataProvider?.uiDataForScanActivationCode.style.statusBarStyle ?? .lightContent
+        return .lightContent
     }
     
     open override func configureController() {
@@ -160,16 +160,17 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForScanActivationCode
+        let theme = uiDataProvider.uiTheme
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         enterCodeFallbackButton?.setTitle(uiData.strings.enterCodeFallbackButton, for: .normal)
 		enterCodeFallbackButton?.isHidden = true
         
         // Assign optional images
-        sceneTitleLabel?.textColor = uiData.style.promptColor
-        crossHairImageView?.setLazyImage(uiData.images.crossHair)
-        enterCodeFallbackButton?.applyButtonStyle(uiData.style.fallbackButton)
-        closeSceneButton?.applyButtonStyle(uiData.style.closeButton)
+        sceneTitleLabel?.textColor = theme.scannerScene.titleColor
+        crossHairImageView?.setLazyImage(theme.images.scannerCrosshair)
+        enterCodeFallbackButton?.applyButtonStyle(theme.scannerScene.fallbackButton)
+        closeSceneButton?.applyButtonStyle(theme.scannerScene.closeButton)
     }
 	
     private func animateInitialUI(animated: Bool) {
