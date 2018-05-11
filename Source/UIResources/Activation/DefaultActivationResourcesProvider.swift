@@ -91,7 +91,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public var uiDataForConfirmActivation: ConfirmActivation.UIData = .fallbackData()
     public var uiDataForErrorActivation: ErrorActivation.UIData = .fallbackData()
 
-    public func loadTheme(theme: LimeAuthActivationUI.Theme) {
+    public func loadTheme(theme: LimeAuthActivationUITheme) {
         // Create common style
         uiCommonStyle = Activation.UIData.CommonStyle(
             backgroundColor: theme.common.backgroundColor,

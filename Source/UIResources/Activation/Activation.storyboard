@@ -30,7 +30,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-Y9-YNr" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="319.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-3" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-28-nyH" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="44" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
@@ -205,7 +205,7 @@
                                     <constraint firstItem="nE5-1L-2hR" firstAttribute="centerX" secondItem="Zet-AX-xFe" secondAttribute="centerX" id="m4e-Qe-KN9"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-qr-scanner" translatesAutoresizingMaskIntoConstraints="NO" id="KhT-QU-fEB">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KhT-QU-fEB">
                                 <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="36a-wp-Zi0"/>
@@ -429,7 +429,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHr-bB-U3x" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="319.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-3" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BW1-MN-0Bl" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="52" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
@@ -541,7 +541,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-cg-Sb8" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="319.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-welcome-3" translatesAutoresizingMaskIntoConstraints="NO" id="30b-PX-4CN" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="30b-PX-4CN" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="31.5" width="256.5" height="256.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="30b-PX-4CN" secondAttribute="height" multiplier="1:1" id="bz1-cl-Dm3"/>
@@ -627,7 +627,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-1A-tg4" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="323.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-settings-1" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-gv-yvF" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-gv-yvF" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="33.5" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ij2-gv-yvF" secondAttribute="height" multiplier="1:1" id="u4Z-nw-puR"/>
@@ -730,7 +730,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-9r-gSh" userLabel="Top">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="319.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustration-wizard-pair-4" translatesAutoresizingMaskIntoConstraints="NO" id="KgQ-bV-0oe" userLabel="Illustration">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KgQ-bV-0oe" userLabel="Illustration">
                                                 <rect key="frame" x="43" y="31.5" width="256.5" height="257"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KgQ-bV-0oe" secondAttribute="height" multiplier="1:1" id="QWE-ua-aTn"/>
@@ -823,18 +823,10 @@
             <point key="canvasLocation" x="4702" y="160"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bg-qr-scanner" width="240" height="240"/>
-        <image name="illustration-wizard-pair-3" width="220" height="220"/>
-        <image name="illustration-wizard-pair-4" width="220" height="220"/>
-        <image name="illustration-wizard-settings-1" width="220" height="220"/>
-        <image name="illustration-wizard-settings-3" width="220" height="220"/>
-        <image name="illustration-wizard-welcome-3" width="220" height="220"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mys-65-odR"/>
+        <segue reference="C7r-zI-zbv"/>
         <segue reference="BzB-ih-qyI"/>
         <segue reference="KEQ-ev-lI5"/>
-        <segue reference="K2W-jD-OVp"/>
+        <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>
 </document>

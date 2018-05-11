@@ -69,10 +69,15 @@ public class LazyUIImage {
         return LazyUIImage(closure: closure)
     }
     
-    /// Returns empty `LazyUIImage`.
+    /// Contains empty `LazyUIImage`. This kind of lazy image doesn't provide UIImage at all, so it will
+    /// be ignored when it's applied to `UIImageView`
     public static let empty = LazyUIImage()
     
-    /// Returns a lazy image from another one, but tinted with required color.
+    /// Contains `LazyUIImage` which always produces an empty UIImage. Unlike `.empty` constant, this
+    /// image will be always applied to `UIImageView`.
+    public static let none = LazyUIImage { return UIImage() }
+    
+    /// Returns a lazy image constructed from another one, but tinted with provided color.
     public static func tinted(_ image: LazyUIImage, with color: UIColor) -> LazyUIImage {
         return LazyUIImage {
             guard let image = image.optionalImage else {

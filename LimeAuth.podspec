@@ -34,5 +34,19 @@ Pod::Spec.new do |s|
     sub.resources = [ 'Source/UIResources/**/*.storyboard', 'Source/UIResources/*.xcassets' ]
     sub.dependency 'LimeAuth/UI'
   end
+
+  # 'UIResources_Images' subspec
+  s.subspec 'UIResources_Images' do |sub|
+    sub.source_files = 'Source/UIResources_Images/**/*.swift'
+    sub.resources = [ 'Source/UIResources_Images/*.xcassets' ]
+    sub.dependency 'LimeAuth/UIResources'
+  end
+
+  # 'UIResources_Illustrations' subspec
+  s.subspec 'UIResources_Illustrations' do |sub|
+    sub.source_files = 'Source/UIResources_Illustrations/**/*.swift'
+    sub.resources = [ 'Source/UIResources_Illustrations/*.xcassets' ]
+    sub.dependency 'LimeAuth/UIResources'
+  end
   
 end
