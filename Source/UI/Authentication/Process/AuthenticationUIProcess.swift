@@ -32,9 +32,8 @@ public protocol AuthenticationUIProvider: class {
 
 public protocol AuthenticationUIDataProvider: class {
     
+    var uiTheme: LimeAuthAuthenticationUITheme { get }
     var uiCommonStrings: Authentication.UIData.CommonStrings { get }
-    var uiCommonImages: Authentication.UIData.CommonImages { get }
-    var uiCommonStyle: Authentication.UIData.CommonStyle { get }
     var uiCommonErrors: Authentication.UIData.CommonErrors { get }
     
     // Per scene getters

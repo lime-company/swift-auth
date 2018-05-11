@@ -183,8 +183,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
-        let commonImages = uiDataProvider.uiCommonImages
-        let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
+        let uiTheme = uiDataProvider.uiTheme
+        let lazyImage = biometryIcon == .touchID ? uiTheme.images.touchIdIcon : uiTheme.images.faceIdIcon
         return lazyImage.optionalImage
     }
     

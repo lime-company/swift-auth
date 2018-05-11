@@ -18,14 +18,11 @@ import UIKit
 
 internal class DefaultActivationResourcesProvider: ActivationUIProvider, ActivationUIDataProvider {
     
-    public var bundle: Bundle {
-        return providedBundle ?? .limeAuthResourcesBundle
-    }
+    public let bundle: Bundle
     
-    private var providedBundle: Bundle?
-    
-    public init(bundle: Bundle? = nil) {
-        self.providedBundle = bundle
+    public init(bundle: Bundle? = nil, authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
+        self.bundle = bundle ?? .limeAuthResourcesBundle
+        self.authenticationUIProviderClosure = authenticationUIProviderClosure
     }
     
     
@@ -67,8 +64,9 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return self
     }
     
+    private let authenticationUIProviderClosure: ()->AuthenticationUIProvider
     public lazy var authenticationUIProvider: AuthenticationUIProvider = {
-        return DefaultAuthenticationResourcesProvider(bundle: bundle)
+        return authenticationUIProviderClosure()
     }()
     
     
@@ -78,10 +76,11 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return UIStoryboard(name: "Activation", bundle: bundle)
     }
     
-    // MARK: - LimeAuthActivationUIDataProvider
-    
-    public var uiCommonStrings: Activation.UIData.CommonStrings = .fallbackStrings()
+    // MARK: - ActivationUIDataProvider
+
     public var uiTheme: LimeAuthActivationUITheme = .fallbackTheme()
+    public var uiCommonStrings: Activation.UIData.CommonStrings = .fallbackStrings()
+
     public var uiDataForBeginActivation: BeginActivation.UIData = .fallbackData()
     public var uiDataForNoCameraAccess: NoCameraAccess.UIData = .fallbackData()
     public var uiDataForEnterActivationCode: EnterActivationCode.UIData = .fallbackData()

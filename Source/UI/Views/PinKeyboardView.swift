@@ -163,6 +163,21 @@ open class PinKeyboardView : UIView {
         let _ = self.setupButtons()
     }
     
+    // MARK: - Styling
+    
+    /// Applies ButtonStyle to numberic and auxiliary buttons.
+    public func applyButtonStyle(forDigits digits: ButtonStyle, forAuxiliary auxiliary: ButtonStyle) {
+        self.numericButtonsCollection?.forEach { (button) in
+            button.applyButtonStyle(digits)
+        }
+        // Apply to all other buttons
+        biometryButton?.applyButtonStyle(auxiliary)
+        backspaceButton?.applyButtonStyle(auxiliary)
+        if !isBackspaceSharedWithCancel {
+            cancelButton?.applyButtonStyle(auxiliary)
+        }
+    }
+    
     // MARK: - Private variables
     
     /// Current behavior for shared cancel & backspace button

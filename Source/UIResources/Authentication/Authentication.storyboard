@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--New Credentials View Controller-->
         <scene sceneID="vN6-0v-QbQ">
@@ -47,7 +42,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-jz-vKF" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-jz-vKF" userLabel="Logo">
                                 <rect key="frame" x="87.5" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1OK-cg-mzm"/>
@@ -133,10 +128,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-dE-S3L" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="145" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ba-DjQ" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ba-DjQ" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-gD-viy" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-gD-viy" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9R6-Mm-8xq" userLabel="Activity">
@@ -408,7 +403,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="miy-9h-fSa" firstAttribute="width" secondItem="jHM-EG-79M" secondAttribute="width" id="09p-HH-e2T"/>
                                     <constraint firstItem="pWJ-9x-a76" firstAttribute="width" secondItem="pWJ-9x-a76" secondAttribute="height" multiplier="1:1" id="3TI-Vx-g1G"/>
@@ -524,7 +519,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="ei3-Jb-C6e" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ei3-Jb-C6e" userLabel="Logo">
                                 <rect key="frame" x="87.5" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="SC2-mx-75d"/>
@@ -560,7 +555,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="n3p-zY-kpZ" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="top" constant="16" id="AJ8-Yl-JSz"/>
                                     <constraint firstItem="tGi-tA-04H" firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" id="LHq-eu-m5a"/>
@@ -577,17 +572,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W47-fr-Vv8" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="138" y="269" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-SY-YDF" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-SY-YDF" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-cK-x2r" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-cK-x2r" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KIX-5D-U6C" userLabel="Activity">
                                         <rect key="frame" x="32" y="32" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="1kg-y4-Q99"/>
                                     <constraint firstItem="aEg-SY-YDF" firstAttribute="leading" secondItem="W47-fr-Vv8" secondAttribute="leading" id="8SF-lg-MsW"/>
@@ -857,7 +852,6 @@
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-Ey-RUk" userLabel="bio" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="264" width="72" height="72"/>
-                                        <state key="normal" image="ic-touchid"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
@@ -866,7 +860,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="uSf-Bo-idv" firstAttribute="centerX" secondItem="8Sp-g2-sOx" secondAttribute="centerX" id="14r-QY-8cp"/>
                                     <constraint firstItem="8Sp-g2-sOx" firstAttribute="centerX" secondItem="omf-jd-2Xg" secondAttribute="centerX" id="1RG-k4-8Cg"/>
@@ -988,7 +982,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="yB2-E0-59w" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yB2-E0-59w" userLabel="Logo">
                                 <rect key="frame" x="87" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="18d-NI-wJa"/>
@@ -1079,10 +1073,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Am-jE-Ntc" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="261" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-d7-Q1p" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-d7-Q1p" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-ND-MjK" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-ND-MjK" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jiR-wV-sWQ" userLabel="Activity">
@@ -1355,7 +1349,6 @@
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAZ-JU-Ieu" userLabel="bio" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="264" width="72" height="72"/>
-                                        <state key="normal" image="ic-touchid"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
@@ -1364,7 +1357,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="mG3-kp-X7Z" firstAttribute="centerX" secondItem="yvO-oJ-Vxj" secondAttribute="centerX" id="0VS-DS-xxC"/>
                                     <constraint firstItem="IAi-xf-bji" firstAttribute="centerX" secondItem="ZuW-WB-Nm4" secondAttribute="centerX" id="7kX-6w-lTg"/>
@@ -1501,7 +1494,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-9O-p74" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-9O-p74" userLabel="Logo">
                                 <rect key="frame" x="87.5" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="fBf-vb-sjz"/>
@@ -1663,10 +1656,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-ZD-7tQ" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="141" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-a9-26c" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-a9-26c" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-Aj-eoz" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-Aj-eoz" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-pn-22u" userLabel="Activity">
@@ -1945,7 +1938,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="56o-Xf-Ejj" firstAttribute="centerY" secondItem="RgY-C4-x7t" secondAttribute="centerY" id="1eE-dN-bTJ"/>
                                     <constraint firstItem="MVj-mE-LUu" firstAttribute="leading" secondItem="uoa-a2-yYJ" secondAttribute="trailing" constant="32" id="1lq-l8-3Uq"/>
@@ -2067,7 +2060,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-Z8-Jrc" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-Z8-Jrc" userLabel="Logo">
                                 <rect key="frame" x="87" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="5G4-XR-iSS"/>
@@ -2099,7 +2092,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="4hO-Ip-W8U" secondAttribute="trailing" constant="8" id="Fxp-4c-YUd"/>
                                                     <constraint firstAttribute="bottom" secondItem="4hO-Ip-W8U" secondAttribute="bottom" constant="4" id="bTp-fO-DhJ"/>
@@ -2115,17 +2108,12 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="OK"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
-                                                        <real key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="confirmPasswordAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="Zkc-zu-7vN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="gaG-cb-bj6" firstAttribute="leading" secondItem="Fl2-Ft-mqF" secondAttribute="trailing" constant="8" id="5L7-N8-8uq"/>
                                             <constraint firstItem="Fl2-Ft-mqF" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="5Pu-78-v1P"/>
@@ -2143,7 +2131,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="WdX-lA-2Zs" firstAttribute="leading" secondItem="AHY-Ed-CXv" secondAttribute="leading" constant="16" id="4eU-2R-OIb"/>
                                     <constraint firstItem="kX3-ZY-cuN" firstAttribute="leading" secondItem="AHY-Ed-CXv" secondAttribute="leading" constant="64" id="FQl-kq-4fD"/>
@@ -2178,17 +2166,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-Af-zdy" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="261" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-nX-Rqo" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-nX-Rqo" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="Eiy-5Y-pcp" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eiy-5Y-pcp" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HAr-DT-dQr" userLabel="Activity">
                                         <rect key="frame" x="32" y="32" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uF9-nX-Rqo" secondAttribute="trailing" id="1wd-OX-8ld"/>
                                     <constraint firstItem="uF9-nX-Rqo" firstAttribute="top" secondItem="yWo-Af-zdy" secondAttribute="top" id="8bu-uR-Cvg"/>
@@ -2285,7 +2273,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-main" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-8Y-Jis" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-8Y-Jis" userLabel="Logo">
                                 <rect key="frame" x="87" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="N2D-6Q-q8W"/>
@@ -2458,10 +2446,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-4x-Jtx" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="137" y="145" width="100" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-ico" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-P9-uUP" userLabel="Success Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-P9-uUP" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-ico" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-Xk-g1P" userLabel="Error Image">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-Xk-g1P" userLabel="Error Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XSs-Qt-rp6" userLabel="Activity">
@@ -2553,13 +2541,7 @@
             <point key="canvasLocation" x="-434" y="1038"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="error-ico" width="100" height="108"/>
-        <image name="ic-touchid" width="32" height="32"/>
-        <image name="logo-main" width="240" height="120"/>
-        <image name="success-ico" width="100" height="100"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AAL-3I-MRa"/>
+        <segue reference="mqI-kg-eut"/>
     </inferredMetricsTieBreakers>
 </document>

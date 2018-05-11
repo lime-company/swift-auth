@@ -172,8 +172,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     }
     
     open func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
-        let commonImages = uiDataProvider.uiCommonImages
-        let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
+        let uiTheme = uiDataProvider.uiTheme
+        let lazyImage = biometryIcon == .touchID ? uiTheme.images.touchIdIcon : uiTheme.images.touchIdIcon
         return lazyImage.optionalImage
     }
    
@@ -273,6 +273,13 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     //
     
     open func prepareUIForFirstUse() {
+        // Apply styles
+        let uiTheme = uiDataProvider.uiTheme
+        
+        pinKeyboard?.applyButtonStyle(forDigits: uiTheme.buttons.pinDigits, forAuxiliary: uiTheme.buttons.pinAuxiliary)
+        changeComplexityButton?.applyButtonStyle(uiTheme.buttons.keyboardAuxiliary)
+
+        // Configure controller
         self.pinKeyboard.delegate = self
         self.adjustLayout()
         self.presentFirstGroup(animated: false, withError: false)

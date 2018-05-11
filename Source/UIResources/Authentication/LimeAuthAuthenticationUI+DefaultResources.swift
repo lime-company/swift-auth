@@ -18,8 +18,75 @@ import Foundation
 
 public extension LimeAuthAuthenticationUI {
     
-    public static func defaultResourcesProvider(bundle: Bundle? = nil) -> AuthenticationUIProvider {
-        return DefaultAuthenticationResourcesProvider(bundle: bundle)
+    public static func defaultResourcesProvider(bundle: Bundle? = nil, theme: LimeAuthAuthenticationUITheme? = nil) -> AuthenticationUIProvider {
+        let provider = DefaultAuthenticationResourcesProvider(bundle: bundle)
+        provider.loadTheme(theme: theme!)
+        return provider
     }
+}
+
+public extension LimeAuthAuthenticationUITheme.Images {
+    
+    public static func defaultImages(logo: LazyUIImage? = nil, bundle: Bundle? = nil) -> LimeAuthAuthenticationUITheme.Images {
+        let bundle = bundle ?? Bundle.limeAuthResourcesBundle
+        return LimeAuthAuthenticationUITheme.Images(
+            logo: logo,
+            successImage: .named("ic-success", bundle: bundle),
+            failureImage: .named("ic-error", bundle: bundle),
+            touchIdIcon: .named("ic-touchid", bundle: bundle),
+            faceIdIcon: .named("ic-faceid", bundle: bundle)
+        )
+    }
+}
+
+
+public extension LimeAuthAuthenticationUITheme {
+    
+    public static func defaultLightTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
+        
+//        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
+//        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
+        
+        return LimeAuthAuthenticationUITheme(
+            common: Common(
+                backgroundColor: .white,
+                backgroundImage: nil,
+                activityIndicator: .large(.orange),
+                keyboardAppearance: .default
+            ),
+            images: images ?? .defaultImages(),
+            buttons: Buttons(
+                pinDigits: .noStyle,
+                pinAuxiliary: .noStyle,
+                ok: .noStyle,
+                close: .noStyle,
+                keyboardAuxiliary: .noStyle
+            )
+        )
+    }
+    
+    public static func defaultDarkTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
+        
+        //        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
+        //        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
+        
+        return LimeAuthAuthenticationUITheme(
+            common: Common(
+                backgroundColor: .white,
+                backgroundImage: nil,
+                activityIndicator: .large(.orange),
+                keyboardAppearance: .default
+            ),
+            images: images ?? .defaultImages(),
+            buttons: Buttons(
+                pinDigits: .noStyle,
+                pinAuxiliary: .noStyle,
+                ok: .noStyle,
+                close: .noStyle,
+                keyboardAuxiliary: .noStyle
+            )
+        )
+    }
+
 }
 

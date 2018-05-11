@@ -36,6 +36,10 @@ public struct LimeAuthAuthenticationUITheme {
     }
     
     public struct Images {
+        
+        /// Logo displayed in pin keyboards
+        public var logo: LazyUIImage?
+        
         /// Image displayed when entered password is correct
         public var successImage: LazyUIImage
         
@@ -83,6 +87,7 @@ public struct LimeAuthAuthenticationUITheme {
                 activityIndicator: .small(.blue),
                 keyboardAppearance: .default),
             images: Images(
+                logo: nil,
                 successImage: .empty,
                 failureImage: .empty,
                 touchIdIcon: .empty,

@@ -21,6 +21,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     public var router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
+    var uiTheme: LimeAuthAuthenticationUITheme!
     
     open func connectEnterPasswordRouter(router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic)) {
         self.router = router
@@ -30,6 +31,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
+        uiTheme = uiDataProvider.uiTheme
     }
     
     // MARK: - Outlets -
@@ -189,8 +191,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
-        let commonImages = uiDataProvider.uiCommonImages
-        let lazyImage = biometryIcon == .touchID ? commonImages.touchIdButton : commonImages.faceIdButton
+        let lazyImage = biometryIcon == .touchID ? uiTheme.images.touchIdIcon : uiTheme.images.faceIdIcon
         return lazyImage.optionalImage
     }
     
