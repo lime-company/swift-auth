@@ -18,28 +18,48 @@ import UIKit
 
 public extension LimeAuthActivationUI {
     
-    public static func defaultResourcesProvider(bundle: Bundle? = nil, theme: LimeAuthActivationUI.Theme? = nil) -> ActivationUIProvider {
+    public static func defaultResourcesProvider(bundle: Bundle? = nil, theme: LimeAuthActivationUITheme? = nil) -> ActivationUIProvider {
         let provider = DefaultActivationResourcesProvider(bundle: bundle)
-        provider.loadTheme(theme: theme ?? LimeAuthActivationUI.defaultLightTheme())
+        provider.loadTheme(theme: theme ?? .defaultLightTheme())
         return provider
     }
+}
+
+public extension LimeAuthActivationUITheme.Illustrations {
     
+    public static func defaultIllustrations(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Illustrations {
+        let bundle = bundle ?? Bundle.limeAuthResourcesBundle
+        return LimeAuthActivationUITheme.Illustrations(
+            beginScene: .named("il-begin-scene", bundle: bundle),
+            noCameraScene: .named("il-no-camera-scene", bundle: bundle),
+            enableBiometryScene: .named("il-enable-biometry-scene", bundle: bundle),
+            confirmScene: .named("il-confirm-scene", bundle: bundle),
+            errorScene: .named("il-error-scene", bundle: bundle)
+        )
+    }
     
-    public static func defaultLightTheme(illustrations: LimeAuthActivationUI.Theme.Illustrations? = nil) -> LimeAuthActivationUI.Theme {
-        
-        let illustrations = illustrations ??
-            LimeAuthActivationUI.Theme.Illustrations(
-                beginScene: .empty,
-                noCameraScene: .empty,
-                enableBiometryScene: .empty,
-                confirmScene: .empty,
-                errorScene: .empty)
-        
+}
+
+public extension LimeAuthActivationUITheme.Images {
+    
+    public static func defaultImages(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Images {
+        let bundle = bundle ?? Bundle.limeAuthResourcesBundle
+        return LimeAuthActivationUITheme.Images(
+            scannerCrosshair: .named("scanner-crosshair", bundle: bundle)
+        )
+    }
+    
+}
+
+public extension LimeAuthActivationUITheme {
+    
+    public static func defaultLightTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
+
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
         
-        return LimeAuthActivationUI.Theme(
-            common: LimeAuthActivationUI.Theme.Common(
+        return LimeAuthActivationUITheme(
+            common: Common(
                 backgroundColor: .white,
                 backgroundImage: nil,
                 titleColor: .orange,
@@ -48,11 +68,9 @@ public extension LimeAuthActivationUI {
                 activityIndicator: .small(.orange),
                 keyboardAppearance: .default
             ),
-            illustrations: illustrations,
-            images: LimeAuthActivationUI.Theme.Images(
-                scannerCrosshair: .empty
-            ),
-            buttons: LimeAuthActivationUI.Theme.Buttons(
+            illustrations: illustrations ?? .defaultIllustrations(),
+            images: images ?? .defaultImages(),
+            buttons: Buttons(
                 primary: ButtonStyle(
                     tintColor: nil,
                     backgrdoundColor: .clear,
@@ -102,7 +120,7 @@ public extension LimeAuthActivationUI {
                     options: .default
                 )
             ),
-            scannerScene: LimeAuthActivationUI.Theme.ScannerScene(
+            scannerScene: ScannerScene(
                 statusBarStyle: .default,
                 titleColor: .white,
                 closeButton: ButtonStyle(
@@ -133,21 +151,13 @@ public extension LimeAuthActivationUI {
         )
     }
     
-    public static func defaultDarkTheme(illustrations: LimeAuthActivationUI.Theme.Illustrations? = nil) -> LimeAuthActivationUI.Theme {
-        
-        let illustrations = illustrations ??
-            LimeAuthActivationUI.Theme.Illustrations(
-                beginScene: .empty,
-                noCameraScene: .empty,
-                enableBiometryScene: .empty,
-                confirmScene: .empty,
-                errorScene: .empty)
+    public static func defaultDarkTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
         
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
         
-        return LimeAuthActivationUI.Theme(
-            common: LimeAuthActivationUI.Theme.Common(
+        return LimeAuthActivationUITheme(
+            common: Common(
                 backgroundColor: .black,
                 backgroundImage: nil,
                 titleColor: .orange,
@@ -156,11 +166,9 @@ public extension LimeAuthActivationUI {
                 activityIndicator: .small(.orange),
                 keyboardAppearance: .dark
             ),
-            illustrations: illustrations,
-            images: LimeAuthActivationUI.Theme.Images(
-                scannerCrosshair: .empty
-            ),
-            buttons: LimeAuthActivationUI.Theme.Buttons(
+            illustrations: illustrations ?? .defaultIllustrations(),
+            images: images ?? .defaultImages(),
+            buttons: Buttons(
                 primary: ButtonStyle(
                     tintColor: nil,
                     backgrdoundColor: .same(.orange),
@@ -210,7 +218,7 @@ public extension LimeAuthActivationUI {
                     options: .default
                 )
             ),
-            scannerScene: LimeAuthActivationUI.Theme.ScannerScene(
+            scannerScene: ScannerScene(
                 statusBarStyle: .default,
                 titleColor: .white,
                 closeButton: ButtonStyle(
