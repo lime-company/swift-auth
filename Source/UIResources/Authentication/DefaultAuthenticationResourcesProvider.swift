@@ -63,7 +63,7 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     }
     
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController? {
-        return UINavigationController(rootViewController: rootController)
+        return LimeAuthUINavigationController(rootViewController: rootController)
     }
     
     var uiDataProvider: AuthenticationUIDataProvider {

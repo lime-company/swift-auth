@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/lime-company/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.1'
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   
   # Sources
   s.default_subspec = 'Core'

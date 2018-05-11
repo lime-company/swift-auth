@@ -60,7 +60,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     }
     
     public func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController? {
-        return UINavigationController(rootViewController: rootController)
+        return LimeAuthUINavigationController(rootViewController: rootController)
     }
     
     public var uiDataProvider: ActivationUIDataProvider {
@@ -119,7 +119,18 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             statusBarStyle: theme.scannerScene.statusBarStyle,
             promptColor: theme.scannerScene.titleColor,
             fallbackButton: theme.scannerScene.fallbackButton,
-            closeButton: theme.scannerScene.closeButton)        
+            closeButton: theme.scannerScene.closeButton)
+        
+        // Apply appearance
+        let appearanceNavBar = UINavigationBar.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self]);
+        appearanceNavBar.barTintColor = theme.navigationBar.backgroundColor
+        appearanceNavBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.navigationBar.titleColor]
+        appearanceNavBar.tintColor = theme.navigationBar.tintColor
+        
+        let appearanceBarButton = UIBarButtonItem.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self])
+        appearanceBarButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: theme.navigationBar.buttonColor], for: .normal)
     }
+    
+    
 }
 

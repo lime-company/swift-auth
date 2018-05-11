@@ -147,6 +147,12 @@ public extension LimeAuthActivationUITheme {
                     borderCornerRadius: 4.0,
                     options: .default
                 )
+            ),
+            navigationBar: NavigationBar(
+                backgroundColor: .white,
+                titleColor: .orange,
+                tintColor: .orange,
+                buttonColor: .orange
             )
         )
     }
@@ -245,6 +251,12 @@ public extension LimeAuthActivationUITheme {
                     borderCornerRadius: 4.0,
                     options: .default
                 )
+            ),
+            navigationBar: NavigationBar(
+                backgroundColor: .black,
+                titleColor: .orange,
+                tintColor: .orange,
+                buttonColor: .orange
             )
         )
     }
