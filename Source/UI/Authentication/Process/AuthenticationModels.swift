@@ -94,33 +94,6 @@ public enum Authentication {
                 )
             }
         }
-        
-        public struct CommonImages {
-            
-            public let success: LazyUIImage
-            public let failure: LazyUIImage
-            public let touchIdButton: LazyUIImage
-            public let faceIdButton: LazyUIImage
-            
-            public static func fallbackImages() -> CommonImages {
-                return CommonImages(success: .empty,
-                                    failure: .empty,
-                                    touchIdButton: .empty,
-                                    faceIdButton: .empty)
-            }
-        }
-        
-        public struct CommonStyle {
-            public let tintColor: UIColor
-            public let backgroundColor: UIColor?
-            public let backgroundImage: LazyUIImage?
-            
-            public static func fallbackStyle() -> CommonStyle {
-                return CommonStyle(tintColor: .blue,
-                                   backgroundColor: .white,
-                                   backgroundImage: nil)
-            }
-        }
     }
     
     

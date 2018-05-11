@@ -30,9 +30,9 @@ public protocol ActivationUIProvider: class {
 }
 
 public protocol ActivationUIDataProvider: class {
-    
+	
+	var uiTheme: LimeAuthActivationUITheme { get }
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
-    var uiTheme: LimeAuthActivationUITheme { get }
     
     var uiDataForBeginActivation: BeginActivation.UIData { get }
     var uiDataForNoCameraAccess: NoCameraAccess.UIData { get }

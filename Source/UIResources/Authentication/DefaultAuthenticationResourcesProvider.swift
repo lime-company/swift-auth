@@ -18,14 +18,10 @@ import UIKit
 
 internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider, AuthenticationUIDataProvider {
 
-    public var bundle: Bundle {
-        return providedBundle ?? .limeAuthResourcesBundle
-    }
-    
-    private var providedBundle: Bundle?
+    public let bundle: Bundle
     
     public init(bundle: Bundle? = nil) {
-        self.providedBundle = bundle
+        self.bundle = bundle ?? .limeAuthResourcesBundle
     }
     
     private var storyboard: UIStoryboard {
@@ -70,21 +66,10 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         return self
     }
     
-    var uiCommonStrings: Authentication.UIData.CommonStrings {
-        return .fallbackStrings()
-    }
+    var uiTheme: LimeAuthAuthenticationUITheme = .fallbackTheme()
+    var uiCommonStrings: Authentication.UIData.CommonStrings = .fallbackStrings()
+    var uiCommonErrors: Authentication.UIData.CommonErrors = .fallbackErrors()
     
-    var uiCommonImages: Authentication.UIData.CommonImages {
-        return .fallbackImages()
-    }
-    
-    var uiCommonStyle: Authentication.UIData.CommonStyle {
-        return .fallbackStyle()
-    }
-    
-    var uiCommonErrors: Authentication.UIData.CommonErrors {
-        return .fallbackErrors()
-    }
     
     var uiForCreateNewPassword: NewCredentials.UIData {
         return .fallbackData()
@@ -109,5 +94,9 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         } else {
             return "No attempts left"
         }
+    }
+    
+    func loadTheme(theme: LimeAuthAuthenticationUITheme) {
+        uiTheme = theme
     }
 }
