@@ -117,7 +117,18 @@ public extension LimeAuthActivationUI {
 					borderCornerRadius: 0.0,
 					options: [.isRounded]
 				),
-                fallbackButton: .noStyle
+                fallbackButton: ButtonStyle(
+                    tintColor: .white,
+                    backgrdoundColor: .clear,
+                    titleColor: nil,
+                    titleFont: .systemFont(ofSize: 14),
+                    title: nil,
+                    image: nil,
+                    borderWidth: 1.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                )
             )
         )
     }
@@ -214,7 +225,18 @@ public extension LimeAuthActivationUI {
                     borderCornerRadius: 0.0,
                     options: [.isRounded]
                 ),
-                fallbackButton: .noStyle
+                fallbackButton: ButtonStyle(
+                    tintColor: .white,
+                    backgrdoundColor: .clear,
+                    titleColor: nil,
+                    titleFont: .systemFont(ofSize: 14),
+                    title: nil,
+                    image: nil,
+                    borderWidth: 1.0,
+                    borderColor: nil,
+                    borderCornerRadius: 4.0,
+                    options: .default
+                )
             )
         )
     }

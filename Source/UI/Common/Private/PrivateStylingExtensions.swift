@@ -33,6 +33,10 @@ extension UIButton {
         guard let style = style else {
             return
         }
+        if style.options.contains(.noStyle) {
+            // Ignore this style, if it's requested.
+            return
+        }
         
         // General button
         if let tint = style.tintColor {
