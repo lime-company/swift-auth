@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2010E720A5B25C00FA0E78 /* LimeAuthUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2010E620A5B25C00FA0E78 /* LimeAuthUINavigationController.swift */; };
 		BF2EBB5A20A34C720079C465 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EBB5920A34C720079C465 /* BundleExtension.swift */; };
 		BF31240B2060079300E7533F /* LimeAuthSession+Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31240A2060079300E7533F /* LimeAuthSession+Password.swift */; };
 		BF31240D206115EA00E7533F /* LimeAuthSession+Biometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31240C206115EA00E7533F /* LimeAuthSession+Biometry.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF2010E620A5B25C00FA0E78 /* LimeAuthUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthUINavigationController.swift; sourceTree = "<group>"; };
 		BF2EBB5920A34C720079C465 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		BF31240A2060079300E7533F /* LimeAuthSession+Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Password.swift"; sourceTree = "<group>"; };
 		BF31240C206115EA00E7533F /* LimeAuthSession+Biometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Biometry.swift"; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDB8CD220516DB30063C5EA /* LimeAuthUIBaseViewController.swift */,
+				BF2010E620A5B25C00FA0E78 /* LimeAuthUINavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				BFDB8CEA2056ABE40063C5EA /* AuthenticationUIProcess.swift in Sources */,
 				BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */,
 				BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */,
+				BF2010E720A5B25C00FA0E78 /* LimeAuthUINavigationController.swift in Sources */,
 				BF49642F20599022002560A8 /* CheckmarkWithActivity.swift in Sources */,
 				BF61344320448DDF00164496 /* ScanActivationCodeRouter.swift in Sources */,
 				BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */,

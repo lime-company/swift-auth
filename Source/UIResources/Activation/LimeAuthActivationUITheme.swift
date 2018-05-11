@@ -69,10 +69,13 @@ public struct LimeAuthActivationUITheme {
     public struct Buttons {
         /// Button for primary action
         public var primary: ButtonStyle
+        
         /// Button for secondary action
         public var secondary: ButtonStyle
+        
         /// Button for destructive action
         public var destructive: ButtonStyle
+        
         /// Button for cancel (small button at left top corner)
         public var cancel: ButtonStyle
     }
@@ -80,12 +83,31 @@ public struct LimeAuthActivationUITheme {
     public struct ScannerScene {
         /// Status bar style applied in scanner scene
         public var statusBarStyle: UIStatusBarStyle
+        
         /// Color for scanner's title text
         public var titleColor: UIColor
+        
         /// Special close button
         public var closeButton: ButtonStyle
+        
         /// Special fallback button
         public var fallbackButton: ButtonStyle
+    }
+    
+    /// This section affects appearance of UINavigationBar & buttons, when it's visible.
+    /// (typically in enter activation code scene)
+    public struct NavigationBar {
+        /// Background color for navigation bar
+        public var backgroundColor: UIColor
+        
+        /// Color of title in navigation bar
+        public var titleColor: UIColor
+        
+        /// General tint color, applied to navigation bar
+        public var tintColor: UIColor
+        
+        /// Color of button in navigation bar
+        public var buttonColor: UIColor
     }
     
     // MARK: - Theme content
@@ -95,6 +117,7 @@ public struct LimeAuthActivationUITheme {
     public var images: Images
     public var buttons: Buttons
     public var scannerScene: ScannerScene
+    public var navigationBar: NavigationBar
 }
 
 public extension LimeAuthActivationUITheme.Illustrations {
