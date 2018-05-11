@@ -22,25 +22,27 @@ public extension LimeAuthActivationUI {
         
         public struct Common {
             /// Common background color for all scenes.
+            /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
             public var backgroundColor: UIColor?
             
             /// Common background image for all scenes.
+            /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
             public var backgroundImage: LazyUIImage?
             
-            /// Color for all title scenes
+            /// Color for all scene titles
             public var titleColor: UIColor
             
             /// Color for all texts in scenes
             public var textColor: UIColor
             
-            /// Color for all highlighted texts in scenes. For example, if text has to be somehow highlighted for user,
-            /// this color will be used.
+            /// Color for all highlighted texts in scenes. This color is use for special texts, which has to
+            /// be hightlighted to user.
             public var highlightedTextColor: UIColor
             
-            /// Style applied to activity indicators
+            /// Style applied to all activity indicators
             public var activityIndicator: ActivityIndicatorStyle
             
-            /// Style used for keyboards
+            /// Style used for system keyboards
             public var keyboardAppearance: UIKeyboardAppearance
         }
         
@@ -67,20 +69,28 @@ public extension LimeAuthActivationUI {
         }
         
         public struct Buttons {
-            // Common for all wizards
+            /// Button for primary action
             public var primary: ButtonStyle
+            /// Button for secondary action
             public var secondary: ButtonStyle
+            /// Button for destructive action
             public var destructive: ButtonStyle
+            /// Button for cancel (small button at left top corner)
             public var cancel: ButtonStyle
         }
         
         public struct ScannerScene {
+            /// Status bar style applied in scanner scene
             public var statusBarStyle: UIStatusBarStyle
+            /// Color for scanner's title text
             public var titleColor: UIColor
-            // Special for QR code scanner
+            /// Special close button
             public var closeButton: ButtonStyle
+            /// Special fallback button
             public var fallbackButton: ButtonStyle
         }
+        
+        // MARK: - Theme content
         
         public var common: Common
         public var illustrations: Illustrations
