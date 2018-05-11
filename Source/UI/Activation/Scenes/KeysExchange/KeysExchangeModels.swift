@@ -24,13 +24,14 @@ public enum KeysExchange {
             let pendingActivationTitle: String
         }
         
-        public var strings: Strings
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
-                pendingActivationTitle: "Pairing your device..."
+            return UIData(
+                strings: Strings(
+                    pendingActivationTitle: "Pairing your device..."
+                )
             )
-            return UIData(strings: strings)
         }
     }
 }

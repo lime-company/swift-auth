@@ -25,34 +25,15 @@ public enum ScanActivationCode {
             let enterCodeFallbackButton: String
         }
         
-        public struct Images {
-            var crossHair: LazyUIImage
-        }
-        
-        public struct Style {
-            var statusBarStyle: UIStatusBarStyle
-            var promptColor: UIColor
-            var fallbackButton: ButtonStyle?
-            var closeButton: ButtonStyle?
-        }
-        
-        public var strings: Strings
-        public var images: Images
-        public var style: Style
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
-                sceneTitle: "Scan the activation QR code",
-                enterCodeFallbackButton:  "Unsuccessful? Rewrite the code."
+            return UIData(
+                strings: Strings(
+                    sceneTitle: "Scan the activation QR code",
+                    enterCodeFallbackButton:  "Unsuccessful? Rewrite the code."
+                )
             )
-            let images = Images(crossHair: .empty)
-            let style = Style(
-                statusBarStyle: .default,
-                promptColor: .white,
-                fallbackButton: nil,
-                closeButton: nil
-            )
-            return UIData(strings: strings, images: images, style: style)
         }
         
     }

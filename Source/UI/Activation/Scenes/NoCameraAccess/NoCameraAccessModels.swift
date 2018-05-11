@@ -26,21 +26,16 @@ public enum NoCameraAccess {
             let openSettingsButton: String
         }
         
-        public struct Images {
-            var noAccess: LazyUIImage
-        }
-        
-        public var strings: Strings
-        public var images: Images
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
-                sceneTitle: "Allow camera access",
-                sceneDescription: "Application cannot use camera. You can permit it in Settings.",
-                openSettingsButton: "Open settings"
+            return UIData(
+                strings: Strings(
+                    sceneTitle: "Allow camera access",
+                    sceneDescription: "Application cannot use camera. You can permit it in Settings.",
+                    openSettingsButton: "Open settings"
+                )
             )
-            let images = Images(noAccess: .empty)
-            return UIData(strings: strings, images: images)
         }
         
     }

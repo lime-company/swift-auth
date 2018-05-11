@@ -27,22 +27,17 @@ public enum BeginActivation {
             let enterButton: String
         }
         
-        public struct Images {
-            var scenePromo: LazyUIImage
-        }
-        
-        public var strings: Strings
-        public var images: Images
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
-                sceneTitle: "Enter the Activation code",
-                sceneDescription: "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.",
-                scanButton: "Scan the Activation QR code",
-                enterButton: "Retype the Activation code manually"
+            return UIData(
+                strings: Strings(
+                    sceneTitle: "Enter the Activation code",
+                    sceneDescription: "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.",
+                    scanButton: "Scan the Activation QR code",
+                    enterButton: "Retype the Activation code manually"
+                )
             )
-            let images = Images(scenePromo: .empty)
-            return UIData(strings: strings, images: images)
         }
     }
 }

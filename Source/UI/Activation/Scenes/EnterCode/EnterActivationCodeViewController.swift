@@ -291,7 +291,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForEnterActivationCode
         let commonStrings = uiDataProvider.uiCommonStrings
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
 		
 		// Apply texts & images
         self.title = uiData.strings.sceneTitle
@@ -300,21 +300,21 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         cancelButtonItem.title = commonStrings.cancelTitle
 
 		// Apply themes
-		configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-		hintLabel?.textColor = commonStyle.wizardTextColor
-		confirmButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
+		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+		hintLabel?.textColor = theme.common.titleColor
+		confirmButton?.applyButtonStyle(theme.buttons.primary)
 		
 		// Prepare text fields
 		prepareTextFields()
         if let tf1 = textField1, let tf2 = textField2, let tf3 = textField3, let tf4 = textField4 {
             for textField in [ tf1, tf2, tf3, tf4 ] {
                 // TODO: we should create TextFieldStyle and apply that just like we do for buttons
-                textField.backgroundColor = commonStyle.backgroundColor
-                textField.textColor = commonStyle.wizardTextColor
+                textField.backgroundColor = theme.common.backgroundColor
+                textField.textColor = theme.common.textColor
                 textField.layer.borderWidth = 1
                 textField.layer.cornerRadius = 8.0
-                textField.layer.borderColor = commonStyle.wizardTextColor.cgColor
-                textField.keyboardAppearance = commonStyle.keyboardAppearance
+                textField.layer.borderColor = theme.common.textColor.cgColor
+                textField.keyboardAppearance = theme.common.keyboardAppearance
             }
         }
     }

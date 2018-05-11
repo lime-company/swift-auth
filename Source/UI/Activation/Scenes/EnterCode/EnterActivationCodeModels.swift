@@ -26,14 +26,14 @@ public enum EnterActivationCode {
             let confirmButton: String
         }
         
-        public var strings: Strings
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
+            return UIData(strings: Strings(
                 sceneTitle: "Enter the Activation code manually",
                 sceneDescription: "Please retype the Activation code in its numeric format from the ePortal screen.",
                 confirmButton: "Confirm")
-            return UIData(strings: strings)
+            )
         }
         
     }

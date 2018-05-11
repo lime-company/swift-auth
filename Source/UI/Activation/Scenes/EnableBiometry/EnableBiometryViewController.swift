@@ -97,7 +97,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func prepareUI() {
 		let uiData = uiDataProvider.uiDataForEnableBiometry
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
 
         // Apply images & texts
         let isTouchId = PA2Keychain.supportedBiometricAuthentication == .touchID
@@ -110,14 +110,14 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         sceneDescriptionLabel?.text = description
         enableBiometryButton?.setTitle(enableButtonTitle, for: .normal)
         enableLaterButton?.setTitle(uiData.strings.enableLaterButton, for: .normal)
-        promoImageView?.setLazyImage(uiData.images.biometry)
+        promoImageView?.setLazyImage(theme.illustrations.enableBiometryScene)
         
         // Apply styles
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
-        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
-        enableBiometryButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
-        enableLaterButton?.applyButtonStyle(commonStyle.buttonWizardSecondary)
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        sceneTitleLabel?.textColor = theme.common.titleColor
+        sceneDescriptionLabel?.textColor = theme.common.textColor
+        enableBiometryButton?.applyButtonStyle(theme.buttons.primary)
+        enableLaterButton?.applyButtonStyle(theme.buttons.secondary)
     }
     
 }

@@ -81,7 +81,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     // MARK: - LimeAuthActivationUIDataProvider
     
     public var uiCommonStrings: Activation.UIData.CommonStrings = .fallbackStrings()
-    public var uiCommonStyle: Activation.UIData.CommonStyle = .fallbackStyle()
+    public var uiTheme: LimeAuthActivationUITheme = .fallbackTheme()
     public var uiDataForBeginActivation: BeginActivation.UIData = .fallbackData()
     public var uiDataForNoCameraAccess: NoCameraAccess.UIData = .fallbackData()
     public var uiDataForEnterActivationCode: EnterActivationCode.UIData = .fallbackData()
@@ -92,36 +92,11 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public var uiDataForErrorActivation: ErrorActivation.UIData = .fallbackData()
 
     public func loadTheme(theme: LimeAuthActivationUITheme) {
-        // Create common style
-        uiCommonStyle = Activation.UIData.CommonStyle(
-            backgroundColor: theme.common.backgroundColor,
-            backgroundImage: theme.common.backgroundImage,
-            wizardTitleColor: theme.common.titleColor,
-            wizardTextColor: theme.common.textColor,
-            wizardAltTextColor: theme.common.highlightedTextColor,
-            buttonWizardPrimary: theme.buttons.primary,
-            buttonWizardSecondary: theme.buttons.secondary,
-            buttonWizardCancel: theme.buttons.cancel,
-            buttonWizardDestructive: theme.buttons.destructive,
-            activityIndicator: theme.common.activityIndicator,
-            keyboardAppearance: theme.common.keyboardAppearance
-        )
         
-        // Apply illustrations
-        uiDataForBeginActivation.images.scenePromo = theme.illustrations.beginScene
-        uiDataForNoCameraAccess.images.noAccess = theme.illustrations.noCameraScene
-        uiDataForEnableBiometry.images.biometry = theme.illustrations.enableBiometryScene
-        uiDataForConfirmActivation.images.confirm = theme.illustrations.confirmScene
-        uiDataForErrorActivation.images.errorIllustration = theme.illustrations.errorScene
-        // Scanner
-        uiDataForScanActivationCode.images.crossHair = theme.images.scannerCrosshair
-        uiDataForScanActivationCode.style = ScanActivationCode.UIData.Style(
-            statusBarStyle: theme.scannerScene.statusBarStyle,
-            promptColor: theme.scannerScene.titleColor,
-            fallbackButton: theme.scannerScene.fallbackButton,
-            closeButton: theme.scannerScene.closeButton)
+        // Keep provided theme internally
+        uiTheme = theme
         
-        // Apply appearance
+        // Apply changes to UIAppearance
         let appearanceNavBar = UINavigationBar.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self]);
         appearanceNavBar.barTintColor = theme.navigationBar.backgroundColor
         appearanceNavBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.navigationBar.titleColor]

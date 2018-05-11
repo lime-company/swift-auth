@@ -128,10 +128,10 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         
         let uiData = uiDataProvider.uiDataForBeginActivation
         let commonStrings = uiDataProvider.uiCommonStrings
-        let commonStyle = uiDataProvider.uiCommonStyle
+        let theme = uiDataProvider.uiTheme
         
         // Apply texts & icons
-        promoImageView?.setLazyImage(uiData.images.scenePromo)
+        promoImageView?.setLazyImage(theme.illustrations.beginScene)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         enterAccessCodeButton?.setTitle(uiData.strings.enterButton, for: .normal)
@@ -141,11 +141,11 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         scanAccessCodeButton?.isHidden = !cameraAccessProvider.isCameraDeviceAvailable
         
         // Apply styles
-        configureBackground(image: commonStyle.backgroundImage, color: commonStyle.backgroundColor)
-        sceneTitleLabel?.textColor = commonStyle.wizardTitleColor
-        sceneDescriptionLabel?.textColor = commonStyle.wizardTextColor
-        scanAccessCodeButton?.applyButtonStyle(commonStyle.buttonWizardPrimary)
-        enterAccessCodeButton?.applyButtonStyle(commonStyle.buttonWizardSecondary)
-        cancelActivationButton?.applyButtonStyle(commonStyle.buttonWizardCancel)
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        sceneTitleLabel?.textColor = theme.common.titleColor
+        sceneDescriptionLabel?.textColor = theme.common.textColor
+        scanAccessCodeButton?.applyButtonStyle(theme.buttons.primary)
+        enterAccessCodeButton?.applyButtonStyle(theme.buttons.secondary)
+        cancelActivationButton?.applyButtonStyle(theme.buttons.cancel)
     }
 }

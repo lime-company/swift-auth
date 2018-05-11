@@ -27,22 +27,17 @@ public enum ConfirmActivation {
             let removeActivationButton: String
         }
         
-        public struct Images {
-            var confirm: LazyUIImage
-        }
-        
-        public var strings: Strings
-        public var images: Images
+        public let strings: Strings
         
         public static func fallbackData() -> UIData {
-            let strings = Strings(
-                sceneTitle: "Complete the activation",
-                sceneDescription: "Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal.",
-                waitingLabel: "Waiting for activation completion",
-                removeActivationButton: "Cancel operation"
+            return UIData(
+                strings: Strings(
+                    sceneTitle: "Complete the activation",
+                    sceneDescription: "Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal.",
+                    waitingLabel: "Waiting for activation completion",
+                    removeActivationButton: "Cancel operation"
+                )
             )
-            let images = Images(confirm: .empty)
-            return UIData(strings: strings, images: images)
         }
         
     }

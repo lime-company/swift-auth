@@ -118,6 +118,43 @@ public struct LimeAuthActivationUITheme {
     public var buttons: Buttons
     public var scannerScene: ScannerScene
     public var navigationBar: NavigationBar
+    
+    /// Function provides a fallback theme used internally, for theme initial values.
+    public static func fallbackTheme() -> LimeAuthActivationUITheme {
+        return LimeAuthActivationUITheme(
+            common: Common(
+                backgroundColor: .white,
+                backgroundImage: nil,
+                titleColor: .blue,
+                textColor: .black,
+                highlightedTextColor: .blue,
+                activityIndicator: .small(.blue),
+                keyboardAppearance: .default),
+            illustrations: Illustrations(
+                beginScene: .empty,
+                noCameraScene: .empty,
+                enableBiometryScene: .empty,
+                confirmScene: .empty,
+                errorScene: .empty),
+            images: Images(
+                scannerCrosshair: .empty),
+            buttons: Buttons(
+                primary: .noStyle,
+                secondary: .noStyle,
+                destructive: .noStyle,
+                cancel: .noStyle),
+            scannerScene: ScannerScene(
+                statusBarStyle: .default,
+                titleColor: .white,
+                closeButton: .noStyle,
+                fallbackButton: .noStyle),
+            navigationBar: NavigationBar(
+                backgroundColor: .white,
+                titleColor: .black,
+                tintColor: .blue,
+                buttonColor: .blue)
+        )
+    }
 }
 
 public extension LimeAuthActivationUITheme.Illustrations {
