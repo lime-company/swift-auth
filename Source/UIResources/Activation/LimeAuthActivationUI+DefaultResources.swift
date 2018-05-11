@@ -105,18 +105,18 @@ public extension LimeAuthActivationUI {
             scannerScene: LimeAuthActivationUI.Theme.ScannerScene(
                 statusBarStyle: .default,
                 titleColor: .white,
-				closeButton: ButtonStyle(
-					tintColor: nil,
-					backgrdoundColor: .colors(.orange, .black),
-					titleColor: .colors(.white, .darkGray),
-					titleFont: .systemFont(ofSize: 32.0),
-					title: "✕",
-					image: nil,
-					borderWidth: 0.0,
-					borderColor: nil,
-					borderCornerRadius: 0.0,
-					options: [.isRounded]
-				),
+                closeButton: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .colors(.orange, .black),
+                    titleColor: .colors(.white, .darkGray),
+                    titleFont: .systemFont(ofSize: 32.0),
+                    title: "✕",
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: nil,
+                    borderCornerRadius: 0.0,
+                    options: [.isRounded]
+                ),
                 fallbackButton: ButtonStyle(
                     tintColor: .white,
                     backgrdoundColor: .clear,
