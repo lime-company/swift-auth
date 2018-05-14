@@ -26,10 +26,10 @@ public struct ButtonStyle {
     public let tintColor: UIColor?
     
     /// If set, then colors are applied to `UIButton.backgroundColor` and `RoundCornersButton.highlightedBackgroundColor`
-    public let backgrdoundColor: HighlightedColor?
+    public let backgrdoundColor: MultistateColor?
     
     /// If set, then colors are applied to title colors
-    public let titleColor: HighlightedColor?
+    public let titleColor: MultistateColor?
     
     /// If set, then font is applied to button's label
     public let titleFont: UIFont?
@@ -38,7 +38,7 @@ public struct ButtonStyle {
     public let title: String?
     
     /// If set, then text is used as predefined icon in button
-    public let image: HighlightedImage?
+    public let image: MultistateImage?
     
     
     // MARK: - Round cornered button
@@ -47,7 +47,7 @@ public struct ButtonStyle {
     public let borderWidth: CGFloat
     
     /// If button is `RoundCornersButton`, then changes color of button's border.
-    public let borderColor: HighlightedColor?
+    public let borderColor: MultistateColor?
     
     /// If button is `RoundCornersButton`, then affects corner radius of button's border.
     public let borderCornerRadius: CGFloat
