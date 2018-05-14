@@ -67,8 +67,8 @@ extension UIButton {
         
         // Round corners button
         if let rcSelf = self as? RoundCornersButton {
-            if let bgColor = style.backgrdoundColor {
-                rcSelf.highlightedBackgroundColor = bgColor.highlighted
+            if let bgHiColor = style.backgrdoundColor?.highlighted {
+                rcSelf.highlightedBackgroundColor = bgHiColor
             }
             if let borderColor = style.borderColor {
                 rcSelf.borderColor = borderColor.normal

@@ -67,8 +67,8 @@
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
 		BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */; };
 		BFA49C2120A465B9000D82B6 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */; };
-		BFA49C2320A46640000D82B6 /* HighlightedColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2220A46640000D82B6 /* HighlightedColor.swift */; };
-		BFA49C2620A47CF2000D82B6 /* HighlightedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */; };
+		BFA49C2320A46640000D82B6 /* MultistateColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2220A46640000D82B6 /* MultistateColor.swift */; };
+		BFA49C2620A47CF2000D82B6 /* MultistateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2520A47CF2000D82B6 /* MultistateImage.swift */; };
 		BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */; };
 		BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */; };
 		BFA49C2D20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2C20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift */; };
@@ -172,8 +172,8 @@
 		BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSession.swift; sourceTree = "<group>"; };
 		BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthSessionConfig.swift; sourceTree = "<group>"; };
 		BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
-		BFA49C2220A46640000D82B6 /* HighlightedColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedColor.swift; sourceTree = "<group>"; };
-		BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedImage.swift; sourceTree = "<group>"; };
+		BFA49C2220A46640000D82B6 /* MultistateColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistateColor.swift; sourceTree = "<group>"; };
+		BFA49C2520A47CF2000D82B6 /* MultistateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistateImage.swift; sourceTree = "<group>"; };
 		BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateStylingExtensions.swift; sourceTree = "<group>"; };
 		BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorStyle.swift; sourceTree = "<group>"; };
 		BFA49C2C20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActivationUITheme.swift; sourceTree = "<group>"; };
@@ -564,8 +564,8 @@
 		BFA49C1F20A4653D000D82B6 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				BFA49C2220A46640000D82B6 /* HighlightedColor.swift */,
-				BFA49C2520A47CF2000D82B6 /* HighlightedImage.swift */,
+				BFA49C2220A46640000D82B6 /* MultistateColor.swift */,
+				BFA49C2520A47CF2000D82B6 /* MultistateImage.swift */,
 				BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */,
 				BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */,
 				BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */,
@@ -809,7 +809,7 @@
 				BF565FAE2047432E00B9C897 /* ConfirmActivationViewController.swift in Sources */,
 				BF61344620448E7100164496 /* EnterActivationCodeRouter.swift in Sources */,
 				BF61343F20448D5400164496 /* EnterActivationCodeViewController.swift in Sources */,
-				BFA49C2620A47CF2000D82B6 /* HighlightedImage.swift in Sources */,
+				BFA49C2620A47CF2000D82B6 /* MultistateImage.swift in Sources */,
 				BF31240B2060079300E7533F /* LimeAuthSession+Password.swift in Sources */,
 				BF61343D20448D2100164496 /* NoCameraAccessViewController.swift in Sources */,
 				BF31241C2062C32C00E7533F /* CreatePasswordViewController.swift in Sources */,
@@ -831,7 +831,7 @@
 				BF6134522045C45300164496 /* LazyUIImage.swift in Sources */,
 				BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */,
 				BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */,
-				BFA49C2320A46640000D82B6 /* HighlightedColor.swift in Sources */,
+				BFA49C2320A46640000D82B6 /* MultistateColor.swift in Sources */,
 				BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
 				BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */,

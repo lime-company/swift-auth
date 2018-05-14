@@ -65,10 +65,10 @@ open class RoundCornersButton: UIButton {
         }
     }
     
-    /// Changes color of border. If not set, then contains `self.tintColor`
-    @objc public dynamic var borderColor: UIColor {
+    /// Changes color of border.
+    @objc public dynamic var borderColor: UIColor? {
         get {
-            return storedBorderColor ?? tintColor
+            return storedBorderColor
         }
         set {
             storedBorderColor = newValue
@@ -78,10 +78,10 @@ open class RoundCornersButton: UIButton {
     
     private var storedBorderColor: UIColor?
     
-    /// Changes color of border in highlighted state. If not set, then contains `self.tintColor`
-    @objc public dynamic var highlightedBorderColor: UIColor {
+    /// Changes color of border in highlighted state.
+    @objc public dynamic var highlightedBorderColor: UIColor? {
         get {
-            return storedHighlightedColor ?? tintColor
+            return storedHighlightedColor
         }
         set {
             storedHighlightedColor = newValue
@@ -101,13 +101,13 @@ open class RoundCornersButton: UIButton {
     
     private func updateCornerRadius() {
         layer.cornerRadius = isRounded ? frame.size.height * 0.5 : borderCornerRadius
-        layer.borderColor = (isHighlighted ? highlightedBorderColor : borderColor).cgColor
+        layer.borderColor = ((isHighlighted ? highlightedBorderColor : borderColor) ?? tintColor).cgColor
         layer.borderWidth = borderWidth
     }
     
     private func updateHighlightedBackground(_ highlight: Bool) {
         super.backgroundColor = highlight ? highlightedBackgroundColor : storedBackgroundColor
-        layer.borderColor = (highlight ? highlightedBorderColor : borderColor).cgColor
+        layer.borderColor = ((highlight ? highlightedBorderColor : borderColor) ?? tintColor).cgColor
 		self.alpha = self.isEnabled ? 1.0 : (adjustsAlphaWhenDisabled ? 0.5 : 1.0)
     }
     
