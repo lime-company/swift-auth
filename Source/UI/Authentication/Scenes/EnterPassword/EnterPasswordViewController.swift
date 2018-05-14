@@ -341,6 +341,19 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     // MARK: - Update UI
     
     open func prepareUIForFirstUse() {
+        // Apply style
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
+        closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
+        confirmPasswordButton?.applyButtonStyle(theme.buttons.ok)
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        promptLabel?.textColor = theme.common.promptTextColor
+        attemptsLabel?.textColor = theme.common.highlightedTextColor
+        passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
+        
         // Setup TextField
         self.passwordTextField.delegate = self
         self.passwordTextField.returnKeyType = .send

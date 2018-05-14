@@ -90,7 +90,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
         let theme = uiDataProvider.uiTheme
         
         // Apply texts & images
-        promoImageView?.setLazyImage(uiData.images.errorIllustration)
+        promoImageView?.setLazyImage(theme.illustrations.errorScene)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.genericError
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)

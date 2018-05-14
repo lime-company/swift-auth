@@ -49,7 +49,9 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     @IBOutlet weak var attemptsLabel: UILabel!
     /// PIN confirmation button
     @IBOutlet weak var confirmPinButton: UIButton!
-    
+	// Round corners view behind password
+	@IBOutlet weak var roundCornersView: UIView!
+	
     /// An activity indicator
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
     /// Close dialog button, displayed only when error occured
@@ -342,6 +344,20 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     // MARK: - Update UI
     
     open func prepareUIForFirstUse() {
+		// Apply style
+		let theme = uiDataProvider.uiTheme
+		
+		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+		pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
+		closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
+		confirmPinButton?.applyButtonStyle(theme.buttons.ok)
+		logoImage?.setLazyImage(theme.images.logo)
+		(activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+		promptLabel?.textColor = theme.common.promptTextColor
+		attemptsLabel?.textColor = theme.common.highlightedTextColor
+		variablePinLabel?.textColor = theme.common.passwordTextColor
+        roundCornersView?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
+        
         // KB delegate
         pinKeyboard?.delegate = self
         
@@ -405,7 +421,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         
         let uiChange = { ()->Void in
             //
-            self.variablePinLabel.textColor = UIColor.black
+            self.variablePinLabel.textColor = self.uiDataProvider.uiTheme.common.passwordTextColor
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
@@ -443,9 +459,9 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while
             doShake(view: variablePinLabel, time: 0.07 , start: {
-                self.variablePinLabel?.textColor = UIColor(red:0.761, green:0.000, blue:0.502, alpha:1.000)
+                self.variablePinLabel?.textColor = self.uiDataProvider.uiTheme.common.wrongPasswordTextColor
             }) {
-                self.variablePinLabel?.textColor = UIColor.black
+                self.variablePinLabel?.textColor = self.uiDataProvider.uiTheme.common.passwordTextColor
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.errorAnimationDelay)) {
                     self.commitChangeState()
                     completion?()

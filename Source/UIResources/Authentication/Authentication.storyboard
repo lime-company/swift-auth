@@ -169,7 +169,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-cG-dFN" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIM-cR-zu8" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIM-cR-zu8" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="1"/>
@@ -179,17 +179,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-Vx-NmX" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-Vx-NmX" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="2"/>
@@ -199,17 +190,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-Wp-kzL" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-Wp-kzL" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="3"/>
@@ -219,17 +201,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miy-9h-fSa" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miy-9h-fSa" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="4"/>
@@ -239,17 +212,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buu-7I-PM6" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buu-7I-PM6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Buu-7I-PM6" secondAttribute="height" multiplier="1:1" id="cIE-wr-ubV"/>
@@ -263,17 +227,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hci-33-ra9" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hci-33-ra9" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="9np-pZ-rXL"/>
@@ -286,17 +241,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-EG-79M" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-EG-79M" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="7"/>
@@ -306,17 +252,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-7B-sW3" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-7B-sW3" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g0V-7B-sW3" secondAttribute="height" multiplier="1:1" id="BR9-B2-0Ot"/>
@@ -329,17 +266,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-9x-a76" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-9x-a76" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="9"/>
@@ -349,17 +277,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Q0-imC" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Q0-imC" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B41-Q0-imC" secondAttribute="height" multiplier="1:1" id="rbn-7O-FD2"/>
@@ -372,17 +291,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN9-z5-e5b" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN9-z5-e5b" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VN9-z5-e5b" secondAttribute="height" multiplier="1:1" id="AU9-XA-YO1"/>
@@ -395,12 +305,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -617,7 +521,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-d1-ZHn" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSf-Bo-idv" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSf-Bo-idv" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="1"/>
@@ -627,17 +531,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-gl-O4i" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-gl-O4i" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="2"/>
@@ -647,17 +542,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lN0-VB-fct" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lN0-VB-fct" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="3"/>
@@ -667,17 +553,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-g2-sOx" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-g2-sOx" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="4"/>
@@ -687,17 +564,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-9U-HU2" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-9U-HU2" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KIv-9U-HU2" secondAttribute="height" multiplier="1:1" id="EOA-6Z-b0F"/>
@@ -711,17 +579,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jW-BE-q62" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jW-BE-q62" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="7jB-if-WtU"/>
@@ -734,17 +593,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-jd-2Xg" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-jd-2Xg" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="7"/>
@@ -754,17 +604,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-fD-U4Y" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-fD-U4Y" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VZb-fD-U4Y" secondAttribute="height" multiplier="1:1" id="QaR-51-DJM"/>
@@ -777,17 +618,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij4-MK-RSW" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij4-MK-RSW" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="9"/>
@@ -797,17 +629,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pa-oF-O21" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pa-oF-O21" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4Pa-oF-O21" secondAttribute="height" multiplier="1:1" id="re0-1Y-le7"/>
@@ -820,17 +643,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-Hr-Olh" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-Hr-Olh" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5ML-Hr-Olh" secondAttribute="height" multiplier="1:1" id="OTi-K4-cNe"/>
@@ -843,21 +657,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-Ey-RUk" userLabel="bio" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-Ey-RUk" userLabel="bio" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="264" width="72" height="72"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1004,7 +806,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-XU-ShQ" userLabel="Variable Pin">
                                         <rect key="frame" x="47.5" y="44" width="280" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-3a-bdq" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-3a-bdq" userLabel="Round Corners">
                                                 <rect key="frame" x="0.0" y="0.0" width="216" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW9-Ff-MAS" userLabel="Variable Pin Label">
@@ -1114,7 +916,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psw-AF-jq7" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-8B-Zoq" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-8B-Zoq" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="1"/>
@@ -1134,7 +936,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-WB-Nm4" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-WB-Nm4" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="2"/>
@@ -1154,7 +956,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57U-No-kRW" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57U-No-kRW" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="3"/>
@@ -1174,7 +976,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-1A-JP1" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-1A-JP1" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="4"/>
@@ -1194,7 +996,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-xf-bji" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-xf-bji" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="IAi-xf-bji" secondAttribute="height" multiplier="1:1" id="OoO-wE-Iuu"/>
@@ -1218,7 +1020,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvO-oJ-Vxj" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvO-oJ-Vxj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="NUm-0G-Z6b"/>
@@ -1241,7 +1043,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-nM-p2I" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-nM-p2I" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="7"/>
@@ -1261,7 +1063,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u07-3j-61l" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u07-3j-61l" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="u07-3j-61l" secondAttribute="height" multiplier="1:1" id="y0v-Zr-CNz"/>
@@ -1284,7 +1086,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG3-kp-X7Z" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG3-kp-X7Z" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="9"/>
@@ -1304,7 +1106,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UL-bd-UZT" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UL-bd-UZT" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4UL-bd-UZT" secondAttribute="height" multiplier="1:1" id="JkN-j0-WvB"/>
@@ -1327,7 +1129,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-ru-vLz" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-ru-vLz" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1ua-ru-vLz" secondAttribute="height" multiplier="1:1" id="2Dd-XQ-vPD"/>
@@ -1347,7 +1149,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAZ-JU-Ieu" userLabel="bio" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAZ-JU-Ieu" userLabel="bio" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="264" width="72" height="72"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
@@ -1474,6 +1276,7 @@
                         <outlet property="pinKeyboard" destination="Psw-AF-jq7" id="D3P-V4-0Jn"/>
                         <outlet property="pinKeyboardBottomConstraint" destination="Wqh-db-77z" id="fR7-lL-482"/>
                         <outlet property="promptLabel" destination="8Lb-gu-REB" id="B0h-eR-dM7"/>
+                        <outlet property="roundCornersView" destination="GKt-3a-bdq" id="Fue-BH-nKj"/>
                         <outlet property="variablePinLabel" destination="WW9-Ff-MAS" id="qiT-n6-AnU"/>
                         <segue destination="v1e-b9-268" kind="show" identifier="ChangePassword" id="qJw-nM-RXb"/>
                     </connections>
@@ -1516,7 +1319,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-b4-4bh" userLabel="Variable Pin">
                                         <rect key="frame" x="47" y="44" width="280.5" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" userLabel="Round Corners">
                                                 <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPJ-oQ-SsH" userLabel="Variable Pin Label">
@@ -1597,7 +1400,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-wo-W9H" userLabel="Variable Pin">
                                         <rect key="frame" x="47.5" y="44" width="280.5" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" userLabel="Round Corners">
                                                 <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIC-5M-XyK" userLabel="Variable Pin Label">
@@ -1704,7 +1507,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-ji-KRP" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
                                 <rect key="frame" x="16" y="311" width="343" height="336"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-a2-yYJ" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-a2-yYJ" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="1"/>
@@ -1714,17 +1517,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVj-mE-LUu" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVj-mE-LUu" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="2"/>
@@ -1734,17 +1528,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-TN-PdZ" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-TN-PdZ" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="3"/>
@@ -1754,17 +1539,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-Hg-9ZI" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-Hg-9ZI" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="4"/>
@@ -1774,17 +1550,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56o-Xf-Ejj" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56o-Xf-Ejj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="56o-Xf-Ejj" secondAttribute="height" multiplier="1:1" id="6Ic-Gw-BQz"/>
@@ -1798,17 +1565,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-C4-x7t" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-C4-x7t" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="QqZ-Rb-dy4"/>
@@ -1821,17 +1579,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-rM-gZh" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-rM-gZh" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="31" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="7"/>
@@ -1841,17 +1590,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-Kt-pCd" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-Kt-pCd" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BtS-Kt-pCd" secondAttribute="height" multiplier="1:1" id="DBp-8V-54G"/>
@@ -1864,17 +1604,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzq-La-TPb" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzq-La-TPb" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="44"/>
                                         <state key="normal" title="9"/>
@@ -1884,17 +1615,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-79-nHy" customClass="PinKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-79-nHy" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="135" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="V1B-79-nHy" secondAttribute="height" multiplier="1:1" id="NGQ-jg-O9e"/>
@@ -1907,17 +1629,8 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-8A-aZj" customClass="PinClearKeyboardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-8A-aZj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="239" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="UDk-8A-aZj" secondAttribute="height" multiplier="1:1" id="m4O-T5-CYY"/>
@@ -1930,12 +1643,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
-                                                <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2042,6 +1749,8 @@
                         <outlet property="pinKeyboardBottomConstraint" destination="pf8-pq-dAD" id="Npt-2G-av3"/>
                         <outlet property="prompt1Label" destination="Bgy-0X-Zhg" id="7CP-SL-ik8"/>
                         <outlet property="prompt2Label" destination="dsP-fy-CwV" id="3aI-IX-Ho9"/>
+                        <outlet property="roundCornersView1" destination="Tfr-fF-DZt" id="fx2-Uq-Wxc"/>
+                        <outlet property="roundCornersView2" destination="DhB-sI-Hi5" id="k3d-LM-1Db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6c-VG-b7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2082,24 +1791,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX3-ZY-cuN" userLabel="Text field + OK">
                                         <rect key="frame" x="64" y="44" width="247" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl2-Ft-mqF" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Ip-W8U" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Ip-W8U" userLabel="password">
-                                                        <rect key="frame" x="12" y="4" width="163" height="48"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="4hO-Ip-W8U" secondAttribute="trailing" constant="8" id="Fxp-4c-YUd"/>
-                                                    <constraint firstAttribute="bottom" secondItem="4hO-Ip-W8U" secondAttribute="bottom" constant="4" id="bTp-fO-DhJ"/>
-                                                    <constraint firstItem="4hO-Ip-W8U" firstAttribute="top" secondItem="Fl2-Ft-mqF" secondAttribute="top" constant="4" id="rHr-HG-pXd"/>
-                                                    <constraint firstItem="4hO-Ip-W8U" firstAttribute="leading" secondItem="Fl2-Ft-mqF" secondAttribute="leading" constant="12" id="saF-gE-Lag"/>
-                                                </constraints>
-                                            </view>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-cb-bj6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="191" y="0.0" width="56" height="56"/>
                                                 <constraints>
@@ -2115,13 +1812,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="leading" secondItem="Fl2-Ft-mqF" secondAttribute="trailing" constant="8" id="5L7-N8-8uq"/>
-                                            <constraint firstItem="Fl2-Ft-mqF" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="5Pu-78-v1P"/>
-                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="top" secondItem="Fl2-Ft-mqF" secondAttribute="top" id="CWv-6e-9CK"/>
-                                            <constraint firstAttribute="bottom" secondItem="Fl2-Ft-mqF" secondAttribute="bottom" id="Jnr-C3-tXF"/>
+                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="1gy-IC-6dO"/>
+                                            <constraint firstAttribute="bottom" secondItem="4hO-Ip-W8U" secondAttribute="bottom" id="3zs-4j-NDg"/>
+                                            <constraint firstItem="4hO-Ip-W8U" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="CWi-qf-9nB"/>
+                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="leading" secondItem="4hO-Ip-W8U" secondAttribute="trailing" constant="8" id="MQl-lN-1Zt"/>
+                                            <constraint firstAttribute="bottom" secondItem="gaG-cb-bj6" secondAttribute="bottom" id="SUx-tt-Obe"/>
                                             <constraint firstAttribute="trailing" secondItem="gaG-cb-bj6" secondAttribute="trailing" id="dUs-nz-USp"/>
-                                            <constraint firstItem="Fl2-Ft-mqF" firstAttribute="leading" secondItem="kX3-ZY-cuN" secondAttribute="leading" id="uG3-uo-VTj"/>
-                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="bottom" secondItem="Fl2-Ft-mqF" secondAttribute="bottom" id="x1o-X5-Ibv"/>
+                                            <constraint firstItem="4hO-Ip-W8U" firstAttribute="leading" secondItem="kX3-ZY-cuN" secondAttribute="leading" id="jUU-ex-OcJ"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWo-RR-NPj">
@@ -2157,7 +1854,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyA-Fc-Uef">
-                                <rect key="frame" x="292" y="28" width="48" height="30"/>
+                                <rect key="frame" x="299" y="28" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="fWI-Fi-HJh"/>
@@ -2208,7 +1905,7 @@
                             <constraint firstItem="yWo-Af-zdy" firstAttribute="centerX" secondItem="hA2-eY-rfP" secondAttribute="centerX" id="WfN-vi-yyy"/>
                             <constraint firstItem="yWo-Af-zdy" firstAttribute="top" secondItem="AHY-Ed-CXv" secondAttribute="bottom" id="Xvf-ki-7S5"/>
                             <constraint firstItem="AHY-Ed-CXv" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leading" id="eiu-9y-PoQ"/>
-                            <constraint firstAttribute="trailing" secondItem="xyA-Fc-Uef" secondAttribute="trailing" constant="35" id="l0Q-BI-12P"/>
+                            <constraint firstAttribute="trailing" secondItem="xyA-Fc-Uef" secondAttribute="trailing" constant="28" id="l0Q-BI-12P"/>
                             <constraint firstItem="AHY-Ed-CXv" firstAttribute="top" secondItem="Ksh-Z8-Jrc" secondAttribute="bottom" id="l91-o9-Qhd"/>
                             <constraint firstItem="Ksh-Z8-Jrc" firstAttribute="centerX" secondItem="hA2-eY-rfP" secondAttribute="centerX" id="lyx-et-ALa"/>
                             <constraint firstItem="e1u-2W-0Pa" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leadingMargin" constant="20" id="m9E-m2-bXw"/>
@@ -2302,24 +1999,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4T-6A-Vet" userLabel="Text field + OK">
                                         <rect key="frame" x="64" y="44" width="247" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNZ-Zy-UKh" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-lK-468" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-lK-468" userLabel="password">
-                                                        <rect key="frame" x="12" y="4" width="163" height="48"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="pRt-lK-468" firstAttribute="leading" secondItem="LNZ-Zy-UKh" secondAttribute="leading" constant="12" id="3DC-fS-y6e"/>
-                                                    <constraint firstItem="pRt-lK-468" firstAttribute="top" secondItem="LNZ-Zy-UKh" secondAttribute="top" constant="4" id="E6E-x9-i5U"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pRt-lK-468" secondAttribute="trailing" constant="8" id="IB4-g6-hip"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pRt-lK-468" secondAttribute="bottom" constant="4" id="Wer-bu-Qy2"/>
-                                                </constraints>
-                                            </view>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAU-fj-ozm" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="191" y="0.0" width="56" height="56"/>
                                                 <constraints>
@@ -2340,13 +2025,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="LNZ-Zy-UKh" firstAttribute="top" secondItem="S4T-6A-Vet" secondAttribute="top" id="A0D-GM-wcO"/>
-                                            <constraint firstAttribute="bottom" secondItem="LNZ-Zy-UKh" secondAttribute="bottom" id="D9r-xi-QR9"/>
-                                            <constraint firstItem="JAU-fj-ozm" firstAttribute="leading" secondItem="LNZ-Zy-UKh" secondAttribute="trailing" constant="8" id="H3M-Cg-JXI"/>
+                                            <constraint firstAttribute="bottom" secondItem="pRt-lK-468" secondAttribute="bottom" id="3H1-5P-XH4"/>
+                                            <constraint firstItem="JAU-fj-ozm" firstAttribute="leading" secondItem="pRt-lK-468" secondAttribute="trailing" constant="8" id="6IE-Rg-fP0"/>
+                                            <constraint firstItem="JAU-fj-ozm" firstAttribute="top" secondItem="S4T-6A-Vet" secondAttribute="top" id="LDI-S3-CcD"/>
+                                            <constraint firstAttribute="bottom" secondItem="JAU-fj-ozm" secondAttribute="bottom" id="OMg-fJ-bVV"/>
                                             <constraint firstAttribute="trailing" secondItem="JAU-fj-ozm" secondAttribute="trailing" id="Y0o-Do-7Q0"/>
-                                            <constraint firstItem="LNZ-Zy-UKh" firstAttribute="leading" secondItem="S4T-6A-Vet" secondAttribute="leading" id="d15-07-0Sk"/>
-                                            <constraint firstItem="JAU-fj-ozm" firstAttribute="bottom" secondItem="LNZ-Zy-UKh" secondAttribute="bottom" id="m9H-xk-Jx3"/>
-                                            <constraint firstItem="JAU-fj-ozm" firstAttribute="top" secondItem="LNZ-Zy-UKh" secondAttribute="top" id="pEW-Wh-rvS"/>
+                                            <constraint firstItem="pRt-lK-468" firstAttribute="top" secondItem="S4T-6A-Vet" secondAttribute="top" id="YdR-2K-F3A"/>
+                                            <constraint firstItem="pRt-lK-468" firstAttribute="leading" secondItem="S4T-6A-Vet" secondAttribute="leading" id="rWc-Q5-jgn"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiV-Z8-kLE">
@@ -2385,24 +2070,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-RX-kIa" userLabel="Text field + OK">
                                         <rect key="frame" x="64" y="44" width="247" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qke-6k-UC2" customClass="RoundCornersView" customModule="LimeAuth" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-hX-8WI" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-hX-8WI" userLabel="password">
-                                                        <rect key="frame" x="12" y="4" width="163" height="48"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="zmU-hX-8WI" secondAttribute="trailing" constant="8" id="Qfm-sm-Ftv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="zmU-hX-8WI" secondAttribute="bottom" constant="4" id="RDj-yC-Uzi"/>
-                                                    <constraint firstItem="zmU-hX-8WI" firstAttribute="top" secondItem="Qke-6k-UC2" secondAttribute="top" constant="4" id="W2y-sf-Ypd"/>
-                                                    <constraint firstItem="zmU-hX-8WI" firstAttribute="leading" secondItem="Qke-6k-UC2" secondAttribute="leading" constant="12" id="wPO-WA-h9Q"/>
-                                                </constraints>
-                                            </view>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-fw-N9K" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="191" y="0.0" width="56" height="56"/>
                                                 <constraints>
@@ -2424,12 +2097,12 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="aBo-fw-N9K" secondAttribute="trailing" id="4Hm-0x-ne2"/>
-                                            <constraint firstItem="aBo-fw-N9K" firstAttribute="bottom" secondItem="Qke-6k-UC2" secondAttribute="bottom" id="Hjx-MG-JeA"/>
-                                            <constraint firstItem="aBo-fw-N9K" firstAttribute="top" secondItem="Qke-6k-UC2" secondAttribute="top" id="Ita-w8-hIc"/>
-                                            <constraint firstItem="Qke-6k-UC2" firstAttribute="top" secondItem="Pp8-RX-kIa" secondAttribute="top" id="M0n-la-Sz5"/>
-                                            <constraint firstItem="Qke-6k-UC2" firstAttribute="leading" secondItem="Pp8-RX-kIa" secondAttribute="leading" id="eDX-xc-Hld"/>
-                                            <constraint firstItem="aBo-fw-N9K" firstAttribute="leading" secondItem="Qke-6k-UC2" secondAttribute="trailing" constant="8" id="fVd-t2-mAq"/>
-                                            <constraint firstAttribute="bottom" secondItem="Qke-6k-UC2" secondAttribute="bottom" id="kfg-Ku-NAj"/>
+                                            <constraint firstItem="aBo-fw-N9K" firstAttribute="top" secondItem="Pp8-RX-kIa" secondAttribute="top" id="CmJ-rE-jT1"/>
+                                            <constraint firstAttribute="bottom" secondItem="zmU-hX-8WI" secondAttribute="bottom" id="fj0-nu-1gL"/>
+                                            <constraint firstAttribute="bottom" secondItem="aBo-fw-N9K" secondAttribute="bottom" id="n9H-Lq-Iri"/>
+                                            <constraint firstItem="aBo-fw-N9K" firstAttribute="leading" secondItem="zmU-hX-8WI" secondAttribute="trailing" constant="8" id="qaI-4t-z6t"/>
+                                            <constraint firstItem="zmU-hX-8WI" firstAttribute="leading" secondItem="Pp8-RX-kIa" secondAttribute="leading" id="tB8-hO-jvd"/>
+                                            <constraint firstItem="zmU-hX-8WI" firstAttribute="top" secondItem="Pp8-RX-kIa" secondAttribute="top" id="xYC-sf-Tg5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2530,7 +2203,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Gyr-si-WeT" firstAttribute="centerX" secondItem="LeN-Up-ihv" secondAttribute="centerX" id="1fK-aP-bQB"/>
                         <constraint firstItem="Gyr-si-WeT" firstAttribute="top" secondItem="LeN-Up-ihv" secondAttribute="top" id="74j-pM-iYT"/>
@@ -2542,6 +2215,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mqI-kg-eut"/>
+        <segue reference="qJw-nM-RXb"/>
     </inferredMetricsTieBreakers>
 </document>

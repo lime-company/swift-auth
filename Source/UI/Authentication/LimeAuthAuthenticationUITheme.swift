@@ -20,19 +20,31 @@ public struct LimeAuthAuthenticationUITheme {
     
     public struct Common {
         
-        /// Common background color for all scenes.
+        /// Common background color for all authentication scenes.
         /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
         public var backgroundColor: UIColor?
         
-        /// Common background image for all scenes.
+        /// Common background image for all authentication scenes.
         /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
         public var backgroundImage: LazyUIImage?
-        
+		
+		/// Color for all prompts in authentication scenes (e.g. "Enter your PIN").
+		public var promptTextColor: UIColor
+		
+		/// Highlighted color for "remaining attempts" error, or for errors related to creating a new password.
+		public var highlightedTextColor: UIColor
+		
+		/// Color for password label or text field.
+		public var passwordTextColor: UIColor
+		
+		/// Color temporariliy presented to password label (or text field) when user enters a wrong PIN.
+		public var wrongPasswordTextColor: UIColor
+		
         /// Style applied to all activity indicators
         public var activityIndicator: ActivityIndicatorStyle
         
-        /// Style used for system keyboards
-        public var keyboardAppearance: UIKeyboardAppearance
+        /// Style for password text field
+        public var passwordTextField: TextFieldStyle
     }
     
     public struct Images {
@@ -66,6 +78,9 @@ public struct LimeAuthAuthenticationUITheme {
         
         /// A "Close / Cancel" button used typically on alphanumeric password picker.
         public var close: ButtonStyle
+		
+		/// A "Close error" button, used after authentication operation fails
+		public var dismissError: ButtonStyle
         
         /// Style for button embededd in keyboard's accessory view. This button is typically
         /// used when a new alphanumeric password is going to be created ("Choose password complexity"),
@@ -84,21 +99,53 @@ public struct LimeAuthAuthenticationUITheme {
             common: Common(
                 backgroundColor: .white,
                 backgroundImage: nil,
+				promptTextColor: .black,
+				highlightedTextColor: .purple,
+				passwordTextColor: .black,
+				wrongPasswordTextColor: .red,
                 activityIndicator: .small(.blue),
-                keyboardAppearance: .default),
+                passwordTextField: .noStyle
+            ),
             images: Images(
                 logo: nil,
                 successImage: .empty,
                 failureImage: .empty,
                 touchIdIcon: .empty,
-                faceIdIcon: .empty),
+                faceIdIcon: .empty
+            ),
             buttons: Buttons(
                 pinDigits: .noStyle,
                 pinAuxiliary: .noStyle,
                 ok: .noStyle,
                 close: .noStyle,
-                keyboardAuxiliary: .noStyle)
+				dismissError: .noStyle,
+                keyboardAuxiliary: .noStyle
+            )
         )
     }
+}
 
+internal extension LimeAuthAuthenticationUITheme {
+    
+	var styleForCheckmarkWithActivity: CheckmarkWithActivityStyle {
+		return CheckmarkWithActivityStyle(
+			indicatorStyle: common.activityIndicator,
+			successImage: images.successImage,
+			failureImage: images.failureImage
+		)
+	}
+    
+    var layerStyleFromPasswordTextField: GenericLayerStyle? {
+        guard let borderColor = common.passwordTextField.borderColor else {
+            return nil
+        }
+        guard common.passwordTextField.borderWidth <= 0.0 else {
+            return nil
+        }
+        return GenericLayerStyle(
+            borderWidth: common.passwordTextField.borderWidth,
+            cornerRadius: common.passwordTextField.borderCornerRadius,
+            borderColor: borderColor
+        )
+    }
 }

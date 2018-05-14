@@ -22,7 +22,7 @@ public struct ButtonStyle {
     
     // MARK: - Regular button
     
-    /// If set, then color is applied to UIButton.tintColor
+    /// If set, then color is applied to `UIButton.tintColor`
     public let tintColor: UIColor?
     
     /// If set, then colors are applied to `UIButton.backgroundColor` and `RoundCornersButton.highlightedBackgroundColor`

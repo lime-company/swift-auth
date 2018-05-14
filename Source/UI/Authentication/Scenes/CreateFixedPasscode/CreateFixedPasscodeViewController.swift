@@ -274,10 +274,18 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     
     open func prepareUIForFirstUse() {
         // Apply styles
-        let uiTheme = uiDataProvider.uiTheme
-        
-        pinKeyboard?.applyButtonStyle(forDigits: uiTheme.buttons.pinDigits, forAuxiliary: uiTheme.buttons.pinAuxiliary)
-        changeComplexityButton?.applyButtonStyle(uiTheme.buttons.keyboardAuxiliary)
+        let theme = uiDataProvider.uiTheme
+		
+		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
+        prompt1Label?.textColor = theme.common.promptTextColor
+        prompt2Label?.textColor = theme.common.promptTextColor
+        password1Label?.textColor = theme.common.passwordTextColor
+        password2Label?.textColor = theme.common.passwordTextColor
+        error1Label?.textColor = theme.common.highlightedTextColor
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
 
         // Configure controller
         self.pinKeyboard.delegate = self
