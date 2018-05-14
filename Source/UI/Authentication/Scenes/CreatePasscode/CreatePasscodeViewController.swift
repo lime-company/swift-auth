@@ -55,13 +55,15 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     @IBOutlet weak var error1Label: UILabel!        // label for error, displayed when passwords doesn't match
     @IBOutlet weak var password1Label: UILabel!     // label for bullets
     @IBOutlet weak var confirm1Button: UIButton!    // OK button
-    
+	@IBOutlet weak var roundCornersView1: UIView!	// View with round corners behind password
+	
     // Group of views for second password
     @IBOutlet weak var group2: UIView!              // grouping view
     @IBOutlet weak var prompt2Label: UILabel!       // prompt (e.g. retype your pin)
     @IBOutlet weak var password2Label: UILabel!     // bullets
     @IBOutlet weak var confirm2Button: UIButton!    // OK button
-    
+	@IBOutlet weak var roundCornersView2: UIView!	// View with round corners behind password
+	
     // Constraint for movement animating
     @IBOutlet weak var groupsAnimationConstraint: NSLayoutConstraint!
     // Change complexity button
@@ -288,6 +290,26 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     //
     
     open func prepareUIForFirstUse() {
+        // Apply styles
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
+        prompt1Label?.textColor = theme.common.promptTextColor
+        prompt2Label?.textColor = theme.common.promptTextColor
+        password1Label?.textColor = theme.common.passwordTextColor
+        password2Label?.textColor = theme.common.passwordTextColor
+        error1Label?.textColor = theme.common.highlightedTextColor
+        confirm1Button?.applyButtonStyle(theme.buttons.ok)
+        confirm2Button?.applyButtonStyle(theme.buttons.ok)
+        roundCornersView1?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
+        roundCornersView2?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
+        
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
+        
+        // KB delegate
         self.pinKeyboard.delegate = self
         self.adjustLayout()
         self.presentFirstGroup(animated: false, withError: false)

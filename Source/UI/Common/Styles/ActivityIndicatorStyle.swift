@@ -16,16 +16,59 @@
 
 import UIKit
 
+/// The `ActivityIndicatorStyle` structure defines appearance of activity indicator in LimeAuth.
 public struct ActivityIndicatorStyle {
     
+    /// Activity indicator's style. It's recommended to use `.white` or `.whiteLarge`
     public let style: UIActivityIndicatorViewStyle
+    
+    /// Indicator's color.
     public let color: UIColor
     
-    public static func large(_ color: UIColor) -> ActivityIndicatorStyle {
-        return ActivityIndicatorStyle(style: .whiteLarge, color: color)
+    // MARK: - Various options
+    
+    public struct Options : OptionSet {
+        
+        public let rawValue: Int
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /// If set, then this style will not be applied to the target activity indicator.
+        static let noStyle = Options(rawValue: 1 << 0)
+        
+        /// Default set of options
+        static let `default`: Options = []
     }
     
+    public let options: Options
+    
+    /// Returns style for large activity indicator, tinted with given color.
+    public static func large(_ color: UIColor) -> ActivityIndicatorStyle {
+        return ActivityIndicatorStyle(
+            style: .whiteLarge,
+            color: color,
+            options: .default
+        )
+    }
+    
+    /// Returns style for small activity indicator, tinted with given color.
     public static func small(_ color: UIColor) -> ActivityIndicatorStyle {
-        return ActivityIndicatorStyle(style: .white, color: color)
+        return ActivityIndicatorStyle(
+            style: .white,
+            color: color,
+            options: .default
+        )
+    }
+    
+    /// Returns style which doesn't affect indicator's appearance at all. This kind of style can be used for cases when actual indicator's
+    /// style is applied somehow else. For example, if your application is using a custom storyboards or `UIAppearance` facility,
+    /// then it's recommended to do not mix this custom approaches with LimeAuth styles.
+    public static var noStyle: ActivityIndicatorStyle {
+        return ActivityIndicatorStyle(
+            style: .white,
+            color: .white,
+            options: .noStyle
+        )
     }
 }

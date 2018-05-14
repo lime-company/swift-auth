@@ -253,6 +253,22 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     //
     
     open func prepareUIForFirstUse() {
+        // Apply styles
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        prompt1Label?.textColor = theme.common.promptTextColor
+        prompt2Label?.textColor = theme.common.promptTextColor
+        password1TextField?.applyTextFieldStyle(theme.common.passwordTextField)
+        password2TextField?.applyTextFieldStyle(theme.common.passwordTextField)
+        error1Label?.textColor = theme.common.highlightedTextColor
+        confirm1Button?.applyButtonStyle(theme.buttons.ok)
+        confirm2Button?.applyButtonStyle(theme.buttons.ok)
+        
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
+        
         // prepare text fields
         self.password1TextField.delegate = self
         self.password1TextField.returnKeyType = .next

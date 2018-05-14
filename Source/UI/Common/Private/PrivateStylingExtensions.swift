@@ -34,7 +34,6 @@ extension UIButton {
             return
         }
         if style.options.contains(.noStyle) {
-            // Ignore this style, if it's requested.
             return
         }
         
@@ -91,8 +90,61 @@ extension UIActivityIndicatorView {
         guard let style = style else {
             return
         }
+        if style.options.contains(.noStyle) {
+            return
+        }
+        
         self.activityIndicatorViewStyle = style.style
         self.color = style.color
+    }
+}
+
+
+extension UITextField {
+    
+    func applyTextFieldStyle(_ style: TextFieldStyle?) {
+        guard let style = style else {
+            return
+        }
+        if style.options.contains(.noStyle) {
+            return
+        }
+        
+        // Apply style
+        if let tint = style.tintColor {
+            self.tintColor = tint
+        }
+        if let textColor = style.textColor {
+            self.textColor = textColor
+        }
+        if let bgColor = style.backgroundColor {
+            self.backgroundColor = bgColor
+        }
+        if let font = style.textFont {
+            self.font = font
+        }
+        let layer = self.layer
+        layer.borderWidth = style.borderWidth
+        layer.cornerRadius = style.borderCornerRadius
+        if let color = style.borderColor {
+            layer.borderColor = color.cgColor
+        }
+        self.keyboardAppearance = style.keyboardAppearance
+    }
+    
+}
+
+
+extension UIView {
+    
+    func applyLayerStyle(_ style: GenericLayerStyle?) {
+        guard let style = style else {
+            return
+        }
+        let layer = self.layer
+        layer.borderWidth = style.borderWidth
+        layer.borderColor = style.borderColor.cgColor
+        layer.cornerRadius = style.cornerRadius
     }
     
 }

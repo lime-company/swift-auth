@@ -14,27 +14,18 @@
 // and limitations under the License.
 //
 
-import UIKit
+import Foundation
 
-public enum ErrorActivation {
+/// The `GenericLayerStyle` is a supporting structure which is helping
+/// with applying round cornered border to the view.
+struct GenericLayerStyle {
     
-    public struct UIData {
-        
-        public struct Strings {
-            let sceneTitle: String
-            let genericError: String
-        }
-        
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Error",
-                    genericError: "The activation did fail. Please try again."
-                )
-            )
-        }
-        
-    }
+    /// Width of border
+    let borderWidth: CGFloat
+    
+    /// Border's radius
+    let cornerRadius: CGFloat
+    
+    /// Border's color
+    let borderColor: UIColor
 }
