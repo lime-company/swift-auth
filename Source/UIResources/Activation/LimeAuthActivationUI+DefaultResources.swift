@@ -18,7 +18,7 @@ import UIKit
 
 public extension LimeAuthActivationUI {
     
-    public static func defaultResourcesProvider(bundle: Bundle? = nil, activationTheme: LimeAuthActivationUITheme? = nil, authenticationTheme: LimeAuthAuthenticationUITheme? = nil) -> ActivationUIProvider {
+    public static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil, authenticationTheme: LimeAuthAuthenticationUITheme? = nil, bundle: Bundle? = nil) -> ActivationUIProvider {
         let activationUIProvider = DefaultActivationResourcesProvider(bundle: bundle) { () -> AuthenticationUIProvider in
             let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle)
             authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
@@ -153,6 +153,19 @@ public extension LimeAuthActivationUITheme {
                     options: .default
                 )
             ),
+            enterCodeScene: EnterCodeScene(
+                activationCode: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .white,
+                    textColor: .black,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .black,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .default,
+                    options: []
+                )
+            ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,
                 titleColor: .orange,
@@ -256,6 +269,19 @@ public extension LimeAuthActivationUITheme {
                     borderColor: nil,
                     borderCornerRadius: 4.0,
                     options: .default
+                )
+            ),
+            enterCodeScene: EnterCodeScene(
+                activationCode: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .black,
+                    textColor: .white,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .white,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .dark,
+                    options: []
                 )
             ),
             navigationBar: NavigationBar(
