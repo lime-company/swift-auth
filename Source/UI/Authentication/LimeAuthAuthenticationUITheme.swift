@@ -45,6 +45,10 @@ public struct LimeAuthAuthenticationUITheme {
         
         /// Style for password text field
         public var passwordTextField: TextFieldStyle
+		
+		/// Status bar style for all authentication scenes.
+		/// Note that your application has to support "ViewController based" status bar appearance.
+		public var statusBarStyle: UIStatusBarStyle
     }
     
     public struct Images {
@@ -67,25 +71,30 @@ public struct LimeAuthAuthenticationUITheme {
     
     public struct Buttons {
         
-        /// Style for all digits on PIN keyboard
+        /// Style for all digits on PIN keyboard. This kind of button is typically instantiated as "custom".
         public var pinDigits: ButtonStyle
         
-        /// Style for all auxiliary buttons (backspace, cancel, etc...) on PIN keyboard
+        /// Style for all auxiliary buttons (backspace, cancel, etc...) on PIN keyboard.
+		/// This kind of button is typically instantiated as "custom".
         public var pinAuxiliary: ButtonStyle
         
-        /// "OK" button used in scene with variable PIN length, or in alphanumeric password
+        /// "OK" button used in scene with variable PIN length, or in alphanumeric password.
+		/// This kind of button is typically instantiated as "custom".
         public var ok: ButtonStyle
         
         /// A "Close / Cancel" button used typically on alphanumeric password picker.
+		/// This kind of button is typically instantiated as "system".
         public var close: ButtonStyle
 		
 		/// A "Close error" button, used after authentication operation fails
+		/// This kind of button is typically instantiated as "custom".
 		public var dismissError: ButtonStyle
         
         /// Style for button embededd in keyboard's accessory view. This button is typically
         /// used when a new alphanumeric password is going to be created ("Choose password complexity"),
         /// or as biometry button on alphanumeric password picker ("Use Touch ID / Use Face ID")
-        public var keyboardAuxiliary: ButtonStyle
+		/// This kind of button is typically instantiated as "system".
+		public var keyboardAuxiliary: ButtonStyle
     }
     
     public var common: Common
@@ -104,7 +113,8 @@ public struct LimeAuthAuthenticationUITheme {
 				passwordTextColor: .black,
 				wrongPasswordTextColor: .red,
                 activityIndicator: .small(.blue),
-                passwordTextField: .noStyle
+                passwordTextField: .noStyle,
+				statusBarStyle: .default
             ),
             images: Images(
                 logo: nil,

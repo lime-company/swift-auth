@@ -67,9 +67,11 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         stopScanner()
         cancelFallbackTimer()
     }
-    
+	
+	internal static var preferredStatusBarStyleForScanner: UIStatusBarStyle = .lightContent
+	
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return ScanActivationCodeViewController.preferredStatusBarStyleForScanner
     }
     
     open override func configureController() {

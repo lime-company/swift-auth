@@ -44,7 +44,7 @@ extension UIButton {
         if let titleColor = style.titleColor {
             setTitleColor(titleColor.normal, for: .normal)
             setTitleColor(titleColor.highlighted, for: .highlighted)
-            setTitleColor(titleColor.disabled, for: .highlighted)
+            setTitleColor(titleColor.disabled, for: .disabled)
         }
         if let font = style.titleFont {
             titleLabel?.font = font
@@ -62,20 +62,21 @@ extension UIButton {
         }
         self.adjustsImageWhenHighlighted = style.options.contains(.adjustsImageWhenHighlighted)
         self.adjustsImageWhenDisabled = style.options.contains(.adjustsImageWhenDisabled)
-        
+		
         // Round corners button
         if let rcSelf = self as? RoundCornersButton {
-            if let bgHiColor = style.backgrdoundColor?.highlighted {
-                rcSelf.highlightedBackgroundColor = bgHiColor
-            }
+			if let backgroundColor = style.backgrdoundColor {
+				rcSelf.highlightedBackgroundColor = backgroundColor.highlighted
+				rcSelf.disabledBackgroundColor = backgroundColor.disabled
+			}
             if let borderColor = style.borderColor {
                 rcSelf.borderColor = borderColor.normal
                 rcSelf.highlightedBorderColor = borderColor.highlighted
+				rcSelf.disabledBorderColor = borderColor.disabled
             }
             rcSelf.borderCornerRadius = style.borderCornerRadius
 			rcSelf.borderWidth = style.borderWidth
             rcSelf.isRounded = style.options.contains(.isRounded)
-			rcSelf.adjustsAlphaWhenDisabled = style.options.contains(.adjustsAlphaWhenDisabled)
         }
     }
     

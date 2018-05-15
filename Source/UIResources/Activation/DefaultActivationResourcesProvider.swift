@@ -94,10 +94,13 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         
         // Keep provided theme internally
         uiTheme = theme
+		LimeAuthUIBaseViewController.commonPreferredStatusBarStyle = theme.common.statusBarStyle
+		ScanActivationCodeViewController.preferredStatusBarStyleForScanner = theme.scannerScene.statusBarStyle
         
         // Apply changes to UIAppearance
         let appearanceNavBar = UINavigationBar.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self]);
-        appearanceNavBar.barTintColor = theme.navigationBar.backgroundColor
+		appearanceNavBar.barStyle = .blackOpaque
+		appearanceNavBar.barTintColor = theme.navigationBar.backgroundColor
         appearanceNavBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.navigationBar.titleColor]
         appearanceNavBar.tintColor = theme.navigationBar.tintColor
         

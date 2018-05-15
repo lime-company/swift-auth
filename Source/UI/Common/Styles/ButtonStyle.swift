@@ -18,10 +18,24 @@ import UIKit
 
 /// The `ButtonStyle` structure defines appearance of button in LimeAuth. The structure contains
 /// properties for regular UIButton, but also for our custom `RoundCornersButton` class.
+///
+/// ## Styling notes
+///
+/// Make sure you know type of button for which you're going to create a style. LimeAuth library is using
+/// typically two types of buttons in its default storyboards:
+/// * **System buttons**, which are typically more simple to style
+///   * Typically, only tint color and font is required to set
+///   * This kind of buttons doesn't support custom background colors for disabled or highlighted state.
+///     You can try to configure that values, but typically the presentation doesn't work well, due to UIKit internals.
+/// * **Custom buttons**, which requires more configuration than system ones
+///   * You'll need to setup normal, highlighted & disabled colors separately for title & background colors
+///
+/// The type of the button is typically mentioned in concrete theme's documentation.
+
 public struct ButtonStyle {
     
     // MARK: - Regular button
-    
+	
     /// If set, then color is applied to `UIButton.tintColor`
     public let tintColor: UIColor?
     
@@ -73,12 +87,9 @@ public struct ButtonStyle {
         
         /// Affects button's adjustsImageWhenDisabled property
         static let adjustsImageWhenDisabled = Options(rawValue: 1 << 3)
-        
-        /// For `RoundCornersButton` affects adjustsAlphaWhenDisabled property.
-        static let adjustsAlphaWhenDisabled = Options(rawValue: 1 << 4)
-        
+		
         /// Default set of options
-        static let `default`: Options = [.adjustsImageWhenHighlighted, .adjustsImageWhenDisabled, .adjustsAlphaWhenDisabled]
+        static let `default`: Options = []
     }
     
     public let options: Options
