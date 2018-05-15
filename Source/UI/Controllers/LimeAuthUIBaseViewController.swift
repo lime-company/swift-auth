@@ -16,6 +16,8 @@
 
 import UIKit
 
+/// The `LimeAuthUIBaseViewController` is a base class for all controllers used in LimeAuth library.
+///
 open class LimeAuthUIBaseViewController: UIViewController {
     
     open override func viewDidLoad() {
@@ -50,12 +52,12 @@ open class LimeAuthUIBaseViewController: UIViewController {
     /// If true, then background of the controller was already configured
     private var backgroundIsAlreadyConfigured = false
     
-    /// Function configures background of this instance of controller, with provided image and color.
+    /// Function configures background of controller, with provided image and color.
     /// If you provide both parameters, then both are applied:
-    /// - the color is set to controller's main view
-    /// - `UIImageView` is constructed for image and inserted as first subview to `parentViewForBackgroundImage`.
+    /// - the color is set to controller's main view's background color
+    /// - `UIImageView` is constructed for image and inserted as first subview to `parentViewForBackgroundImageView`.
     ///   The `.scaleAspectFill` content mode will be used for that constructed image view and will fill a whole
-    ///   area of `parentViewForBackgroundImage`
+    ///   area of `parentViewForBackgroundImageView`
     public func configureBackground(image: LazyUIImage?, color: UIColor?) {
         // Configuration should be performed only once per controller's lifetime
         if !backgroundIsAlreadyConfigured {

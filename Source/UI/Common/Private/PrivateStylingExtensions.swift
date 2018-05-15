@@ -16,6 +16,32 @@
 
 import Foundation
 
+extension LimeAuthAuthenticationUITheme {
+    
+    var styleForCheckmarkWithActivity: CheckmarkWithActivityStyle {
+        return CheckmarkWithActivityStyle(
+            indicatorStyle: common.activityIndicator,
+            successImage: images.successImage,
+            failureImage: images.failureImage
+        )
+    }
+    
+    var layerStyleFromPasswordTextField: GenericLayerStyle? {
+        guard let borderColor = common.passwordTextField.borderColor else {
+            return nil
+        }
+        guard common.passwordTextField.borderWidth <= 0.0 else {
+            return nil
+        }
+        return GenericLayerStyle(
+            borderWidth: common.passwordTextField.borderWidth,
+            cornerRadius: common.passwordTextField.borderCornerRadius,
+            borderColor: borderColor
+        )
+    }
+}
+
+
 extension UIImageView {
     
     func setLazyImage(_ image: LazyUIImage?) {
@@ -25,6 +51,7 @@ extension UIImageView {
     }
     
 }
+
 
 extension UIButton {
     

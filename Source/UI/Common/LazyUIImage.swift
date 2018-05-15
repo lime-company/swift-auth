@@ -16,6 +16,9 @@
 
 import UIKit
 
+/// The `LazyUIImage` class provides an interface for lazy `UIImage` construction.
+/// The actual image is constructed on demand, when `image` or `optionalImage`
+/// property is used.
 public class LazyUIImage {
     
     private let construction: (()->UIImage?)?
@@ -36,7 +39,7 @@ public class LazyUIImage {
     // MARK: - Properties
     
     /// Contains an image provided by construction closure. If closure is not set,
-    /// or it doesn't provide image, then simply empty UIImage object is returned.
+    /// or it doesn't provide image, then simply empty `UIImage` object is returned.
     public var image: UIImage {
         if let image = construction?() {
             return image
@@ -50,10 +53,10 @@ public class LazyUIImage {
         return construction?()
     }
     
-    // MARK: - Static methods
+    // MARK: - Static functions
     
     /// Returns `LazyUIImage` object which will construct a named image from given bundle.
-    /// If bundle parameter is nil, then MainBundle is used.
+    /// If bundle parameter is nil, then `Bundle.main` is used.
     public static func named(_ name: String, bundle: Bundle? = nil) -> LazyUIImage {
         return LazyUIImage { ()->UIImage? in
             if let bundle = bundle {

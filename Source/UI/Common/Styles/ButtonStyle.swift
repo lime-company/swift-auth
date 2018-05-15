@@ -51,7 +51,7 @@ public struct ButtonStyle {
     /// If set, then text is used as predefined title in button
     public let title: String?
     
-    /// If set, then text is used as predefined icon in button
+    /// If set, then image is used as predefined icon in button
     public let image: MultistateImage?
     
     

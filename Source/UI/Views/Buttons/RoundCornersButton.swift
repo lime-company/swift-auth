@@ -16,6 +16,13 @@
 
 import UIKit
 
+/// The `RoundCornersButton` is a special, versatile version of UIButton used in various situations
+/// in the library. Button implements following special features:
+/// * allows change button's border thickness, roundness and color
+/// * button's border can have different color for highlighted and disabled state
+/// * button's background color can be configured for highlighted and disabled state
+/// * If `isRounded` property is true, then button is rendered as circle.
+///
 open class RoundCornersButton: UIButton {
     
     open override func layoutSubviews() {
@@ -35,6 +42,7 @@ open class RoundCornersButton: UIButton {
         }
     }
     
+    /// Private property keeping background color for "normal" button's state
     private var storedBackgroundColor: UIColor?
     
     open override var backgroundColor: UIColor? {
@@ -51,14 +59,14 @@ open class RoundCornersButton: UIButton {
         }
     }
 
-    /// Changes background color for highlighted button's state.
+    /// Changes background color for disabled button's state.
     @objc public dynamic var disabledBackgroundColor: UIColor? {
         didSet {
             updateBackgroundColor()
         }
     }
     
-    /// Changes radius of border.
+    /// Changes border's corner radius.
     @objc public dynamic var borderCornerRadius: CGFloat = 0.0 {
         didSet {
             updateBorder()
@@ -86,7 +94,7 @@ open class RoundCornersButton: UIButton {
         }
     }
 
-    /// Changes color of border in highlighted state.
+    /// Changes color of border in disabled state.
     @objc public dynamic var disabledBorderColor: UIColor? {
         didSet {
             updateBorder()
@@ -113,12 +121,15 @@ open class RoundCornersButton: UIButton {
         return isEnabled ? (isHighlighted ? highlightedBackgroundColor : storedBackgroundColor) : disabledBackgroundColor
     }
     
+    /// Private function updates button's border. The function should be called when border related property is changed.
     private func updateBorder() {
         layer.cornerRadius = isRounded ? frame.size.height * 0.5 : borderCornerRadius
         layer.borderColor = currentBorderColor.cgColor
         layer.borderWidth = borderWidth
     }
     
+    /// Private function updates button's background color and color of border. The function should be called
+    /// when state of button is changed.
     private func updateBackgroundColor() {
         super.backgroundColor = currentBackgroundColor
         layer.borderColor = currentBorderColor.cgColor

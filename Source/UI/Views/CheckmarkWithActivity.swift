@@ -56,7 +56,7 @@ public struct CheckmarkWithActivityStyle {
     public var failureImage: LazyUIImage
 }
 
-/// Default simple implementation for CheckmarkWithActivity
+/// Default simple implementation for CheckmarkWithActivity protocol.
 open class CheckmarkWithActivityView: UIView, CheckmarkWithActivity {
     
     // MARK: - ActivityIndicator protocol

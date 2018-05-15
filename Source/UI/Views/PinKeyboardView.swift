@@ -51,6 +51,7 @@ import PowerAuth2
 
 // MARK: - PIN keyboard implementation -
 
+/// The `PinKeyboardView` implements a complete PIN keyboard interface.
 open class PinKeyboardView : UIView {
     
     // MARK: IB outlets
@@ -63,11 +64,11 @@ open class PinKeyboardView : UIView {
     @IBOutlet var numericButtonsCollection: [UIButton]!
     
     /// Outlet for cancelButton. If the referenced button is the same as `backspaceButton`, then
-    /// keyboard will use the same button for both behavior.
+    /// keyboard will use the same button for both operations.
     @IBOutlet var cancelButton: UIButton?
     
     /// Outlet for backspaceButton. If the referenced button is the same as `cancelButton`, then
-    // keyboard will use the same button for both behavior.
+    /// keyboard will use the same button for both operations.
     @IBOutlet var backspaceButton: UIButton?
     
     /// Button dedicated for biometry action

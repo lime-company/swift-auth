@@ -16,6 +16,18 @@
 
 import Foundation
 
+/// The `LimeAuthActivationUITheme` structure defines colors, fonts and images used in the activation UI flow.
+///
+/// The theme is composed from several well separated sections:
+/// * `Common` section defines various common attributes used in the activation screens
+/// * `Illustrations` section defines illustrations used in the activation wizard
+/// * `Images` section defines various additional images used in the activation wizard
+/// * `Buttons` section defines styles for buttons used in the activation
+/// * `ScannerScene` is a special section reserved for QR codes scanner screen
+/// * `EnterCodeScene` is a special section reserved for activation code entering screen
+/// * `NavigationBar` defines styling for navigation bar
+///
+/// Each scene has its own property in the theme structure.
 public struct LimeAuthActivationUITheme {
 
     public struct Common {
@@ -134,7 +146,8 @@ public struct LimeAuthActivationUITheme {
     public var enterCodeScene: EnterCodeScene
     public var navigationBar: NavigationBar
     
-    /// Function provides a fallback theme used internally, for theme initial values.
+    
+    /// Function provides a fallback theme used internally, for theme's initial values.
     public static func fallbackTheme() -> LimeAuthActivationUITheme {
         return LimeAuthActivationUITheme(
             common: Common(
@@ -184,7 +197,7 @@ public struct LimeAuthActivationUITheme {
 
 public extension LimeAuthActivationUITheme.Illustrations {
     
-    /// Makes all illustrations tinted with given color.
+    /// Function makes all illustrations tinted with given color.
     public func tinted(with color: UIColor) -> LimeAuthActivationUITheme.Illustrations {
         return LimeAuthActivationUITheme.Illustrations(
             beginScene: .tinted(beginScene, with: color),
