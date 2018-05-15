@@ -42,10 +42,10 @@ public struct LimeAuthActivationUITheme {
         
         /// Style used for system keyboards
         public var keyboardAppearance: UIKeyboardAppearance
-		
-		/// Status bar style applied to all activation scenes except QR code scanner.
-		/// Note that your application has to support "ViewController based" status bar appearance.
-		public var statusBarStyle: UIStatusBarStyle
+        
+        /// Status bar style applied to all activation scenes except QR code scanner.
+        /// Note that your application has to support "ViewController based" status bar appearance.
+        public var statusBarStyle: UIStatusBarStyle
     }
     
     public struct Illustrations {
@@ -72,25 +72,25 @@ public struct LimeAuthActivationUITheme {
     
     public struct Buttons {
         /// Button for primary action.
-		/// This kind of button is typically instantiated as "custom".
+        /// This kind of button is typically instantiated as "custom".
         public var primary: ButtonStyle
         
         /// Button for secondary action
-		/// This kind of button is typically instantiated as "custom".
-		public var secondary: ButtonStyle
+        /// This kind of button is typically instantiated as "custom".
+        public var secondary: ButtonStyle
         
         /// Button for destructive action
-		/// This kind of button is typically instantiated as "custom".
+        /// This kind of button is typically instantiated as "custom".
         public var destructive: ButtonStyle
         
         /// Button for cancel (small button at left top corner)
-		/// This kind of button is typically instantiated as "system".
+        /// This kind of button is typically instantiated as "system".
         public var cancel: ButtonStyle
     }
     
     public struct ScannerScene {
         /// Status bar style applied in scanner scene.
-		/// Note that your application has to support "ViewController based" status bar appearance.
+        /// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
         
         /// Color for scanner's title text
@@ -145,30 +145,30 @@ public struct LimeAuthActivationUITheme {
                 highlightedTextColor: .blue,
                 activityIndicator: .small(.blue),
                 keyboardAppearance: .default,
-				statusBarStyle: .default
-			),
+                statusBarStyle: .default
+            ),
             illustrations: Illustrations(
                 beginScene: .empty,
                 noCameraScene: .empty,
                 enableBiometryScene: .empty,
                 confirmScene: .empty,
                 errorScene: .empty
-			),
+            ),
             images: Images(
                 scannerCrosshair: .empty
-			),
+            ),
             buttons: Buttons(
                 primary: .noStyle,
                 secondary: .noStyle,
                 destructive: .noStyle,
                 cancel: .noStyle
-			),
+            ),
             scannerScene: ScannerScene(
                 statusBarStyle: .default,
                 titleColor: .white,
                 closeButton: .noStyle,
                 fallbackButton: .noStyle
-			),
+            ),
             enterCodeScene: EnterCodeScene(
                 activationCode: .noStyle
             ),
@@ -177,7 +177,7 @@ public struct LimeAuthActivationUITheme {
                 titleColor: .black,
                 tintColor: .blue,
                 buttonColor: .blue
-			)
+            )
         )
     }
 }

@@ -35,7 +35,7 @@ import UIKit
 public struct ButtonStyle {
     
     // MARK: - Regular button
-	
+    
     /// If set, then color is applied to `UIButton.tintColor`
     public let tintColor: UIColor?
     
@@ -87,7 +87,7 @@ public struct ButtonStyle {
         
         /// Affects button's adjustsImageWhenDisabled property
         static let adjustsImageWhenDisabled = Options(rawValue: 1 << 3)
-		
+        
         /// Default set of options
         static let `default`: Options = []
     }

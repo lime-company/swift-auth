@@ -162,7 +162,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         let commonStrings = uiDataProvider.uiCommonStrings
         self.closeErrorButton.setTitle(commonStrings.closeButton, for: .normal)
     }
-	
+    
     
     // MARK: - PIN keyboard view delegate
     
@@ -331,18 +331,18 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     // MARK: - Update UI
     
     open func prepareUIForFirstUse() {
-		// Apply style
-		let theme = uiDataProvider.uiTheme
-		
-		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
-		pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
-		closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
-		logoImage?.setLazyImage(theme.images.logo)
-		(activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
-		promptLabel?.textColor = theme.common.promptTextColor
-		attemptsLabel?.textColor = theme.common.highlightedTextColor
-		fixedPinLabel?.textColor = theme.common.passwordTextColor
-		
+        // Apply style
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
+        closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        promptLabel?.textColor = theme.common.promptTextColor
+        attemptsLabel?.textColor = theme.common.highlightedTextColor
+        fixedPinLabel?.textColor = theme.common.passwordTextColor
+        
         // KB delegate
         pinKeyboard?.delegate = self
         

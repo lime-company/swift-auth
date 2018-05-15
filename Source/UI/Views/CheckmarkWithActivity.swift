@@ -51,9 +51,9 @@ public extension CheckmarkWithActivity {
 }
 
 public struct CheckmarkWithActivityStyle {
-	public var indicatorStyle: ActivityIndicatorStyle
-	public var successImage: LazyUIImage
-	public var failureImage: LazyUIImage
+    public var indicatorStyle: ActivityIndicatorStyle
+    public var successImage: LazyUIImage
+    public var failureImage: LazyUIImage
 }
 
 /// Default simple implementation for CheckmarkWithActivity
@@ -117,12 +117,12 @@ open class CheckmarkWithActivityView: UIView, CheckmarkWithActivity {
             completion?()
         }
     }
-	
-	public func applyIndicatorStyle(_ style: CheckmarkWithActivityStyle?) {
-		activityIndicatorView?.applyIndicatorStyle(style?.indicatorStyle)
-		succesImageView?.setLazyImage(style?.successImage)
-		failureImageView?.setLazyImage(style?.failureImage)
-	}
+    
+    public func applyIndicatorStyle(_ style: CheckmarkWithActivityStyle?) {
+        activityIndicatorView?.applyIndicatorStyle(style?.indicatorStyle)
+        succesImageView?.setLazyImage(style?.successImage)
+        failureImageView?.setLazyImage(style?.failureImage)
+    }
     
     open override func awakeFromNib() {
         super.awakeFromNib()

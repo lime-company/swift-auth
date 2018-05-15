@@ -81,7 +81,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
     @IBOutlet weak var sceneDescriptionLabel: UILabel?
     @IBOutlet weak var promoImageView: UIImageView?
     @IBOutlet weak var closeSceneButton: UIButton?
-	
+    
     // MARK: -
     
     open override func prepareUI() {

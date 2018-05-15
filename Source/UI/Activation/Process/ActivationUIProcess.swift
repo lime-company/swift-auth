@@ -30,8 +30,8 @@ public protocol ActivationUIProvider: class {
 }
 
 public protocol ActivationUIDataProvider: class {
-	
-	var uiTheme: LimeAuthActivationUITheme { get }
+    
+    var uiTheme: LimeAuthActivationUITheme { get }
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     
     var uiDataForBeginActivation: BeginActivation.UIData { get }

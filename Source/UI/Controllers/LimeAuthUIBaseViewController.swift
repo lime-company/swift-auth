@@ -37,13 +37,13 @@ open class LimeAuthUIBaseViewController: UIViewController {
         // Empty
     }
     
-	// MARK: - Status bar
-	
-	internal static var commonPreferredStatusBarStyle: UIStatusBarStyle = .default
+    // MARK: - Status bar
+    
+    internal static var commonPreferredStatusBarStyle: UIStatusBarStyle = .default
 
-	open override var preferredStatusBarStyle: UIStatusBarStyle {
-		return LimeAuthUIBaseViewController.commonPreferredStatusBarStyle
-	}
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return LimeAuthUIBaseViewController.commonPreferredStatusBarStyle
+    }
 
     // MARK: - Controller's background
     

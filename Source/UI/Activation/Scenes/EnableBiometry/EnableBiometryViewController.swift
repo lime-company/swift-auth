@@ -21,9 +21,9 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     public var router: (EnableBiometryRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
-	
-	var isTouchId: Bool = PA2Keychain.supportedBiometricAuthentication == .touchID
-	
+    
+    var isTouchId: Bool = PA2Keychain.supportedBiometricAuthentication == .touchID
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -87,16 +87,16 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     // MARK: - Presentation
     
-	@IBOutlet weak var sceneTitleLabel: UILabel?
-	@IBOutlet weak var sceneDescriptionLabel: UILabel?
-	@IBOutlet weak var promoImageView: UIImageView?
-	@IBOutlet weak var enableBiometryButton: UIButton?
-	@IBOutlet weak var enableLaterButton: UIButton?
-	
+    @IBOutlet weak var sceneTitleLabel: UILabel?
+    @IBOutlet weak var sceneDescriptionLabel: UILabel?
+    @IBOutlet weak var promoImageView: UIImageView?
+    @IBOutlet weak var enableBiometryButton: UIButton?
+    @IBOutlet weak var enableLaterButton: UIButton?
+    
     // MARK: -
     
     open override func prepareUI() {
-		let uiData = uiDataProvider.uiDataForEnableBiometry
+        let uiData = uiDataProvider.uiDataForEnableBiometry
         let theme = uiDataProvider.uiTheme
 
         // Apply images & texts
@@ -106,7 +106,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         let description         = isTouchId ? uiData.strings.touchIdDescription : uiData.strings.faceIdDescription
         let enableButtonTitle   = isTouchId ? uiData.strings.enableTouchIdButton : uiData.strings.enableFaceIdButton
         
-		sceneTitleLabel?.text = sceneTitle
+        sceneTitleLabel?.text = sceneTitle
         sceneDescriptionLabel?.text = description
         enableBiometryButton?.setTitle(enableButtonTitle, for: .normal)
         enableLaterButton?.setTitle(uiData.strings.enableLaterButton, for: .normal)
