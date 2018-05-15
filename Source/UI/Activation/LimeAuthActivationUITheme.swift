@@ -103,6 +103,11 @@ public struct LimeAuthActivationUITheme {
         public var fallbackButton: ButtonStyle
     }
     
+    public struct EnterCodeScene {
+        /// Style for text fields in "enter activation code" scene
+        public var activationCode: TextFieldStyle
+    }
+    
     /// This section affects appearance of UINavigationBar & buttons, when it's visible.
     /// (typically in enter activation code scene)
     public struct NavigationBar {
@@ -126,6 +131,7 @@ public struct LimeAuthActivationUITheme {
     public var images: Images
     public var buttons: Buttons
     public var scannerScene: ScannerScene
+    public var enterCodeScene: EnterCodeScene
     public var navigationBar: NavigationBar
     
     /// Function provides a fallback theme used internally, for theme initial values.
@@ -163,6 +169,9 @@ public struct LimeAuthActivationUITheme {
                 closeButton: .noStyle,
                 fallbackButton: .noStyle
 			),
+            enterCodeScene: EnterCodeScene(
+                activationCode: .noStyle
+            ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,
                 titleColor: .black,

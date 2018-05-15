@@ -308,13 +308,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
 		prepareTextFields()
         if let tf1 = textField1, let tf2 = textField2, let tf3 = textField3, let tf4 = textField4 {
             for textField in [ tf1, tf2, tf3, tf4 ] {
-                // TODO: we should create TextFieldStyle and apply that just like we do for buttons
-                textField.backgroundColor = theme.common.backgroundColor
-                textField.textColor = theme.common.textColor
-                textField.layer.borderWidth = 1
-                textField.layer.cornerRadius = 8.0
-                textField.layer.borderColor = theme.common.textColor.cgColor
-                textField.keyboardAppearance = theme.common.keyboardAppearance
+                textField.applyTextFieldStyle(theme.enterCodeScene.activationCode)
             }
         }
     }
