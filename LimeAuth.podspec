@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author = { 'Lime - HighTech Solutions s.r.o.' => 'support@lime-company.eu' }
   s.source = { :git => 'https://github.com/lime-company/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
-  s.swift_version = '4.0'
+  s.swift_version = '4.1'
   s.ios.deployment_target = '9.0'
   
   # Sources
@@ -37,14 +37,12 @@ Pod::Spec.new do |s|
 
   # 'UIResources_Images' subspec
   s.subspec 'UIResources_Images' do |sub|
-    sub.source_files = 'Source/UIResources_Images/**/*.swift'
     sub.resources = [ 'Source/UIResources_Images/*.xcassets' ]
     sub.dependency 'LimeAuth/UIResources'
   end
 
   # 'UIResources_Illustrations' subspec
   s.subspec 'UIResources_Illustrations' do |sub|
-    sub.source_files = 'Source/UIResources_Illustrations/**/*.swift'
     sub.resources = [ 'Source/UIResources_Illustrations/*.xcassets' ]
     sub.dependency 'LimeAuth/UIResources'
   end
