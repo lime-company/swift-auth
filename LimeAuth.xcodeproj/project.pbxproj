@@ -62,6 +62,7 @@
 		BF85E597203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */; };
 		BF87E18420A9C57B006B28D4 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */; };
 		BF87E18620A9F1FA006B28D4 /* GenericLayerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */; };
+		BF87E18820AAE35B006B28D4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */; };
 		BF8CF45320320A5E002A6B6E /* LimeAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8CF45120320A5E002A6B6E /* LimeAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF45520320ACA002A6B6E /* LimeImports.swift */; };
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
@@ -72,8 +73,6 @@
 		BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */; };
 		BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */; };
 		BFA49C2D20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA49C2C20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift */; };
-		BFA49C3120A58DC2000D82B6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFA49C3020A58DC2000D82B6 /* Icons.xcassets */; };
-		BFA49C3320A58E7E000D82B6 /* Illustrations.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFA49C3220A58E7D000D82B6 /* Illustrations.xcassets */; };
 		BFAE069920582CF7003485D7 /* EnterPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */; };
 		BFAE069B20582E5F003485D7 /* NewCredentialsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069A20582E5F003485D7 /* NewCredentialsRouter.swift */; };
 		BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */; };
@@ -160,6 +159,7 @@
 		BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthAuthenticationUI.swift; sourceTree = "<group>"; };
 		BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLayerStyle.swift; sourceTree = "<group>"; };
+		BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BF8CF42E20320880002A6B6E /* LimeAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LimeAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8CF44F20320A40002A6B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8CF45020320A40002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
@@ -569,7 +569,6 @@
 				BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */,
 				BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */,
 				BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */,
-				BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -586,7 +585,9 @@
 		BFA49C2920A480BE000D82B6 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */,
 				BFA49C2720A47FD2000D82B6 /* PrivateStylingExtensions.swift */,
+				BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -770,8 +771,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF496435205995FC002560A8 /* Authentication.storyboard in Resources */,
-				BFA49C3320A58E7E000D82B6 /* Illustrations.xcassets in Resources */,
-				BFA49C3120A58DC2000D82B6 /* Icons.xcassets in Resources */,
 				BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -832,6 +831,7 @@
 				BF496439205997C3002560A8 /* LimeAuthAuthenticationUI+DefaultResources.swift in Sources */,
 				BF68809820481B9300351112 /* DefaultActivationResourcesProvider.swift in Sources */,
 				BFA49C2320A46640000D82B6 /* MultistateColor.swift in Sources */,
+				BF87E18820AAE35B006B28D4 /* UIColorExtension.swift in Sources */,
 				BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */,
 				BF565F8D20471A2000B9C897 /* WizardButtons.swift in Sources */,
 				BFAE06A920593692003485D7 /* OfflineAuthenticationUIOperation.swift in Sources */,

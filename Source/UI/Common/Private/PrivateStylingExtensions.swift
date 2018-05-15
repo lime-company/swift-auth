@@ -44,6 +44,7 @@ extension UIButton {
         if let titleColor = style.titleColor {
             setTitleColor(titleColor.normal, for: .normal)
             setTitleColor(titleColor.highlighted, for: .highlighted)
+            setTitleColor(titleColor.disabled, for: .highlighted)
         }
         if let font = style.titleFont {
             titleLabel?.font = font
@@ -52,12 +53,9 @@ extension UIButton {
             backgroundColor = bgColor.normal
         }
         if let image = style.image {
-            if let normal = image.normal.optionalImage {
-                setImage(normal, for: .normal)
-            }
-            if let highlighted = image.highlighted.optionalImage {
-                setImage(highlighted, for: .highlighted)
-            }
+            setImage(image.normal.optionalImage, for: .normal)
+            setImage(image.highlighted.optionalImage, for: .highlighted)
+            setImage(image.disabled.optionalImage, for: .disabled)
         }
         if let title = style.title {
             setTitle(title, for: .normal)

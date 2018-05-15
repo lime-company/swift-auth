@@ -20,94 +20,112 @@ open class RoundCornersButton: UIButton {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        updateCornerRadius()
+        updateBorder()
     }
     
     open override var isHighlighted: Bool {
         didSet {
-            updateHighlightedBackground(isHighlighted)
+            updateBackgroundColor()
         }
     }
 	
 	open override var isEnabled: Bool {
 		didSet {
-			updateHighlightedBackground(isHighlighted)
+			updateBackgroundColor()
 		}
 	}
     
-    private var storedBackgroundColor: UIColor? = .clear
+    private var storedBackgroundColor: UIColor?
     
     open override var backgroundColor: UIColor? {
         didSet {
             storedBackgroundColor = backgroundColor
-            updateHighlightedBackground(isHighlighted)
+            updateBackgroundColor()
         }
     }
     
     /// Changes background color for highlighted button's state.
-    @objc public dynamic var highlightedBackgroundColor: UIColor = .clear {
+    @objc public dynamic var highlightedBackgroundColor: UIColor? {
         didSet {
-            updateHighlightedBackground(isHighlighted)
+            updateBackgroundColor()
+        }
+    }
+
+    /// Changes background color for highlighted button's state.
+    @objc public dynamic var disabledBackgroundColor: UIColor? {
+        didSet {
+            updateBackgroundColor()
         }
     }
     
     /// Changes radius of border.
-    @objc public dynamic var borderCornerRadius: CGFloat = 4.0 {
+    @objc public dynamic var borderCornerRadius: CGFloat = 0.0 {
         didSet {
-            updateCornerRadius()
+            updateBorder()
         }
     }
     
     /// Changes width of border.
-    @objc public dynamic var borderWidth: CGFloat = 2.0 {
+    @objc public dynamic var borderWidth: CGFloat = 0.0 {
         didSet {
-            updateCornerRadius()
+            updateBorder()
         }
     }
     
     /// Changes color of border.
     @objc public dynamic var borderColor: UIColor? {
-        get {
-            return storedBorderColor
-        }
-        set {
-            storedBorderColor = newValue
-            updateCornerRadius()
+        didSet {
+            updateBorder()
         }
     }
-    
-    private var storedBorderColor: UIColor?
     
     /// Changes color of border in highlighted state.
     @objc public dynamic var highlightedBorderColor: UIColor? {
-        get {
-            return storedHighlightedColor
+        didSet {
+            updateBorder()
         }
-        set {
-            storedHighlightedColor = newValue
-            updateCornerRadius()
+    }
+
+    /// Changes color of border in highlighted state.
+    @objc public dynamic var disabledBorderColor: UIColor? {
+        didSet {
+            updateBorder()
         }
     }
     
+    /// If true, then button is rendered as a circle. The button's width and height should be equal.
     @objc public dynamic var isRounded: Bool = false {
         didSet {
-            updateCornerRadius()
+            updateBorder()
         }
     }
 	
+    /// If true, then disabled state adjusts button's alpha to 0.5
 	@objc public dynamic var adjustsAlphaWhenDisabled: Bool = false
     
-    private var storedHighlightedColor: UIColor?
     
-    private func updateCornerRadius() {
+    /// Contains border's color depending on state of the button (enabled, highlighted).
+    /// If such color is not defined, then returns `self.tintColor`.
+    private var currentBorderColor: UIColor {
+        let color = isEnabled ? (isHighlighted ? highlightedBorderColor : borderColor) : disabledBorderColor
+        return color ?? tintColor
+    }
+    
+    /// Contains background's color depending on state of the button (enabled, highlighted).
+    /// If such color is not defined, then returns nil.
+    private var currentBackgroundColor: UIColor? {
+        return isEnabled ? (isHighlighted ? highlightedBackgroundColor : storedBackgroundColor) : disabledBackgroundColor
+    }
+    
+    private func updateBorder() {
         layer.cornerRadius = isRounded ? frame.size.height * 0.5 : borderCornerRadius
-        layer.borderColor = ((isHighlighted ? highlightedBorderColor : borderColor) ?? tintColor).cgColor
+        layer.borderColor = currentBorderColor.cgColor
         layer.borderWidth = borderWidth
     }
     
-    private func updateHighlightedBackground(_ highlight: Bool) {
-        super.backgroundColor = highlight ? highlightedBackgroundColor : storedBackgroundColor
-        layer.borderColor = ((highlight ? highlightedBorderColor : borderColor) ?? tintColor).cgColor
+    private func updateBackgroundColor() {
+        super.backgroundColor = currentBackgroundColor
+        layer.borderColor = currentBorderColor.cgColor
 		self.alpha = self.isEnabled ? 1.0 : (adjustsAlphaWhenDisabled ? 0.5 : 1.0)
     }
     

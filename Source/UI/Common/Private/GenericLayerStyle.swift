@@ -16,9 +16,9 @@
 
 import Foundation
 
-/// The `GenericLayerStyle` is a supporting structure which is helping
+/// The `GenericLayerStyle` is an internal supporting structure which is helping
 /// with applying round cornered border to the view.
-struct GenericLayerStyle {
+internal struct GenericLayerStyle {
     
     /// Width of border
     let borderWidth: CGFloat
