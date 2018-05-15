@@ -73,13 +73,13 @@ public extension LimeAuthAuthenticationUITheme {
             common: Common(
                 backgroundColor: .white,
                 backgroundImage: nil,
-				promptTextColor: .black,
-				highlightedTextColor: .purple,
-				passwordTextColor: .black,
-				wrongPasswordTextColor: .red,
+                promptTextColor: .black,
+                highlightedTextColor: .purple,
+                passwordTextColor: .black,
+                wrongPasswordTextColor: .red,
                 activityIndicator: .large(.orange),
                 passwordTextField: .noStyle,
-				statusBarStyle: .default
+                statusBarStyle: .default
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
@@ -87,7 +87,7 @@ public extension LimeAuthAuthenticationUITheme {
                 pinAuxiliary: .noStyle,
                 ok: .noStyle,
                 close: .noStyle,
-				dismissError: .noStyle,
+                dismissError: .noStyle,
                 keyboardAuxiliary: .noStyle
             )
         )
@@ -97,17 +97,17 @@ public extension LimeAuthAuthenticationUITheme {
     /// of theme structure, if you have your own custom images.
     public static func defaultDarkTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
         
-       	let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
-       	let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
-		
+        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
+        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
+        
         return LimeAuthAuthenticationUITheme(
             common: Common(
                 backgroundColor: .black,
                 backgroundImage: nil,
-				promptTextColor: .lightGray,
-				highlightedTextColor: .lightGray,
-				passwordTextColor: .orange,
-				wrongPasswordTextColor: .red,
+                promptTextColor: .lightGray,
+                highlightedTextColor: .lightGray,
+                passwordTextColor: .orange,
+                wrongPasswordTextColor: .red,
                 activityIndicator: .large(.orange),
                 passwordTextField: TextFieldStyle(
                     tintColor: .orange,
@@ -120,34 +120,34 @@ public extension LimeAuthAuthenticationUITheme {
                     keyboardAppearance: .dark,
                     options: .default
                 ),
-				statusBarStyle: .lightContent
+                statusBarStyle: .lightContent
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
                 pinDigits: ButtonStyle(
-					tintColor: nil,
-					backgrdoundColor: .highlighted(.gray),
-					titleColor: .colors(.gray, .black),
-					titleFont: UIFont(name: "HelveticaNeue-Light", size: 44.0),
-					title: nil,
-					image: nil,
-					borderWidth: 2.0,
-					borderColor: .same(.darkGray),
-					borderCornerRadius: 0.0,
-					options: [.isRounded]
-				),
-				pinAuxiliary: ButtonStyle(
-					tintColor: nil,
-					backgrdoundColor: .highlighted(.gray),
-					titleColor: .colors(.gray, .black),
-					titleFont: .systemFont(ofSize: 33.0),
-					title: nil,
-					image: nil,
-					borderWidth: 0.0,
-					borderColor: .same(.darkGray),
-					borderCornerRadius: 0.0,
-					options: [.isRounded]
-				),
+                    tintColor: nil,
+                    backgrdoundColor: .highlighted(.gray),
+                    titleColor: .colors(.gray, .black),
+                    titleFont: UIFont(name: "HelveticaNeue-Light", size: 44.0),
+                    title: nil,
+                    image: nil,
+                    borderWidth: 2.0,
+                    borderColor: .same(.darkGray),
+                    borderCornerRadius: 0.0,
+                    options: [.isRounded]
+                ),
+                pinAuxiliary: ButtonStyle(
+                    tintColor: nil,
+                    backgrdoundColor: .highlighted(.gray),
+                    titleColor: .colors(.gray, .black),
+                    titleFont: .systemFont(ofSize: 33.0),
+                    title: nil,
+                    image: nil,
+                    borderWidth: 0.0,
+                    borderColor: .same(.darkGray),
+                    borderCornerRadius: 0.0,
+                    options: [.isRounded]
+                ),
                 ok: ButtonStyle(
                     tintColor: .orange,
                     backgrdoundColor: .clear,

@@ -45,18 +45,18 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-		commitActivation()
+        commitActivation()
     }
-	
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-	open override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		stopWaiting()
-	}
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopWaiting()
+    }
     
     private var recoveryFromBrokenActivation = false
     
@@ -78,8 +78,8 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             }
         }
     }
-	
-	
+    
+    
     // MARK: - Routing
     
     open func connect(activationProcess process: ActivationUIProcess) {
@@ -100,43 +100,43 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     public func removeActivation() {
         stopWaiting()
-		router.activationProcess.session.removeActivationLocal()
+        router.activationProcess.session.removeActivationLocal()
         router.routeToCancel()
     }
-	
-	
-	// MARK: - Commit & Wait
-	
-	public func commitActivation() {
-		
+    
+    
+    // MARK: - Commit & Wait
+    
+    public func commitActivation() {
+        
         // TODO: we need to store device's key fingerprint to the keychain and restore
         //       it in case of repairing a broken, unfinished activation.
-		let session = router.activationProcess.session
-		if session.hasValidActivation {
+        let session = router.activationProcess.session
+        if session.hasValidActivation {
             waitForActivationConfirmation()
             return
-		}
-		
-		let activationData = router.activationProcess.activationData
-		let authentication = PowerAuthAuthentication()
-		authentication.usePossession = true
-		authentication.useBiometry = activationData.useBiometry
-		authentication.usePassword = activationData.password!
+        }
+        
+        let activationData = router.activationProcess.activationData
+        let authentication = PowerAuthAuthentication()
+        authentication.usePossession = true
+        authentication.useBiometry = activationData.useBiometry
+        authentication.usePassword = activationData.password!
 
-		let _ = session.commitActivation(authentication: authentication) { [weak self] (error) in
-			if let error = error {
+        let _ = session.commitActivation(authentication: authentication) { [weak self] (error) in
+            if let error = error {
                 self?.router.routeToError(with: LimeAuthError(error: error))
-			} else {
-				self?.waitForActivationConfirmation()
-			}
-		}
-	}
-	
-	private var waitingWorkItem: DispatchWorkItem?
+            } else {
+                self?.waitForActivationConfirmation()
+            }
+        }
+    }
+    
+    private var waitingWorkItem: DispatchWorkItem?
     private var fetchOperation: Operation?
-	private var statusAttempts: Int = 0
-	
-	private func waitForActivationConfirmation() {
+    private var statusAttempts: Int = 0
+    
+    private func waitForActivationConfirmation() {
         statusAttempts = statusAttempts + 1
         if statusAttempts == 5 {
             UIView.animate(withDuration: 0.33) {
@@ -154,7 +154,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             }
         }
         
-	}
+    }
     
     private func processStatus(_ status: PA2ActivationStatus?, error: Error?) -> Bool {
         if let status = status {
@@ -181,37 +181,37 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         }
         return false
     }
-	
-	private func stopWaiting() {
-		waitingWorkItem?.cancel()
-		waitingWorkItem = nil
+    
+    private func stopWaiting() {
+        waitingWorkItem?.cancel()
+        waitingWorkItem = nil
         fetchOperation?.cancel()
         fetchOperation = nil
-	}
+    }
     
     
     // MARK: - Presentation
     
-	@IBOutlet weak var sceneTitleLabel: UILabel?
-	@IBOutlet weak var sceneDescriptionLabel: UILabel?
-	@IBOutlet weak var promoImageView: UIImageView?
-	@IBOutlet weak var waitingForActivationLabel: UILabel?
-	@IBOutlet weak var activityIndicatorView: UIActivityIndicatorView?
-	@IBOutlet weak var removeActivationButton: UIButton?
+    @IBOutlet weak var sceneTitleLabel: UILabel?
+    @IBOutlet weak var sceneDescriptionLabel: UILabel?
+    @IBOutlet weak var promoImageView: UIImageView?
+    @IBOutlet weak var waitingForActivationLabel: UILabel?
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView?
+    @IBOutlet weak var removeActivationButton: UIButton?
     
     // MARK: -
     
     open override func prepareUI() {
-		let uiData = uiDataProvider.uiDataForConfirmActivation
+        let uiData = uiDataProvider.uiDataForConfirmActivation
         let theme = uiDataProvider.uiTheme
         
         // Apply texts & images
         promoImageView?.setLazyImage(theme.illustrations.confirmScene)
-		sceneTitleLabel?.text = uiData.strings.sceneTitle
-		sceneDescriptionLabel?.text = uiData.strings.sceneDescription
-		waitingForActivationLabel?.text = uiData.strings.waitingLabel
-		removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
-		// Hide remove button in initial state, or show it when it's recovery from crashed activation
+        sceneTitleLabel?.text = uiData.strings.sceneTitle
+        sceneDescriptionLabel?.text = uiData.strings.sceneDescription
+        waitingForActivationLabel?.text = uiData.strings.waitingLabel
+        removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
+        // Hide remove button in initial state, or show it when it's recovery from crashed activation
         removeActivationButton?.alpha = recoveryFromBrokenActivation ? 1.0 : 0.0
         
         // Apply styles

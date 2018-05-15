@@ -71,7 +71,7 @@ public extension LimeAuthActivationUITheme {
                 highlightedTextColor: .orange,
                 activityIndicator: .small(.orange),
                 keyboardAppearance: .default,
-				statusBarStyle: .default
+                statusBarStyle: .default
             ),
             illustrations: illustrations ?? .defaultIllustrations(),
             images: images ?? .defaultImages(),
@@ -89,7 +89,7 @@ public extension LimeAuthActivationUITheme {
                     options: .default
                 ),
                 secondary: ButtonStyle(
-					tintColor: nil,
+                    tintColor: nil,
                     backgrdoundColor: .clear,
                     titleColor: .normal(.orange),
                     titleFont: bigButtonFont,
@@ -101,7 +101,7 @@ public extension LimeAuthActivationUITheme {
                     options: .default
                 ),
                 destructive: ButtonStyle(
-					tintColor: nil,
+                    tintColor: nil,
                     backgrdoundColor: .clear,
                     titleColor: .normal(.red),
                     titleFont: bigButtonFont,
@@ -179,7 +179,7 @@ public extension LimeAuthActivationUITheme {
         
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
-		
+        
         return LimeAuthActivationUITheme(
             common: Common(
                 backgroundColor: .black,
@@ -189,7 +189,7 @@ public extension LimeAuthActivationUITheme {
                 highlightedTextColor: .rgb(0xFF9300),
                 activityIndicator: .small(.orange),
                 keyboardAppearance: .dark,
-				statusBarStyle: .lightContent
+                statusBarStyle: .lightContent
             ),
             illustrations: illustrations ?? .defaultIllustrations(),
             images: images ?? .defaultImages(),

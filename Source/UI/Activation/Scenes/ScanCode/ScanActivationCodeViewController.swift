@@ -20,7 +20,6 @@ import AVKit
 
 open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, QRCodeProviderDelegate {
     
-    
     public var router: (ActivationUIProcessRouter & ScanActivationCodeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     public var qrCodeProvider: QRCodeProvider?
@@ -67,9 +66,9 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         stopScanner()
         cancelFallbackTimer()
     }
-	
-	internal static var preferredStatusBarStyleForScanner: UIStatusBarStyle = .lightContent
-	
+    
+    internal static var preferredStatusBarStyleForScanner: UIStatusBarStyle = .lightContent
+    
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return ScanActivationCodeViewController.preferredStatusBarStyleForScanner
     }
@@ -153,11 +152,11 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     // MARK: - Presentation
     
-	@IBOutlet weak var topViewConstraint: NSLayoutConstraint?
-	@IBOutlet weak var sceneTitleLabel: UILabel?
+    @IBOutlet weak var topViewConstraint: NSLayoutConstraint?
+    @IBOutlet weak var sceneTitleLabel: UILabel?
     @IBOutlet weak var enterCodeFallbackButton: UIButton?
     @IBOutlet weak var closeSceneButton: UIButton?
-	@IBOutlet weak var crossHairImageView: UIImageView?
+    @IBOutlet weak var crossHairImageView: UIImageView?
     
     
     open override func prepareUI() {
@@ -166,7 +165,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         enterCodeFallbackButton?.setTitle(uiData.strings.enterCodeFallbackButton, for: .normal)
-		enterCodeFallbackButton?.isHidden = true
+        enterCodeFallbackButton?.isHidden = true
         
         // Assign optional images
         sceneTitleLabel?.textColor = theme.scannerScene.titleColor
@@ -174,7 +173,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         enterCodeFallbackButton?.applyButtonStyle(theme.scannerScene.fallbackButton)
         closeSceneButton?.applyButtonStyle(theme.scannerScene.closeButton)
     }
-	
+    
     private func animateInitialUI(animated: Bool) {
         // Initial state
         sceneTitleLabel?.alpha = 0.0
@@ -206,7 +205,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
             animationsBlock1()
             animationsBlock2()
         }
-	}
+    }
     
     // MARK: - Fallback timer
     

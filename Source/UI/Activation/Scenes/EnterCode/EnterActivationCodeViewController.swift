@@ -292,20 +292,20 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         let uiData = uiDataProvider.uiDataForEnterActivationCode
         let commonStrings = uiDataProvider.uiCommonStrings
         let theme = uiDataProvider.uiTheme
-		
-		// Apply texts & images
+        
+        // Apply texts & images
         self.title = uiData.strings.sceneTitle
         hintLabel?.text = uiData.strings.sceneDescription
         confirmButton?.setTitle(uiData.strings.confirmButton, for: .normal)
         cancelButtonItem.title = commonStrings.cancelTitle
 
-		// Apply themes
-		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
-		hintLabel?.textColor = theme.common.titleColor
-		confirmButton?.applyButtonStyle(theme.buttons.primary)
-		
-		// Prepare text fields
-		prepareTextFields()
+        // Apply themes
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        hintLabel?.textColor = theme.common.titleColor
+        confirmButton?.applyButtonStyle(theme.buttons.primary)
+        
+        // Prepare text fields
+        prepareTextFields()
         if let tf1 = textField1, let tf2 = textField2, let tf3 = textField3, let tf4 = textField4 {
             for textField in [ tf1, tf2, tf3, tf4 ] {
                 textField.applyTextFieldStyle(theme.enterCodeScene.activationCode)

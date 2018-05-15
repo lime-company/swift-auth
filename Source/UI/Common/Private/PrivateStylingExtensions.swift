@@ -62,20 +62,20 @@ extension UIButton {
         }
         self.adjustsImageWhenHighlighted = style.options.contains(.adjustsImageWhenHighlighted)
         self.adjustsImageWhenDisabled = style.options.contains(.adjustsImageWhenDisabled)
-		
+        
         // Round corners button
         if let rcSelf = self as? RoundCornersButton {
-			if let backgroundColor = style.backgrdoundColor {
-				rcSelf.highlightedBackgroundColor = backgroundColor.highlighted
-				rcSelf.disabledBackgroundColor = backgroundColor.disabled
-			}
+            if let backgroundColor = style.backgrdoundColor {
+                rcSelf.highlightedBackgroundColor = backgroundColor.highlighted
+                rcSelf.disabledBackgroundColor = backgroundColor.disabled
+            }
             if let borderColor = style.borderColor {
                 rcSelf.borderColor = borderColor.normal
                 rcSelf.highlightedBorderColor = borderColor.highlighted
-				rcSelf.disabledBorderColor = borderColor.disabled
+                rcSelf.disabledBorderColor = borderColor.disabled
             }
             rcSelf.borderCornerRadius = style.borderCornerRadius
-			rcSelf.borderWidth = style.borderWidth
+            rcSelf.borderWidth = style.borderWidth
             rcSelf.isRounded = style.options.contains(.isRounded)
         }
     }

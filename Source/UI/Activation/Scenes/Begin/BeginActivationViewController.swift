@@ -120,7 +120,7 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
     @IBOutlet weak var promoImageView: UIImageView?
     @IBOutlet weak var scanAccessCodeButton: UIButton?
     @IBOutlet weak var enterAccessCodeButton: UIButton?
-	@IBOutlet weak var cancelActivationButton: UIButton?
+    @IBOutlet weak var cancelActivationButton: UIButton?
     
     // MARK: -
     

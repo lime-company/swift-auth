@@ -275,8 +275,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func prepareUIForFirstUse() {
         // Apply styles
         let theme = uiDataProvider.uiTheme
-		
-		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
         prompt1Label?.textColor = theme.common.promptTextColor
         prompt2Label?.textColor = theme.common.promptTextColor

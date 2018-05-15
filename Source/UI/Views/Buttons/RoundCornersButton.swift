@@ -28,12 +28,12 @@ open class RoundCornersButton: UIButton {
             updateBackgroundColor()
         }
     }
-	
-	open override var isEnabled: Bool {
-		didSet {
-			updateBackgroundColor()
-		}
-	}
+    
+    open override var isEnabled: Bool {
+        didSet {
+            updateBackgroundColor()
+        }
+    }
     
     private var storedBackgroundColor: UIColor?
     

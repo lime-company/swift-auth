@@ -49,9 +49,9 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     @IBOutlet weak var attemptsLabel: UILabel!
     /// PIN confirmation button
     @IBOutlet weak var confirmPinButton: UIButton!
-	// Round corners view behind password
-	@IBOutlet weak var roundCornersView: UIView!
-	
+    // Round corners view behind password
+    @IBOutlet weak var roundCornersView: UIView!
+    
     /// An activity indicator
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
     /// Close dialog button, displayed only when error occured
@@ -344,18 +344,18 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     // MARK: - Update UI
     
     open func prepareUIForFirstUse() {
-		// Apply style
-		let theme = uiDataProvider.uiTheme
-		
-		configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
-		pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
-		closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
-		confirmPinButton?.applyButtonStyle(theme.buttons.ok)
-		logoImage?.setLazyImage(theme.images.logo)
-		(activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
-		promptLabel?.textColor = theme.common.promptTextColor
-		attemptsLabel?.textColor = theme.common.highlightedTextColor
-		variablePinLabel?.textColor = theme.common.passwordTextColor
+        // Apply style
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
+        closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
+        confirmPinButton?.applyButtonStyle(theme.buttons.ok)
+        logoImage?.setLazyImage(theme.images.logo)
+        (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
+        promptLabel?.textColor = theme.common.promptTextColor
+        attemptsLabel?.textColor = theme.common.highlightedTextColor
+        variablePinLabel?.textColor = theme.common.passwordTextColor
         roundCornersView?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
         
         // KB delegate
