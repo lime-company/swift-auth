@@ -56,7 +56,8 @@ public extension LimeAuthAuthenticationUITheme {
 				passwordTextColor: .black,
 				wrongPasswordTextColor: .red,
                 activityIndicator: .large(.orange),
-                passwordTextField: .noStyle
+                passwordTextField: .noStyle,
+				statusBarStyle: .default
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
@@ -94,7 +95,8 @@ public extension LimeAuthAuthenticationUITheme {
                     borderCornerRadius: 16.0,
                     keyboardAppearance: .dark,
                     options: .default
-                )
+                ),
+				statusBarStyle: .lightContent
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
@@ -149,7 +151,7 @@ public extension LimeAuthAuthenticationUITheme {
                 dismissError: ButtonStyle(
                     tintColor: nil,
                     backgrdoundColor: .clear,
-                    titleColor: .same(.orange),
+                    titleColor: nil,
                     titleFont: bigButtonFont,
                     title: nil,
                     image: nil,
@@ -159,9 +161,9 @@ public extension LimeAuthAuthenticationUITheme {
                     options: .default
                 ),
                 keyboardAuxiliary: ButtonStyle(
-                    tintColor: nil,
+                    tintColor: .orange,
                     backgrdoundColor: .clear,
-                    titleColor: .same(.orange),
+                    titleColor: nil,
                     titleFont: bigButtonFont,
                     title: nil,
                     image: nil,

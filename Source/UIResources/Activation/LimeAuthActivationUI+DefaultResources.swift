@@ -70,7 +70,8 @@ public extension LimeAuthActivationUITheme {
                 textColor: .black,
                 highlightedTextColor: .orange,
                 activityIndicator: .small(.orange),
-                keyboardAppearance: .default
+                keyboardAppearance: .default,
+				statusBarStyle: .default
             ),
             illustrations: illustrations ?? .defaultIllustrations(),
             images: images ?? .defaultImages(),
@@ -88,7 +89,7 @@ public extension LimeAuthActivationUITheme {
                     options: .default
                 ),
                 secondary: ButtonStyle(
-                    tintColor: nil,
+					tintColor: nil,
                     backgrdoundColor: .clear,
                     titleColor: .normal(.orange),
                     titleFont: bigButtonFont,
@@ -100,7 +101,7 @@ public extension LimeAuthActivationUITheme {
                     options: .default
                 ),
                 destructive: ButtonStyle(
-                    tintColor: nil,
+					tintColor: nil,
                     backgrdoundColor: .clear,
                     titleColor: .normal(.red),
                     titleFont: bigButtonFont,
@@ -125,7 +126,7 @@ public extension LimeAuthActivationUITheme {
                 )
             ),
             scannerScene: ScannerScene(
-                statusBarStyle: .default,
+                statusBarStyle: .lightContent,
                 titleColor: .white,
                 closeButton: ButtonStyle(
                     tintColor: nil,
@@ -165,24 +166,25 @@ public extension LimeAuthActivationUITheme {
         
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
-        
+		
         return LimeAuthActivationUITheme(
             common: Common(
                 backgroundColor: .black,
                 backgroundImage: nil,
-                titleColor: .orange,
+                titleColor: .rgb(0xFF9300),
                 textColor: .white,
-                highlightedTextColor: .orange,
+                highlightedTextColor: .rgb(0xFF9300),
                 activityIndicator: .small(.orange),
-                keyboardAppearance: .dark
+                keyboardAppearance: .dark,
+				statusBarStyle: .lightContent
             ),
             illustrations: illustrations ?? .defaultIllustrations(),
             images: images ?? .defaultImages(),
             buttons: Buttons(
                 primary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .same(.orange),
-                    titleColor: .same(.white),
+                    backgrdoundColor: .colors(.rgb(0xFF9300), .argb(0xccFF9300), .rgb(0x5E5E5E)),
+                    titleColor: .colors(.white, .argb(0xEEFFFFFF), .rgb(0xD6D6D6)),
                     titleFont: bigButtonFont,
                     title: nil,
                     image: nil,
@@ -194,7 +196,7 @@ public extension LimeAuthActivationUITheme {
                 secondary: ButtonStyle(
                     tintColor: nil,
                     backgrdoundColor: .clear,
-                    titleColor: .same(.orange),
+                    titleColor: .colors(.rgb(0xFF9300), .argb(0xccFF9300), .rgb(0x5E5E5E)),
                     titleFont: bigButtonFont,
                     title: nil,
                     image: nil,
@@ -206,7 +208,7 @@ public extension LimeAuthActivationUITheme {
                 destructive: ButtonStyle(
                     tintColor: nil,
                     backgrdoundColor: .clear,
-                    titleColor: .normal(.red),
+                    titleColor: .colors(.rgb(0xFF0000), .argb(0xccFF0000)),
                     titleFont: bigButtonFont,
                     title: nil,
                     image: nil,
@@ -229,7 +231,7 @@ public extension LimeAuthActivationUITheme {
                 )
             ),
             scannerScene: ScannerScene(
-                statusBarStyle: .default,
+                statusBarStyle: .lightContent,
                 titleColor: .white,
                 closeButton: ButtonStyle(
                     tintColor: nil,

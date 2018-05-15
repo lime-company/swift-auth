@@ -42,6 +42,10 @@ public struct LimeAuthActivationUITheme {
         
         /// Style used for system keyboards
         public var keyboardAppearance: UIKeyboardAppearance
+		
+		/// Status bar style applied to all activation scenes except QR code scanner.
+		/// Note that your application has to support "ViewController based" status bar appearance.
+		public var statusBarStyle: UIStatusBarStyle
     }
     
     public struct Illustrations {
@@ -67,21 +71,26 @@ public struct LimeAuthActivationUITheme {
     }
     
     public struct Buttons {
-        /// Button for primary action
+        /// Button for primary action.
+		/// This kind of button is typically instantiated as "custom".
         public var primary: ButtonStyle
         
         /// Button for secondary action
-        public var secondary: ButtonStyle
+		/// This kind of button is typically instantiated as "custom".
+		public var secondary: ButtonStyle
         
         /// Button for destructive action
+		/// This kind of button is typically instantiated as "custom".
         public var destructive: ButtonStyle
         
         /// Button for cancel (small button at left top corner)
+		/// This kind of button is typically instantiated as "system".
         public var cancel: ButtonStyle
     }
     
     public struct ScannerScene {
-        /// Status bar style applied in scanner scene
+        /// Status bar style applied in scanner scene.
+		/// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
         
         /// Color for scanner's title text
@@ -129,30 +138,37 @@ public struct LimeAuthActivationUITheme {
                 textColor: .black,
                 highlightedTextColor: .blue,
                 activityIndicator: .small(.blue),
-                keyboardAppearance: .default),
+                keyboardAppearance: .default,
+				statusBarStyle: .default
+			),
             illustrations: Illustrations(
                 beginScene: .empty,
                 noCameraScene: .empty,
                 enableBiometryScene: .empty,
                 confirmScene: .empty,
-                errorScene: .empty),
+                errorScene: .empty
+			),
             images: Images(
-                scannerCrosshair: .empty),
+                scannerCrosshair: .empty
+			),
             buttons: Buttons(
                 primary: .noStyle,
                 secondary: .noStyle,
                 destructive: .noStyle,
-                cancel: .noStyle),
+                cancel: .noStyle
+			),
             scannerScene: ScannerScene(
                 statusBarStyle: .default,
                 titleColor: .white,
                 closeButton: .noStyle,
-                fallbackButton: .noStyle),
+                fallbackButton: .noStyle
+			),
             navigationBar: NavigationBar(
                 backgroundColor: .white,
                 titleColor: .black,
                 tintColor: .blue,
-                buttonColor: .blue)
+                buttonColor: .blue
+			)
         )
     }
 }

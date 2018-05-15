@@ -98,5 +98,6 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     
     func loadTheme(theme: LimeAuthAuthenticationUITheme) {
         uiTheme = theme
+		LimeAuthUIBaseViewController.commonPreferredStatusBarStyle = theme.common.statusBarStyle
     }
 }

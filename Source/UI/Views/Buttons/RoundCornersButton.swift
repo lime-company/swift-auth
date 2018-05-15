@@ -99,10 +99,6 @@ open class RoundCornersButton: UIButton {
             updateBorder()
         }
     }
-	
-    /// If true, then disabled state adjusts button's alpha to 0.5
-	@objc public dynamic var adjustsAlphaWhenDisabled: Bool = false
-    
     
     /// Contains border's color depending on state of the button (enabled, highlighted).
     /// If such color is not defined, then returns `self.tintColor`.
@@ -126,7 +122,6 @@ open class RoundCornersButton: UIButton {
     private func updateBackgroundColor() {
         super.backgroundColor = currentBackgroundColor
         layer.borderColor = currentBorderColor.cgColor
-		self.alpha = self.isEnabled ? 1.0 : (adjustsAlphaWhenDisabled ? 0.5 : 1.0)
     }
     
 }
