@@ -99,7 +99,8 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
         let theme = uiDataProvider.uiTheme
 
         // Apply texts & icons
-        promoImageView?.setLazyImage(theme.illustrations.noCameraScene)
+        
+        promoImageView?.setLazyImage(theme.illustrations.noCameraScene, fallback: theme.illustrations.errorScene)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         openSettingsButton?.setTitle(uiData.strings.openSettingsButton, for: .normal)

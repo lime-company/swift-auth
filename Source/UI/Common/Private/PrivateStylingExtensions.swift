@@ -44,8 +44,11 @@ extension LimeAuthAuthenticationUITheme {
 
 extension UIImageView {
     
-    func setLazyImage(_ image: LazyUIImage?) {
+    func setLazyImage(_ image: LazyUIImage?, fallback: LazyUIImage? = nil) {
         if let image = image?.optionalImage {
+            self.image = image
+        }
+        if let image = fallback?.optionalImage {
             self.image = image
         }
     }
