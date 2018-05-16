@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import LimeCore
 
 public protocol ActivationUIProvider: class {
     

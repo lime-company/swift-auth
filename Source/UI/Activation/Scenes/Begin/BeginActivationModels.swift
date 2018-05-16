@@ -28,17 +28,6 @@ public enum BeginActivation {
         }
         
         public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Enter the Activation code",
-                    sceneDescription: "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.",
-                    scanButton: "Scan the Activation QR code",
-                    enterButton: "Retype the Activation code manually"
-                )
-            )
-        }
     }
 }
 

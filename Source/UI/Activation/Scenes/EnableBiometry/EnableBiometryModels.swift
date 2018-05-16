@@ -30,22 +30,7 @@ public enum EnableBiometry {
             let enableLaterButton: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    touchIdSceneTitle: "Confirm payments by fingerprint",
-                    faceIdSceneTitle: "Confirm payments by face",
-                    touchIdDescription: "You can sign in and confirm operations just with your fingerprint.",
-                    faceIdDescription: "You can sign in and confirm operations just with your face.",
-                    enableTouchIdButton: "Allow Touch ID",
-                    enableFaceIdButton: "Allow Face ID",
-                    enableLaterButton: "Not now, thank you"
-                )
-            )
-        }
-        
+        public let strings: Strings        
     }
 }
 

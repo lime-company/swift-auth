@@ -27,19 +27,7 @@ public enum ConfirmActivation {
             let removeActivationButton: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Complete the activation",
-                    sceneDescription: "Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal.",
-                    waitingLabel: "Waiting for activation completion",
-                    removeActivationButton: "Cancel operation"
-                )
-            )
-        }
-        
+        public let strings: Strings        
     }
 }
 

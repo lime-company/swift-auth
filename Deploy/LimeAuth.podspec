@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   # 'Core' subspec
   s.subspec 'Core' do |sub|
     sub.source_files = 'Source/Core/**/*.swift'
-    sub.dependency 'LimeCore'
+    sub.dependency 'LimeCore', '~> 1.1'
     sub.dependency 'PowerAuth2'
   end
   
@@ -44,6 +44,12 @@ Pod::Spec.new do |s|
   # 'UIResources_Illustrations' subspec
   s.subspec 'UIResources_Illustrations' do |sub|
     sub.resources = [ 'Source/UIResources_Illustrations/*.xcassets' ]
+    sub.dependency 'LimeAuth/UIResources'
+  end
+
+  # 'UIResources_Localization' subspec
+  s.subspec 'UIResources_Localization' do |sub|
+    sub.resources = [ 'Source/UIResources_Localization/*.lproj' ]
     sub.dependency 'LimeAuth/UIResources'
   end
 

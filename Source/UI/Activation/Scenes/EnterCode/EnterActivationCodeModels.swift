@@ -26,16 +26,7 @@ public enum EnterActivationCode {
             let confirmButton: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(strings: Strings(
-                sceneTitle: "Enter the Activation code manually",
-                sceneDescription: "Please retype the Activation code in its numeric format from the ePortal screen.",
-                confirmButton: "Confirm")
-            )
-        }
-        
+        public let strings: Strings        
     }
 }
 
