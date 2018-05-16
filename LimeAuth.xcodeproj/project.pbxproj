@@ -573,15 +573,6 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
-		BFA49C2420A4762D000D82B6 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
-				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
 		BFA49C2920A480BE000D82B6 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,7 +673,8 @@
 		BFDBCBBE2045D409001585BF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFA49C2420A4762D000D82B6 /* Buttons */,
+				BF565F88204717E100B9C897 /* RoundCornersButton.swift */,
+				BF565F8C20471A2000B9C897 /* WizardButtons.swift */,
 				BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */,
 				BF49642820598EF3002560A8 /* PinKeyboardView.swift */,
 				BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */,

@@ -79,7 +79,7 @@ extension UIButton {
         if let font = style.titleFont {
             titleLabel?.font = font
         }
-        if let bgColor = style.backgrdoundColor {
+        if let bgColor = style.backgroundColor {
             backgroundColor = bgColor.normal
         }
         if let image = style.image {
@@ -95,7 +95,7 @@ extension UIButton {
         
         // Round corners button
         if let rcSelf = self as? RoundCornersButton {
-            if let backgroundColor = style.backgrdoundColor {
+            if let backgroundColor = style.backgroundColor {
                 rcSelf.highlightedBackgroundColor = backgroundColor.highlighted
                 rcSelf.disabledBackgroundColor = backgroundColor.disabled
             }

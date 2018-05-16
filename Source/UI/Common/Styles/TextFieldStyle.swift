@@ -44,7 +44,7 @@ public struct TextFieldStyle {
     public let borderCornerRadius: CGFloat
     
     /// System keyboard's appearance
-    public var keyboardAppearance: UIKeyboardAppearance
+    public let keyboardAppearance: UIKeyboardAppearance
     
     // MARK: - Various options
     
@@ -56,13 +56,37 @@ public struct TextFieldStyle {
         }
         
         /// If set, then this style will not be applied to the target text field.
-        static let noStyle = Options(rawValue: 1 << 0)
+        public static let noStyle = Options(rawValue: 1 << 0)
 
         /// Default set of options
-        static let `default`: Options = []
+        public static let `default`: Options = []
     }
     
     public let options: Options
+    
+    
+    /// Structure initializer
+    public init(
+        tintColor: UIColor?,
+        backgroundColor: UIColor?,
+        textColor: UIColor?,
+        textFont: UIFont?,
+        borderWidth: CGFloat,
+        borderColor: UIColor?,
+        borderCornerRadius: CGFloat,
+        keyboardAppearance: UIKeyboardAppearance,
+        options: Options)
+    {
+        self.tintColor = tintColor
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.textFont = textFont
+        self.borderWidth = borderWidth
+        self.borderColor = borderColor
+        self.borderCornerRadius = borderCornerRadius
+        self.keyboardAppearance = keyboardAppearance
+        self.options = options
+    }
  
     /// Returns style which doesn't affect text field's appearance at all. This kind of style can be used for cases when actual
     /// style is applied somehow else. For example, if your application is using a custom storyboards or `UIAppearance` facility,

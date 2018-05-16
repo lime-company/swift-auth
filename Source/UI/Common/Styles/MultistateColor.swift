@@ -29,6 +29,16 @@ public struct MultistateColor {
     /// Color for disabled state.
     public let disabled: UIColor?
     
+    /// Structure initializer
+    public init(
+        normal: UIColor,
+        highlighted: UIColor?,
+        disabled: UIColor?)
+    {
+        self.normal = normal
+        self.highlighted = highlighted
+        self.disabled = disabled
+    }
     
     /// Contains `MultistateColor` with both colors set to `.clear`
     public static var clear: MultistateColor {

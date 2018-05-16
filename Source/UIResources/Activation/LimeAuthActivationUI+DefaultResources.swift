@@ -78,7 +78,7 @@ public extension LimeAuthActivationUITheme {
             buttons: Buttons(
                 primary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: .same(.orange),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -90,7 +90,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 secondary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: .normal(.orange),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -102,7 +102,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 destructive: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: .normal(.red),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -114,7 +114,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 cancel: ButtonStyle(
                     tintColor: .orange,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: smallButtonFont,
                     title: nil,
@@ -130,7 +130,7 @@ public extension LimeAuthActivationUITheme {
                 titleColor: .white,
                 closeButton: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .colors(.orange, .black),
+                    backgroundColor: .colors(.orange, .black),
                     titleColor: .colors(.white, .darkGray),
                     titleFont: .systemFont(ofSize: 32.0),
                     title: "✕",
@@ -142,7 +142,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 fallbackButton: ButtonStyle(
                     tintColor: .white,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: .systemFont(ofSize: 14),
                     title: nil,
@@ -196,7 +196,7 @@ public extension LimeAuthActivationUITheme {
             buttons: Buttons(
                 primary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .colors(.rgb(0xFF9300), .argb(0xccFF9300), .rgb(0x5E5E5E)),
+                    backgroundColor: .colors(.rgb(0xFF9300), .argb(0xccFF9300), .rgb(0x5E5E5E)),
                     titleColor: .colors(.white, .argb(0xEEFFFFFF), .rgb(0xD6D6D6)),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -208,7 +208,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 secondary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: .colors(.rgb(0xFF9300), .argb(0xccFF9300), .rgb(0x5E5E5E)),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -220,7 +220,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 destructive: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: .colors(.rgb(0xFF0000), .argb(0xccFF0000)),
                     titleFont: bigButtonFont,
                     title: nil,
@@ -232,7 +232,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 cancel: ButtonStyle(
                     tintColor: .orange,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: smallButtonFont,
                     title: nil,
@@ -248,7 +248,7 @@ public extension LimeAuthActivationUITheme {
                 titleColor: .white,
                 closeButton: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .colors(.orange, .black),
+                    backgroundColor: .colors(.orange, .black),
                     titleColor: .colors(.white, .darkGray),
                     titleFont: .systemFont(ofSize: 32.0),
                     title: "✕",
@@ -260,7 +260,7 @@ public extension LimeAuthActivationUITheme {
                 ),
                 fallbackButton: ButtonStyle(
                     tintColor: .white,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: .systemFont(ofSize: 14),
                     title: nil,

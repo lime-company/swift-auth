@@ -27,7 +27,6 @@ import Foundation
 /// * `EnterCodeScene` is a special section reserved for activation code entering screen
 /// * `NavigationBar` defines styling for navigation bar
 ///
-/// Each scene has its own property in the theme structure.
 public struct LimeAuthActivationUITheme {
 
     public struct Common {
@@ -58,13 +57,34 @@ public struct LimeAuthActivationUITheme {
         /// Status bar style applied to all activation scenes except QR code scanner.
         /// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
+        
+        /// Structure initializer
+        public init(
+            backgroundColor: UIColor?,
+            backgroundImage: LazyUIImage?,
+            titleColor: UIColor,
+            textColor: UIColor,
+            highlightedTextColor: UIColor,
+            activityIndicator: ActivityIndicatorStyle,
+            keyboardAppearance: UIKeyboardAppearance,
+            statusBarStyle: UIStatusBarStyle)
+        {
+            self.backgroundColor = backgroundColor
+            self.backgroundImage = backgroundImage
+            self.titleColor = titleColor
+            self.textColor = textColor
+            self.highlightedTextColor = highlightedTextColor
+            self.activityIndicator = activityIndicator
+            self.keyboardAppearance = keyboardAppearance
+            self.statusBarStyle = statusBarStyle
+        }
     }
     
     public struct Illustrations {
         /// Illustration at begin scene
         public var beginScene: LazyUIImage
         
-        /// Illustration at "no camera access" scene. If empty, then .errorScene will be used
+        /// Illustration at "no camera access" scene. If empty, then `.errorScene` will be used
         public var noCameraScene: LazyUIImage
         
         /// Illustration at "enable biometry" scene
@@ -75,11 +95,33 @@ public struct LimeAuthActivationUITheme {
         
         /// Illustration at "error" scene
         public var errorScene: LazyUIImage
+        
+        /// Structure initializer
+        public init(
+            beginScene: LazyUIImage,
+            noCameraScene: LazyUIImage,
+            enableBiometryScene: LazyUIImage,
+            confirmScene: LazyUIImage,
+            errorScene: LazyUIImage)
+        {
+            self.beginScene = beginScene
+            self.noCameraScene = noCameraScene
+            self.enableBiometryScene = enableBiometryScene
+            self.confirmScene = confirmScene
+            self.errorScene = errorScene
+        }
     }
     
     public struct Images {
         /// Crosshair used ar QR code scanner
         public var scannerCrosshair: LazyUIImage
+        
+        /// Structure initializer
+        public init(
+            scannerCrosshair: LazyUIImage)
+        {
+            self.scannerCrosshair = scannerCrosshair
+        }
     }
     
     public struct Buttons {
@@ -98,6 +140,19 @@ public struct LimeAuthActivationUITheme {
         /// Button for cancel (small button at left top corner)
         /// This kind of button is typically instantiated as "system".
         public var cancel: ButtonStyle
+        
+        /// Structure initializer
+        public init(
+            primary: ButtonStyle,
+            secondary: ButtonStyle,
+            destructive: ButtonStyle,
+            cancel: ButtonStyle)
+        {
+            self.primary = primary
+            self.secondary = secondary
+            self.destructive = destructive
+            self.cancel = cancel
+        }
     }
     
     public struct ScannerScene {
@@ -113,11 +168,31 @@ public struct LimeAuthActivationUITheme {
         
         /// Special fallback button
         public var fallbackButton: ButtonStyle
+        
+        /// Structure initializer
+        public init(
+            statusBarStyle: UIStatusBarStyle,
+            titleColor: UIColor,
+            closeButton: ButtonStyle,
+            fallbackButton: ButtonStyle)
+        {
+            self.statusBarStyle = statusBarStyle
+            self.titleColor = titleColor
+            self.closeButton = closeButton
+            self.fallbackButton = fallbackButton
+        }
     }
     
     public struct EnterCodeScene {
         /// Style for text fields in "enter activation code" scene
         public var activationCode: TextFieldStyle
+        
+        /// Structure initializer
+        public init(
+            activationCode: TextFieldStyle)
+        {
+            self.activationCode = activationCode
+        }
     }
     
     /// This section affects appearance of UINavigationBar & buttons, when it's visible.
@@ -134,6 +209,19 @@ public struct LimeAuthActivationUITheme {
         
         /// Color of button in navigation bar
         public var buttonColor: UIColor
+        
+        /// Structure initializer
+        public init(
+            backgroundColor: UIColor,
+            titleColor: UIColor,
+            tintColor: UIColor,
+            buttonColor: UIColor)
+        {
+            self.backgroundColor = backgroundColor
+            self.titleColor = titleColor
+            self.tintColor = tintColor
+            self.buttonColor = buttonColor
+        }
     }
     
     // MARK: - Theme content
@@ -146,6 +234,24 @@ public struct LimeAuthActivationUITheme {
     public var enterCodeScene: EnterCodeScene
     public var navigationBar: NavigationBar
     
+    /// Theme initializer
+    public init(
+        common: Common,
+        illustrations: Illustrations,
+        images: Images,
+        buttons: Buttons,
+        scannerScene: ScannerScene,
+        enterCodeScene: EnterCodeScene,
+        navigationBar: NavigationBar)
+    {
+        self.common = common
+        self.illustrations = illustrations
+        self.images = images
+        self.buttons = buttons
+        self.scannerScene = scannerScene
+        self.enterCodeScene = enterCodeScene
+        self.navigationBar = navigationBar
+    }
     
     /// Function provides a fallback theme used internally, for theme's initial values.
     public static func fallbackTheme() -> LimeAuthActivationUITheme {

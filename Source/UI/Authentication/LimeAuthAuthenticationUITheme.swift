@@ -16,10 +16,17 @@
 
 import UIKit
 
+/// The `LimeAuthAuthenticationUITheme` structure defines color, fonts, images and other visual aspects
+/// in the authentication UI flow.
+///
+/// The theme is composed from several well separated sections:
+/// * `Common` section defines various common attributes used in the screens
+/// * `Images` section defines images used in the screens
+/// * `Buttons` section defines styles for buttons used in the screens
+///
 public struct LimeAuthAuthenticationUITheme {
     
     public struct Common {
-        
         /// Common background color for all authentication scenes.
         /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
         public var backgroundColor: UIColor?
@@ -49,10 +56,32 @@ public struct LimeAuthAuthenticationUITheme {
         /// Status bar style for all authentication scenes.
         /// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
+        
+        /// Structure initializer
+        public init(
+            backgroundColor: UIColor?,
+            backgroundImage: LazyUIImage?,
+            promptTextColor: UIColor,
+            highlightedTextColor: UIColor,
+            passwordTextColor: UIColor,
+            wrongPasswordTextColor: UIColor,
+            activityIndicator: ActivityIndicatorStyle,
+            passwordTextField: TextFieldStyle,
+            statusBarStyle: UIStatusBarStyle)
+        {
+            self.backgroundColor = backgroundColor
+            self.backgroundImage = backgroundImage
+            self.promptTextColor = promptTextColor
+            self.highlightedTextColor = highlightedTextColor
+            self.passwordTextColor = passwordTextColor
+            self.wrongPasswordTextColor = wrongPasswordTextColor
+            self.activityIndicator = activityIndicator
+            self.passwordTextField = passwordTextField
+            self.statusBarStyle = statusBarStyle
+        }
     }
     
     public struct Images {
-        
         /// Logo displayed in pin keyboards
         public var logo: LazyUIImage?
         
@@ -67,10 +96,24 @@ public struct LimeAuthAuthenticationUITheme {
         
         /// Face ID icon for PIN keyboard's biometry button
         public var faceIdIcon: LazyUIImage
+        
+        /// Structure initializer
+        public init(
+            logo: LazyUIImage?,
+            successImage: LazyUIImage,
+            failureImage: LazyUIImage,
+            touchIdIcon: LazyUIImage,
+            faceIdIcon: LazyUIImage)
+        {
+            self.logo = logo
+            self.successImage = successImage
+            self.failureImage = failureImage
+            self.touchIdIcon = touchIdIcon
+            self.faceIdIcon = faceIdIcon
+        }
     }
     
     public struct Buttons {
-        
         /// Style for all digits on PIN keyboard. This kind of button is typically instantiated as "custom".
         public var pinDigits: ButtonStyle
         
@@ -95,12 +138,41 @@ public struct LimeAuthAuthenticationUITheme {
         /// or as biometry button on alphanumeric password picker ("Use Touch ID / Use Face ID")
         /// This kind of button is typically instantiated as "system".
         public var keyboardAuxiliary: ButtonStyle
+        
+        /// Structure initializer
+        public init(
+            pinDigits: ButtonStyle,
+            pinAuxiliary: ButtonStyle,
+            ok: ButtonStyle,
+            close: ButtonStyle,
+            dismissError: ButtonStyle,
+            keyboardAuxiliary: ButtonStyle)
+        {
+            self.pinDigits = pinDigits
+            self.pinAuxiliary = pinAuxiliary
+            self.ok = ok
+            self.close = close
+            self.dismissError = dismissError
+            self.keyboardAuxiliary = keyboardAuxiliary
+        }
     }
+    
+    // MARK: - Theme content
     
     public var common: Common
     public var images: Images
     public var buttons: Buttons
     
+    /// Theme initializer
+    public init(
+        common: Common,
+        images: Images,
+        buttons: Buttons)
+    {
+        self.common = common
+        self.images = images
+        self.buttons = buttons
+    }
     
     /// Function provides a fallback theme used internally, for theme initial values.
     public static func fallbackTheme() -> LimeAuthAuthenticationUITheme {

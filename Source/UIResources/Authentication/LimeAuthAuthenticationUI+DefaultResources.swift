@@ -126,7 +126,7 @@ public extension LimeAuthAuthenticationUITheme {
             buttons: Buttons(
                 pinDigits: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .highlighted(.gray),
+                    backgroundColor: .highlighted(.gray),
                     titleColor: .colors(.gray, .black),
                     titleFont: UIFont(name: "HelveticaNeue-Light", size: 44.0),
                     title: nil,
@@ -138,7 +138,7 @@ public extension LimeAuthAuthenticationUITheme {
                 ),
                 pinAuxiliary: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .highlighted(.gray),
+                    backgroundColor: .highlighted(.gray),
                     titleColor: .colors(.gray, .black),
                     titleFont: .systemFont(ofSize: 33.0),
                     title: nil,
@@ -150,7 +150,7 @@ public extension LimeAuthAuthenticationUITheme {
                 ),
                 ok: ButtonStyle(
                     tintColor: .orange,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: .systemFont(ofSize: 21.0),
                     title: nil,
@@ -162,7 +162,7 @@ public extension LimeAuthAuthenticationUITheme {
                 ),
                 close: ButtonStyle(
                     tintColor: .orange,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: smallButtonFont,
                     title: nil,
@@ -174,7 +174,7 @@ public extension LimeAuthAuthenticationUITheme {
                 ),
                 dismissError: ButtonStyle(
                     tintColor: nil,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: bigButtonFont,
                     title: nil,
@@ -186,7 +186,7 @@ public extension LimeAuthAuthenticationUITheme {
                 ),
                 keyboardAuxiliary: ButtonStyle(
                     tintColor: .orange,
-                    backgrdoundColor: .clear,
+                    backgroundColor: .clear,
                     titleColor: nil,
                     titleFont: bigButtonFont,
                     title: nil,

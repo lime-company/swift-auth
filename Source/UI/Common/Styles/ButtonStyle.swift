@@ -40,7 +40,7 @@ public struct ButtonStyle {
     public let tintColor: UIColor?
     
     /// If set, then colors are applied to `UIButton.backgroundColor` and `RoundCornersButton.highlightedBackgroundColor`
-    public let backgrdoundColor: MultistateColor?
+    public let backgroundColor: MultistateColor?
     
     /// If set, then colors are applied to title colors
     public let titleColor: MultistateColor?
@@ -77,22 +77,47 @@ public struct ButtonStyle {
         }
         
         /// If set, then this style will not be applied to the target button.
-        static let noStyle = Options(rawValue: 1 << 0)
+        public static let noStyle = Options(rawValue: 1 << 0)
         
         /// If set, and button is `RoundCornersButton`, then it will be rendered as circle.
-        static let isRounded = Options(rawValue: 1 << 1)
+        public static let isRounded = Options(rawValue: 1 << 1)
     
         /// Affects button's adjustsImageWhenHighlighted property
-        static let adjustsImageWhenHighlighted = Options(rawValue: 1 << 2)
+        public static let adjustsImageWhenHighlighted = Options(rawValue: 1 << 2)
         
         /// Affects button's adjustsImageWhenDisabled property
-        static let adjustsImageWhenDisabled = Options(rawValue: 1 << 3)
+        public static let adjustsImageWhenDisabled = Options(rawValue: 1 << 3)
         
         /// Default set of options
-        static let `default`: Options = []
+        public static let `default`: Options = []
     }
     
     public let options: Options
+    
+    /// Structure initializer
+    public init(
+        tintColor: UIColor?,
+        backgroundColor: MultistateColor?,
+        titleColor: MultistateColor?,
+        titleFont: UIFont?,
+        title: String?,
+        image: MultistateImage?,
+        borderWidth: CGFloat,
+        borderColor: MultistateColor?,
+        borderCornerRadius: CGFloat,
+        options: Options)
+    {
+        self.tintColor = tintColor
+        self.backgroundColor = backgroundColor
+        self.titleColor = titleColor
+        self.titleFont = titleFont
+        self.title = title
+        self.image = image
+        self.borderWidth = borderWidth
+        self.borderColor = borderColor
+        self.borderCornerRadius = borderCornerRadius
+        self.options = options
+    }
     
     /// Returns style which doesn't affect button's appearance at all. This kind of style can be used for cases when actual button's
     /// style is applied somehow else. For example, if your application is using a custom storyboards or `UIAppearance` facility,
@@ -100,7 +125,7 @@ public struct ButtonStyle {
     public static var noStyle: ButtonStyle {
         return ButtonStyle(
             tintColor: nil,
-            backgrdoundColor: nil,
+            backgroundColor: nil,
             titleColor: nil,
             titleFont: nil,
             title: nil,

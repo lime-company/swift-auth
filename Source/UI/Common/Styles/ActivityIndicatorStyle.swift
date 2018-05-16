@@ -35,13 +35,24 @@ public struct ActivityIndicatorStyle {
         }
         
         /// If set, then this style will not be applied to the target activity indicator.
-        static let noStyle = Options(rawValue: 1 << 0)
+        public static let noStyle = Options(rawValue: 1 << 0)
         
         /// Default set of options
-        static let `default`: Options = []
+        public static let `default`: Options = []
     }
     
     public let options: Options
+    
+    /// Structure initializer
+    public init(
+        style: UIActivityIndicatorViewStyle,
+        color: UIColor,
+        options: Options)
+    {
+        self.style = style
+        self.color = color
+        self.options = options
+    }
     
     /// Returns style for large activity indicator, tinted with given color.
     public static func large(_ color: UIColor) -> ActivityIndicatorStyle {

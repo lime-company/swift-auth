@@ -29,6 +29,17 @@ public struct MultistateImage {
     /// Image for disabled state
     public let disabled: LazyUIImage
     
+    /// Structure initializer
+    public init(
+        normal: LazyUIImage,
+        highlighted: LazyUIImage,
+        disabled: LazyUIImage)
+    {
+        self.normal = normal
+        self.highlighted = highlighted
+        self.disabled = disabled
+    }
+    
     /// Contains `MultistateImage` with all parts set to `.empty`
     public static var empty: MultistateImage {
         return MultistateImage(normal: .empty, highlighted: .empty, disabled: .empty)
