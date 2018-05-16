@@ -25,16 +25,6 @@ public enum ScanActivationCode {
             let enterCodeFallbackButton: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Scan the activation QR code",
-                    enterCodeFallbackButton:  "Unsuccessful? Rewrite the code."
-                )
-            )
-        }
-        
+        public let strings: Strings        
     }
 }

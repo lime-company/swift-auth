@@ -15,12 +15,16 @@
 //
 
 import UIKit
+import LimeCore
 
 public extension LimeAuthActivationUI {
     
-    public static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil, authenticationTheme: LimeAuthAuthenticationUITheme? = nil, bundle: Bundle? = nil) -> ActivationUIProvider {
-        let activationUIProvider = DefaultActivationResourcesProvider(bundle: bundle) { () -> AuthenticationUIProvider in
-            let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle)
+    public static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
+                                                authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
+                                                localizationProvider: GenericLocalizationProvider? = nil,
+                                                bundle: Bundle? = nil) -> ActivationUIProvider {
+        let activationUIProvider = DefaultActivationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider) { () -> AuthenticationUIProvider in
+            let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
             authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
             return authenticationUIProvider
         }

@@ -26,17 +26,6 @@ public enum NoCameraAccess {
             let openSettingsButton: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Allow camera access",
-                    sceneDescription: "Application cannot use camera. You can permit it in Settings.",
-                    openSettingsButton: "Open settings"
-                )
-            )
-        }
-        
+        public let strings: Strings        
     }
 }

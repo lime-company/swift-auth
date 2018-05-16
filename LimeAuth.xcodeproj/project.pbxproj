@@ -63,6 +63,7 @@
 		BF87E18420A9C57B006B28D4 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */; };
 		BF87E18620A9F1FA006B28D4 /* GenericLayerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */; };
 		BF87E18820AAE35B006B28D4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */; };
+		BF87E19320AC7F6C006B28D4 /* LimeAuth.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF87E19520AC7F6C006B28D4 /* LimeAuth.strings */; };
 		BF8CF45320320A5E002A6B6E /* LimeAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8CF45120320A5E002A6B6E /* LimeAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF8CF45620320ACA002A6B6E /* LimeImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF45520320ACA002A6B6E /* LimeImports.swift */; };
 		BF8CF46B2032E8EA002A6B6E /* LimeAuthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */; };
@@ -160,6 +161,7 @@
 		BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLayerStyle.swift; sourceTree = "<group>"; };
 		BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		BF87E19420AC7F6C006B28D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LimeAuth.strings; sourceTree = "<group>"; };
 		BF8CF42E20320880002A6B6E /* LimeAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LimeAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8CF44F20320A40002A6B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8CF45020320A40002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
@@ -459,6 +461,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		BF87E18A20AC6906006B28D4 /* UIResources_Localization */ = {
+			isa = PBXGroup;
+			children = (
+				BF87E19520AC7F6C006B28D4 /* LimeAuth.strings */,
+			);
+			path = UIResources_Localization;
+			sourceTree = "<group>";
+		};
 		BF8CF42420320880002A6B6E = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +496,7 @@
 				BF8CF440203209AC002A6B6E /* UIResources */,
 				BFA49C2E20A58D3A000D82B6 /* UIResources_Images */,
 				BFA49C2F20A58D57000D82B6 /* UIResources_Illustrations */,
+				BF87E18A20AC6906006B28D4 /* UIResources_Localization */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -763,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF496435205995FC002560A8 /* Authentication.storyboard in Resources */,
+				BF87E19320AC7F6C006B28D4 /* LimeAuth.strings in Resources */,
 				BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,11 +880,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		BF87E19520AC7F6C006B28D4 /* LimeAuth.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF87E19420AC7F6C006B28D4 /* en */,
+			);
+			name = LimeAuth.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		BF8CF43420320880002A6B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -936,6 +960,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

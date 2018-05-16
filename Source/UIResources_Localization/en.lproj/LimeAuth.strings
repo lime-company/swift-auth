@@ -1,0 +1,69 @@
+//
+// Copyright 2018 Lime - HighTech Solutions s.r.o.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions
+// and limitations under the License.
+//
+
+// MARK: - Common strings
+
+"limeauth.common.ok"                     = "OK";
+"limeauth.common.cancel"                 = "Cancel";
+"limeauth.common.close"                  = "Close";
+
+// MARK: - Activation
+
+// Activation :: Begin Scene
+"limeauth.act.begin.title"                  = "Enter the Activation code";
+"limeauth.act.begin.description"            = "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.";
+"limeauth.act.begin.scanButton"             = "Scan the Activation QR code";
+"limeauth.act.begin.enterCodeButton"        = "Retype the Activation code manually";
+
+// Activation :: No camera access
+"limeauth.act.noCamera.title"               = "Allow camera access";
+"limeauth.act.noCamera.description"         = "Application cannot use camera. You can permit it in Settings.";
+"limeauth.act.noCamera.settingsButton"      = "Open settings";
+
+// Activation :: Enter Activation Code
+"limeauth.act.enterCode.title"              = "Enter the Activation code manually";
+"limeauth.act.enterCode.description"        = "Please retype the Activation code in its numeric format from the ePortal screen.";
+"limeauth.act.enterCode.confirmButton"      = "Confirm";
+
+// Activation :: Scan Activation Code
+"limeauth.act.scanCode.title"               = "Scan the activation QR code";
+"limeauth.act.scanCode.fallbackButton"      = "Unsuccessful? Rewrite the code.";
+
+// Activation :: Keys Exchange
+"limeauth.act.keysExchange.inProgress"      = "Pairing your device...";
+
+// Activation :: Enable biometry
+"limeauth.act.biometry.title.touchId"           = "Confirm payments by fingerprint";
+"limeauth.act.biometry.title.faceId"            = "Confirm payments by your face";
+"limeauth.act.biometry.description.touchId"     = "You can sign in and confirm operations just with your fingerprint.";
+"limeauth.act.biometry.description.faceId"      = "You can sign in and confirm operations just with your face.";
+"limeauth.act.biometry.enableButton.touchId"    = "Allow Touch ID";
+"limeauth.act.biometry.enableButton.faceId"     = "Allow Face ID";
+"limeauth.act.biometry.enableLaterButton"       = "Not now, thank you";
+
+// Activation :: Confirm Scene
+"limeauth.act.confirm.title"                = "Complete the Mobile Key activation";
+"limeauth.act.confirm.description"          = "Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal";
+"limeauth.act.confirm.inProgress"           = "Waiting for activation completion";
+"limeauth.act.confirm.cancelButton"         = "Cancel operation";
+
+// Activation :: Error Scene
+"limeauth.act.error.title"                  = "Error";
+"limeauth.act.error.fallbackMessage"        = "The activation did fail. Please try again.";
+
+// MARK: - Authentication
+
+// MARK: - Errors

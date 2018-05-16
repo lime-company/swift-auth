@@ -15,13 +15,16 @@
 //
 
 import UIKit
+import LimeCore
 
 internal class DefaultActivationResourcesProvider: ActivationUIProvider, ActivationUIDataProvider {
     
     public let bundle: Bundle
+    public let localization: GenericLocalizationProvider
     
-    public init(bundle: Bundle? = nil, authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
+    public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?, authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
         self.bundle = bundle ?? .limeAuthResourcesBundle
+        self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
         self.authenticationUIProviderClosure = authenticationUIProviderClosure
     }
     
@@ -79,16 +82,96 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     // MARK: - ActivationUIDataProvider
 
     public var uiTheme: LimeAuthActivationUITheme = .fallbackTheme()
-    public var uiCommonStrings: Activation.UIData.CommonStrings = .fallbackStrings()
+    
+    public lazy var uiCommonStrings: Activation.UIData.CommonStrings = {
+        Activation.UIData.CommonStrings(
+            okTitle: localization.localizedString("limeauth.common.ok"),
+            cancelTitle: localization.localizedString("limeauth.common.cancel"),
+            closeTitle: localization.localizedString("limeauth.common.close")
+        )
+    }()
 
-    public var uiDataForBeginActivation: BeginActivation.UIData = .fallbackData()
-    public var uiDataForNoCameraAccess: NoCameraAccess.UIData = .fallbackData()
-    public var uiDataForEnterActivationCode: EnterActivationCode.UIData = .fallbackData()
-    public var uiDataForScanActivationCode: ScanActivationCode.UIData = .fallbackData()
-    public var uiDataForKeysExchange: KeysExchange.UIData = .fallbackData()
-    public var uiDataForEnableBiometry: EnableBiometry.UIData = .fallbackData()
-    public var uiDataForConfirmActivation: ConfirmActivation.UIData = .fallbackData()
-    public var uiDataForErrorActivation: ErrorActivation.UIData = .fallbackData()
+    public lazy var uiDataForBeginActivation: BeginActivation.UIData = {
+        BeginActivation.UIData(
+            strings: BeginActivation.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.begin.title"),
+                sceneDescription: localization.localizedString("limeauth.act.begin.description"),
+                scanButton: localization.localizedString("limeauth.act.begin.scanButton"),
+                enterButton: localization.localizedString("limeauth.act.begin.enterCodeButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForNoCameraAccess: NoCameraAccess.UIData = {
+        NoCameraAccess.UIData(
+            strings: NoCameraAccess.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.noCamera.title"),
+                sceneDescription: localization.localizedString("limeauth.act.noCamera.description"),
+                openSettingsButton: localization.localizedString("limeauth.act.noCamera.settingsButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForEnterActivationCode: EnterActivationCode.UIData = {
+        EnterActivationCode.UIData(
+            strings: EnterActivationCode.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.enterCode.title"),
+                sceneDescription: localization.localizedString("limeauth.act.enterCode.description"),
+                confirmButton: localization.localizedString("limeauth.act.enterCode.confirmButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForScanActivationCode: ScanActivationCode.UIData = {
+        ScanActivationCode.UIData(
+            strings: ScanActivationCode.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.scanCode.title"),
+                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCode.fallbackButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForKeysExchange: KeysExchange.UIData = {
+        KeysExchange.UIData(
+            strings: KeysExchange.UIData.Strings(
+                pendingActivationTitle: localization.localizedString("limeauth.act.keysExchange.inProgress")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForEnableBiometry: EnableBiometry.UIData = {
+        EnableBiometry.UIData(
+            strings: EnableBiometry.UIData.Strings(
+                touchIdSceneTitle: localization.localizedString("limeauth.act.biometry.title.touchId"),
+                faceIdSceneTitle: localization.localizedString("limeauth.act.biometry.title.faceId"),
+                touchIdDescription: localization.localizedString("limeauth.act.biometry.description.touchId"),
+                faceIdDescription: localization.localizedString("limeauth.act.biometry.description.faceId"),
+                enableTouchIdButton: localization.localizedString("limeauth.act.biometry.enableButton.touchId"),
+                enableFaceIdButton: localization.localizedString("limeauth.act.biometry.enableButton.faceId"),
+                enableLaterButton: localization.localizedString("limeauth.act.biometry.enableLaterButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForConfirmActivation: ConfirmActivation.UIData = {
+        ConfirmActivation.UIData(
+            strings: ConfirmActivation.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.confirm.title"),
+                sceneDescription: localization.localizedString("limeauth.act.confirm.description"),
+                waitingLabel: localization.localizedString("limeauth.act.confirm.inProgress"),
+                removeActivationButton: localization.localizedString("limeauth.act.confirm.cancelButton")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForErrorActivation: ErrorActivation.UIData = {
+        ErrorActivation.UIData(
+            strings: ErrorActivation.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.error.title"),
+                genericError: localization.localizedString("limeauth.act.error.fallbackMessage")
+            )
+        )
+    }()
 
     public func loadTheme(theme: LimeAuthActivationUITheme) {
         

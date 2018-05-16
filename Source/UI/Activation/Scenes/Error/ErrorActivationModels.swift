@@ -25,16 +25,6 @@ public enum ErrorActivation {
             let genericError: String
         }
         
-        public let strings: Strings
-        
-        public static func fallbackData() -> UIData {
-            return UIData(
-                strings: Strings(
-                    sceneTitle: "Error",
-                    genericError: "The activation did fail. Please try again."
-                )
-            )
-        }
-        
+        public let strings: Strings        
     }
 }

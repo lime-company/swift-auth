@@ -15,13 +15,16 @@
 //
 
 import UIKit
+import LimeCore
 
 internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider, AuthenticationUIDataProvider {
 
     public let bundle: Bundle
+    public let localization: GenericLocalizationProvider
     
-    public init(bundle: Bundle? = nil) {
+    public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?) {
         self.bundle = bundle ?? .limeAuthResourcesBundle
+        self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
     }
     
     private var storyboard: UIStoryboard {

@@ -47,4 +47,10 @@ Pod::Spec.new do |s|
     sub.dependency 'LimeAuth/UIResources'
   end
 
+  # 'UIResources_Localization' subspec
+  s.subspec 'UIResources_Localization' do |sub|
+    sub.resources = [ 'Source/UIResources_Localization/*.lproj' ]
+    sub.dependency 'LimeAuth/UIResources'
+  end
+
 end
