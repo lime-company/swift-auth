@@ -105,10 +105,10 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             removeDevice_Activity: localization.localizedString("limeauth.op.removeActivation.activity"),
             removeDevice_Success: localization.localizedString("limeauth.op.removeActivation.success"),
             
-            enableTouchId_Activity: localization.localizedString("limeauth.op.enableBio.activity.touchId"),
-            enableTouchId_Success: localization.localizedString("limeauth.op.enableBio.success.touchId"),
-            enableFaceId_Activity: localization.localizedString("limeauth.op.enableBio.activity.faceId"),
-            enableFaceId_Success: localization.localizedString("limeauth.op.enableBio.success.faceId")
+            enableTouchId_Activity: localization.localizedString("limeauth.op.enableTouchId.activity"),
+            enableTouchId_Success: localization.localizedString("limeauth.op.enableTouchId.success"),
+            enableFaceId_Activity: localization.localizedString("limeauth.op.enableFaceId.activity"),
+            enableFaceId_Success: localization.localizedString("limeauth.op.enableFaceId.success")
         )
     }()
     
