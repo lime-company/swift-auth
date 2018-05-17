@@ -73,9 +73,6 @@ public protocol AuthenticationUIOperationExecutionLogic: class {
     /// Contains true if underlying operation is cancelled.
     var isCancelled: Bool { get }
     
-    /// Contains true if retry is allowed.
-    var isRetryAllowed: Bool  { get }
-    
     /// Contains true if biometry is allowed for underlying operation
     var isBiometryAllowed: Bool  { get }
     
