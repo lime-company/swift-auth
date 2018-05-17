@@ -160,6 +160,12 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 sceneDescription: localization.localizedString("limeauth.act.confirm.description"),
                 waitingLabel: localization.localizedString("limeauth.act.confirm.inProgress"),
                 removeActivationButton: localization.localizedString("limeauth.act.confirm.cancelButton")
+            ),
+            errors: ConfirmActivation.UIData.Errors(
+                activation: localization.localizedString("limeauth.err.activation"),
+                activationRemoved: localization.localizedString("limeauth.err.activation.removed"),
+                activationBlocked: localization.localizedString("limeauth.err.activation.blocked"),
+                passwordSetupFailure: localization.localizedString("limeauth.err.activation.pinSetupFailure")
             )
         )
     }()
@@ -168,7 +174,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         ErrorActivation.UIData(
             strings: ErrorActivation.UIData.Strings(
                 sceneTitle: localization.localizedString("limeauth.act.error.title"),
-                genericError: localization.localizedString("limeauth.act.error.fallbackMessage")
+                genericError: localization.localizedString("limeauth.err.activation")
             )
         )
     }()

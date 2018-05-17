@@ -113,8 +113,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         return operationExecution.isBiometryAllowed
     }
     
-    /// Error returned from operation execution
-    private var error: LimeAuthError?
+    /// Result returned from operation execution
+    private var executionResult: AuthenticationUIOperationResult?
     
     // MARK: - ViewController life cycle
     
@@ -243,7 +243,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     private func showFailureResult(_ failure: AuthenticationUIOperationResult) {
         
-        error = failure.error
+        self.executionResult = failure
         self.fixedPinLabel?.isHidden = false
         if failure.isTouchIdCancel {
             // user did cancel TouchID dialog
@@ -251,7 +251,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             //
         } else if failure.isAuthenticationError {
             // auth error
-            if failure.activationProblem {
+            if failure.isActivationProblem {
                 // activation has been blocked, or completely removed.
                 // we should inform user about this situation and dismiss the dialog
                 self.presentError(retry: false)
@@ -541,7 +541,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     open func updatePromptLabel() {
-        // TODO: loc
         var promptText: String
         let state = self.isPendingStateChange ? self.nextState : self.currentState
         switch state {
@@ -552,10 +551,27 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         case .success:
             promptText = uiRequest.prompts.successMessage  ?? uiDataProvider.uiCommonStrings.success
         case .error:
-            promptText = "Operation execution did fail."
+            promptText = localizedErrorMessage()
         default:
             promptText = ""
         }
         self.promptLabel?.text = promptText
     }
+    
+	private func localizedErrorMessage() -> String {
+        guard let result = executionResult else {
+            return uiDataProvider.uiCommonStrings.failure
+        }
+        if result.isAuthenticationError {
+            if result.isActivationProblem {
+                if result.activationState == .blocked {
+                    return uiDataProvider.uiCommonErrors.activationIsBlocked
+                } else if result.activationState == .removed {
+                    return uiDataProvider.uiCommonErrors.activationWasRemoved
+                }
+            }
+            return uiDataProvider.uiCommonErrors.wrongPin
+        }
+        return uiDataProvider.localizeError(error: result.error, fallback: uiDataProvider.uiCommonStrings.failure)
+	}
 }

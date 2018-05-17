@@ -160,18 +160,6 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
                 response.isAuthenticationError = true
             }
-            // Workaround for crappy error processing inside the PA2 SDK
-            if err.domain == PA2ErrorDomain {
-                if let nested:NSError = err.nestedError as NSError? {
-                    if let errorResponse = nested.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
-                        if let mightyErrorResponse = errorResponse.responseObject {
-                            if mightyErrorResponse.code == "ERR_AUTHENTICATION" {
-                                response.isAuthenticationError = true
-                            }
-                        }
-                    }
-                }
-            }
             // If not offline, then check whether is network available.
             if !self.operation.isOffline {
                 if self.checkOnlineConnection(&response) {
@@ -253,7 +241,8 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             self.state = nextState
             if let st = status {
                 var responseCopy = response
-                responseCopy.activationProblem = st.state != .active
+                responseCopy.isActivationProblem = st.state != .active
+                responseCopy.activationState = st.state
                 callback(responseCopy)
             } else {
                 callback(response)

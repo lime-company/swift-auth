@@ -16,9 +16,13 @@
 
 // MARK: - Common strings
 
-"limeauth.common.ok"                     = "OK";
-"limeauth.common.cancel"                 = "Cancel";
-"limeauth.common.close"                  = "Close";
+"limeauth.common.ok"        = "OK";
+"limeauth.common.cancel"    = "Cancel";
+"limeauth.common.close"     = "Close";
+"limeauth.common.yes"       = "Yes";
+"limeauth.common.no"        = "No";
+
+
 
 // MARK: - Activation
 
@@ -34,7 +38,7 @@
 "limeauth.act.noCamera.settingsButton"      = "Open settings";
 
 // Activation :: Enter Activation Code
-"limeauth.act.enterCode.title"              = "Enter the Activation code manually";
+"limeauth.act.enterCode.title"              = "Activation code";
 "limeauth.act.enterCode.description"        = "Please retype the Activation code in its numeric format from the ePortal screen.";
 "limeauth.act.enterCode.confirmButton"      = "Confirm";
 
@@ -62,8 +66,74 @@
 
 // Activation :: Error Scene
 "limeauth.act.error.title"                  = "Error";
-"limeauth.act.error.fallbackMessage"        = "The activation did fail. Please try again.";
+
+
 
 // MARK: - Authentication
 
+// Comon strings
+"limeauth.auth.pleaseWait"                  = "Please wait...";                 // Fallback string when pending operation message is not specified
+"limeauth.auth.operationSuccess"            = "Operation succeeded";            // Fallback string when success message for operation is not specified
+"limeauth.auth.operationFailure"            = "Operation execution did fail.";  // Generic failure
+
+// PIN prompts
+"limeauth.auth.enterPin"                    = "Enter passcode";         // Generic PIN prompt, when prompt for operation is not specified
+"limeauth.auth.enterOldPin"                 = "Enter old passcode";
+"limeauth.auth.enterNewPin"                 = "Enter new passcode";
+"limeauth.auth.retypeNewPin"                = "Retype new passcode";
+"limeauth.auth.pinsNotMatch"                = "Passcodes did not match. Try again.";
+
+// Password prompts
+"limeauth.auth.enterPassword"               = "Enter password";         // Generic password prompt, when prompt for operation is not specified
+"limeauth.auth.enterOldPassword"            = "Enter old password";
+"limeauth.auth.enterNewPassword"            = "Enter new password";
+"limeauth.auth.retypeNewPassword"           = "Retype new password";
+"limeauth.auth.passwordsNotMatch"           = "Passwords did not match. Try again.";
+
+// Biometry buttons
+"limeauth.auth.useTouchId"                  = "Use Touch ID";
+"limeauth.auth.useFaceId"                   = "Use Face ID";
+
+// Password complexity
+"limeauth.auth.changeComplexityButton"      = "Password options";                   // Button in creating password scene
+"limeauth.auth.changeComplexityTitle"       = "Choose password complexity";         // Title for action sheet with complexity selection
+"limeauth.auth.fixedPin(n)"                 = "%u digits long PIN";                 // "{n} digits long PIN"
+"limeauth.auth.variablePin(min,max)"        = "%u up to %u digits long PIN";        // "{min} up to {max} digits long PIN"
+"limeauth.auth.password(min)"               = "%u chars or longer password";        // "{min} chars or longer password"
+
+// Remaining attempts
+"limeauth.auth.attempts.remaining(n)"       = "%u attempts left";
+"limeauth.auth.attempts.last"               = "Your last attempt";
+
+
+// MARK: - Operations
+
+"limeauth.op.changePass.activity"           = "";   // "Please wait...", but also empty string works well here, because we're just validating password.
+
+"limeauth.op.removeActivation.activity"     = "Removing activation from this device...";
+"limeauth.op.removeActivation.success"      = "This device is no longer activated.";
+
+"limeauth.op.enableBio.activity.touchId"    = "Enabling Touch ID support...";
+"limeauth.op.enableBio.activity.faceId"     = "Enabling Face ID support...";
+"limeauth.op.enableBio.success.touchId"     = "Touch ID has been successfully enabled.";
+"limeauth.op.enableBio.success.faceId"      = "Face ID has been successfully enabled.";
+
 // MARK: - Errors
+
+"limeauth.err.generic"                      = "The communication with the server did fail.";    // Generic error
+
+"limeauth.err.activation"                   = "Unable to register the mobile device with your account. Please try again later.";
+"limeauth.err.activation.removed"           = "Device registration has already expired. Please try to register the device one more time.";
+"limeauth.err.activation.blocked"           = "The device was blocked during the registration - please remove the device and try to register it again.";
+"limeauth.err.activation.pinSetupFailure"   = "Setting up a new PIN code failed - please try to register the device again.";
+
+"limeauth.err.wrongPin"                     = "Wrong passcode";
+"limeauth.err.wrongPassword"                = "Wrong password";
+"limeauth.err.activationWasRemoved"         = "This device has no longer a valid activation.";
+"limeauth.err.activationIsBlocked"          = "Activation on this device has been blocked.";
+
+"limeauth.err.network.serverIsDown"         = "The server is down.";
+"limeauth.err.network.untrustedSSL"         = "Untrusted SSL connection.";
+"limeauth.err.network.isOffline"            = "The device is not connected to the internet.";
+
+"limeauth.err.pa.internal(code)"            = "Internal error: PA-%@";                          // Fallback when there's unhandled PA error

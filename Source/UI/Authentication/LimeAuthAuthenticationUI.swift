@@ -160,13 +160,14 @@ public extension LimeAuthAuthenticationUI {
                                            completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
 
         let uiDataProvider = uiProvider.uiDataProvider
-        let commonStrings = uiDataProvider.uiCommonStrings
+        let opStrings = uiDataProvider.uiOperationStrings
         let credentials = credentialsProvider.credentials
         
         // UIRequest
         var uiRequest = Authentication.UIRequest()
-        uiRequest.prompts.keyboardPrompt = credentials.password.type == .password ? commonStrings.enterOldPassword : commonStrings.enterOldPin
-        uiRequest.prompts.activityMessage = ""
+        let prompt = credentials.password.type == .password ? opStrings.changePassword_PromptPassword : opStrings.changePassword_PromptPin
+        uiRequest.prompts.keyboardPrompt = prompt
+        uiRequest.prompts.activityMessage = opStrings.changePassword_Activity
         uiRequest.prompts.successMessage = ""
         uiRequest.tweaks.successAnimationDelay = 450
         
@@ -224,10 +225,13 @@ public extension LimeAuthAuthenticationUI {
                 completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
             }
         }
-        // TODO: loc
+        
+        let uiDataProvider = uiProvider.uiDataProvider
+        let opStrings = uiDataProvider.uiOperationStrings
+        
         var uiRequest = Authentication.UIRequest()
-        uiRequest.prompts.activityMessage = "Removing activation from this device..."
-        uiRequest.prompts.successMessage = "This device is no longer activated."
+        uiRequest.prompts.activityMessage = opStrings.removeDevice_Activity
+        uiRequest.prompts.successMessage = opStrings.removeDevice_Success
         return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
             completion(result, finalController)
         }
@@ -244,10 +248,14 @@ public extension LimeAuthAuthenticationUI {
                 completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
             }
         }
-        // TODO: loc
+        
+        let uiDataProvider = uiProvider.uiDataProvider
+        let opStrings = uiDataProvider.uiOperationStrings
+        let isTouchId = LimeAuthSession.supportedBiometricAuthentication == .touchID
+        
         var uiRequest = Authentication.UIRequest()
-        uiRequest.prompts.activityMessage = "Workinng..."
-        uiRequest.prompts.successMessage = "Biometric authentication has been enabled."
+        uiRequest.prompts.activityMessage = isTouchId ? opStrings.enableTouchId_Activity : opStrings.enableFaceId_Activity
+        uiRequest.prompts.successMessage = isTouchId ? opStrings.enableTouchId_Success : opStrings.enableFaceId_Success
         
         return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
             completion(result, finalController)

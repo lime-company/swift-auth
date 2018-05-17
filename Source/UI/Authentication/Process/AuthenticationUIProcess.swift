@@ -35,6 +35,7 @@ public protocol AuthenticationUIDataProvider: class {
     var uiTheme: LimeAuthAuthenticationUITheme { get }
     var uiCommonStrings: Authentication.UIData.CommonStrings { get }
     var uiCommonErrors: Authentication.UIData.CommonErrors { get }
+    var uiOperationStrings: Authentication.UIData.OperationStrings { get }
     
     // Per scene getters
     
@@ -44,6 +45,14 @@ public protocol AuthenticationUIDataProvider: class {
     
     func localizePasswordComplexity(option: LimeAuthCredentials.Password) -> String
     func localizeRemainingAttempts(attempts: UInt32) -> String
+    func localizeError(error: LimeAuthError?, fallback: String?) -> String
+}
+
+public extension AuthenticationUIDataProvider {
+    /// Localize error version without fallback string.
+    public func localizeError(error: LimeAuthError?) -> String {
+        return localizeError(error: error, fallback: nil)
+    }
 }
 
 public protocol AuthenticationUIProcessRouter: class {
