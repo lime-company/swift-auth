@@ -50,12 +50,14 @@
 "limeauth.act.keysExchange.inProgress"      = "Pairing your device...";
 
 // Activation :: Enable biometry
-"limeauth.act.biometry.title.touchId"           = "Confirm payments by fingerprint";
-"limeauth.act.biometry.title.faceId"            = "Confirm payments by your face";
-"limeauth.act.biometry.description.touchId"     = "You can sign in and confirm operations just with your fingerprint.";
-"limeauth.act.biometry.description.faceId"      = "You can sign in and confirm operations just with your face.";
-"limeauth.act.biometry.enableButton.touchId"    = "Allow Touch ID";
-"limeauth.act.biometry.enableButton.faceId"     = "Allow Face ID";
+"limeauth.act.biometry.touchId.title"           = "Confirm payments by fingerprint";
+"limeauth.act.biometry.touchId.description"     = "You can sign in and confirm operations just with your fingerprint.";
+"limeauth.act.biometry.touchId.enableButton"    = "Allow Touch ID";
+
+"limeauth.act.biometry.faceId.title"            = "Confirm payments by your face";
+"limeauth.act.biometry.faceId.description"      = "You can sign in and confirm operations just with your face.";
+"limeauth.act.biometry.faceId.enableButton"     = "Allow Face ID";
+
 "limeauth.act.biometry.enableLaterButton"       = "Not now, thank you";
 
 // Activation :: Confirm Scene
@@ -113,10 +115,10 @@
 "limeauth.op.removeActivation.activity"     = "Removing activation from this device...";
 "limeauth.op.removeActivation.success"      = "This device is no longer activated.";
 
-"limeauth.op.enableBio.activity.touchId"    = "Enabling Touch ID support...";
-"limeauth.op.enableBio.activity.faceId"     = "Enabling Face ID support...";
-"limeauth.op.enableBio.success.touchId"     = "Touch ID has been successfully enabled.";
-"limeauth.op.enableBio.success.faceId"      = "Face ID has been successfully enabled.";
+"limeauth.op.enableTouchId.activity"        = "Enabling Touch ID support...";
+"limeauth.op.enableTouchId.success"         = "Touch ID has been successfully enabled.";
+"limeauth.op.enableFaceId.activity"         = "Enabling Face ID support...";
+"limeauth.op.enableFaceId.success"          = "Face ID has been successfully enabled.";
 
 // MARK: - Errors
 

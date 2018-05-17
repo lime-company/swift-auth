@@ -22,10 +22,10 @@ public enum EnableBiometry {
         
         public struct Strings {
             let touchIdSceneTitle: String
-            let faceIdSceneTitle: String
             let touchIdDescription: String
-            let faceIdDescription: String
             let enableTouchIdButton: String
+            let faceIdSceneTitle: String
+            let faceIdDescription: String
             let enableFaceIdButton: String
             let enableLaterButton: String
         }

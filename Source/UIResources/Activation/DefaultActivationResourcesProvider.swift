@@ -142,12 +142,12 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public lazy var uiDataForEnableBiometry: EnableBiometry.UIData = {
         EnableBiometry.UIData(
             strings: EnableBiometry.UIData.Strings(
-                touchIdSceneTitle: localization.localizedString("limeauth.act.biometry.title.touchId"),
-                faceIdSceneTitle: localization.localizedString("limeauth.act.biometry.title.faceId"),
-                touchIdDescription: localization.localizedString("limeauth.act.biometry.description.touchId"),
-                faceIdDescription: localization.localizedString("limeauth.act.biometry.description.faceId"),
-                enableTouchIdButton: localization.localizedString("limeauth.act.biometry.enableButton.touchId"),
-                enableFaceIdButton: localization.localizedString("limeauth.act.biometry.enableButton.faceId"),
+                touchIdSceneTitle: localization.localizedString("limeauth.act.biometry.touchId.title"),
+                touchIdDescription: localization.localizedString("limeauth.act.biometry.touchId.description"),
+                enableTouchIdButton: localization.localizedString("limeauth.act.biometry.touchId.enableButton"),
+                faceIdSceneTitle: localization.localizedString("limeauth.act.biometry.faceId.title"),
+                faceIdDescription: localization.localizedString("limeauth.act.biometry.faceId.description"),
+                enableFaceIdButton: localization.localizedString("limeauth.act.biometry.faceId.enableButton"),
                 enableLaterButton: localization.localizedString("limeauth.act.biometry.enableLaterButton")
             )
         )
