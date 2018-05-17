@@ -70,33 +70,104 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     }
     
     var uiTheme: LimeAuthAuthenticationUITheme = .fallbackTheme()
-    var uiCommonStrings: Authentication.UIData.CommonStrings = .fallbackStrings()
-    var uiCommonErrors: Authentication.UIData.CommonErrors = .fallbackErrors()
+    lazy var uiCommonStrings: Authentication.UIData.CommonStrings = {
+        Authentication.UIData.CommonStrings(
+            enterPin: localization.localizedString("limeauth.auth.enterPin"),
+            enterPassword: localization.localizedString("limeauth.auth.enterPassword"),
+            useTouchId: localization.localizedString("limeauth.auth.useTouchId"),
+            useFaceId: localization.localizedString("limeauth.auth.useFaceId"),
+            okButton: localization.localizedString("limeauth.common.ok"),
+            cancelButton: localization.localizedString("limeauth.common.cancel"),
+            closeButton: localization.localizedString("limeauth.common.close"),
+            yesButton: localization.localizedString("limeauth.common.yes"),
+            noButton: localization.localizedString("limeauth.common.no"),
+            pleaseWait: localization.localizedString("limeauth.auth.pleaseWait"),
+            success: localization.localizedString("limeauth.auth.operationSuccess"),
+            failure: localization.localizedString("limeauth.auth.operationFailure")
+        )
+    }()
+    
+    lazy var uiCommonErrors: Authentication.UIData.CommonErrors = {
+        Authentication.UIData.CommonErrors(
+            wrongPin: localization.localizedString("limeauth.err.wrongPin"),
+            wrongPassword: localization.localizedString("limeauth.err.wrongPassword"),
+            activationWasRemoved: localization.localizedString("limeauth.err.activationWasRemoved" ),
+            activationIsBlocked: localization.localizedString("limeauth.err.activationIsBlocked")
+        )
+    }()
+    
+    lazy var uiOperationStrings: Authentication.UIData.OperationStrings = {
+        Authentication.UIData.OperationStrings(
+            changePassword_PromptPin: localization.localizedString("limeauth.auth.enterOldPin"),
+            changePassword_PromptPassword: localization.localizedString("limeauth.auth.enterOldPassword"),
+            changePassword_Activity: localization.localizedString("limeauth.op.changePass.activity"),
+            
+            removeDevice_Activity: localization.localizedString("limeauth.op.removeActivation.activity"),
+            removeDevice_Success: localization.localizedString("limeauth.op.removeActivation.success"),
+            
+            enableTouchId_Activity: localization.localizedString("limeauth.op.enableBio.activity.touchId"),
+            enableTouchId_Success: localization.localizedString("limeauth.op.enableBio.success.touchId"),
+            enableFaceId_Activity: localization.localizedString("limeauth.op.enableBio.activity.faceId"),
+            enableFaceId_Success: localization.localizedString("limeauth.op.enableBio.success.faceId")
+        )
+    }()
+    
+    lazy var uiForCreateNewPassword: NewCredentials.UIData = {
+        NewCredentials.UIData(
+            strings: NewCredentials.UIData.Strings(
+                enterNewPin: localization.localizedString("limeauth.auth.enterNewPin"),
+                retypePin: localization.localizedString("limeauth.auth.retypeNewPin"),
+                pinNoMatch: localization.localizedString("limeauth.auth.pinsNotMatch"),
+                enterNewPassword: localization.localizedString("limeauth.auth.enterNewPassword"),
+                retypePassword: localization.localizedString("limeauth.auth.retypeNewPassword"),
+                passwordNoMatch: localization.localizedString("limeauth.auth.passwordsNotMatch"),
+                changeComplexityTitle: localization.localizedString("limeauth.auth.changeComplexityTitle"),
+                changeComplexityButton: localization.localizedString("limeauth.auth.changeComplexityButton")
+            )
+        )
+    }()
     
     
-    var uiForCreateNewPassword: NewCredentials.UIData {
-        return .fallbackData()
-    }
     
     func localizePasswordComplexity(option: LimeAuthCredentials.Password) -> String {
         switch option.type {
         case .fixedPin:
-            return "\(option.minimumLength) digits long PIN"
+            return localization.localizedFormattedString("limeauth.auth.fixedPin(n)", option.minimumLength)
         case .variablePin:
-            return "\(option.minimumLength) to \(option.maximumLength) digits long PIN"
+            return localization.localizedFormattedString("limeauth.auth.variablePin(min,max)", option.minimumLength, option.maximumLength)
         case .password:
-            return "Min. \(option.minimumLength) characters long password"
+            return localization.localizedFormattedString("limeauth.auth.password(min)", option.minimumLength)
         }
     }
     
     func localizeRemainingAttempts(attempts: UInt32) -> String {
         if attempts > 1 {
-            return "\(attempts) remaining attempts"
+            return localization.localizedFormattedString("limeauth.auth.attempts.remaining(n)", attempts)
         } else if attempts == 1 {
-            return "Last attempt"
+            return localization.localizedString("limeauth.auth.attempts.last")
         } else {
-            return "No attempts left"
+            // We don't need to localized "no attempts left", because the activation is probably
+            // already blocked and that label is no logner displayed.
+            return ""
         }
+    }
+    
+    func localizeError(error: LimeAuthError?, fallback: String?) -> String {
+        if let error = error {
+            if error.networkIsNotReachable {
+                return localization.localizedString("limeauth.err.network.isOffline")
+            }
+            if error.networkConnectionIsNotTrusted {
+                return localization.localizedString("limeauth.err.network.untrustedSSL")
+            }
+            let statusCode = error.httpStatusCode
+            let statusCodeType = statusCode / 100
+            if statusCodeType == 5 {
+                // 5xx
+                return localization.localizedString("limeauth.err.network.serverIsDown")
+            }
+        }
+        return fallback ?? localization.localizedString("limeauth.err.generic")
     }
     
     func loadTheme(theme: LimeAuthAuthenticationUITheme) {

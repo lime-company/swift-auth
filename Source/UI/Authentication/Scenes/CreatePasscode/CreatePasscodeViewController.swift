@@ -167,9 +167,9 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         let commonStrings = uiDataProvider.uiCommonStrings
         let uiData = uiDataProvider.uiForCreateNewPassword
         
-        self.prompt1Label.text = commonStrings.enterNewPin
-        self.prompt2Label.text = commonStrings.retypePin
-        self.error1Label.text = commonStrings.pinNoMatch
+        self.prompt1Label.text = uiData.strings.enterNewPin
+        self.prompt2Label.text = uiData.strings.retypePin
+        self.error1Label.text = uiData.strings.pinNoMatch
         
         self.changeComplexityButton.setTitle(uiData.strings.changeComplexityButton, for: .normal)
         self.confirm1Button.setTitle(commonStrings.okButton, for: .normal)

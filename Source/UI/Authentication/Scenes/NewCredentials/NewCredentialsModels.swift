@@ -21,19 +21,19 @@ public enum NewCredentials {
     public struct UIData {
         
         public struct Strings {
-            let changeComplexityTitle: String
-            let changeComplexityButton: String
+            
+            public let enterNewPin: String
+            public let retypePin: String
+            public let pinNoMatch: String
+            
+            public let enterNewPassword: String
+            public let retypePassword: String
+            public let passwordNoMatch: String
+            
+            public let changeComplexityTitle: String
+            public let changeComplexityButton: String
         }
         
         public let strings: Strings
-        
-        
-        public static func fallbackData() -> UIData {
-            let strings = Strings(
-                changeComplexityTitle: "Choose password complexity",
-                changeComplexityButton: "Choose password complexity"
-            )
-            return UIData(strings: strings)
-        }
     }
 }

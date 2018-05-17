@@ -96,7 +96,10 @@ public struct AuthenticationUIOperationResult {
     public var isAuthenticationError: Bool = false
     
     /// PowerAuth activation is in wrong state (UI has to investigate more and react properly on that situation)
-    public var activationProblem: Bool = false
+    public var isActivationProblem: Bool = false
+    
+    /// If "isActivationProblem" is set, then contains fetched activation state.
+    public var activationState: PA2ActivationState?
     
     init(result: Any? = nil, error: LimeAuthError? = nil) {
         self.result = result

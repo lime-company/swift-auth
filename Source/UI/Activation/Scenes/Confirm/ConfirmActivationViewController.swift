@@ -124,10 +124,12 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         authentication.usePassword = activationData.password!
 
         let _ = session.commitActivation(authentication: authentication) { [weak self] (error) in
+            guard let `self` = self else { return }
             if let error = error {
-                self?.router.routeToError(with: LimeAuthError(error: error))
+                let message = self.uiDataProvider.uiDataForConfirmActivation.errors.passwordSetupFailure
+                self.router.routeToError(with: LimeAuthError(error: error, string: message))
             } else {
-                self?.waitForActivationConfirmation()
+                self.waitForActivationConfirmation()
             }
         }
     }
@@ -157,16 +159,15 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     }
     
     private func processStatus(_ status: PA2ActivationStatus?, error: Error?) -> Bool {
+        var errorToReport: LimeAuthError?
         if let status = status {
             switch status.state {
             case .active:
                 router.routeToSuccess()
             case .removed:
-                // make expiration error...
-                router.routeToCancel()
+                errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationRemoved)
             case .blocked:
-                // make activation blocked error...
-                router.routeToCancel()
+                errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationBlocked)
             case .created:
                 return true
             case .otp_Used:
@@ -176,8 +177,11 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             if (error as NSError).domain != PA2ErrorDomain {
                 return true
             } else {
-                router.routeToError(with: LimeAuthError(error: error))
+                errorToReport = LimeAuthError(error: error, string: uiDataProvider.uiDataForConfirmActivation.errors.activation)
             }
+        }
+        if let errorToReport = errorToReport {
+            router.routeToError(with: errorToReport)
         }
         return false
     }

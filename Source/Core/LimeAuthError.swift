@@ -115,6 +115,23 @@ public extension LimeAuthError {
         return false
     }
     
+    /// Returns true if nested error has information about connection security, like untrusted TLS
+    /// certificate, or similar TLS related problems.
+    public var networkConnectionIsNotTrusted: Bool {
+        let domain = self.domain
+        if domain == NSURLErrorDomain || domain == kCFErrorDomainCFNetwork as String {
+            let code = Int32(self.code)
+            if code == CFNetworkErrors.cfurlErrorServerCertificateHasBadDate.rawValue ||
+                code == CFNetworkErrors.cfurlErrorServerCertificateUntrusted.rawValue ||
+                code == CFNetworkErrors.cfurlErrorServerCertificateHasUnknownRoot.rawValue ||
+                code == CFNetworkErrors.cfurlErrorServerCertificateNotYetValid.rawValue ||
+                code == CFNetworkErrors.cfurlErrorSecureConnectionFailed.rawValue {
+                return true
+            }
+        }
+        return false
+    }
+    
     /// Returns `PA2ErrorResponse` if such object is embedded in nested error. This is typically useful
     /// for getting response created in the PowerAuth2 library.
     public var powerAuthErrorResponse: PA2ErrorResponse? {

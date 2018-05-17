@@ -121,8 +121,8 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         return operationExecution.isBiometryAllowed
     }
     
-    /// Error returned from operation execution
-    private var error: LimeAuthError?
+    /// Result returned from operation execution
+    private var executionResult: AuthenticationUIOperationResult?
     
     
     // MARK: - ViewController life cycle
@@ -272,14 +272,14 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func showFailureResult(_ failure: AuthenticationUIOperationResult) {
         
-        self.error = failure.error
+        self.executionResult = failure
         if failure.isTouchIdCancel {
             // user did cancel TouchID dialog
             self.presentKeyboard(animated: true)
             //
         } else if failure.isAuthenticationError {
             // auth error
-            if failure.activationProblem {
+            if failure.isActivationProblem {
                 // activation has been blocked, or completely removed.
                 // we should inform user about this situation and dismiss the dialog
                 self.presentError(retry: false)
@@ -558,7 +558,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     open func updatePromptLabel() {
-        // TODO: loc
         var promptText: String
         let state = self.isPendingStateChange ? self.nextState : self.currentState
         switch state {
@@ -569,11 +568,28 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         case .success:
             promptText = uiRequest.prompts.successMessage  ?? uiDataProvider.uiCommonStrings.success
         case .error:
-            promptText = "Operation execution did fail."
+            promptText = localizedErrorMessage()
         default:
             promptText = ""
         }
         self.promptLabel?.text = promptText
+    }
+    
+    private func localizedErrorMessage() -> String {
+        guard let result = executionResult else {
+            return uiDataProvider.uiCommonStrings.failure
+        }
+        if result.isAuthenticationError {
+            if result.isActivationProblem {
+                if result.activationState == .blocked {
+                    return uiDataProvider.uiCommonErrors.activationIsBlocked
+                } else if result.activationState == .removed {
+                    return uiDataProvider.uiCommonErrors.activationWasRemoved
+                }
+            }
+            return uiDataProvider.uiCommonErrors.wrongPassword
+        }
+        return uiDataProvider.localizeError(error: result.error, fallback: uiDataProvider.uiCommonStrings.failure)
     }
 }
 

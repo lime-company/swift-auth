@@ -27,7 +27,15 @@ public enum ConfirmActivation {
             let removeActivationButton: String
         }
         
-        public let strings: Strings        
+        public struct Errors {
+            let activation: String              // General error
+            let activationRemoved: String       // If activation has been removed
+            let activationBlocked: String       // If activation has been blocked
+            let passwordSetupFailure: String    // On unsuccessfull activation commit (typically fails on encryption error)
+        }
+        
+        public let strings: Strings
+        public let errors: Errors
     }
 }
 
