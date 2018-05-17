@@ -78,10 +78,6 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         return state == .cancelled
     }
     
-    public var isRetryAllowed: Bool {
-        return canRetryAfterFailedBiometry
-    }
-    
     public var isBiometryAllowed: Bool {
         return requestOptions.contains(.allowBiometryFactor)
     }
@@ -105,8 +101,6 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 errorReason = "Operation already cancelled."
             } else if state == .completed {
                 errorReason = "Operation is already completed."
-            } else if state == .failed && !isRetryAllowed {
-                errorReason = "Operation re-execution is not allowed"
             }
         }
         // validate execution conditions
