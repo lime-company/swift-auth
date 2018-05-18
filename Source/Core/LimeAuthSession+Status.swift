@@ -23,7 +23,7 @@ public extension LimeAuthSession {
     public static let didChangeActivationStatus = Notification.Name(rawValue: "LimeAuthSession_didChangeActivationStatus")    
 
     /// The method updates activation status from the server.
-    public func fetchActivationStatus(completion: @escaping (PA2ActivationStatus?, [AnyHashable : Any]?, Error?) -> Void) -> Operation {
+    public func fetchActivationStatus(completion: @escaping (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void) -> Operation {
         return statusFetcher.updateActivationStatus(completion: completion)
     }
     

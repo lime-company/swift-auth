@@ -28,7 +28,7 @@ internal class ActivationStatusFetcher {
         self.authSession = session
     }
     
-    typealias FetchStatusCompletion = (PA2ActivationStatus?, [AnyHashable : Any]?, Error?) -> Void
+    typealias FetchStatusCompletion = (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void
     typealias FetchStatusData = (status: PA2ActivationStatus, data: [AnyHashable: Any]?)
     
     
@@ -167,7 +167,7 @@ internal class ActivationStatusFetcher {
                 }
                 strongStatusChecker.realFetchOperation = nil
                 if let error = error {
-                    self.finish(error: error)
+                    self.finish(error: .wrap(error))
                 } else if let status = status {
                     let fetchedData = (status, statusData)
                     strongStatusChecker.updateLastFetchedData(fetchedData)
@@ -179,7 +179,7 @@ internal class ActivationStatusFetcher {
             }
         }
         
-        override func onComplete(result: ActivationStatusFetcher.FetchStatusData?, error: Error?) {
+        override func onComplete(result: ActivationStatusFetcher.FetchStatusData?, error: LimeAuthError?) {
             // in concurrent queue, cleanup everything
             subOperations.allStrongReferences.forEach { (operation) in
                 operation.finish(result: result, error: error)

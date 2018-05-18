@@ -105,7 +105,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     // MARK: - QRCodeProviderDelegate
     
     open func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error) {
-        router.activationProcess.failActivation(controller: self, with: LimeAuthError(error: error))
+        router.activationProcess.failActivation(controller: self, with: LimeAuthError.wrap(error))
         stopScanner()
     }
     

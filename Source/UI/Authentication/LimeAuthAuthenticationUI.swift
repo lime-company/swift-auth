@@ -178,11 +178,7 @@ public extension LimeAuthAuthenticationUI {
                 return nil
             }
             return session.validatePassword(password: password) { (error) in
-                if let error = error {
-                    completionCallback(nil, LimeAuthError(error: error))
-                } else {
-                    completionCallback(nil, nil)
-                }
+                completionCallback(nil, error)
             }
         }
         let operationExecutor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: uiRequest.options, credentialsProvider: credentialsProvider)
@@ -222,7 +218,7 @@ public extension LimeAuthAuthenticationUI {
         // Build operation object
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.removeActivation(authentication: authentication) { (error) in
-                completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
+                completionCallback(nil, error)
             }
         }
         
@@ -246,7 +242,7 @@ public extension LimeAuthAuthenticationUI {
         // Build operation object
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.addBiometryFactor(password: authentication.usePassword!) { (error) in
-                completionCallback(nil, error != nil ? LimeAuthError(error: error!) : nil)
+                completionCallback(nil, error)
             }
         }
         

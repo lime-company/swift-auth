@@ -28,7 +28,7 @@ internal class AsyncOperation<Result, Cancellable>: Operation, CompletableInSpec
     
     // MARK: - Finish & cancel
     
-    final func finish(error: Error) {
+    final func finish(error: LimeAuthError) {
         reportFinish(result: nil, error: error)
     }
     
@@ -36,7 +36,7 @@ internal class AsyncOperation<Result, Cancellable>: Operation, CompletableInSpec
         reportFinish(result: result, error: nil)
     }
     
-    final func finish(result: Result?, error: Error?) {
+    final func finish(result: Result?, error: LimeAuthError?) {
         reportFinish(result: result, error: error)
     }
     
@@ -52,7 +52,7 @@ internal class AsyncOperation<Result, Cancellable>: Operation, CompletableInSpec
     
     // MARK: - Methods for override
     
-    func onComplete(result: Result?, error: Error?) {
+    func onComplete(result: Result?, error: LimeAuthError?) {
         // empty, you need to override this function
     }
     
@@ -90,7 +90,7 @@ internal class AsyncOperation<Result, Cancellable>: Operation, CompletableInSpec
     
 
     
-    private func reportFinish(result: Result?, error: Error?) {
+    private func reportFinish(result: Result?, error: LimeAuthError?) {
         _executing = false
         _finished = true
         _safeCompletionQueue.async {

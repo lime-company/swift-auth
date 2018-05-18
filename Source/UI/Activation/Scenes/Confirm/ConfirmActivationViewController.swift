@@ -127,7 +127,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             guard let `self` = self else { return }
             if let error = error {
                 let message = self.uiDataProvider.uiDataForConfirmActivation.errors.passwordSetupFailure
-                self.router.routeToError(with: LimeAuthError(error: error, string: message))
+                self.router.routeToError(with: .wrap(error, string: message))
             } else {
                 self.waitForActivationConfirmation()
             }
@@ -158,7 +158,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         
     }
     
-    private func processStatus(_ status: PA2ActivationStatus?, error: Error?) -> Bool {
+    private func processStatus(_ status: PA2ActivationStatus?, error: LimeAuthError?) -> Bool {
         var errorToReport: LimeAuthError?
         if let status = status {
             switch status.state {
@@ -174,10 +174,10 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 return true
             }
         } else if let error = error {
-            if (error as NSError).domain != PA2ErrorDomain {
+            if error.domain != PA2ErrorDomain {
                 return true
             } else {
-                errorToReport = LimeAuthError(error: error, string: uiDataProvider.uiDataForConfirmActivation.errors.activation)
+                errorToReport = .wrap(error, string: uiDataProvider.uiDataForConfirmActivation.errors.activation)
             }
         }
         if let errorToReport = errorToReport {

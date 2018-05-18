@@ -139,8 +139,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 }
             }, completion: { (op, result, error) in
                 // ...and back to executor
-                let laError = error != nil ? LimeAuthError(error: error!) : nil
-                self.processExecutionResult(result: result, error: laError, callback: callback)
+                self.processExecutionResult(result: result, error: error, callback: callback)
             })
             synchronizedOperation = session.addOperationToQueue(op, serialized: true)
         }

@@ -21,7 +21,7 @@ internal class AsyncBlockOperation<Result, Cancellable> : AsyncOperation<Result,
     typealias OperationType = AsyncOperation<Result, Cancellable>
     
     typealias ExecuteBlock = (OperationType) -> Cancellable?
-    typealias CompleteBlock = (OperationType, Result?, Error?) -> Void
+    typealias CompleteBlock = (OperationType, Result?, LimeAuthError?) -> Void
     typealias CancelBlock = (OperationType, Cancellable) -> Void
     
     private var _execution: ExecuteBlock
@@ -39,7 +39,7 @@ internal class AsyncBlockOperation<Result, Cancellable> : AsyncOperation<Result,
         return _execution(self)
     }
     
-    final override func onComplete(result: Result?, error: Error?) {
+    final override func onComplete(result: Result?, error: LimeAuthError?) {
         _completion(self, result, error)
     }
     

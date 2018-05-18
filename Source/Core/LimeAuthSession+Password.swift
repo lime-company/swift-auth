@@ -20,10 +20,10 @@ import PowerAuth2
 public extension LimeAuthSession {
     
     /// Function validates on server whether provided password is valid.
-    public func validatePassword(password: String, completion: @escaping (Error?)->Void) -> Operation {
+    public func validatePassword(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
         let operation = self.buildBlockOperation(execute: { (op) -> PA2OperationTask? in
             return self.powerAuth.validatePasswordCorrect(password) { (error) in
-                op.finish(result: error == nil, error: error)
+                op.finish(result: error == nil, error: .wrap(error))
             }
         }, completion: { (op, success: Bool?, error) in
             completion(error)

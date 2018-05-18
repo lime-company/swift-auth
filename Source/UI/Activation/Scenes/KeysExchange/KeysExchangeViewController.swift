@@ -91,7 +91,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
             if let result = result {
                 self.router.routeToCreatePassword(with: result)
             } else if let error = error {
-                self.router.routeToError(with: LimeAuthError(error: error))
+                self.router.routeToError(with: error)
             }
         }
     }
