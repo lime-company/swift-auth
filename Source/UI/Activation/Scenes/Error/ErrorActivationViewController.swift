@@ -83,7 +83,20 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
     @IBOutlet weak var closeSceneButton: UIButton?
     
     // MARK: -
-    
+	
+	private var errorDescription: String {
+		let activationData = router.activationProcess.activationData
+		if let description = activationData.failureReasonString {
+			return description
+		}
+		if let description = activationData.failureReason?.nestedDescription {
+			// TODO: reimplement with using uiDataProvider.localizeError()...
+			return description
+		}
+		let uiData = uiDataProvider.uiDataForErrorActivation
+		return uiData.strings.genericError
+	}
+	
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForErrorActivation
         let commonStrings = uiDataProvider.uiCommonStrings
@@ -92,7 +105,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
         // Apply texts & images
         promoImageView?.setLazyImage(theme.illustrations.errorScene)
         sceneTitleLabel?.text = uiData.strings.sceneTitle
-        sceneDescriptionLabel?.text = uiData.strings.genericError
+        sceneDescriptionLabel?.text = self.errorDescription
         closeSceneButton?.setTitle(commonStrings.closeTitle, for: .normal)
         // Apply styles
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
