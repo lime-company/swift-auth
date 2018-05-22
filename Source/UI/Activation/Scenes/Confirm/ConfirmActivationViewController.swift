@@ -65,16 +65,15 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             fatalError("ConfirmActivationViewController is not configured properly.")
         }
         let ad = router.activationProcess.activationData
-        if ad.noActivationResult {
-            // this is recovery from crashed application
-            recoveryFromBrokenActivation = true
-            //
-        } else {
-            guard ad.createActivationResult != nil else {
-                fatalError("ConfirmActivationViewController createActivationResult or noActivationResult is not configured.")
-            }
-            guard let _ = ad.password, let _ = ad.createActivationResult?.activationFingerprint else {
-                fatalError("ConfirmActivationViewController missing password or fingerprint.")
+        recoveryFromBrokenActivation = ad.recoveryFromFailedActivation
+        
+        guard let _ = ad.createActivationResult?.activationFingerprint else {
+            fatalError("ConfirmActivationViewController missing activation fingerprint.")
+        }
+        if false == ad.recoveryFromFailedActivation {
+            // For regular activation, password is required
+            guard let _ = ad.password else {
+                fatalError("ConfirmActivationViewController missing password.")
             }
         }
     }
@@ -192,6 +191,10 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         fetchOperation?.cancel()
         fetchOperation = nil
     }
+	
+	private var activationFingerprint: String {
+		return router.activationProcess?.activationData.createActivationResult?.activationFingerprint ?? ""
+	}
     
     
     // MARK: - Presentation
@@ -199,7 +202,8 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     @IBOutlet weak var sceneTitleLabel: UILabel?
     @IBOutlet weak var sceneDescriptionLabel: UILabel?
     @IBOutlet weak var promoImageView: UIImageView?
-    @IBOutlet weak var waitingForActivationLabel: UILabel?
+	@IBOutlet weak var activationFingerprintLabel: UILabel?
+	@IBOutlet weak var waitingForActivationLabel: UILabel?
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView?
     @IBOutlet weak var removeActivationButton: UIButton?
     
@@ -214,6 +218,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         waitingForActivationLabel?.text = uiData.strings.waitingLabel
+		activationFingerprintLabel?.text = self.activationFingerprint
         removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
         // Hide remove button in initial state, or show it when it's recovery from crashed activation
         removeActivationButton?.alpha = recoveryFromBrokenActivation ? 1.0 : 0.0
@@ -223,6 +228,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         sceneTitleLabel?.textColor = theme.common.titleColor
         sceneDescriptionLabel?.textColor = theme.common.textColor
         waitingForActivationLabel?.textColor = theme.common.textColor
+        activationFingerprintLabel?.textColor = theme.common.highlightedTextColor
         removeActivationButton?.applyButtonStyle(theme.buttons.destructive)
         activityIndicatorView?.applyIndicatorStyle(theme.common.activityIndicator)
     }

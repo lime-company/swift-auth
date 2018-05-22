@@ -23,6 +23,7 @@ public protocol ActivationUIProvider: class {
     func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    func instantiateErrorScene() -> ErrorActivationViewController
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
     var uiDataProvider: ActivationUIDataProvider { get }

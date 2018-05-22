@@ -84,7 +84,7 @@ public struct LimeAuthCredentials {
     /// in the application.
     public struct Biometry {
         
-        /// The Option enumeration defines modes
+        /// The Option enumeration defines modes of biometry authentication
         public enum Option {
             /// If set, then the appropriate biometry authentication is not allowed
             /// in the application at all.

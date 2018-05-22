@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import PowerAuth2
 
 public class LimeAuthActivationUI {
     
@@ -64,9 +65,7 @@ public class LimeAuthActivationUI {
         case .scanCode:
             controller = uiProvider.instantiateScanCodeScene()
         case .confirmation:
-            // In this case, there's no activation result.
-            activationProcess.activationData.noActivationResult = true
-            controller = uiProvider.instantiateConfirmScene()
+            controller = controllerForRecoveryFromBrokenActivation()
         default:
             fatalError()    // shold never happen
         }
@@ -80,6 +79,22 @@ public class LimeAuthActivationUI {
         return controller
     }
     
+    /// Function returns confirmation or error scene controller depending on whether it's possible to recovery from
+    /// a broken activation.
+    private func controllerForRecoveryFromBrokenActivation() -> UIViewController & ActivationUIProcessController {
+        let uiProvider = activationProcess.uiProvider
+        if let activationFingerprint = activationProcess.session.activationFingerprint {
+            // In this case, there's no full activation result available, but we can restore at least activation fingerprint.
+            let activationResult = PA2ActivationResult()
+            activationResult.activationFingerprint = activationFingerprint
+            activationProcess.activationData.recoveryFromFailedActivation = true
+            activationProcess.activationData.createActivationResult = activationResult
+            return uiProvider.instantiateConfirmScene()
+        }
+        D.error("Cannot recovery from previously broken activation.")
+		activationProcess.activationData.failureReason = LimeAuthError(string: uiProvider.uiDataProvider.uiDataForConfirmActivation.errors.recoveryFailure)
+        return uiProvider.instantiateErrorScene()
+    }
     
     /// Function invokes entry scene and pushes it into the provided navigation controller.
     public func pushEntryScene(to navigationController: UINavigationController, animated: Bool = true) {

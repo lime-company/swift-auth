@@ -31,7 +31,7 @@ public enum Activation {
         
         public var createActivationResult: PA2ActivationResult?
         
-        public var noActivationResult = false
+        public var recoveryFromFailedActivation = false
         
         public var password: String?
         

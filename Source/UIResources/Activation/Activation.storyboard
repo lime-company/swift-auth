@@ -522,7 +522,7 @@
         <!--Error Activation View Controller-->
         <scene sceneID="AUi-3X-aVa">
             <objects>
-                <viewController id="woQ-PU-JYk" customClass="ErrorActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Error" id="woQ-PU-JYk" customClass="ErrorActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="inz-RC-M90"/>
                         <viewControllerLayoutGuide type="bottom" id="YdK-Ad-5lI"/>
@@ -746,13 +746,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Confirmation description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rec-it-akc">
-                                                <rect key="frame" x="0.0" y="37" width="343" height="130"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Please check whether the Confirmation number displayed matches the number on the ePortal screen. If so, confirm it in ePortal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rec-it-akc">
+                                                <rect key="frame" x="0.0" y="37" width="343" height="57.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-NH-oHg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="12345678" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86r-OI-7nV">
+                                                <rect key="frame" x="0.0" y="102.5" width="343" height="64.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Waiting for activation completion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-NH-oHg">
                                                 <rect key="frame" x="0.0" y="175" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -801,6 +807,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activationFingerprintLabel" destination="86r-OI-7nV" id="Usp-CA-JRx"/>
                         <outlet property="activityIndicatorView" destination="Hoc-dC-Vh1" id="7dt-2h-dsK"/>
                         <outlet property="promoImageView" destination="KgQ-bV-0oe" id="LWL-JK-T20"/>
                         <outlet property="removeActivationButton" destination="xFS-SY-2vK" id="CaN-4v-6UC"/>

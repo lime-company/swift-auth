@@ -128,6 +128,7 @@
 "limeauth.err.activation.removed"           = "Device registration has already expired. Please try to register the device one more time.";
 "limeauth.err.activation.blocked"           = "The device was blocked during the registration - please remove the device and try to register it again.";
 "limeauth.err.activation.pinSetupFailure"   = "Setting up a new PIN code failed - please try to register the device again.";
+"limeauth.err.activation.recoveryFailure"   = "It's not possible to complete previously unfinished activation.";
 
 "limeauth.err.wrongPin"                     = "Wrong passcode";
 "limeauth.err.wrongPassword"                = "Wrong password";

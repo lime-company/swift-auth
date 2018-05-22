@@ -19,7 +19,7 @@ import PowerAuth2
 
 /// The `LimeAuthCredentialsProvider` protocol defines interface for getting and changing
 /// credentials configuration in the application.
-public protocol LimeAuthCredentialsProvider {
+public protocol LimeAuthCredentialsProvider: class {
     
     /// Implementation must return configuration for currently applied credentials.
     var credentials: LimeAuthCredentials { get }

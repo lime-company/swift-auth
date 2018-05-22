@@ -32,6 +32,7 @@ public enum ConfirmActivation {
             let activationRemoved: String       // If activation has been removed
             let activationBlocked: String       // If activation has been blocked
             let passwordSetupFailure: String    // On unsuccessfull activation commit (typically fails on encryption error)
+            let recoveryFailure: String         // If it's not possible to recovery from broken activation
         }
         
         public let strings: Strings

@@ -59,6 +59,13 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return controller
     }
     
+    public func instantiateErrorScene() -> ErrorActivationViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "Error") as? ErrorActivationViewController else {
+            fatalError("Cannot instantiate Error scene")
+        }
+        return controller
+    }
+    
     public func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController? {
         return LimeAuthUINavigationController(rootViewController: rootController)
     }
@@ -165,7 +172,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 activation: localization.localizedString("limeauth.err.activation"),
                 activationRemoved: localization.localizedString("limeauth.err.activation.removed"),
                 activationBlocked: localization.localizedString("limeauth.err.activation.blocked"),
-                passwordSetupFailure: localization.localizedString("limeauth.err.activation.pinSetupFailure")
+                passwordSetupFailure: localization.localizedString("limeauth.err.activation.pinSetupFailure"),
+                recoveryFailure: localization.localizedString("limeauth.err.activation.recoveryFailure")
             )
         )
     }()
