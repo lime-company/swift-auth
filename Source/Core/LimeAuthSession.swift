@@ -76,6 +76,48 @@ public extension LimeAuthSession {
     public var hasValidActivation: Bool {
         return powerAuth.hasValidActivation()
     }
+    
+    public var activationIdentifier: String? {
+        return powerAuth.activationIdentifier
+    }
+    
+    public var activationFingerprint: String? {
+        return powerAuth.activationFingerprint
+    }
 }
 
+
+// MARK: - Debug
+
+#if DEBUG
+extension LimeAuthSession: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        if self.canStartActivation {
+            return "LimeAuthSession: EMPTY (can start activation)"
+        } else if self.hasPendingActivation {
+            return "LimeAuthSession: PENDING_ACTIVATION"
+        } else if !self.hasValidActivation {
+            if !self.powerAuth.session.hasValidSetup {
+                return "LimeAuthSession: INVALID_SETUP"
+            } else {
+                return "LimeAuthSession: UNKNOWN_STATE"
+            }
+        }
+        let status: String
+        let aID = activationIdentifier ?? "(null)"
+        if let fs = lastFetchedActivationStatus {
+            switch fs.state {
+            case .active: status = "ACTIVE, activationID: \(aID), attempts: \(fs.remainingAttempts)/\(fs.maxFailCount)"
+            case .blocked: status = "BLOCKED, activationID: \(aID)"
+            case .removed: status = "REMOVED, activationID: \(aID)"
+            case .otp_Used: status = "OTP_USED"
+            case .created: status = "CREATED"
+            }
+        } else {
+            status = "NOT_FETCHED, activationID: \(aID)"
+        }
+        return "LimeAuthSession: VALID, status: \(status)"
+    }
+}
+#endif
 
