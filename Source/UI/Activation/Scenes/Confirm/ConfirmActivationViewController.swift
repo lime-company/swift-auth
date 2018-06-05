@@ -150,7 +150,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 let t = DispatchWorkItem {
                     self.waitForActivationConfirmation()
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: t)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: t)
                 self.waitingWorkItem = t
             }
         }
