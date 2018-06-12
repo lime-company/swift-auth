@@ -362,12 +362,12 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     open func adjustLayout() {
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
-            self.pinKeyboardBottomConstraint.constant = 12.0
-            self.logoImageTopConstraint.constant = 0.0
+            self.pinKeyboardBottomConstraint?.constant = 12.0
+            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
-            self.pinKeyboardBottomConstraint.constant = 32.0
-            self.logoImageTopConstraint.constant = 20.0
+            self.pinKeyboardBottomConstraint?.constant = 32.0
+            self.logoImageTopConstraint?.constant = 20.0
         }
     }
     
@@ -536,8 +536,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
                 attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
             }
         }
-        self.attemptsLabel?.text = attemptsText
-        self.attemptsLabel?.isHidden = !remainingAttemptsLabelIsVisible
+		self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
     }
     
     open func updatePromptLabel() {
