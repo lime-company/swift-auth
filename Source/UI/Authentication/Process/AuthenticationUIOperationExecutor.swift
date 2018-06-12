@@ -44,6 +44,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         self.operation = operation
         self.requestOptions = requestOptions
         self.credentialsProvider = credentialsProvider
+        sanitizeRequestOptions()
     }
 
     // MARK: - AuthenticationUIOperationExecutionLogic protocol
@@ -87,6 +88,32 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
     }
     
     // MARK: - Private methods
+    
+    private func sanitizeRequestOptions() {
+		let credentials = credentialsProvider.credentials
+        // At first, translate supported biometric authentication to biometry option enum.
+        let biometryOption: LimeAuthCredentials.Biometry.Option
+        switch LimeAuthSession.supportedBiometricAuthentication {
+        case .touchID:
+            biometryOption = credentials.biometry.touchId
+        case .faceID:
+            biometryOption = credentials.biometry.faceId
+        case .none:
+            biometryOption = .disabled
+        }
+        // Now apply that option and remove incompatible flags requested by the application
+        switch biometryOption {
+        case .enabledAndAutomatic:
+            // Do nothing, we don't need to sanitize filter.
+            break
+        case .enabledOnDemand:
+            // Remove only "ask first" flag, but biometry may be used
+            self.requestOptions.remove(.askFirstForBiometryFactor)
+        case .disabled:
+            // Remove all biomety related flags.
+            self.requestOptions.remove([.allowBiometryFactor, .askFirstForBiometryFactor])
+        }
+    }
     
     private func validateExecution(_ authentication: PowerAuthAuthentication) -> AuthenticationUIOperationResult? {
         var errorReason: String?
