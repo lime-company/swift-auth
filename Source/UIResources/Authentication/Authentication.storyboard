@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -39,21 +39,21 @@
                         <viewControllerLayoutGuide type="bottom" id="HV7-zA-elE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="chz-yk-fKM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-jz-vKF" userLabel="Logo">
-                                <rect key="frame" x="87.5" y="52" width="200" height="77"/>
+                                <rect key="frame" x="107" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1OK-cg-mzm"/>
                                     <constraint firstAttribute="height" constant="77" id="eTt-m9-LcR"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4le-cZ-li9" userLabel="Pin1 Group">
-                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obf-La-fic" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="16" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="16" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="RhS-R8-8QW"/>
                                         </constraints>
@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93j-iV-PWx" userLabel="PIN">
-                                        <rect key="frame" x="16" y="68" width="343" height="24"/>
+                                        <rect key="frame" x="16" y="68" width="382" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Y9U-KT-Qfk"/>
                                         </constraints>
@@ -72,7 +72,7 @@
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnf-1B-H8s">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
+                                        <rect key="frame" x="16" y="100" width="382" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -93,10 +93,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCK-89-phx" userLabel="Pin2 Group">
-                                <rect key="frame" x="375" y="129" width="375" height="132"/>
+                                <rect key="frame" x="414" y="129" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter second pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1l-8f-AvF" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="24" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="24" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="XbJ-j7-XP8"/>
                                         </constraints>
@@ -105,7 +105,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KW-fh-9m1" userLabel="PIN">
-                                        <rect key="frame" x="16" y="76" width="343" height="24"/>
+                                        <rect key="frame" x="16" y="76" width="382" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="cVu-nC-IhL"/>
                                         </constraints>
@@ -126,7 +126,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-dE-S3L" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137" y="145" width="100" height="100"/>
+                                <rect key="frame" x="157" y="145" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ba-DjQ" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -160,17 +160,17 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-hx-IPD">
-                                <rect key="frame" x="126.5" y="281" width="122" height="30"/>
+                                <rect key="frame" x="146" y="350" width="122" height="30"/>
                                 <state key="normal" title="Passphrase setup"/>
                                 <connections>
                                     <action selector="passphraseSetupAction:" destination="zeQ-AG-UAj" eventType="touchUpInside" id="0TB-14-Lt6"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-cG-dFN" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <rect key="frame" x="20" y="380" width="374" height="336"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIM-cR-zu8" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,7 +183,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xc1-Vx-NmX" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -196,7 +196,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-Wp-kzL" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -209,7 +209,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miy-9h-fSa" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,7 +222,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Buu-7I-PM6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Buu-7I-PM6" secondAttribute="height" multiplier="1:1" id="cIE-wr-ubV"/>
                                             <constraint firstAttribute="width" constant="72" id="hjI-m2-UAb"/>
@@ -239,7 +239,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hci-33-ra9" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="9np-pZ-rXL"/>
                                         </constraints>
@@ -255,7 +255,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHM-EG-79M" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,7 +268,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-7B-sW3" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g0V-7B-sW3" secondAttribute="height" multiplier="1:1" id="BR9-B2-0Ot"/>
                                         </constraints>
@@ -284,7 +284,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-9x-a76" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,7 +297,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B41-Q0-imC" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="B41-Q0-imC" secondAttribute="height" multiplier="1:1" id="rbn-7O-FD2"/>
                                         </constraints>
@@ -313,7 +313,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN9-z5-e5b" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VN9-z5-e5b" secondAttribute="height" multiplier="1:1" id="AU9-XA-YO1"/>
                                         </constraints>
@@ -442,61 +442,54 @@
                         <viewControllerLayoutGuide type="bottom" id="aI2-Iz-kO8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kxP-un-uXV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ei3-Jb-C6e" userLabel="Logo">
-                                <rect key="frame" x="87.5" y="52" width="200" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="SC2-mx-75d"/>
-                                    <constraint firstAttribute="height" constant="77" id="xlY-nJ-PqQ"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3S-aK-umU" userLabel="Pin Group">
-                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="360"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-zY-kpZ" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="16" width="343" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Bjc-1z-LmK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGi-tA-04H" userLabel="PIN">
-                                        <rect key="frame" x="16" y="68" width="343" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="N1m-Sl-AtO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attemps left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-jV-5ZV">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-Ri-YLI">
+                                        <rect key="frame" x="67" y="124" width="280" height="112"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-zY-kpZ" userLabel="Prompt">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Bjc-1z-LmK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGi-tA-04H" userLabel="PIN">
+                                                <rect key="frame" x="0.0" y="52" width="280" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="N1m-Sl-AtO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attemps left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYc-jV-5ZV">
+                                                <rect key="frame" x="0.0" y="92" width="280" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="mXA-pR-SND"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="n3p-zY-kpZ" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="top" constant="16" id="AJ8-Yl-JSz"/>
-                                    <constraint firstItem="tGi-tA-04H" firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" id="LHq-eu-m5a"/>
-                                    <constraint firstItem="n3p-zY-kpZ" firstAttribute="leading" secondItem="Y3S-aK-umU" secondAttribute="leading" constant="16" id="ORS-4H-TwT"/>
-                                    <constraint firstItem="tGi-tA-04H" firstAttribute="leading" secondItem="n3p-zY-kpZ" secondAttribute="leading" id="RU4-JX-Qlm"/>
-                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="leading" secondItem="n3p-zY-kpZ" secondAttribute="leading" id="Unr-SJ-EZL"/>
-                                    <constraint firstAttribute="bottom" secondItem="jYc-jV-5ZV" secondAttribute="bottom" constant="14" id="X22-El-tsN"/>
-                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="top" secondItem="tGi-tA-04H" secondAttribute="bottom" constant="8" id="aW4-Fd-8oX"/>
-                                    <constraint firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" constant="16" id="aic-Ub-yer"/>
-                                    <constraint firstItem="jYc-jV-5ZV" firstAttribute="trailing" secondItem="n3p-zY-kpZ" secondAttribute="trailing" id="dyF-Pd-yLp"/>
-                                    <constraint firstItem="tGi-tA-04H" firstAttribute="top" secondItem="n3p-zY-kpZ" secondAttribute="bottom" constant="8" id="pfQ-lY-txF"/>
+                                    <constraint firstItem="7gC-Ri-YLI" firstAttribute="centerY" secondItem="Y3S-aK-umU" secondAttribute="centerY" id="KJs-OM-0So"/>
+                                    <constraint firstItem="7gC-Ri-YLI" firstAttribute="centerX" secondItem="Y3S-aK-umU" secondAttribute="centerX" id="uR1-fx-WJq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W47-fr-Vv8" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="138" y="269" width="100" height="100"/>
+                                <rect key="frame" x="157" y="288" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-SY-YDF" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -530,7 +523,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qf-IN-V2z" userLabel="Close Error Button">
-                                <rect key="frame" x="20" y="591" width="335" height="56"/>
+                                <rect key="frame" x="20" y="660" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="HhF-Tv-Xas"/>
                                 </constraints>
@@ -541,11 +534,18 @@
                                     <action selector="confirmErrorAction:" destination="Q92-aI-fge" eventType="touchUpInside" id="mR0-BK-mhR"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXa-BV-yqr" userLabel="Helper: Size between btn 1-3">
+                                <rect key="frame" x="66.666666666666686" y="378" width="280" height="2"/>
+                                <color key="backgroundColor" red="0.59215688710000003" green="0.80392163989999998" blue="0.2588235438" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Vr5-wj-tEG"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-d1-ZHn" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <rect key="frame" x="20" y="380" width="374" height="336"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSf-Bo-idv" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -558,7 +558,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-gl-O4i" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -571,7 +571,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lN0-VB-fct" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -584,7 +584,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sp-g2-sOx" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -597,7 +597,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-9U-HU2" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KIv-9U-HU2" secondAttribute="height" multiplier="1:1" id="EOA-6Z-b0F"/>
                                             <constraint firstAttribute="width" constant="72" id="g8h-eR-mrX"/>
@@ -614,7 +614,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jW-BE-q62" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="7jB-if-WtU"/>
                                         </constraints>
@@ -630,7 +630,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-jd-2Xg" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -643,7 +643,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-fD-U4Y" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VZb-fD-U4Y" secondAttribute="height" multiplier="1:1" id="QaR-51-DJM"/>
                                         </constraints>
@@ -659,7 +659,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij4-MK-RSW" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -672,7 +672,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pa-oF-O21" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4Pa-oF-O21" secondAttribute="height" multiplier="1:1" id="re0-1Y-le7"/>
                                         </constraints>
@@ -688,7 +688,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ML-Hr-Olh" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5ML-Hr-Olh" secondAttribute="height" multiplier="1:1" id="OTi-K4-cNe"/>
                                         </constraints>
@@ -704,7 +704,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-Ey-RUk" userLabel="bio" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="264" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -779,21 +779,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y3S-aK-umU" secondAttribute="trailing" id="3Jc-ub-BoM"/>
+                            <constraint firstItem="Y3S-aK-umU" firstAttribute="leading" secondItem="kxP-un-uXV" secondAttribute="leading" id="3rl-gh-QgC"/>
+                            <constraint firstItem="lN0-VB-fct" firstAttribute="trailing" secondItem="LXa-BV-yqr" secondAttribute="trailing" id="AqS-UC-Tlo"/>
                             <constraint firstItem="1Qf-IN-V2z" firstAttribute="leading" secondItem="kxP-un-uXV" secondAttribute="leading" constant="20" id="Cn9-Ow-LyP"/>
-                            <constraint firstItem="ei3-Jb-C6e" firstAttribute="top" secondItem="VV4-dY-JA8" secondAttribute="bottom" constant="32" id="LUT-uW-nHe">
-                                <variation key="heightClass=compact" constant="10"/>
-                            </constraint>
+                            <constraint firstItem="uSf-Bo-idv" firstAttribute="leading" secondItem="LXa-BV-yqr" secondAttribute="leading" id="OJr-O8-ssI"/>
+                            <constraint firstItem="LXa-BV-yqr" firstAttribute="width" secondItem="7gC-Ri-YLI" secondAttribute="width" id="PHm-Id-LHL"/>
                             <constraint firstAttribute="leadingMargin" secondItem="G3a-d1-ZHn" secondAttribute="leading" id="Pcn-G8-7M8"/>
-                            <constraint firstItem="ei3-Jb-C6e" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="UOL-bR-Eko"/>
+                            <constraint firstItem="G3a-d1-ZHn" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="bottom" id="TBh-j1-k4M"/>
                             <constraint firstItem="aI2-Iz-kO8" firstAttribute="top" secondItem="G3a-d1-ZHn" secondAttribute="bottom" constant="20" id="arB-Ac-rs8"/>
                             <constraint firstItem="Vqm-cK-x2r" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="bkh-82-m2L"/>
-                            <constraint firstItem="Y3S-aK-umU" firstAttribute="width" secondItem="kxP-un-uXV" secondAttribute="width" id="fIV-b2-uAU"/>
+                            <constraint firstItem="W47-fr-Vv8" firstAttribute="top" secondItem="7gC-Ri-YLI" secondAttribute="bottom" constant="32" id="gAC-Lw-vnJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G3a-d1-ZHn" secondAttribute="trailing" id="gR5-M6-pAo"/>
                             <constraint firstAttribute="trailing" secondItem="1Qf-IN-V2z" secondAttribute="trailing" constant="20" id="gxE-8Z-uvh"/>
-                            <constraint firstItem="Y3S-aK-umU" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="i4f-yR-jBP"/>
-                            <constraint firstItem="W47-fr-Vv8" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="bottom" constant="8" id="thc-sc-7AM"/>
+                            <constraint firstItem="G3a-d1-ZHn" firstAttribute="top" secondItem="LXa-BV-yqr" secondAttribute="bottom" id="oEb-UP-nx5"/>
+                            <constraint firstItem="Y3S-aK-umU" firstAttribute="top" secondItem="VV4-dY-JA8" secondAttribute="bottom" id="oWM-JD-KZG"/>
                             <constraint firstItem="aI2-Iz-kO8" firstAttribute="top" secondItem="1Qf-IN-V2z" secondAttribute="bottom" constant="20" id="uM8-w2-tZ3"/>
-                            <constraint firstItem="Y3S-aK-umU" firstAttribute="top" secondItem="ei3-Jb-C6e" secondAttribute="bottom" id="wng-5n-IkU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enter Pin" id="tPn-J2-tWG">
@@ -809,8 +810,6 @@
                         <outlet property="attemptsLabel" destination="jYc-jV-5ZV" id="0iK-4f-jdU"/>
                         <outlet property="closeErrorButton" destination="1Qf-IN-V2z" id="bDp-IE-Nh1"/>
                         <outlet property="fixedPinLabel" destination="tGi-tA-04H" id="XqV-0S-JNk"/>
-                        <outlet property="logoImage" destination="ei3-Jb-C6e" id="dj5-NX-XHF"/>
-                        <outlet property="logoImageTopConstraint" destination="LUT-uW-nHe" id="onk-QK-i2Z"/>
                         <outlet property="pinKeyboard" destination="G3a-d1-ZHn" id="F98-Mj-bBo"/>
                         <outlet property="pinKeyboardBottomConstraint" destination="arB-Ac-rs8" id="obl-Xp-Gho"/>
                         <outlet property="promptLabel" destination="n3p-zY-kpZ" id="HWj-g3-G3W"/>
@@ -830,100 +829,94 @@
                         <viewControllerLayoutGuide type="bottom" id="aeA-AC-Upz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SCs-Be-bzw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yB2-E0-59w" userLabel="Logo">
-                                <rect key="frame" x="87" y="52" width="200" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="18d-NI-wJa"/>
-                                    <constraint firstAttribute="height" constant="77" id="Vy5-PV-uth"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sM-Ng-OAb" userLabel="Pin Group">
-                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="360"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lb-gu-REB" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="qBA-ZB-UKZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-XU-ShQ" userLabel="Variable Pin">
-                                        <rect key="frame" x="47.5" y="44" width="280" height="56"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mEN-hi-ga6">
+                                        <rect key="frame" x="67" y="112" width="280" height="136"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-3a-bdq" userLabel="Round Corners">
-                                                <rect key="frame" x="0.0" y="0.0" width="216" height="56"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lb-gu-REB" userLabel="Prompt">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="qBA-ZB-UKZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-XU-ShQ" userLabel="Variable Pin">
+                                                <rect key="frame" x="0.0" y="52" width="280" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW9-Ff-MAS" userLabel="Variable Pin Label">
-                                                        <rect key="frame" x="20" y="15" width="176" height="26.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-3a-bdq" userLabel="Round Corners">
+                                                        <rect key="frame" x="0.0" y="0.0" width="216" height="56"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW9-Ff-MAS" userLabel="Variable Pin Label">
+                                                                <rect key="frame" x="20" y="14.999999999999998" width="176" height="26.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WW9-Ff-MAS" firstAttribute="centerY" secondItem="GKt-3a-bdq" secondAttribute="centerY" id="eej-nY-fnL"/>
+                                                            <constraint firstItem="WW9-Ff-MAS" firstAttribute="leading" secondItem="GKt-3a-bdq" secondAttribute="leading" constant="20" id="fAy-Ju-h3E"/>
+                                                            <constraint firstAttribute="trailing" secondItem="WW9-Ff-MAS" secondAttribute="trailing" constant="20" id="lF7-I2-23s"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQN-xl-NNt" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                                        <rect key="frame" x="224" y="0.0" width="56" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="3Fq-Gm-o0X"/>
+                                                            <constraint firstAttribute="width" constant="56" id="oHK-9J-hgh"/>
+                                                        </constraints>
+                                                        <state key="normal" title="OK">
+                                                            <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="confirmPinAction:" destination="tJw-3x-9tb" eventType="touchUpInside" id="ea7-Vq-6FG"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="WW9-Ff-MAS" firstAttribute="centerY" secondItem="GKt-3a-bdq" secondAttribute="centerY" id="eej-nY-fnL"/>
-                                                    <constraint firstItem="WW9-Ff-MAS" firstAttribute="leading" secondItem="GKt-3a-bdq" secondAttribute="leading" constant="20" id="fAy-Ju-h3E"/>
-                                                    <constraint firstAttribute="trailing" secondItem="WW9-Ff-MAS" secondAttribute="trailing" constant="20" id="lF7-I2-23s"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QQN-xl-NNt" secondAttribute="trailing" id="58m-LB-qQF"/>
+                                                    <constraint firstItem="GKt-3a-bdq" firstAttribute="leading" secondItem="n2K-XU-ShQ" secondAttribute="leading" id="7hb-z6-Yqz"/>
+                                                    <constraint firstItem="GKt-3a-bdq" firstAttribute="top" secondItem="n2K-XU-ShQ" secondAttribute="top" id="G3x-k2-I79"/>
+                                                    <constraint firstAttribute="bottom" secondItem="GKt-3a-bdq" secondAttribute="bottom" id="UK3-Q1-HKD"/>
+                                                    <constraint firstItem="QQN-xl-NNt" firstAttribute="leading" secondItem="GKt-3a-bdq" secondAttribute="trailing" constant="8" id="fGp-Un-ow3"/>
+                                                    <constraint firstItem="QQN-xl-NNt" firstAttribute="bottom" secondItem="GKt-3a-bdq" secondAttribute="bottom" id="gAe-1m-QVj"/>
+                                                    <constraint firstItem="QQN-xl-NNt" firstAttribute="top" secondItem="GKt-3a-bdq" secondAttribute="top" id="iTl-UW-MIs"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQN-xl-NNt" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="224" y="0.0" width="56" height="56"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cue-gI-cgz">
+                                                <rect key="frame" x="0.0" y="116" width="280" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="3Fq-Gm-o0X"/>
-                                                    <constraint firstAttribute="width" constant="56" id="oHK-9J-hgh"/>
+                                                    <constraint firstAttribute="height" constant="20" id="iFL-JH-Uq9"/>
                                                 </constraints>
-                                                <state key="normal" title="OK">
-                                                    <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
-                                                        <real key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="confirmPinAction:" destination="tJw-3x-9tb" eventType="touchUpInside" id="ea7-Vq-6FG"/>
-                                                </connections>
-                                            </button>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="QQN-xl-NNt" secondAttribute="trailing" id="58m-LB-qQF"/>
-                                            <constraint firstItem="GKt-3a-bdq" firstAttribute="leading" secondItem="n2K-XU-ShQ" secondAttribute="leading" id="7hb-z6-Yqz"/>
-                                            <constraint firstItem="GKt-3a-bdq" firstAttribute="top" secondItem="n2K-XU-ShQ" secondAttribute="top" id="G3x-k2-I79"/>
-                                            <constraint firstAttribute="bottom" secondItem="GKt-3a-bdq" secondAttribute="bottom" id="UK3-Q1-HKD"/>
-                                            <constraint firstItem="QQN-xl-NNt" firstAttribute="leading" secondItem="GKt-3a-bdq" secondAttribute="trailing" constant="8" id="fGp-Un-ow3"/>
-                                            <constraint firstItem="QQN-xl-NNt" firstAttribute="bottom" secondItem="GKt-3a-bdq" secondAttribute="bottom" id="gAe-1m-QVj"/>
-                                            <constraint firstItem="QQN-xl-NNt" firstAttribute="top" secondItem="GKt-3a-bdq" secondAttribute="top" id="iTl-UW-MIs"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cue-gI-cgz">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Cue-gI-cgz" firstAttribute="trailing" secondItem="8Lb-gu-REB" secondAttribute="trailing" id="92I-Q8-iio"/>
-                                    <constraint firstItem="8Lb-gu-REB" firstAttribute="leading" secondItem="4sM-Ng-OAb" secondAttribute="leading" constant="16" id="F2v-aq-sv0"/>
-                                    <constraint firstItem="Cue-gI-cgz" firstAttribute="top" secondItem="n2K-XU-ShQ" secondAttribute="bottom" id="I8W-Kt-Tpc"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Lb-gu-REB" secondAttribute="trailing" constant="16" id="bma-Ml-x2q"/>
-                                    <constraint firstAttribute="bottom" secondItem="Cue-gI-cgz" secondAttribute="bottom" constant="14" id="hbr-yM-2Ya"/>
-                                    <constraint firstItem="8Lb-gu-REB" firstAttribute="top" secondItem="4sM-Ng-OAb" secondAttribute="top" id="jAi-YG-Ucl"/>
-                                    <constraint firstItem="n2K-XU-ShQ" firstAttribute="top" secondItem="8Lb-gu-REB" secondAttribute="bottom" id="tyo-C0-hc1"/>
-                                    <constraint firstItem="n2K-XU-ShQ" firstAttribute="centerX" secondItem="4sM-Ng-OAb" secondAttribute="centerX" id="uTc-Qs-Fae"/>
-                                    <constraint firstItem="Cue-gI-cgz" firstAttribute="leading" secondItem="8Lb-gu-REB" secondAttribute="leading" id="uo3-CG-C5U"/>
+                                    <constraint firstItem="mEN-hi-ga6" firstAttribute="centerY" secondItem="4sM-Ng-OAb" secondAttribute="centerY" id="WT7-4n-fG1"/>
+                                    <constraint firstItem="mEN-hi-ga6" firstAttribute="centerX" secondItem="4sM-Ng-OAb" secondAttribute="centerX" id="tij-Vn-dSq"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Am-jE-Ntc" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137" y="261" width="100" height="100"/>
+                                <rect key="frame" x="157" y="300" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-d7-Q1p" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -957,17 +950,17 @@
                                 </connections>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuR-Hc-dgt" userLabel="Helper: Size between btn 1-3">
-                                <rect key="frame" x="47" y="305" width="280" height="2"/>
+                                <rect key="frame" x="66.666666666666686" y="378" width="280" height="2"/>
                                 <color key="backgroundColor" red="0.59215688710000003" green="0.80392163989999998" blue="0.2588235438" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="SC4-xN-o0Q"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psw-AF-jq7" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <rect key="frame" x="20" y="380" width="374" height="336"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bg-8B-Zoq" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -989,7 +982,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-WB-Nm4" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1011,7 +1004,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57U-No-kRW" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1033,7 +1026,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-1A-JP1" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1055,7 +1048,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAi-xf-bji" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="IAi-xf-bji" secondAttribute="height" multiplier="1:1" id="OoO-wE-Iuu"/>
                                             <constraint firstAttribute="width" constant="72" id="zrB-q9-oKj"/>
@@ -1081,7 +1074,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvO-oJ-Vxj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="NUm-0G-Z6b"/>
                                         </constraints>
@@ -1106,7 +1099,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blr-nM-p2I" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1128,7 +1121,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u07-3j-61l" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="u07-3j-61l" secondAttribute="height" multiplier="1:1" id="y0v-Zr-CNz"/>
                                         </constraints>
@@ -1153,7 +1146,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG3-kp-X7Z" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1175,7 +1168,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UL-bd-UZT" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4UL-bd-UZT" secondAttribute="height" multiplier="1:1" id="JkN-j0-WvB"/>
                                         </constraints>
@@ -1200,7 +1193,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-ru-vLz" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1ua-ru-vLz" secondAttribute="height" multiplier="1:1" id="2Dd-XQ-vPD"/>
                                         </constraints>
@@ -1222,7 +1215,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAZ-JU-Ieu" userLabel="bio" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="264" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1300,7 +1293,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAZ-dA-yal" userLabel="Close Error Button">
-                                <rect key="frame" x="36" y="591" width="303" height="56"/>
+                                <rect key="frame" x="40" y="660" width="334" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="eaP-il-Vgv"/>
                                 </constraints>
@@ -1315,20 +1308,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="CuR-Hc-dgt" firstAttribute="centerX" secondItem="SCs-Be-bzw" secondAttribute="centerX" id="8X7-bA-7Gp"/>
+                            <constraint firstItem="4sM-Ng-OAb" firstAttribute="top" secondItem="FPK-Am-Qim" secondAttribute="bottom" id="4Cb-qU-0Ys"/>
+                            <constraint firstItem="0Am-jE-Ntc" firstAttribute="top" secondItem="mEN-hi-ga6" secondAttribute="bottom" constant="32" id="9Pg-Qp-cWl"/>
                             <constraint firstItem="aeA-AC-Upz" firstAttribute="top" secondItem="jAZ-dA-yal" secondAttribute="bottom" constant="20" id="BJR-Ur-SbC"/>
-                            <constraint firstItem="CuR-Hc-dgt" firstAttribute="width" secondItem="n2K-XU-ShQ" secondAttribute="width" id="CqF-hw-Vug"/>
                             <constraint firstItem="1Bg-8B-Zoq" firstAttribute="leading" secondItem="CuR-Hc-dgt" secondAttribute="leading" id="G9l-Ol-lSg"/>
                             <constraint firstItem="0Am-jE-Ntc" firstAttribute="centerX" secondItem="SCs-Be-bzw" secondAttribute="centerX" id="I7v-QF-ali"/>
+                            <constraint firstItem="CuR-Hc-dgt" firstAttribute="width" secondItem="mEN-hi-ga6" secondAttribute="width" id="JtF-y5-YPW"/>
                             <constraint firstItem="jAZ-dA-yal" firstAttribute="leading" secondItem="SCs-Be-bzw" secondAttribute="leadingMargin" constant="20" id="Jv7-DS-JJt"/>
-                            <constraint firstItem="yB2-E0-59w" firstAttribute="centerX" secondItem="SCs-Be-bzw" secondAttribute="centerX" id="KH5-Lo-jOe"/>
-                            <constraint firstItem="yB2-E0-59w" firstAttribute="top" secondItem="FPK-Am-Qim" secondAttribute="bottom" constant="32" id="NXh-Zw-iKq"/>
+                            <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="4sM-Ng-OAb" secondAttribute="bottom" id="Oco-6E-yME"/>
                             <constraint firstItem="aeA-AC-Upz" firstAttribute="top" secondItem="Psw-AF-jq7" secondAttribute="bottom" constant="20" id="Wqh-db-77z"/>
-                            <constraint firstItem="0Am-jE-Ntc" firstAttribute="top" secondItem="4sM-Ng-OAb" secondAttribute="bottom" id="XIe-rX-tw4"/>
                             <constraint firstItem="Psw-AF-jq7" firstAttribute="trailing" secondItem="SCs-Be-bzw" secondAttribute="trailingMargin" id="asH-V8-YuR"/>
-                            <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="CuR-Hc-dgt" secondAttribute="bottom" constant="4" id="d5c-0U-4bZ"/>
+                            <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="CuR-Hc-dgt" secondAttribute="bottom" id="d5c-0U-4bZ"/>
                             <constraint firstAttribute="trailing" secondItem="4sM-Ng-OAb" secondAttribute="trailing" id="eBa-VW-tFB"/>
-                            <constraint firstItem="4sM-Ng-OAb" firstAttribute="top" secondItem="yB2-E0-59w" secondAttribute="bottom" id="iB1-87-Hje"/>
                             <constraint firstItem="Psw-AF-jq7" firstAttribute="leading" secondItem="SCs-Be-bzw" secondAttribute="leadingMargin" id="mIO-Zr-8mb"/>
                             <constraint firstItem="4sM-Ng-OAb" firstAttribute="leading" secondItem="SCs-Be-bzw" secondAttribute="leading" id="q8e-Wq-Vl8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jAZ-dA-yal" secondAttribute="trailing" constant="20" id="zG0-ig-HgI"/>
@@ -1348,8 +1339,6 @@
                         <outlet property="attemptsLabel" destination="Cue-gI-cgz" id="ZwJ-41-4Gu"/>
                         <outlet property="closeErrorButton" destination="jAZ-dA-yal" id="vBD-YP-Z38"/>
                         <outlet property="confirmPinButton" destination="QQN-xl-NNt" id="1uU-MC-bVR"/>
-                        <outlet property="logoImage" destination="yB2-E0-59w" id="55L-Or-vqt"/>
-                        <outlet property="logoImageTopConstraint" destination="NXh-Zw-iKq" id="Yv5-c4-N9T"/>
                         <outlet property="pinKeyboard" destination="Psw-AF-jq7" id="D3P-V4-0Jn"/>
                         <outlet property="pinKeyboardBottomConstraint" destination="Wqh-db-77z" id="fR7-lL-482"/>
                         <outlet property="promptLabel" destination="8Lb-gu-REB" id="B0h-eR-dM7"/>
@@ -1371,21 +1360,21 @@
                         <viewControllerLayoutGuide type="bottom" id="YxB-Ur-Hxl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kfr-hg-nvI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3q-9O-p74" userLabel="Logo">
-                                <rect key="frame" x="87.5" y="52" width="200" height="77"/>
+                                <rect key="frame" x="107" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="fBf-vb-sjz"/>
                                     <constraint firstAttribute="width" constant="200" id="jhi-fY-ZOy"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZw-fA-Wfy" userLabel="Pin1 Group">
-                                <rect key="frame" x="0.0" y="125" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgy-0X-Zhg" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="39r-uL-aYV"/>
                                         </constraints>
@@ -1394,13 +1383,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-b4-4bh" userLabel="Variable Pin">
-                                        <rect key="frame" x="47" y="44" width="280.5" height="56"/>
+                                        <rect key="frame" x="66.666666666666657" y="44" width="280.33333333333337" height="56"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" userLabel="Round Corners">
-                                                <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="216.33333333333334" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPJ-oQ-SsH" userLabel="Variable Pin Label">
-                                                        <rect key="frame" x="20" y="15" width="176.5" height="26.5"/>
+                                                        <rect key="frame" x="20" y="15.000000000000002" width="176.33333333333334" height="26.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1414,7 +1403,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0w-3y-eKL" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="224.5" y="0.0" width="56" height="56"/>
+                                                <rect key="frame" x="224.33333333333331" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="0qE-EC-jRM"/>
                                                     <constraint firstAttribute="height" constant="56" id="92d-hy-FR6"/>
@@ -1444,7 +1433,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfJ-FA-ofZ">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
+                                        <rect key="frame" x="16" y="100" width="382" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1464,10 +1453,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyd-KB-wTb" userLabel="Pin2 Group">
-                                <rect key="frame" x="375" y="125" width="375" height="132"/>
+                                <rect key="frame" x="414" y="125" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter second pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsP-fy-CwV" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="5de-74-9Yg"/>
                                         </constraints>
@@ -1476,13 +1465,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-wo-W9H" userLabel="Variable Pin">
-                                        <rect key="frame" x="47.5" y="44" width="280.5" height="56"/>
+                                        <rect key="frame" x="67" y="44" width="280.66666666666669" height="56"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" userLabel="Round Corners">
-                                                <rect key="frame" x="0.0" y="0.0" width="216.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="216.66666666666666" height="56"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • • • • • • • • • " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIC-5M-XyK" userLabel="Variable Pin Label">
-                                                        <rect key="frame" x="20" y="15" width="176.5" height="26.5"/>
+                                                        <rect key="frame" x="20" y="15.000000000000002" width="176.66666666666666" height="26.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1496,7 +1485,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4a-8H-JpY" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="224.5" y="0.0" width="56" height="56"/>
+                                                <rect key="frame" x="224.66666666666663" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="Bc9-kE-IyP"/>
                                                     <constraint firstAttribute="height" constant="56" id="U0u-Rt-Wzc"/>
@@ -1536,7 +1525,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-ZD-7tQ" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137" y="141" width="100" height="100"/>
+                                <rect key="frame" x="157" y="141" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-a9-26c" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -1570,24 +1559,24 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMj-15-6JK">
-                                <rect key="frame" x="126.5" y="281" width="122" height="30"/>
+                                <rect key="frame" x="146" y="350" width="122" height="30"/>
                                 <state key="normal" title="Passphrase setup"/>
                                 <connections>
                                     <action selector="passphraseSetupAction:" destination="nB0-Rg-aqC" eventType="touchUpInside" id="jfC-s9-881"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDw-Jj-kPA" userLabel="Helper: Size between btn 1-3">
-                                <rect key="frame" x="47" y="305" width="280" height="2"/>
+                                <rect key="frame" x="66.666666666666686" y="374" width="280" height="2"/>
                                 <color key="backgroundColor" red="0.59215688710000003" green="0.80392163989999998" blue="0.2588235438" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="YYS-x5-8KA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-ji-KRP" userLabel="Pin Keyboard" customClass="PinKeyboardView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="16" y="311" width="343" height="336"/>
+                                <rect key="frame" x="20" y="380" width="374" height="336"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-a2-yYJ" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1600,7 +1589,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVj-mE-LUu" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1613,7 +1602,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujJ-TN-PdZ" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="0.0" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="0.0" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1626,7 +1615,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-Hg-9ZI" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="88" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1639,7 +1628,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56o-Xf-Ejj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="56o-Xf-Ejj" secondAttribute="height" multiplier="1:1" id="6Ic-Gw-BQz"/>
                                             <constraint firstAttribute="width" constant="72" id="en8-JQ-02w"/>
@@ -1656,7 +1645,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-C4-x7t" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="88" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="88" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="QqZ-Rb-dy4"/>
                                         </constraints>
@@ -1672,7 +1661,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-rM-gZh" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="31" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="46.666666666666671" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="7">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1685,7 +1674,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtS-Kt-pCd" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="176" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="BtS-Kt-pCd" secondAttribute="height" multiplier="1:1" id="DBp-8V-54G"/>
                                         </constraints>
@@ -1701,7 +1690,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzq-La-TPb" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="176" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="176" width="72" height="72"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <state key="normal" title="9">
                                             <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1714,7 +1703,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1B-79-nHy" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="150.66666666666666" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="V1B-79-nHy" secondAttribute="height" multiplier="1:1" id="NGQ-jg-O9e"/>
                                         </constraints>
@@ -1730,7 +1719,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-8A-aZj" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="239" y="264" width="72" height="72"/>
+                                        <rect key="frame" x="254.66666666666669" y="264" width="72" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="UDk-8A-aZj" secondAttribute="height" multiplier="1:1" id="m4O-T5-CYY"/>
                                         </constraints>
@@ -1867,85 +1856,81 @@
                         <viewControllerLayoutGuide type="bottom" id="vEo-cO-0jy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hA2-eY-rfP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-Z8-Jrc" userLabel="Logo">
-                                <rect key="frame" x="87" y="52" width="200" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="5G4-XR-iSS"/>
-                                    <constraint firstAttribute="width" constant="200" id="XzG-9t-qNm"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHY-Ed-CXv" userLabel="Password Group">
-                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="380"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-lA-2Zs" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="qfa-MW-dhq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX3-ZY-cuN" userLabel="Text field + OK">
-                                        <rect key="frame" x="64" y="44" width="247" height="56"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGj-ZY-Xn9">
+                                        <rect key="frame" x="67" y="122" width="280" height="136"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Ip-W8U" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-cb-bj6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="56" height="56"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-lA-2Zs" userLabel="Prompt">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="20H-Yu-BOQ"/>
-                                                    <constraint firstAttribute="width" constant="56" id="BaN-4W-Xp8"/>
+                                                    <constraint firstAttribute="height" constant="44" id="qfa-MW-dhq"/>
                                                 </constraints>
-                                                <state key="normal" title="OK">
-                                                    <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="confirmPasswordAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="Zkc-zu-7vN"/>
-                                                </connections>
-                                            </button>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX3-ZY-cuN" userLabel="Text field + OK">
+                                                <rect key="frame" x="0.0" y="52" width="280" height="56"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Ip-W8U" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="216" height="56"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-cb-bj6" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                                        <rect key="frame" x="224" y="0.0" width="56" height="56"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="56" id="20H-Yu-BOQ"/>
+                                                            <constraint firstAttribute="width" constant="56" id="BaN-4W-Xp8"/>
+                                                        </constraints>
+                                                        <state key="normal" title="OK">
+                                                            <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="confirmPasswordAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="Zkc-zu-7vN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="gaG-cb-bj6" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="1gy-IC-6dO"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4hO-Ip-W8U" secondAttribute="bottom" id="3zs-4j-NDg"/>
+                                                    <constraint firstItem="4hO-Ip-W8U" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="CWi-qf-9nB"/>
+                                                    <constraint firstItem="gaG-cb-bj6" firstAttribute="leading" secondItem="4hO-Ip-W8U" secondAttribute="trailing" constant="8" id="MQl-lN-1Zt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gaG-cb-bj6" secondAttribute="bottom" id="SUx-tt-Obe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gaG-cb-bj6" secondAttribute="trailing" id="dUs-nz-USp"/>
+                                                    <constraint firstItem="4hO-Ip-W8U" firstAttribute="leading" secondItem="kX3-ZY-cuN" secondAttribute="leading" id="jUU-ex-OcJ"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWo-RR-NPj">
+                                                <rect key="frame" x="0.0" y="116" width="280" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="qRy-y2-842"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="1gy-IC-6dO"/>
-                                            <constraint firstAttribute="bottom" secondItem="4hO-Ip-W8U" secondAttribute="bottom" id="3zs-4j-NDg"/>
-                                            <constraint firstItem="4hO-Ip-W8U" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="top" id="CWi-qf-9nB"/>
-                                            <constraint firstItem="gaG-cb-bj6" firstAttribute="leading" secondItem="4hO-Ip-W8U" secondAttribute="trailing" constant="8" id="MQl-lN-1Zt"/>
-                                            <constraint firstAttribute="bottom" secondItem="gaG-cb-bj6" secondAttribute="bottom" id="SUx-tt-Obe"/>
-                                            <constraint firstAttribute="trailing" secondItem="gaG-cb-bj6" secondAttribute="trailing" id="dUs-nz-USp"/>
-                                            <constraint firstItem="4hO-Ip-W8U" firstAttribute="leading" secondItem="kX3-ZY-cuN" secondAttribute="leading" id="jUU-ex-OcJ"/>
+                                            <constraint firstAttribute="width" constant="280" id="b2f-KG-Lbk"/>
                                         </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWo-RR-NPj">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="WdX-lA-2Zs" firstAttribute="leading" secondItem="AHY-Ed-CXv" secondAttribute="leading" constant="16" id="4eU-2R-OIb"/>
-                                    <constraint firstItem="kX3-ZY-cuN" firstAttribute="leading" secondItem="AHY-Ed-CXv" secondAttribute="leading" constant="64" id="FQl-kq-4fD"/>
-                                    <constraint firstAttribute="trailing" secondItem="kX3-ZY-cuN" secondAttribute="trailing" constant="64" id="N5s-UT-ZjJ"/>
-                                    <constraint firstItem="kX3-ZY-cuN" firstAttribute="top" secondItem="WdX-lA-2Zs" secondAttribute="bottom" id="Nuq-d6-nW0"/>
-                                    <constraint firstItem="JWo-RR-NPj" firstAttribute="top" secondItem="kX3-ZY-cuN" secondAttribute="bottom" id="RK4-zg-jy5"/>
-                                    <constraint firstAttribute="trailing" secondItem="WdX-lA-2Zs" secondAttribute="trailing" constant="16" id="hg3-EE-bTK"/>
-                                    <constraint firstItem="WdX-lA-2Zs" firstAttribute="top" secondItem="AHY-Ed-CXv" secondAttribute="top" id="jyV-Uc-2un"/>
-                                    <constraint firstItem="JWo-RR-NPj" firstAttribute="leading" secondItem="WdX-lA-2Zs" secondAttribute="leading" id="ozH-uH-IlQ"/>
-                                    <constraint firstItem="JWo-RR-NPj" firstAttribute="trailing" secondItem="WdX-lA-2Zs" secondAttribute="trailing" id="vWG-bg-dcR"/>
-                                    <constraint firstAttribute="bottom" secondItem="JWo-RR-NPj" secondAttribute="bottom" constant="14" id="wfB-lT-6Qa"/>
+                                    <constraint firstItem="sGj-ZY-Xn9" firstAttribute="centerX" secondItem="AHY-Ed-CXv" secondAttribute="centerX" id="dSX-4f-CqK"/>
+                                    <constraint firstItem="sGj-ZY-Xn9" firstAttribute="centerY" secondItem="AHY-Ed-CXv" secondAttribute="centerY" id="sPy-aZ-Q5w"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1u-2W-0Pa" userLabel="Close Error Button">
-                                <rect key="frame" x="36" y="591" width="303" height="56"/>
+                                <rect key="frame" x="40" y="660" width="334" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="H1p-uJ-HZe"/>
                                 </constraints>
@@ -1957,14 +1942,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyA-Fc-Uef">
-                                <rect key="frame" x="299" y="28" width="48" height="30"/>
+                                <rect key="frame" x="20" y="28" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="fWI-Fi-HJh"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-Af-zdy" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137" y="261" width="100" height="100"/>
+                                <rect key="frame" x="157" y="310" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-nX-Rqo" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -2003,16 +1988,15 @@
                         <constraints>
                             <constraint firstItem="vEo-cO-0jy" firstAttribute="top" secondItem="e1u-2W-0Pa" secondAttribute="bottom" constant="20" id="1IF-Y5-V5r"/>
                             <constraint firstAttribute="trailing" secondItem="AHY-Ed-CXv" secondAttribute="trailing" id="Bm4-oT-0cS"/>
+                            <constraint firstItem="xyA-Fc-Uef" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leadingMargin" id="KS1-c2-LfL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e1u-2W-0Pa" secondAttribute="trailing" constant="20" id="MNH-Pc-c3h"/>
+                            <constraint firstItem="AHY-Ed-CXv" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" id="NOV-lr-bzl"/>
+                            <constraint firstItem="yWo-Af-zdy" firstAttribute="top" secondItem="sGj-ZY-Xn9" secondAttribute="bottom" constant="32" id="OdA-QQ-jKh"/>
                             <constraint firstItem="xyA-Fc-Uef" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" constant="8" id="WNm-dQ-npQ"/>
                             <constraint firstItem="yWo-Af-zdy" firstAttribute="centerX" secondItem="hA2-eY-rfP" secondAttribute="centerX" id="WfN-vi-yyy"/>
-                            <constraint firstItem="yWo-Af-zdy" firstAttribute="top" secondItem="AHY-Ed-CXv" secondAttribute="bottom" id="Xvf-ki-7S5"/>
                             <constraint firstItem="AHY-Ed-CXv" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leading" id="eiu-9y-PoQ"/>
-                            <constraint firstAttribute="trailing" secondItem="xyA-Fc-Uef" secondAttribute="trailing" constant="28" id="l0Q-BI-12P"/>
-                            <constraint firstItem="AHY-Ed-CXv" firstAttribute="top" secondItem="Ksh-Z8-Jrc" secondAttribute="bottom" id="l91-o9-Qhd"/>
-                            <constraint firstItem="Ksh-Z8-Jrc" firstAttribute="centerX" secondItem="hA2-eY-rfP" secondAttribute="centerX" id="lyx-et-ALa"/>
                             <constraint firstItem="e1u-2W-0Pa" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leadingMargin" constant="20" id="m9E-m2-bXw"/>
-                            <constraint firstItem="Ksh-Z8-Jrc" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" constant="32" id="v7Z-uR-UOv"/>
+                            <constraint firstItem="vEo-cO-0jy" firstAttribute="top" secondItem="AHY-Ed-CXv" secondAttribute="bottom" constant="336" id="pyl-cW-Nor"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enter Password" id="LBQ-0W-ubl" userLabel="Enter Password">
@@ -2030,8 +2014,6 @@
                         <outlet property="closeErrorButton" destination="e1u-2W-0Pa" id="dja-S0-sD0"/>
                         <outlet property="confirmPasswordButton" destination="gaG-cb-bj6" id="sWQ-ji-uuJ"/>
                         <outlet property="keyboardAccessoryView" destination="lqo-Js-Kdp" id="0FS-4q-EBH"/>
-                        <outlet property="logoImage" destination="Ksh-Z8-Jrc" id="9gf-D1-oNf"/>
-                        <outlet property="logoImageTopConstraint" destination="v7Z-uR-UOv" id="dv1-bm-aqw"/>
                         <outlet property="passwordTextField" destination="4hO-Ip-W8U" id="xFN-wR-Nm5"/>
                         <outlet property="promptLabel" destination="WdX-lA-2Zs" id="rsB-1y-z6P"/>
                         <outlet property="useBiometryButton" destination="Ahw-Ix-T9s" id="YNx-QK-vjH"/>
@@ -2070,28 +2052,28 @@
                         <viewControllerLayoutGuide type="bottom" id="z3B-Fd-Rzb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gkD-Fd-2Pd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-8Y-Jis" userLabel="Logo">
-                                <rect key="frame" x="87" y="52" width="200" height="77"/>
+                                <rect key="frame" x="107" y="52" width="200" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="N2D-6Q-q8W"/>
                                     <constraint firstAttribute="height" constant="77" id="cCd-2z-qW7"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-eY-itj">
-                                <rect key="frame" x="292" y="28" width="48" height="30"/>
+                                <rect key="frame" x="331" y="28" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelAction:" destination="NHP-tq-cWF" eventType="touchUpInside" id="9i3-JA-uJb"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saL-0a-hQf" userLabel="Password1 Group">
-                                <rect key="frame" x="0.0" y="129" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68j-tr-9zj" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="lEJ-gC-jlF"/>
                                         </constraints>
@@ -2100,16 +2082,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4T-6A-Vet" userLabel="Text field + OK">
-                                        <rect key="frame" x="64" y="44" width="247" height="56"/>
+                                        <rect key="frame" x="64" y="44" width="286" height="56"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRt-lK-468" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="56"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAU-fj-ozm" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="56" height="56"/>
+                                                <rect key="frame" x="230" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="HIM-uK-zjg"/>
                                                     <constraint firstAttribute="width" constant="56" id="ViL-Fg-srP"/>
@@ -2139,7 +2121,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three attempts left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiV-Z8-kLE">
-                                        <rect key="frame" x="16" y="100" width="343" height="18"/>
+                                        <rect key="frame" x="16" y="100" width="382" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.75294117650000003" green="0.0" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2160,10 +2142,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjF-jL-NGv" userLabel="Password2 Group">
-                                <rect key="frame" x="375" y="129" width="375" height="132"/>
+                                <rect key="frame" x="414" y="129" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sr-ap-B9z" userLabel="Prompt">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="UF2-SL-ypw"/>
                                         </constraints>
@@ -2172,16 +2154,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-RX-kIa" userLabel="Text field + OK">
-                                        <rect key="frame" x="64" y="44" width="247" height="56"/>
+                                        <rect key="frame" x="64" y="44" width="286" height="56"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*******" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmU-hX-8WI" userLabel="password" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="56"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBo-fw-N9K" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="56" height="56"/>
+                                                <rect key="frame" x="230" y="0.0" width="56" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="12i-ys-siF"/>
                                                     <constraint firstAttribute="width" constant="56" id="3D6-zj-0at"/>
@@ -2222,7 +2204,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-4x-Jtx" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137" y="145" width="100" height="100"/>
+                                <rect key="frame" x="157" y="145" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-P9-uUP" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>

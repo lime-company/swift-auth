@@ -30,7 +30,7 @@ extension LimeAuthAuthenticationUITheme {
         guard let borderColor = common.passwordTextField.borderColor else {
             return nil
         }
-        guard common.passwordTextField.borderWidth <= 0.0 else {
+        guard common.passwordTextField.borderWidth > 0.0 else {
             return nil
         }
         return GenericLayerStyle(

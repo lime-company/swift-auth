@@ -352,14 +352,14 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
-        passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
-        
+		
         // Setup TextField
         self.passwordTextField.delegate = self
         self.passwordTextField.returnKeyType = .send
         self.passwordTextField.isSecureTextEntry = true
-        // Apply tint from our root view
-        self.keyboardAccessoryView.tintColor = self.view.tintColor
+        // Keyboard accessory view
+        self.keyboardAccessoryView.backgroundColor = theme.common.backgroundColor
+        self.useBiometryButton.applyButtonStyle(theme.buttons.keyboardAuxiliary)
         
         adjustLayout()
         
@@ -377,10 +377,10 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     open func adjustLayout() {
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
-            self.logoImageTopConstraint.constant = 0.0
+            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
-            self.logoImageTopConstraint.constant = 20.0
+            self.logoImageTopConstraint?.constant = 20.0
         }
     }
     
@@ -421,7 +421,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         
         let uiChange = { ()->Void in
             //
-            self.passwordTextField.textColor = UIColor.black
+            self.passwordTextField.textColor = self.uiDataProvider.uiTheme.common.passwordTextField.textColor
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
@@ -461,9 +461,9 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while
             doShake(view: passwordTextField, time: 0.07 , start: {
-                self.passwordTextField.textColor = UIColor(red:0.761, green:0.000, blue:0.502, alpha:1.000)
+                self.passwordTextField.textColor = self.uiDataProvider.uiTheme.common.wrongPasswordTextColor
             }) {
-                self.passwordTextField.textColor = UIColor.black
+                self.passwordTextField.textColor = self.uiDataProvider.uiTheme.common.passwordTextField.textColor
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.errorAnimationDelay)) {
                     self.commitChangeState()
                     completion?()
@@ -553,8 +553,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
                 attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
             }
         }
-        self.attemptsLabel?.text = attemptsText
-        self.attemptsLabel?.isHidden = !remainingAttemptsLabelIsVisible
+		self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
     }
     
     open func updatePromptLabel() {
