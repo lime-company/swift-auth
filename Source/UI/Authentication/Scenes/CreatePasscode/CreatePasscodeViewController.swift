@@ -169,7 +169,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         
         self.prompt1Label.text = uiData.strings.enterNewPin
         self.prompt2Label.text = uiData.strings.retypePin
-        self.error1Label.text = uiData.strings.pinNoMatch
+        self.error1Label.text = "" // presentFirstGroup() updates this value
         
         self.changeComplexityButton.setTitle(uiData.strings.changeComplexityButton, for: .normal)
         self.confirm1Button.setTitle(commonStrings.okButton, for: .normal)
@@ -253,7 +253,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         self.updatePasswordLabel()
         if self.passwordLength == 1 && self.currentState == .firstPass {
             // Hide error after first typed digit
-            self.error1Label.isHidden = true
+            self.error1Label.text = ""
         }
     }
     
@@ -319,12 +319,12 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     open func adjustLayout() {
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
-            self.pinKeyboardBottomConstraint.constant = 12.0
-            self.logoImageTopConstraint.constant = 0.0
+            self.pinKeyboardBottomConstraint?.constant = 12.0
+            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
-            self.pinKeyboardBottomConstraint.constant = 32.0
-            self.logoImageTopConstraint.constant = 20.0
+            self.pinKeyboardBottomConstraint?.constant = 32.0
+            self.logoImageTopConstraint?.constant = 20.0
         }
     }
     
@@ -339,7 +339,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         self.updatePasswordLabel()
         // Update views
         let duration = animated ? 0.2 : 0
-        self.error1Label.isHidden = !withError
+        self.error1Label.text = withError ? uiDataProvider.uiForCreateNewPassword.strings.pinNoMatch : ""
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             self.changeComplexityButton.alpha = self.complexityButtonIsHidden ? 0.0 : 1.0
             self.groupsAnimationConstraint.constant = 0.0

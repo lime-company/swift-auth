@@ -208,7 +208,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         
         self.prompt1Label.text = uiData.strings.enterNewPassword
         self.prompt2Label.text = uiData.strings.retypePassword
-        self.error1Label.text = uiData.strings.passwordNoMatch
+        self.error1Label.text = "" // presentFirstGroup() updates this value
+		
         self.changeComplexityButton.setTitle(uiData.strings.changeComplexityButton, for: .normal)
         self.confirm1Button.setTitle(commonStrings.okButton, for: .normal)
         self.confirm2Button.setTitle(commonStrings.okButton, for: .normal)
@@ -292,10 +293,10 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     open func adjustLayout() {
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
-            self.logoImageTopConstraint.constant = 0.0
+            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
-            self.logoImageTopConstraint.constant = 20.0
+            self.logoImageTopConstraint?.constant = 20.0
         }
     }
     
@@ -312,7 +313,7 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         
         // Update views
         let duration = animated ? 0.2 : 0
-        self.error1Label.isHidden = !withError
+        self.error1Label.text = withError ? uiDataProvider.uiForCreateNewPassword.strings.passwordNoMatch : ""
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             self.changeComplexityButton.alpha = 1
             self.groupsAnimationConstraint.constant = 0.0
