@@ -30,7 +30,7 @@
 "limeauth.act.begin.title"                  = "Enter the Activation code";
 "limeauth.act.begin.description"            = "Scan the Activation QR code from the ePortal screen. If this fails, retype the Activation code manually by writing down its numeric format from the ePortal screen.";
 "limeauth.act.begin.scanButton"             = "Scan the Activation QR code";
-"limeauth.act.begin.enterCodeButton"        = "Retype the Activation code manually";
+"limeauth.act.begin.enterCodeButton"        = "Retype the code manually";
 
 // Activation :: No camera access
 "limeauth.act.noCamera.title"               = "Allow camera access";
