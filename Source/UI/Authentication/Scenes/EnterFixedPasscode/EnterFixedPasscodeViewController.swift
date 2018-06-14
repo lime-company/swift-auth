@@ -372,6 +372,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             // Other models
             self.pinKeyboardBottomConstraint?.constant = 32.0
             self.logoImageTopConstraint?.constant = 20.0
+            // TODO: We should somehow count with safe area instead of this hack, but that's not possible for autolayout hierarchy.
 			self.pinKeyboardAdditionalHidingOffset = 32.0 + (LayoutHelper.isiPhoneX ? 34.0 : 0.0)
         }
     }
