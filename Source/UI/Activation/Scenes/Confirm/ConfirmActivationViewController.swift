@@ -107,9 +107,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     // MARK: - Commit & Wait
     
     public func commitActivation() {
-        
-        // TODO: we need to store device's key fingerprint to the keychain and restore
-        //       it in case of repairing a broken, unfinished activation.
+		
         let session = router.activationProcess.session
         if session.hasValidActivation {
             waitForActivationConfirmation()
