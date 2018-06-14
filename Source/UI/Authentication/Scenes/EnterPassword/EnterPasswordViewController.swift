@@ -357,7 +357,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .send
         passwordTextField.isSecureTextEntry = true
-		passwordTextField.clearButtonMode = .never
+        passwordTextField.clearButtonMode = .never
         (passwordTextField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
         
         // Keyboard accessory view
@@ -559,7 +559,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
                 attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
             }
         }
-		self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
+        self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
     }
     
     open func updatePromptLabel() {
