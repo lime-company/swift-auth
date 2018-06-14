@@ -31,17 +31,7 @@ internal class LayoutHelper {
         case plus
     }
     
-    enum PadScreenSize {
-        /// Device is not a tablet
-        case none
-        /// Normal screen size
-        case normal
-        /// Plus
-        case plus
-    }
-    
     static let phoneScreenSize: PhoneScreenSize = LayoutHelper.getPhoneScreenSize()
-    static let padScreenSize: PadScreenSize = LayoutHelper.getPadScreenSize()
     static let isiPhoneX: Bool = LayoutHelper.getScreenPixelSize().height == 2436.0
     
     private static func getScreenPixelSize() -> CGSize {
@@ -73,11 +63,23 @@ internal class LayoutHelper {
         }
         return .none
     }
+
+    /*
+    enum PadScreenSize {
+        /// Device is not a tablet
+        case none
+        /// Normal screen size
+        case normal
+        /// Plus
+        case plus
+    }
     
+    static let padScreenSize: PadScreenSize = LayoutHelper.getPadScreenSize()
     private static func getPadScreenSize() -> PadScreenSize {
         // TODO: Not implemented yet... we don't support ipads now
         return .none
     }
+    */
 }
 
 
