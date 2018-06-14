@@ -323,8 +323,8 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         
         textFieldDefaultColor = tf1.textColor ?? UIColor.black
         textFieldBlinkColor = UIColor.red
-        
-        let bigScreen = UIScreen.main.bounds.width > 320.0
+
+        let bigScreen = (LayoutHelper.phoneScreenSize == .normal || LayoutHelper.phoneScreenSize == .plus)
         let textInset = CGPoint(x: bigScreen ? 8 : 4, y:0)
         let font = UIFont(name: "CourierNewPSMT", size: bigScreen ? 18 : 14)
         

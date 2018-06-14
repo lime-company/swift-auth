@@ -354,9 +354,12 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         attemptsLabel?.textColor = theme.common.highlightedTextColor
 		
         // Setup TextField
-        self.passwordTextField.delegate = self
-        self.passwordTextField.returnKeyType = .send
-        self.passwordTextField.isSecureTextEntry = true
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .send
+        passwordTextField.isSecureTextEntry = true
+		passwordTextField.clearButtonMode = .never
+        (passwordTextField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
+        
         // Keyboard accessory view
         self.keyboardAccessoryView.backgroundColor = theme.common.backgroundColor
         self.useBiometryButton.applyButtonStyle(theme.buttons.keyboardAuxiliary)
@@ -386,13 +389,15 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     open func presentActivity(animated: Bool, afterDelay: TimeInterval = 0, completion: (()->Void)? = nil) {
         self.changeState(to: .activity)
-        let uiChange = { ()->Void in
+		
+		self.passwordTextField.resignFirstResponder()
+		self.passwordTextField.isEnabled = false
+		
+		let uiChange = { ()->Void in
             //
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 1
             self.activityIndicator.showActivity(animated: animated)
-            self.passwordTextField.resignFirstResponder()
-            self.passwordTextField.isEnabled = false
             //
             self.commitChangeState()
             self.updateViews()
@@ -418,15 +423,16 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         
         let _ = self.getAndResetPassword()
         self.remainingAttemptsLabelIsVisible = true
-        
+		
+		self.passwordTextField.isEnabled = true
+		self.passwordTextField.becomeFirstResponder()
+		
         let uiChange = { ()->Void in
             //
             self.passwordTextField.textColor = self.uiDataProvider.uiTheme.common.passwordTextField.textColor
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
-            self.passwordTextField.isEnabled = true
-            self.passwordTextField.becomeFirstResponder()
             //
             self.commitChangeState()
             completion?()

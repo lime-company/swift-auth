@@ -271,14 +271,16 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
         
         // prepare text fields
-        self.password1TextField.delegate = self
-        self.password1TextField.returnKeyType = .next
-        self.password1TextField.isSecureTextEntry = true
-        self.password1TextField.inputAccessoryView = self.keyboardAccessoryView
-        self.password2TextField.delegate = self
-        self.password1TextField.returnKeyType = .send
-        self.password1TextField.isSecureTextEntry = true
-        self.password2TextField.inputAccessoryView = self.keyboardAccessoryView
+        [ password1TextField!, password2TextField! ].forEach { (textField) in
+            textField.delegate = self
+            textField.isSecureTextEntry = true
+            textField.inputAccessoryView = self.keyboardAccessoryView
+			textField.clearButtonMode = .never
+            (textField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
+        }
+        password1TextField.returnKeyType = .next
+        password2TextField.returnKeyType = .send
+        
         // keep tint in accessory view
         self.keyboardAccessoryView.tintColor = self.view.tintColor
         // cancel
