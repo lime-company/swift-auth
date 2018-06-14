@@ -275,7 +275,7 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
             textField.delegate = self
             textField.isSecureTextEntry = true
             textField.inputAccessoryView = self.keyboardAccessoryView
-			textField.clearButtonMode = .never
+            textField.clearButtonMode = .never
             (textField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
         }
         password1TextField.returnKeyType = .next

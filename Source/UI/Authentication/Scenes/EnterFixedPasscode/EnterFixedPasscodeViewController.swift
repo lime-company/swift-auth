@@ -367,7 +367,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             // 5, 5s, SE
             self.pinKeyboardBottomConstraint?.constant = 12.0
             self.logoImageTopConstraint?.constant = 0.0
-			self.pinKeyboardAdditionalHidingOffset = 12.0
+            self.pinKeyboardAdditionalHidingOffset = 12.0
         } else {
             // Other models
             self.pinKeyboardBottomConstraint?.constant = 32.0
@@ -386,7 +386,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.activityIndicator.alpha = 1
             self.activityIndicator.showActivity(animated: animated)
             self.pinKeyboard.transform = CGAffineTransform.init(translationX: 0.0, y: self.pinKeyboard.frame.size.height + self.pinKeyboardAdditionalHidingOffset)
-			self.pinKeyboard.alpha = 0.3
+            self.pinKeyboard.alpha = 0.3
             //
             self.commitChangeState()
             self.updateViews()
@@ -420,7 +420,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
             self.pinKeyboard.transform = CGAffineTransform.identity
-			self.pinKeyboard.alpha = 1.0
+            self.pinKeyboard.alpha = 1.0
             //
             self.commitChangeState()
             completion?()
@@ -544,7 +544,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
                 attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
             }
         }
-		self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
+        self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
     }
     
     open func updatePromptLabel() {

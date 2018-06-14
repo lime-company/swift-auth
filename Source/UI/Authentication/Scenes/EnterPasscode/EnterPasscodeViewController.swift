@@ -553,7 +553,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
                 attemptsText = uiDataProvider.localizeRemainingAttempts(attempts: lastStatus.remainingAttempts)
             }
         }
-		self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
+        self.attemptsLabel?.text = remainingAttemptsLabelIsVisible ? attemptsText : ""
     }
     
     open func updatePromptLabel() {
