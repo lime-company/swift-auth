@@ -42,15 +42,15 @@ internal class LayoutHelper {
     
     static let phoneScreenSize: PhoneScreenSize = LayoutHelper.getPhoneScreenSize()
     static let padScreenSize: PadScreenSize = LayoutHelper.getPadScreenSize()
-	static let isiPhoneX: Bool = LayoutHelper.getScreenPixelSize().height == 2436.0
-	
-	private static func getScreenPixelSize() -> CGSize {
-		var size = UIScreen.main.bounds.size
-		size.width  *= UIScreen.main.nativeScale
-		size.height *= UIScreen.main.nativeScale
-		return size
-	}
-	
+    static let isiPhoneX: Bool = LayoutHelper.getScreenPixelSize().height == 2436.0
+    
+    private static func getScreenPixelSize() -> CGSize {
+        var size = UIScreen.main.bounds.size
+        size.width  *= UIScreen.main.nativeScale
+        size.height *= UIScreen.main.nativeScale
+        return size
+    }
+    
     private static func getPhoneScreenSize() -> PhoneScreenSize {
         if UIDevice.current.userInterfaceIdiom == .phone {
             let sr = getScreenPixelSize()
