@@ -357,17 +357,22 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         updateViews()
     }
-    
+	
+	/// Additional offset required for properly animate hiding keyboard to bottom.
+	private var pinKeyboardAdditionalHidingOffset: CGFloat = 0.0
+	
     /// Adjusts layout for various device screen sizes
     open func adjustLayout() {
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
             self.pinKeyboardBottomConstraint?.constant = 12.0
             self.logoImageTopConstraint?.constant = 0.0
+			self.pinKeyboardAdditionalHidingOffset = 12.0
         } else {
             // Other models
             self.pinKeyboardBottomConstraint?.constant = 32.0
             self.logoImageTopConstraint?.constant = 20.0
+			self.pinKeyboardAdditionalHidingOffset = 32.0 + (LayoutHelper.isiPhoneX ? 34.0 : 0.0)
         }
     }
     
@@ -379,7 +384,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 1
             self.activityIndicator.showActivity(animated: animated)
-            self.pinKeyboard.transform = CGAffineTransform.init(translationX: 0.0, y: self.pinKeyboard.frame.size.height + 50.0)
+            self.pinKeyboard.transform = CGAffineTransform.init(translationX: 0.0, y: self.pinKeyboard.frame.size.height + self.pinKeyboardAdditionalHidingOffset)
+			self.pinKeyboard.alpha = 0.3
             //
             self.commitChangeState()
             self.updateViews()
@@ -413,6 +419,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
             self.pinKeyboard.transform = CGAffineTransform.identity
+			self.pinKeyboard.alpha = 1.0
             //
             self.commitChangeState()
             completion?()
