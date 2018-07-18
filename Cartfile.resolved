@@ -1,2 +1,2 @@
-github "lime-company/powerauth-mobile-sdk" "4e85413c1fb02cea658eb68be2943e3f1942530f"
-github "lime-company/swift-lime-core" "b72231e16b140f6667a3054a0866f865973aab8a"
+github "wultra/powerauth-mobile-sdk" "4e85413c1fb02cea658eb68be2943e3f1942530f"
+github "wultra/swift-lime-core" "b72231e16b140f6667a3054a0866f865973aab8a"
