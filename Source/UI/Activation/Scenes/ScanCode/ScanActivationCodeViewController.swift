@@ -215,19 +215,18 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         guard task == nil else {
             return
         }
-        let t = DispatchWorkItem {
+        let t = DispatchWorkItem { [weak self] in
+            guard let this = self, this.task?.isCancelled == false else { return }
             UIView.animate(withDuration: 0.33) {
-                self.enterCodeFallbackButton?.isHidden = false
+                this.enterCodeFallbackButton?.isHidden = false
             }
         }
-        task = t;
+        task = t
         DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: t)
     }
     
     private func cancelFallbackTimer() {
-        if let t = task {
-            t.cancel()
-            task = nil
-        }
+        task?.cancel()
+        task = nil
     }
 }
