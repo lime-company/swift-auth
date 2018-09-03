@@ -39,32 +39,35 @@ public protocol QRCodeProvider: CameraAccessProvider {
 
 public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObjectsDelegate {
     
-    public private(set) var captureSession: AVCaptureSession!
+    public private(set) var captureSession: AVCaptureSession?
+    private let captureSessionQueue = DispatchQueue(label: "LimeAuth.QRCodeScanner.CaptureSessionQueue")
 
     public private(set) weak var previewLayer: AVCaptureVideoPreviewLayer?
-    
     
     // MARK: - QRCodeProvider protocol
     
     public weak var delegate: QRCodeProviderDelegate?
     
-    
     public var isScannerStarted: Bool {
         return captureSession?.isRunning ?? false
     }
-
     
     public func startScanner() {
-        if !isScannerStarted {
-            prepareSession()
-            captureSession?.startRunning()
+        prepareSession()
+        guard let session = captureSession else { return }
+        captureSessionQueue.async {
+            if session.isRunning == false {
+                session.startRunning()
+            }
         }
     }
     
-    
     public func stopScanner() {
-        if isScannerStarted {
-            captureSession?.stopRunning()
+        guard let session = captureSession else { return }
+        captureSessionQueue.async {
+            if session.isRunning {
+                session.stopRunning()
+            }
         }
     }
     
@@ -85,10 +88,12 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     // MARK: - Private methods
 
     private func prepareSession() {
-        if captureSession != nil {
+        
+        guard captureSession == nil else {
             return
         }
-        captureSession = AVCaptureSession()
+        
+        let session = AVCaptureSession()
         
         guard let device = AVCaptureDevice.default(for: .video) else {
             // report error - not allowed
@@ -98,7 +103,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         
         do {
             let input = try AVCaptureDeviceInput(device: device)
-            captureSession.addInput(input)
+            session.addInput(input)
         } catch let error as NSError {
             reportResult(code: nil, error: error)
             return
@@ -109,7 +114,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         }
         
         let output = AVCaptureMetadataOutput()
-        captureSession.addOutput(output)
+        session.addOutput(output)
         guard output.availableMetadataObjectTypes.index(of: .qr) != nil else {
             // Camera doesn't support QR code scanner :(
             D.error("QR code scanner is not supported")
@@ -120,10 +125,9 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         output.setMetadataObjectsDelegate(self, queue: .main)
         output.metadataObjectTypes = [ .qr ]
         
-        
         if let preview = delegate?.qrCodeProviderCameraPreview(self, forSession: captureSession) {
             // Attach preview layer into the provided view
-            let videoLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            let videoLayer = AVCaptureVideoPreviewLayer(session: session)
             
             let bounds = preview.bounds
             videoLayer.videoGravity = .resizeAspectFill
@@ -133,6 +137,8 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
             
             self.previewLayer = videoLayer
         }
+        
+        self.captureSession = session
     }
     
     
