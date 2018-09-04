@@ -17,11 +17,18 @@
 import Foundation
 import AVFoundation
 
+public enum QRCodeProviderError: Error {
+    case permissionDenied
+    case notSupported
+    case unknown
+}
+
 public protocol QRCodeProviderDelegate: class {
-    
+    /// Reports when scanner failed to start scanning. When called, scanner is stopped.
     func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithError error: Error)
+    /// Called everytime when valid QR code is found. When called, scanner is stopped
     func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithCode code: String)
-    
+    /// Returns if given code is valid
     func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool
     func qrCodeProviderCameraPreview(_ provider: QRCodeProvider, forSession session: AVCaptureSession?) -> UIView?
 }
@@ -30,7 +37,7 @@ public protocol QRCodeProvider: CameraAccessProvider {
         
     var delegate: QRCodeProviderDelegate? { get set }
  
-    var isScannerStarted: Bool { get }
+    var isScannerRunning: Bool { get }
     
     func startScanner()
     func stopScanner()
@@ -48,20 +55,23 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     
     public weak var delegate: QRCodeProviderDelegate?
     
-    public var isScannerStarted: Bool {
+    public var isScannerRunning: Bool {
         return captureSession?.isRunning ?? false
     }
     
+    /// Starts the scanner asynchronously
     public func startScanner() {
         prepareSession()
         guard let session = captureSession else { return }
-        captureSessionQueue.async {
+        captureSessionQueue.async { [weak self] in
             if session.isRunning == false {
+                self?.reported = false
                 session.startRunning()
             }
         }
     }
     
+    /// Stops the scanner asynchronously
     public func stopScanner() {
         guard let session = captureSession else { return }
         captureSessionQueue.async {
@@ -77,7 +87,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         for item in metadataObjects {
             if let mrCodeItem = item as? AVMetadataMachineReadableCodeObject {
                 if mrCodeItem.type == .qr, let code = mrCodeItem.stringValue {
-                    if delegate?.qrCodeProvider(self, needsValidateCode: code) ?? false {
+                    if delegate?.qrCodeProvider(self, needsValidateCode: code) == true {
                         reportResult(code: code, error: nil)
                     }
                 }
@@ -97,19 +107,15 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         
         guard let device = AVCaptureDevice.default(for: .video) else {
             // report error - not allowed
-            reportResult(code: nil, error: nil)
+            reportResult(code: nil, error: QRCodeProviderError.permissionDenied)
             return
         }
         
         do {
             let input = try AVCaptureDeviceInput(device: device)
             session.addInput(input)
-        } catch let error as NSError {
+        } catch let error {
             reportResult(code: nil, error: error)
-            return
-        } catch {
-            // report error
-            reportResult(code: nil, error: nil)
             return
         }
         
@@ -118,7 +124,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         guard output.availableMetadataObjectTypes.index(of: .qr) != nil else {
             // Camera doesn't support QR code scanner :(
             D.error("QR code scanner is not supported")
-            reportResult(code: nil, error: nil)
+            reportResult(code: nil, error: QRCodeProviderError.notSupported)
             return
         }
         
@@ -141,15 +147,25 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         self.captureSession = session
     }
     
+    private var reported = false // to make sure to report once per "scan start"
     
     private func reportResult(code: String?, error: Error?) {
+        
+        guard reported == false else {
+            return
+        }
+        
+        reported = true
+        
+        stopScanner() // when reporting result, we consider scanning done -> stop scanner
+        
         DispatchQueue.main.async {
             if let code = code {
                 self.delegate?.qrCodeProvider(self, didFinishWithCode: code)
             } else if let error = error {
                 self.delegate?.qrCodeProvider(self, didFinishWithError: error)
             } else {
-                // dispatch generic error
+                self.delegate?.qrCodeProvider(self, didFinishWithError: QRCodeProviderError.unknown)
             }
         }
     }
