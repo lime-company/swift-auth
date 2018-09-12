@@ -59,19 +59,23 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         return captureSession?.isRunning ?? false
     }
     
-    /// Starts the scanner asynchronously
+    /// Starts the scanner asynchronously.
+    /// **Call ithis method on main thread.**
     public func startScanner() {
         prepareSession()
         guard let session = captureSession else { return }
         captureSessionQueue.async { [weak self] in
             if session.isRunning == false {
-                self?.reported = false
+                DispatchQueue.main.async { // changing on main thread to prevent race condition
+                    self?.reported = false
+                }
                 session.startRunning()
             }
         }
     }
     
-    /// Stops the scanner asynchronously
+    /// Stops the scanner asynchronously.
+    /// **Call ithis method on main thread.**
     public func stopScanner() {
         guard let session = captureSession else { return }
         captureSessionQueue.async {
@@ -155,7 +159,9 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
             return
         }
         
-        reported = true
+        DispatchQueue.main.async { // changing on main thread to prevent race condition
+            self.reported = true
+        }
         
         stopScanner() // when reporting result, we consider scanning done -> stop scanner
         
