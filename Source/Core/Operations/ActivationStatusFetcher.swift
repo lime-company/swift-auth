@@ -72,24 +72,23 @@ internal class ActivationStatusFetcher {
     
     /// Commits new fetched data to internal, lock-protected variable
     private func updateLastFetchedData(_ data: FetchStatusData) {
-        let (fireNotification, removeLocal) = lock.synchronized { ()->(Bool, Bool) in
-            // Determine whether the state value has been changed
-            var fireNotification: Bool
-            if let oldState = self._lastFetchedData?.status.state {
-                fireNotification = oldState != data.status.state
-            } else {
-                fireNotification = false
-            }
-            // And keep new data in this synchronized block
-            let removeLocal = data.status.state == .removed
-            if !removeLocal {
-                self._lastFetchedData = data
-            } else {
-                self._lastFetchedData = nil
-                fireNotification = true
-            }
+        let (fireStatusChangedNotification, removeLocal) = lock.synchronized { ()->(Bool, Bool) in
+            
+            let oldStatus = self._lastFetchedData?.status.state              // status before fetch
+            let newStatus = data.status.state                                // current status that was just fetched
+            let statusChanged = oldStatus != nil && oldStatus! != newStatus  // status can change only when previously set
+            
+            // if local activation should be removed
+            let removeLocal = newStatus == .removed && self.authSession.configuration.removeLocalActivationWhenRemovedOnServer
+            
+            // Fire notification only when status has changed.
+            // If we're about to remove local activation, do not fire (activation removal has it's own activation)
+            let fireStatusChangedNotification = statusChanged && removeLocal == false
+            
+            self._lastFetchedData = data
             self.shouldUpdate = false
-            return (fireNotification, removeLocal)
+            
+            return (fireStatusChangedNotification, removeLocal)
         }
         // At first, remove local activation, if required.
         if removeLocal {
@@ -99,9 +98,9 @@ internal class ActivationStatusFetcher {
             }
         }
         // Then fire notification about the status change
-        if fireNotification {
+        if fireStatusChangedNotification {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: LimeAuthSession.didChangeActivationStatus, object: nil)
+                NotificationCenter.default.post(name: LimeAuthSession.didChangeActivationStatus, object: data.status)
             }
         }
     }

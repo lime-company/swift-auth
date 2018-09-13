@@ -19,7 +19,7 @@ import PowerAuth2
 
 public extension LimeAuthSession {
     
-    /// Notification is fired after the state of the activation change.
+    /// Notification is fired after the state of the activation change. PA2ActivationStatus is passed as object.
     public static let didChangeActivationStatus = Notification.Name(rawValue: "LimeAuthSession_didChangeActivationStatus")    
 
     /// The method updates activation status from the server.
