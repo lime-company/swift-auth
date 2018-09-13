@@ -155,17 +155,16 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     
     private func reportResult(code: String?, error: Error?) {
         
-        guard reported == false else {
-            return
-        }
-        
-        DispatchQueue.main.async { // changing on main thread to prevent race condition
-            self.reported = true
-        }
-        
         stopScanner() // when reporting result, we consider scanning done -> stop scanner
         
         DispatchQueue.main.async {
+            
+            guard self.reported == false else {
+                return
+            }
+            
+            self.reported = true
+            
             if let code = code {
                 self.delegate?.qrCodeProvider(self, didFinishWithCode: code)
             } else if let error = error {
