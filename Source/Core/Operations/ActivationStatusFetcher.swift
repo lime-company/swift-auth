@@ -81,26 +81,22 @@ internal class ActivationStatusFetcher {
             // if local activation should be removed
             let removeLocal = newStatus == .removed && self.authSession.configuration.removeLocalActivationWhenRemovedOnServer
             
-            // Fire notification only when status has changed.
-            // If we're about to remove local activation, do not fire (activation removal has it's own activation)
-            let fireStatusChangedNotification = statusChanged && removeLocal == false
-            
             self._lastFetchedData = data
             self.shouldUpdate = false
             
-            return (fireStatusChangedNotification, removeLocal)
+            return (statusChanged, removeLocal)
+        }
+        // Then fire notification about the status change
+        if fireStatusChangedNotification {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: LimeAuthSession.didChangeActivationStatus, object: data.status)
+            }
         }
         // At first, remove local activation, if required.
         if removeLocal {
             let session = authSession
             DispatchQueue.main.async {
                 session.removeActivationLocal()
-            }
-        }
-        // Then fire notification about the status change
-        if fireStatusChangedNotification {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: LimeAuthSession.didChangeActivationStatus, object: data.status)
             }
         }
     }
