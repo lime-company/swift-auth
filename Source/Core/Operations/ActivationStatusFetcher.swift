@@ -86,16 +86,17 @@ internal class ActivationStatusFetcher {
             
             return (statusChanged, removeLocal)
         }
-        // Then fire notification about the status change
+        // Fire notification about the status change if required.
         if fireStatusChangedNotification {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: LimeAuthSession.didChangeActivationStatus, object: data.status)
             }
         }
-        // At first, remove local activation, if required.
+        // Remove local activation if required.
         if removeLocal {
             let session = authSession
             DispatchQueue.main.async {
+                // This will annulate _lastFetchData and fire didRemoveActivation notification
                 session.removeActivationLocal()
             }
         }
