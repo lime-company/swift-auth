@@ -30,6 +30,15 @@ public protocol LimeAuthSessionConfig: ImmutableConfig {
     // MARK: - Internal networking
     var operationDispatchQueue: DispatchQueue? { get }
     var operationCompletionQueue: DispatchQueue { get }
+    
+    // MARK: - Other settings
+    
+    /// When `AuthSession` detects that activation was removed on the server (during status fetch), it will
+    /// automatically remove local activation (when set to true).
+    ///
+    /// If you want to handle this case by yourself, set this value to `false`
+    /// and then use `LimeAuthSession.removeActivationLocal` method later on.
+    var removeLocalActivationWhenRemovedOnServer: Bool { get }
 }
 
 
@@ -42,6 +51,8 @@ public class MutableLimeAuthSessionConfig: LimeAuthSessionConfig, MutableConfig 
     // dispatch queue
     public var operationDispatchQueue: DispatchQueue?
     public var operationCompletionQueue: DispatchQueue = .main
+    
+    public var removeLocalActivationWhenRemovedOnServer = true
 
     public init(powerAuth: PowerAuthConfiguration = PowerAuthConfiguration(),
                 keychain: PA2KeychainConfiguration = .sharedInstance(),
