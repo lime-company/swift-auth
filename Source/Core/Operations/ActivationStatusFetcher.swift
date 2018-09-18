@@ -31,8 +31,6 @@ internal class ActivationStatusFetcher {
     typealias FetchStatusCompletion = (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void
     typealias FetchStatusData = (status: PA2ActivationStatus, data: [AnyHashable: Any]?)
     
-    
-    
     // MARK: - Last fetched status
     
     private var _lastFetchedData: FetchStatusData?
@@ -102,72 +100,79 @@ internal class ActivationStatusFetcher {
         }
     }
     
-
-    /// Actual operation performing data load
-    private weak var realFetchOperation: RealFetch?
+    // One operation that is actually performing the fetch. Other parallel operation will just use it as dependency
+    private weak var ongoingFetch: FetchOperation?
+    // Semaphore to prevent race conditions when crating fetch operations
+    private var schedulingSemaphore = DispatchSemaphore(value: 1)
 
     /// Updates activation status
     internal func updateActivationStatus(completion: @escaping FetchStatusCompletion) -> Operation {
         
-        let operation = authSession.buildBlockOperation(execute: { (op) -> RealFetch? in
-            // Operation execution
-            if let realFetch = self.realFetchOperation {
-                // Fetch operation already exists, just add "this" operation
-                // to weak sub operations array
-                realFetch.subOperations.append(op)
-                return realFetch
-            }
-            let session = self.authSession
-            
-            let realFetch = RealFetch(statusChecker: self)
-            // Fetch completes its operation on concurrentQueue's thread
-            realFetch.assignCompletionDispatchQueue(session.concurrentQueue.underlyingQueue)
-            // Add "this" operation to weak sub operations array
-            realFetch.subOperations.append(op)
-            // Add "Fetch" to concurrent operations and return its
-            session.concurrentQueue.addOperation(realFetch)
-            return realFetch
-            
-        }, completion: { (op, result: FetchStatusData?, error) in
-            // in completion dispatch queue (typically main)
-            completion(result?.status, result?.data, error)
-        })
+        let operation = FetchOperation(statusChecker: self, completion: completion)
+        
+        // lock the semaphore to be sure there wont be any change to ongoingFetch
+        schedulingSemaphore.wait()
+        if let fetch = ongoingFetch {
+            operation.addDependency(fetch)
+        } else {
+            ongoingFetch = operation
+        }
+        // operation is properly set up, signal the semaphore to continue
+        schedulingSemaphore.signal()
+        
         return authSession.addOperationToQueue(operation, serialized: false)
     }
     
     
     /// Helper operation class retrieving status from the server
-    private class RealFetch: AsyncOperation<FetchStatusData, PA2OperationTask> {
+    private class FetchOperation: AsyncOperation {
         
-        weak var statusChecker: ActivationStatusFetcher?
+        private var error: LimeAuthError?
+        private var result: FetchStatusData?
         
-        typealias SubOperation = AsyncOperation<FetchStatusData, RealFetch>
+        private var completion: FetchStatusCompletion
+        private weak var statusChecker: ActivationStatusFetcher?
+        private weak var fetchTask: PA2OperationTask?
         
-        var subOperations: [WeakObject<SubOperation>] = []
-        
-        init(statusChecker: ActivationStatusFetcher) {
+        init(statusChecker: ActivationStatusFetcher, completion: @escaping FetchStatusCompletion) {
             self.statusChecker = statusChecker
+            self.completion = completion
         }
         
-        override func onExecute() -> PA2OperationTask? {
+        // When operation stats
+        override func started() {
+            
             guard let strongStatusChecker = self.statusChecker else {
                 // Looks like the whole session is going down
-                self.finish(result: nil, error: nil)
-                return nil
+                finish()
+                return
             }
+            
+            if let prevOperation = dependencies.first(where: { $0 is FetchOperation }) as? FetchOperation {
+                // If there's dependency that is another fetch operation, let's use its result without actual fetch
+                result = prevOperation.result
+                error = prevOperation.error
+                finish()
+                return
+            }
+            
             let powerAuth = strongStatusChecker.authSession.powerAuth
-            return powerAuth.fetchActivationStatus { [weak self] (status, statusData, error) in
-                // Reset realFetchOperation immediately
-                guard let `self` = self, let strongStatusChecker = self.statusChecker else {
+            powerAuth.fetchActivationStatus { [weak self] status, statusData, error in
+                
+                defer {
+                    self?.finish()
+                }
+                
+                guard let this = self, let strongStatusChecker = this.statusChecker else {
                     return
                 }
-                strongStatusChecker.realFetchOperation = nil
+                
                 if let error = error {
-                    self.finish(error: .wrap(error))
+                    this.error = LimeAuthError.wrap(error)
                 } else if let status = status {
                     let fetchedData = (status, statusData)
                     strongStatusChecker.updateLastFetchedData(fetchedData)
-                    self.finish(result: fetchedData)
+                    this.result = fetchedData
                 } else {
                     // TODO: build regular error object
                     D.error("ActivationStatusFetcher: Internal error: Unexpected result received from PowerAuth")
@@ -175,25 +180,13 @@ internal class ActivationStatusFetcher {
             }
         }
         
-        override func onComplete(result: ActivationStatusFetcher.FetchStatusData?, error: LimeAuthError?) {
-            // in concurrent queue, cleanup everything
-            subOperations.allStrongReferences.forEach { (operation) in
-                operation.finish(result: result, error: error)
-            }
-            subOperations.removeAll()
+        override func canceled() {
+            fetchTask?.cancel()
         }
         
-        override func onCancel(_ cancellable: PA2OperationTask) {
-            // TODO: Use this cancel in case that object is going to be destroyed
-            cancellable.cancel()
-            
-            subOperations.allStrongReferences.forEach { (operation) in
-                operation.cancel()
-            }
-            subOperations.removeAll()
+        private func finish() {
+            completion(result?.status, result?.data, error)
+            markFinished()
         }
     }
-
-    
-    
 }

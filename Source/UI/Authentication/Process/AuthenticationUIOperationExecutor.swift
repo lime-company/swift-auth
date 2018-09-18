@@ -158,16 +158,13 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             //
         } else {
             // Wrap execution to operation serialized in session's serialization queue
-            let op = session.buildBlockOperation(execute: { (op) -> Void in
-                // Now execute that embedded operation
-                self.operation.execute(session: self.session, authentication: auth) { (result, error) in
-                    // Propagate result to the serialized operation
-                    op.finish(result: result, error: error)
+            let op = AsyncBlockOperation { _, markFinished in
+                
+                self.operation.execute(session: self.session, authentication: auth) { result, error in
+                    self.processExecutionResult(result: result, error: error, callback: callback)
+                    markFinished(nil)
                 }
-            }, completion: { (op, result, error) in
-                // ...and back to executor
-                self.processExecutionResult(result: result, error: error, callback: callback)
-            })
+            }
             synchronizedOperation = session.addOperationToQueue(op, serialized: true)
         }
     }

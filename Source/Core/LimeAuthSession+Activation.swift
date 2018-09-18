@@ -27,18 +27,16 @@ public extension LimeAuthSession {
     ///
     /// This is 1st step of the activation. If this operation succeeds, then you can call `commitActivation`
     public func createActivation(name: String?, activationCode: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
-        let operation = self.buildBlockOperation(execute: { (op) -> PA2OperationTask? in
-            return self.powerAuth.createActivation(withName: name, activationCode: activationCode) { (result, error) in
-                op.finish(result: result, error: .wrap(error))
+        
+        let operation = AsyncBlockOperation { _, markFinished in
+            self.powerAuth.createActivation(withName: name, activationCode: activationCode) { result, error in
+                markFinished {
+                    completion(result, .wrap(error))
+                }
             }
-        }, completion: { (op, result: PA2ActivationResult?, error) in
-            completion(result, error)
-        }) { (op, cancellable) in
-            cancellable.cancel()
         }
-        return self.addOperationToQueue(operation, serialized: true)
+        return addOperationToQueue(operation, serialized: true)
     }
-    
     
     /// Commits activation that was created and store session data using provided authentication instance.
     ///
@@ -46,6 +44,7 @@ public extension LimeAuthSession {
     /// Note that the operation is asynchronous, but is typically executed very quicky. The `LimeAuthSession` is using
     /// its queue only for internal serialization purposes, so you don't need to show activity in the UI.
     public func commitActivation(authentication: PowerAuthAuthentication, completion: @escaping (LimeAuthError?)->Void) -> Operation {
+        
         let blockOperation = BlockOperation {
             var reportError: Error? = nil
             do {
@@ -81,23 +80,18 @@ public extension LimeAuthSession {
     /// Removes activation from the server. The method duplicates the same operation from PowerAuthSDK, but guarantees
     /// the synchronized execution with another calls to PA server.
     public func removeActivation(authentication: PowerAuthAuthentication, completion: @escaping (LimeAuthError?)->Void) -> Operation {
-        let operation = self.buildBlockOperation(execute: { (op) -> PA2OperationTask? in
-            return self.powerAuth.removeActivation(with: authentication) { (error) in
-                if let error = error {
-                    op.finish(error: .wrap(error))
-                } else {
-                    op.finish(result: true)
+        
+        let operation = AsyncBlockOperation { _, markFinished in
+            
+            self.powerAuth.removeActivation(with: authentication) { error in
+                if error == nil {
+                    self.removeActivationLocal()
+                }
+                markFinished {
+                    completion(.wrap(error))
                 }
             }
-        }, completion: { (_, result: Bool?, error) in
-            if result ?? false {
-                self.removeActivationLocal()
-            }
-            completion(error)
-        }) { (op, cancellable) in
-            cancellable.cancel()
         }
-        return self.addOperationToQueue(operation, serialized: true)
+        return addOperationToQueue(operation, serialized: true)
     }
-    
 }

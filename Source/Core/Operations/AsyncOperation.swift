@@ -16,110 +16,97 @@
 
 import Foundation
 
-internal class AsyncOperation<Result, Cancellable>: Operation, CompletableInSpecificQueue {
+/// Base class for asynchronous operations that will be put in `OperationQueue`
+public class AsyncOperation: Operation, CompletableInSpecificQueue {
     
-    private var completionQueue: DispatchQueue?
-    private var cancellable: Cancellable?
-    private var resultReported = false
+    override public var isAsynchronous: Bool { return true }
+    override public var isReady: Bool { return state == .isReady && dependencies.allSatisfy({ $0.isFinished }) }
+    override public var isExecuting: Bool { return state == .isExecuting }
+    override public var isFinished: Bool { return state.done }
+    override public var isCancelled: Bool { return state == .isCanceled }
     
-    final func assignCompletionDispatchQueue(_ queue: DispatchQueue?) {
-        self.completionQueue = queue
-    }
-    
-    // MARK: - Finish & cancel
-    
-    final func finish(error: LimeAuthError) {
-        reportFinish(result: nil, error: error)
-    }
-    
-    final func finish(result: Result) {
-        reportFinish(result: result, error: nil)
-    }
-    
-    final func finish(result: Result?, error: LimeAuthError?) {
-        reportFinish(result: result, error: error)
-    }
-    
-    final override func cancel() {
-        super.cancel()
-        _safeCompletionQueue.async {
-            if let objectToCancel = self.cancellable {
-                self.cancellable = nil
-                self.onCancel(objectToCancel)
+    // Internal state of the operation
+    private var state: AsyncOperationState = .isReady {
+        didSet {
+            willChangeValue(forKey: oldValue.rawValue)
+            willChangeValue(forKey: state.rawValue)
+            didChangeValue(forKey: oldValue.rawValue)
+            didChangeValue(forKey: state.rawValue)
+            if state == .isCanceled {
+                canceled()
             }
         }
     }
     
-    // MARK: - Methods for override
+    public internal(set) var completionQueue: DispatchQueue?
     
-    func onComplete(result: Result?, error: LimeAuthError?) {
-        // empty, you need to override this function
+    // MARK: - Lifecycle of the operation
+    
+    public override init() {
+        self.state = .isReady
+        super.init()
     }
     
-    func onExecute() -> Cancellable? {
-        // empty, you need to override this function
-        return nil
+    /// Starts the operation. This method is called by OperationQueue. Do not call this method.
+    final public override func start() {
+        guard isCancelled == false else { return }
+        state = .isExecuting
+        started()
     }
     
-    func onCancel(_ cancellable: Cancellable) {
-        // empty, override to implement cancel method
+    /// Advises the operation object that it should stop executing its task. This method does not force
+    /// your operation code to stop. Instead, it updates the object’s internal flags to reflect the change in state.
+    final public override func cancel() {
+        state = .isCanceled
     }
     
-    
-    // MARK: - Getting operation state
-    
-    final override var isExecuting: Bool {
-        return _executing
+    final public func markFinished(completion: (() -> Void)? = nil) {
+        
+        // create block, that will properly finish the operation
+        let block = { [weak self] in
+            completion?()
+            self?.state = .isFinished
+        }
+        
+        if let queue = completionQueue {
+            // if completion queue is specified, do it in this queue
+            queue.async {
+                block()
+            }
+        } else {
+            // else just execute the block
+            block()
+        }
     }
     
-    final override var isFinished: Bool {
-        return _finished
+    // MARK: - Methods to override
+    
+    /// Implement your operation in this method. When the operation is finished, don't fotget to call `markFinished()`.
+    /// If operation was crerated with `completionQueue`, use it to call completion.
+    public func started() {
+        fatalError("this method needs to be overriden")
     }
     
-    final override var isAsynchronous: Bool {
-        return true
+    /// Called when operation is canceled.
+    public func canceled() {
+        // to override
     }
     
+    // MARK: - CompletableInSpecificQueue protocol
     
-    // MARK: - Private execution & finish
-    
-    final override func main() {
-        _executing = true
-        cancellable = onExecute()
+    public func assignCompletionDispatchQueue(_ queue: DispatchQueue?) {
+        completionQueue = queue
     }
-    
+}
 
+private enum AsyncOperationState: String {
+    case isWaiting
+    case isReady
+    case isCanceled
+    case isExecuting
+    case isFinished
     
-    private func reportFinish(result: Result?, error: LimeAuthError?) {
-        _executing = false
-        _finished = true
-        _safeCompletionQueue.async {
-            if !self.isCancelled && !self.resultReported {
-                self.resultReported = true
-                self.onComplete(result: result, error: error)
-            }
-        }
-    }
-    
-    private var _safeCompletionQueue: DispatchQueue {
-        return completionQueue ?? .main
-    }
-    
-    private var _executing = false {
-        willSet {
-            willChangeValue(forKey: "isExecuting")
-        }
-        didSet {
-            didChangeValue(forKey: "isExecuting")
-        }
-    }
-    
-    private var _finished = false {
-        willSet {
-            willChangeValue(forKey: "isFinished")
-        }
-        didSet {
-            didChangeValue(forKey: "isFinished")
-        }
+    var done: Bool {
+        return self == .isCanceled || self == .isFinished
     }
 }

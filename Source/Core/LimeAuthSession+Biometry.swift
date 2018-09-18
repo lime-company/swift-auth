@@ -26,14 +26,13 @@ public extension LimeAuthSession {
     /// Adds biometry factor to the session. The user has to provide a password to unlock sensitive information,
     /// required for the operation.
     public func addBiometryFactor(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
-        let operation = self.buildBlockOperation(execute: { (op) -> PA2OperationTask? in
-            return self.powerAuth.addBiometryFactor(password) { (error) in
-                op.finish(result: error == nil, error: .wrap(error))
+        
+        let operation = AsyncBlockOperation { _, markFinished in
+            self.powerAuth.addBiometryFactor(password) { error in
+                markFinished {
+                    completion(.wrap(error))
+                }
             }
-        }, completion: { (op, success: Bool?, error) in
-            completion(error)
-        }) { (op, cancellable) in
-            cancellable.cancel()
         }
         return self.addOperationToQueue(operation, serialized: true)
     }
