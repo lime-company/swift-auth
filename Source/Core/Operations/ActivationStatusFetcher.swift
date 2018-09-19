@@ -103,22 +103,21 @@ internal class ActivationStatusFetcher {
     // One operation that is actually performing the fetch. Other parallel operation will just use it as dependency
     private weak var ongoingFetch: FetchOperation?
     // Semaphore to prevent race conditions when crating fetch operations
-    private var schedulingSemaphore = DispatchSemaphore(value: 1)
+    private var schedulingLock = Lock()
 
     /// Updates activation status
     internal func updateActivationStatus(completion: @escaping FetchStatusCompletion) -> Operation {
         
         let operation = FetchOperation(statusChecker: self, completion: completion)
         
-        // lock the semaphore to be sure there wont be any change to ongoingFetch
-        schedulingSemaphore.wait()
-        if let fetch = ongoingFetch {
-            operation.addDependency(fetch)
-        } else {
-            ongoingFetch = operation
+        // lock ongoingFetch manipulation and access to prevent race condition
+        schedulingLock.synchronized {
+            if let fetch = ongoingFetch {
+                operation.addDependency(fetch)
+            } else {
+                ongoingFetch = operation
+            }
         }
-        // operation is properly set up, signal the semaphore to continue
-        schedulingSemaphore.signal()
         
         return authSession.addOperationToQueue(operation, serialized: false)
     }

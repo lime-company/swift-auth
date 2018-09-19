@@ -20,7 +20,7 @@ import Foundation
 public class AsyncOperation: Operation, CompletableInSpecificQueue {
     
     override public var isAsynchronous: Bool { return true }
-    override public var isReady: Bool { return state == .isReady && dependencies.allSatisfy({ $0.isFinished }) }
+    override public var isReady: Bool { return state == .isReady && dependencies.contains(where: { !$0.isFinished }) == false } // TODO: when migarted to swift 4.2, use dependencies.allSatisfy({ $0.isFinished })
     override public var isExecuting: Bool { return state == .isExecuting }
     override public var isFinished: Bool { return state.done }
     override public var isCancelled: Bool { return state == .isCanceled }
