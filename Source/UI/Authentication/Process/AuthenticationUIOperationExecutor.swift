@@ -90,15 +90,21 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
     // MARK: - Private methods
     
     private func sanitizeRequestOptions() {
-		let credentials = credentialsProvider.credentials
-        // At first, translate supported biometric authentication to biometry option enum.
+        let credentials = credentialsProvider.credentials
         let biometryOption: LimeAuthCredentials.Biometry.Option
-        switch LimeAuthSession.supportedBiometricAuthentication {
-        case .touchID:
-            biometryOption = credentials.biometry.touchId
-        case .faceID:
-            biometryOption = credentials.biometry.faceId
-        case .none:
+        
+        // First chech if biometry is setup and is system-available
+        if session.hasBiometryFactor && PA2Keychain.canUseBiometricAuthentication {
+            // Translate supported biometric authentication to biometry option enum.
+            switch LimeAuthSession.supportedBiometricAuthentication {
+            case .touchID:
+                biometryOption = credentials.biometry.touchId
+            case .faceID:
+                biometryOption = credentials.biometry.faceId
+            case .none:
+                biometryOption = .disabled
+            }
+        } else {
             biometryOption = .disabled
         }
         // Now apply that option and remove incompatible flags requested by the application
