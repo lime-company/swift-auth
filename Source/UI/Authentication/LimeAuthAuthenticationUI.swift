@@ -15,7 +15,6 @@
 //
 
 import UIKit
-import PowerAuth2
 
 public class LimeAuthAuthenticationUI {
     
@@ -229,10 +228,7 @@ public extension LimeAuthAuthenticationUI {
         var uiRequest = Authentication.UIRequest()
         uiRequest.prompts.activityMessage = opStrings.removeDevice_Activity
         uiRequest.prompts.successMessage = opStrings.removeDevice_Success
-        
-        if session.hasBiometryFactor && PA2Keychain.canUseBiometricAuthentication {
-            uiRequest.options.insert(.allowBiometryFactor)
-        }
+        uiRequest.options = [ .usePossession, .allowBiometryFactor ]
         return LimeAuthAuthenticationUI(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, operation: operation) { (result, uiResponse, finalController) in
             completion(result, finalController)
         }
