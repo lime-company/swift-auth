@@ -16,7 +16,7 @@
 
 import Foundation
 
-internal protocol CompletableInSpecificQueue {
+public protocol CompletableInSpecificQueue {
     func assignCompletionDispatchQueue(_ queue: DispatchQueue?)
 }
 
@@ -30,13 +30,4 @@ public extension LimeAuthSession {
         queue.addOperation(operation)
         return operation
     }
-    
-    internal func buildBlockOperation<Result, Cancellable>(execute: @escaping (AsyncOperation<Result, Cancellable>)->Cancellable?,
-                                                           completion: @escaping (AsyncOperation<Result, Cancellable>, Result?, LimeAuthError?)->Void,
-                                                           cancel: ((AsyncOperation<Result, Cancellable>, Cancellable)->Void)? = nil) -> Operation {
-        return AsyncBlockOperation(execute, completion: completion, cancel: cancel)
-    }
-
 }
-
-

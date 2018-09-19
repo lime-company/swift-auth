@@ -16,35 +16,39 @@
 
 import Foundation
 
-internal class AsyncBlockOperation<Result, Cancellable> : AsyncOperation<Result, Cancellable> {
+/** Async operation that takes block as main execution article.
+ 
+ To properly use this class, you need to pass execution block and when the block finishes any
+ asynchronous work, call `completion` block that is passed as 2nd parameter to this block.
+*/
+public class AsyncBlockOperation: AsyncOperation {
     
-    typealias OperationType = AsyncOperation<Result, Cancellable>
+    /// Type of block that needs to be passed in init
+    ///
+    /// - Parameter this: Reference to this operation
+    /// - Parameter markFinished: Call this completion block to mark operation as finished. You can pass closure
+    ///   that will complete this operation to be sure things get called in proper order on proper queue.
+    public typealias ExecutionBlock = (_ this: AsyncBlockOperation, _ markFinished: @escaping MarkFinishedBlock) -> Void
+    public typealias MarkFinishedBlock = ((() -> Void)?) -> Void
     
-    typealias ExecuteBlock = (OperationType) -> Cancellable?
-    typealias CompleteBlock = (OperationType, Result?, LimeAuthError?) -> Void
-    typealias CancelBlock = (OperationType, Cancellable) -> Void
+    private let executionBlock: ExecutionBlock
     
-    private var _execution: ExecuteBlock
-    private var _completion: CompleteBlock
-    private var _cancelation: CancelBlock?
+    /// Create async operation with block, that does asynchronous work.
+    ///
+    /// - Parameter executionBlock: Closure that will be executed when the operation starts.
+    ///   See its type documentation (`ExecutionBlock`) for more info.
+    public init(_ executionBlock: @escaping ExecutionBlock) {
+        self.executionBlock = executionBlock
+        super.init()
+    }
     
-    init(_ execute: @escaping ExecuteBlock, completion: @escaping CompleteBlock, cancel: CancelBlock? = nil) {
+    final public override func started() {
         
-        _execution = execute
-        _completion = completion
-        _cancelation = cancel
+        // first, execute block that was recieved in initializer
+        executionBlock(self) { [weak self] completion in
+            
+            // when markFinished is called, mark operation finished
+            self?.markFinished(completion: completion)
+        }
     }
-
-    final override func onExecute() -> Cancellable? {
-        return _execution(self)
-    }
-    
-    final override func onComplete(result: Result?, error: LimeAuthError?) {
-        _completion(self, result, error)
-    }
-    
-    final override func onCancel(_ cancellable: Cancellable) {
-        _cancelation?(self, cancellable)
-    }
-
 }

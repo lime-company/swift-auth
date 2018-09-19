@@ -21,14 +21,12 @@ public extension LimeAuthSession {
     
     /// Function validates on server whether provided password is valid.
     public func validatePassword(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
-        let operation = self.buildBlockOperation(execute: { (op) -> PA2OperationTask? in
-            return self.powerAuth.validatePasswordCorrect(password) { (error) in
-                op.finish(result: error == nil, error: .wrap(error))
+        let operation = AsyncBlockOperation { _, markFinished in
+            self.powerAuth.validatePasswordCorrect(password) { error in
+                markFinished {
+                    completion(.wrap(error))
+                }
             }
-        }, completion: { (op, success: Bool?, error) in
-            completion(error)
-        }) { (op, cancellable) in
-            cancellable.cancel()
         }
         return self.addOperationToQueue(operation, serialized: true)
     }
