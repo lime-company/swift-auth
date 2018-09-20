@@ -301,7 +301,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
 
         // Apply themes
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
-        hintLabel?.textColor = theme.common.titleColor
+        hintLabel?.textColor = theme.common.textColor
         confirmButton?.applyButtonStyle(theme.buttons.primary)
         
         // Prepare text fields
