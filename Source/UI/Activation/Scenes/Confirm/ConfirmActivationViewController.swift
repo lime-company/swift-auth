@@ -227,7 +227,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         sceneDescriptionLabel?.textColor = theme.common.textColor
         waitingForActivationLabel?.textColor = theme.common.textColor
         activationFingerprintLabel?.textColor = theme.common.highlightedTextColor
-        removeActivationButton?.applyButtonStyle(theme.buttons.destructive)
+        removeActivationButton?.applyButtonStyle(theme.buttons.secondary)
         activityIndicatorView?.applyIndicatorStyle(theme.common.activityIndicator)
     }
 }
