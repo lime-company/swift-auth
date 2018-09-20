@@ -138,7 +138,7 @@ internal class ActivationStatusFetcher {
             self.completion = completion
         }
         
-        // When operation stats
+        // When operation starts
         override func started() {
             
             guard let strongStatusChecker = self.statusChecker else {
@@ -156,7 +156,7 @@ internal class ActivationStatusFetcher {
             }
             
             let powerAuth = strongStatusChecker.authSession.powerAuth
-            powerAuth.fetchActivationStatus { [weak self] status, statusData, error in
+            fetchTask = powerAuth.fetchActivationStatus { [weak self] status, statusData, error in
                 
                 defer {
                     self?.finish()
@@ -184,8 +184,9 @@ internal class ActivationStatusFetcher {
         }
         
         private func finish() {
-            completion(result?.status, result?.data, error)
-            markFinished()
+            markFinished {
+                self.completion(self.result?.status, self.result?.data, self.error)
+            }
         }
     }
 }
