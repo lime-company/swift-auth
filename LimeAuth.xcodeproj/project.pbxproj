@@ -103,6 +103,7 @@
 		BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */; };
 		BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27952035A929004BC16D /* AsyncOperation.swift */; };
 		BFDE27982035F34D004BC16D /* LimeAuthSession+Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */; };
+		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +212,7 @@
 		BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		BFDE27952035A929004BC16D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Activation.swift"; sourceTree = "<group>"; };
+		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +585,7 @@
 				BFA49C2020A465B9000D82B6 /* ButtonStyle.swift */,
 				BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */,
 				BFA49C2A20A48CA7000D82B6 /* ActivityIndicatorStyle.swift */,
+				DC4763802153E04100187DF7 /* StylingExtensions.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				BF565F822045E59C00B9C897 /* EnterActivationCodeModels.swift in Sources */,
 				BFAE069B20582E5F003485D7 /* NewCredentialsRouter.swift in Sources */,
 				BFDB8CE92056ABE40063C5EA /* AuthenticationUIOperation.swift in Sources */,
+				DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */,
 				BF87E18420A9C57B006B28D4 /* TextFieldStyle.swift in Sources */,
 				BFAE069D20583A30003485D7 /* ChangePasswordRouter.swift in Sources */,
 				BF31241F2062CAF400E7533F /* EnterPasswordViewController.swift in Sources */,
