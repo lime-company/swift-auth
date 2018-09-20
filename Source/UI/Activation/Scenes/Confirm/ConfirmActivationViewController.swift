@@ -132,7 +132,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     }
     
     private var waitingWorkItem: DispatchWorkItem?
-    private var fetchOperation: Operation?
+    private weak var fetchOperation: Operation?
     private var statusAttempts: Int = 0
     
     private func waitForActivationConfirmation() {
