@@ -24,6 +24,11 @@ public class LazyUIImage {
     private let construction: (()->UIImage?)?
     
     // MARK: - Construction
+    
+    /// Constrruction with autoclosure
+    public init(image: @escaping @autoclosure () -> UIImage?) {
+        construction = image
+    }
 
     /// Constructs an lazy image with closure, which will later provide
     /// an actual UIImage
