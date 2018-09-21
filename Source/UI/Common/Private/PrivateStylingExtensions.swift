@@ -26,18 +26,17 @@ extension LimeAuthAuthenticationUITheme {
         )
     }
     
-    var layerStyleFromPasswordTextField: GenericLayerStyle? {
-        guard let borderColor = common.passwordTextField.borderColor else {
+    var layerStyleFromAuthenticationCommon: GenericLayerStyle? {
+        guard let borderColor = common.passwordBorderColor else {
             return nil
         }
-        guard common.passwordTextField.borderWidth > 0.0 else {
+        guard common.passwordBorderWidth > 0.0 else {
             return nil
         }
         return GenericLayerStyle(
-            borderWidth: common.passwordTextField.borderWidth,
-            cornerRadius: common.passwordTextField.borderCornerRadius,
-            borderColor: borderColor
-        )
+            borderWidth: common.passwordBorderWidth,
+            cornerRadius: common.passwordBorderCornerRadius,
+            borderColor: borderColor)
     }
 }
 

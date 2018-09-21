@@ -45,6 +45,8 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     @IBOutlet weak var attemptsLabel: UILabel!
     /// Password confirmation button
     @IBOutlet weak var confirmPasswordButton: UIButton!
+    /// Rounded view around textfield and button
+    @IBOutlet weak var roundCornersView: UIView!
     /// A button for cancel
     @IBOutlet weak var cancelButton: UIButton!
     /// A button for biometry signing
@@ -359,6 +361,8 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         passwordTextField.isSecureTextEntry = true
         passwordTextField.clearButtonMode = .never
         (passwordTextField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
+        
+        roundCornersView.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
         // Keyboard accessory view
         self.keyboardAccessoryView.backgroundColor = theme.common.backgroundColor

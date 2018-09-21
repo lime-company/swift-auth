@@ -53,6 +53,15 @@ public struct LimeAuthAuthenticationUITheme {
         /// Style for password text field
         public var passwordTextField: TextFieldStyle
         
+        /// Border width around password field and OK button
+        public var passwordBorderWidth: CGFloat
+        
+        /// Border color around password field and OK button
+        public var passwordBorderColor: UIColor?
+        
+        /// Border corner radius around password field and OK button
+        public var passwordBorderCornerRadius: CGFloat
+        
         /// Status bar style for all authentication scenes.
         /// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
@@ -67,6 +76,9 @@ public struct LimeAuthAuthenticationUITheme {
             wrongPasswordTextColor: UIColor,
             activityIndicator: ActivityIndicatorStyle,
             passwordTextField: TextFieldStyle,
+            passwordBorderWidth: CGFloat,
+            passwordBorderColor: UIColor?,
+            passwordBorderCornerRadius: CGFloat,
             statusBarStyle: UIStatusBarStyle)
         {
             self.backgroundColor = backgroundColor
@@ -78,6 +90,9 @@ public struct LimeAuthAuthenticationUITheme {
             self.activityIndicator = activityIndicator
             self.passwordTextField = passwordTextField
             self.statusBarStyle = statusBarStyle
+            self.passwordBorderWidth = passwordBorderWidth
+            self.passwordBorderColor = passwordBorderColor
+            self.passwordBorderCornerRadius = passwordBorderCornerRadius
         }
     }
     
@@ -186,6 +201,9 @@ public struct LimeAuthAuthenticationUITheme {
                 wrongPasswordTextColor: .red,
                 activityIndicator: .small(.blue),
                 passwordTextField: .noStyle,
+                passwordBorderWidth: 0,
+                passwordBorderColor: nil,
+                passwordBorderCornerRadius: 0,
                 statusBarStyle: .default
             ),
             images: Images(

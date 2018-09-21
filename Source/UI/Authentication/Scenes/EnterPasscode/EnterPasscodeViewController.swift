@@ -356,7 +356,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
         variablePinLabel?.textColor = theme.common.passwordTextColor
-        roundCornersView?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
+        roundCornersView?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
         // KB delegate
         pinKeyboard?.delegate = self
