@@ -53,12 +53,14 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     @IBOutlet weak var error1Label: UILabel!            // label for error, displayed when passwords doesn't match
     @IBOutlet weak var password1TextField: UITextField!    // label for bullets
     @IBOutlet weak var confirm1Button: UIButton!        // OK button
+    @IBOutlet weak var roundCornersView1: UIView!   // View with round corners behind password
     
     // Group of views for first password
     @IBOutlet weak var group2: UIView!                    // grouping view
     @IBOutlet weak var prompt2Label: UILabel!            // prompt
     @IBOutlet weak var password2TextField: UITextField!    // label for bullets
     @IBOutlet weak var confirm2Button: UIButton!        // OK button
+    @IBOutlet weak var roundCornersView2: UIView!   // View with round corners behind password
     
     // Constraint for movement animating
     @IBOutlet weak var groupsAnimationConstraint: NSLayoutConstraint!
@@ -265,6 +267,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         error1Label?.textColor = theme.common.highlightedTextColor
         confirm1Button?.applyButtonStyle(theme.buttons.ok)
         confirm2Button?.applyButtonStyle(theme.buttons.ok)
+        roundCornersView1?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
+        roundCornersView2?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
         logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)

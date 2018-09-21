@@ -82,6 +82,9 @@ public extension LimeAuthAuthenticationUITheme {
                 wrongPasswordTextColor: .red,
                 activityIndicator: .large(.orange),
                 passwordTextField: .noStyle,
+                passwordBorderWidth: 2,
+                passwordBorderColor: .lightGray,
+                passwordBorderCornerRadius: 16,
                 statusBarStyle: .default
             ),
             images: images ?? .defaultImages(),
@@ -123,6 +126,9 @@ public extension LimeAuthAuthenticationUITheme {
                     keyboardAppearance: .dark,
                     options: .default
                 ),
+                passwordBorderWidth: 2,
+                passwordBorderColor: .lightGray,
+                passwordBorderCornerRadius: 16,
                 statusBarStyle: .lightContent
             ),
             images: images ?? .defaultImages(),

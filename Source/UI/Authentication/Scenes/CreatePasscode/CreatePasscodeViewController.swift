@@ -302,8 +302,8 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         error1Label?.textColor = theme.common.highlightedTextColor
         confirm1Button?.applyButtonStyle(theme.buttons.ok)
         confirm2Button?.applyButtonStyle(theme.buttons.ok)
-        roundCornersView1?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
-        roundCornersView2?.applyLayerStyle(theme.layerStyleFromPasswordTextField)
+        roundCornersView1?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
+        roundCornersView2?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
         logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
