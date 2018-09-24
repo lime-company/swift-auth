@@ -111,7 +111,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         sceneTitleLabel?.textColor = theme.common.titleColor
         sceneDescriptionLabel?.textColor = theme.common.textColor
-        closeSceneButton?.applyButtonStyle(theme.buttons.destructive)
+        closeSceneButton?.applyButtonStyle(theme.buttons.primary)
     }
     
 }
