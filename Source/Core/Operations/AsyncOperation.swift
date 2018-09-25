@@ -17,13 +17,13 @@
 import Foundation
 
 /// Base class for asynchronous operations that will be put in `OperationQueue`
-public class AsyncOperation: Operation, CompletableInSpecificQueue {
+open class AsyncOperation: Operation, CompletableInSpecificQueue {
     
-    override public var isAsynchronous: Bool { return true }
-    override public var isReady: Bool { return state == .isReady && dependencies.contains(where: { !$0.isFinished }) == false } // TODO: when migarted to swift 4.2, use dependencies.allSatisfy({ $0.isFinished })
-    override public var isExecuting: Bool { return state == .isExecuting }
-    override public var isFinished: Bool { return state.done }
-    override public var isCancelled: Bool { return state == .isCanceled }
+    override final public var isAsynchronous: Bool { return true }
+    override final public var isReady: Bool { return state == .isReady && dependencies.contains(where: { !$0.isFinished }) == false } // TODO: when migarted to swift 4.2, use dependencies.allSatisfy({ $0.isFinished })
+    override final public var isExecuting: Bool { return state == .isExecuting }
+    override final public var isFinished: Bool { return state.done }
+    override final public var isCancelled: Bool { return state == .isCanceled }
     
     // Internal state of the operation
     private var state: AsyncOperationState = .isReady {
@@ -38,7 +38,7 @@ public class AsyncOperation: Operation, CompletableInSpecificQueue {
         }
     }
     
-    public internal(set) var completionQueue: DispatchQueue?
+    internal(set) var completionQueue: DispatchQueue?
     
     // MARK: - Lifecycle of the operation
     
@@ -60,6 +60,10 @@ public class AsyncOperation: Operation, CompletableInSpecificQueue {
         state = .isCanceled
     }
     
+    /// Sets the operation as finished.
+    ///
+    /// - Parameter completion: Your completion block that will be called right before operation finishes.
+    ///                         If CompletionDispatchQueue was set, completion is executed on this queue.
     final public func markFinished(completion: (() -> Void)? = nil) {
         
         // create block, that will properly finish the operation
@@ -83,12 +87,12 @@ public class AsyncOperation: Operation, CompletableInSpecificQueue {
     
     /// Implement your operation in this method. When the operation is finished, don't fotget to call `markFinished()`.
     /// If operation was crerated with `completionQueue`, use it to call completion.
-    public func started() {
+    open func started() {
         fatalError("this method needs to be overriden")
     }
     
     /// Called when operation is canceled.
-    public func canceled() {
+    open func canceled() {
         // to override
     }
     
