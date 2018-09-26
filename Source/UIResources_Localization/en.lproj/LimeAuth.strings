@@ -112,8 +112,9 @@
 
 "limeauth.op.changePass.activity"           = "";   // "Please wait...", but also empty string works well here, because we're just validating password.
 
-"limeauth.op.removeActivation.activity"     = "Removing activation from this device...";
-"limeauth.op.removeActivation.success"      = "This device is no longer activated.";
+"limeauth.op.removeActivation.activity"      = "Removing activation from this device...";
+"limeauth.op.removeActivation.success"       = "This device is no longer activated.";
+"limeauth.op.removeActivation.touchIdPrompt" = "Confirm activation removal with fingerprint.";
 
 "limeauth.op.enableTouchId.activity"        = "Enabling Touch ID support...";
 "limeauth.op.enableTouchId.success"         = "Touch ID has been successfully enabled.";
