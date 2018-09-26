@@ -104,6 +104,7 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             
             removeDevice_Activity: localization.localizedString("limeauth.op.removeActivation.activity"),
             removeDevice_Success: localization.localizedString("limeauth.op.removeActivation.success"),
+            removeDevice_TouchIdPrompt: localization.localizedString("limeauth.op.removeActivation.touchIdPrompt"),
             
             enableTouchId_Activity: localization.localizedString("limeauth.op.enableTouchId.activity"),
             enableTouchId_Success: localization.localizedString("limeauth.op.enableTouchId.success"),

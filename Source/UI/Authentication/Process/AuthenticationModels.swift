@@ -64,6 +64,7 @@ public enum Authentication {
             
             public let removeDevice_Activity: String
             public let removeDevice_Success: String
+            public let removeDevice_TouchIdPrompt: String
 
             public let enableTouchId_Activity: String
             public let enableTouchId_Success: String
