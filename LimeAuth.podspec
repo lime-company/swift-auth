@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'LimeAuth'
-  s.version = '0.4.2'
+  s.version = '0.4.3'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'High level PowerAuth based authentication library written in swift'
