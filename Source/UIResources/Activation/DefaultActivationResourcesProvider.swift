@@ -198,11 +198,11 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         let appearanceNavBar = UINavigationBar.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self]);
         appearanceNavBar.barStyle = .blackOpaque
         appearanceNavBar.barTintColor = theme.navigationBar.backgroundColor
-        appearanceNavBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: theme.navigationBar.titleColor]
+        appearanceNavBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.navigationBar.titleColor]
         appearanceNavBar.tintColor = theme.navigationBar.tintColor
         
         let appearanceBarButton = UIBarButtonItem.appearance(whenContainedInInstancesOf: [LimeAuthUINavigationController.self])
-        appearanceBarButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: theme.navigationBar.buttonColor], for: .normal)
+        appearanceBarButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: theme.navigationBar.buttonColor], for: .normal)
     }
     
     

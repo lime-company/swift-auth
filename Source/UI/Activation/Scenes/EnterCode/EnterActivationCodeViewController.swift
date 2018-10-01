@@ -124,11 +124,11 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         if keyboardObserver != nil {
             return
         }
-        keyboardObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: .main) { [weak self] (notification) in
+        keyboardObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { [weak self] notification in
             guard let `self` = self else {
                 return
             }
-            if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 let keyboardHeight = keyboardRectangle.height - self.bottomSafeArea + 20.0
                 self.bottomKeyboardConstraint?.constant = keyboardHeight

@@ -65,7 +65,7 @@ extension UIActivityIndicatorView {
             return
         }
         
-        self.activityIndicatorViewStyle = style.style
+        self.style = style.style
         self.color = style.color
     }
 }
