@@ -32,7 +32,7 @@ public class NoCameraAccessRouter: NoCameraAccessRoutingLogic, ActivationUIProce
     }
     
     public func routeToSystemSettings() {
-        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+        UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

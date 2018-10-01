@@ -20,7 +20,7 @@ import UIKit
 public struct ActivityIndicatorStyle {
     
     /// Activity indicator's style. It's recommended to use `.white` or `.whiteLarge`
-    public let style: UIActivityIndicatorViewStyle
+    public let style: UIActivityIndicatorView.Style
     
     /// Indicator's color.
     public let color: UIColor
@@ -45,7 +45,7 @@ public struct ActivityIndicatorStyle {
     
     /// Structure initializer
     public init(
-        style: UIActivityIndicatorViewStyle,
+        style: UIActivityIndicatorView.Style,
         color: UIColor,
         options: Options)
     {
