@@ -85,7 +85,6 @@
 		BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */; };
 		BFBF77DE20AF2A4300139655 /* LimeAuthRestApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBF77DD20AF2A4300139655 /* LimeAuthRestApiError.swift */; };
 		BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */; };
-		BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */; };
 		BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */; };
 		BFD126042034A03E001CE861 /* LimeAuthSession+Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD126032034A03E001CE861 /* LimeAuthSession+Queue.swift */; };
 		BFDB8CCE20516D4B0063C5EA /* PA2KeychainExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8CCD20516D4A0063C5EA /* PA2KeychainExtensions.swift */; };
@@ -194,7 +193,6 @@
 		BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndVerifyPasswordRouter.swift; sourceTree = "<group>"; };
 		BFBF77DD20AF2A4300139655 /* LimeAuthRestApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthRestApiError.swift; sourceTree = "<group>"; };
 		BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PowerAuthSDK+Config.swift"; sourceTree = "<group>"; };
-		BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Singleton.swift"; sourceTree = "<group>"; };
 		BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Status.swift"; sourceTree = "<group>"; };
 		BFD126032034A03E001CE861 /* LimeAuthSession+Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Queue.swift"; sourceTree = "<group>"; };
 		BFDB8CCD20516D4A0063C5EA /* PA2KeychainExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PA2KeychainExtensions.swift; sourceTree = "<group>"; };
@@ -513,7 +511,6 @@
 				BFD126002033421F001CE861 /* Private */,
 				BF8CF5392032F765002A6B6E /* LimeAuthSessionConfig.swift */,
 				BF8CF46A2032E8EA002A6B6E /* LimeAuthSession.swift */,
-				BFD125FB20333656001CE861 /* LimeAuthSession+Singleton.swift */,
 				BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */,
 				BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */,
 				BF31240A2060079300E7533F /* LimeAuthSession+Password.swift */,
@@ -849,7 +846,6 @@
 				BF85E597203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift in Sources */,
 				BF565F9920473B9A00B9C897 /* ErrorActivationViewController.swift in Sources */,
 				BFDB8CEA2056ABE40063C5EA /* AuthenticationUIProcess.swift in Sources */,
-				BFD125FC20333656001CE861 /* LimeAuthSession+Singleton.swift in Sources */,
 				BF49642720598D4D002560A8 /* CreateFixedPasscodeViewController.swift in Sources */,
 				BF87E18620A9F1FA006B28D4 /* GenericLayerStyle.swift in Sources */,
 				BF2010E720A5B25C00FA0E78 /* LimeAuthUINavigationController.swift in Sources */,

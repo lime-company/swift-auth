@@ -19,7 +19,7 @@ import LimeCore
 import PowerAuth2
 import Dispatch
 
-public protocol LimeAuthSessionConfig: ImmutableConfig {
+public protocol LimeAuthSessionConfigType {
     
     // MARK: - PowerAuth related
     
@@ -42,7 +42,7 @@ public protocol LimeAuthSessionConfig: ImmutableConfig {
 }
 
 
-public class MutableLimeAuthSessionConfig: LimeAuthSessionConfig, MutableConfig {
+public class LimeAuthSessionConfig: LimeAuthSessionConfigType {
     
     public var powerAuth: PowerAuthConfiguration
     public var powerAuthKeychain: PA2KeychainConfiguration
@@ -60,9 +60,5 @@ public class MutableLimeAuthSessionConfig: LimeAuthSessionConfig, MutableConfig 
         self.powerAuth = powerAuth
         self.powerAuthKeychain = keychain
         self.powerAuthHttpClient = httpClient
-    }
-    
-    public func makeImmutable() -> ImmutableConfig {
-        return self as LimeAuthSessionConfig
     }
 }

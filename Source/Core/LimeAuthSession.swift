@@ -28,7 +28,7 @@ public class LimeAuthSession {
     public let powerAuth: PowerAuthSDK
     
     /// Configuration use for this session creation.
-    public let configuration: LimeAuthSessionConfig
+    public let configuration: LimeAuthSessionConfigType
     
     /// Helper class wrapping getting activation status
     internal lazy var statusFetcher: ActivationStatusFetcher = { ActivationStatusFetcher(session: self) }()
@@ -38,7 +38,7 @@ public class LimeAuthSession {
     internal var concurrentQueue: OperationQueue
     internal var operationCompletionQueue: DispatchQueue
     
-    public init(config: LimeAuthSessionConfig) {
+    public init(config: LimeAuthSessionConfigType) {
         // Keep config
         configuration = config
         // PowerAuthSDK alraedy raises an exception when config is wrong,
