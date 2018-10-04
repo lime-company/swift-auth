@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'High level PowerAuth based authentication library written in swift'
-  s.homepage = 'https://github.com/lime-company/swift-lime-auth'
-  s.social_media_url = 'https://twitter.com/lime_company'
-  s.author = { 'Lime - HighTech Solutions s.r.o.' => 'support@lime-company.eu' }
-  s.source = { :git => 'https://github.com/lime-company/swift-lime-auth.git', :tag => s.version }
+  s.homepage = 'https://github.com/wultra/swift-lime-auth'
+  s.social_media_url = 'https://twitter.com/wultra'
+  s.author = { 'Wultra s.r.o.' => 'support@wultra.com' }
+  s.source = { :git => 'https://github.com/wultra/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.2'
   s.ios.deployment_target = '9.0'
