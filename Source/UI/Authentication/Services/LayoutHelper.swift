@@ -27,12 +27,20 @@ internal class LayoutHelper {
         case small
         /// iPhone 6, 6s, 7, 8, X
         case normal
-        /// iPhone 6+, 6s+, 7+, 8+,
+        /// iPhone 6+, 6s+, 7+, 8+, XS Max
         case plus
     }
     
     static let phoneScreenSize: PhoneScreenSize = LayoutHelper.getPhoneScreenSize()
-    static let isiPhoneX: Bool = LayoutHelper.getScreenPixelSize().height == 2436.0
+    
+    /// Safe area for for phones like iPhone X
+    static var bezellesPhoneSafeArea: UIEdgeInsets {
+        
+        if #available(iOS 11.0, *), let window = UIApplication.shared.keyWindow {
+            return window.safeAreaInsets
+        }
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
     
     private static func getScreenPixelSize() -> CGSize {
         var size = UIScreen.main.bounds.size

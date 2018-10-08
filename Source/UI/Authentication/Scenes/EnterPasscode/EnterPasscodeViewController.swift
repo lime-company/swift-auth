@@ -377,18 +377,9 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     /// Adjusts layout for various device screen sizes
     open func adjustLayout() {
-        if LayoutHelper.phoneScreenSize == .small {
-            // 5, 5s, SE
-            self.pinKeyboardBottomConstraint?.constant = 12.0
-            self.logoImageTopConstraint?.constant = 0.0
-            self.pinKeyboardAdditionalHidingOffset = 12.0
-        } else {
-            // Other models
-            self.pinKeyboardBottomConstraint?.constant = 32.0
-            self.logoImageTopConstraint?.constant = 20.0
-            // TODO: We should somehow count with safe area instead of this hack, but that's not possible for autolayout hierarchy.
-            self.pinKeyboardAdditionalHidingOffset = 32.0 + (LayoutHelper.isiPhoneX ? 34.0 : 0.0)
-        }
+        let keyboardOffset: CGFloat = LayoutHelper.phoneScreenSize == .small ? 12 : 32
+        pinKeyboardBottomConstraint?.constant = keyboardOffset
+        pinKeyboardAdditionalHidingOffset = keyboardOffset + LayoutHelper.bezellesPhoneSafeArea.bottom
     }
     
     open func presentActivity(animated: Bool, afterDelay: TimeInterval = 0, completion: (()->Void)? = nil) {
