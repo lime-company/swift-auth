@@ -44,8 +44,6 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     
     // MARK: - Outlets -
     
-    /// Image view dedicated for logo
-    @IBOutlet weak var logoImage: UIImageView!
     /// PIN keyboard view
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
     
@@ -72,7 +70,6 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
     
     // Layout adjustments
-    @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var pinKeyboardBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Runtime variables
@@ -305,7 +302,6 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         roundCornersView1?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         roundCornersView2?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
-        logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
         
@@ -320,12 +316,9 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
             self.pinKeyboardBottomConstraint?.constant = 12.0
-            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
-            self.pinKeyboardBottomConstraint?.constant = 32.0
-            self.logoImageTopConstraint?.constant = 20.0
-        }
+            self.pinKeyboardBottomConstraint?.constant = 32.0        }
     }
     
     open func presentFirstGroup(animated: Bool, withError: Bool = false) {

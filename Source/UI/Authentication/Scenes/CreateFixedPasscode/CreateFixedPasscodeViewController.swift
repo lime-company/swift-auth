@@ -44,7 +44,6 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     
     
     // MARK: - Outlets -
-    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
     
     // Group of views for first password
@@ -66,7 +65,6 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
     
     // Layout adjustments
-    @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var pinKeyboardBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Runtime variables
@@ -283,7 +281,6 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         password1Label?.textColor = theme.common.passwordTextColor
         password2Label?.textColor = theme.common.passwordTextColor
         error1Label?.textColor = theme.common.highlightedTextColor
-        logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
 
@@ -298,11 +295,9 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         if LayoutHelper.phoneScreenSize == .small {
             // 5, 5s, SE
             self.pinKeyboardBottomConstraint?.constant = 12.0
-            self.logoImageTopConstraint?.constant = 0.0
         } else {
             // Other models
             self.pinKeyboardBottomConstraint?.constant = 32.0
-            self.logoImageTopConstraint?.constant = 20.0
         }
     }
     

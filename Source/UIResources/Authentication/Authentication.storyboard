@@ -2025,6 +2025,7 @@
                         <outlet property="keyboardAccessoryView" destination="lqo-Js-Kdp" id="0FS-4q-EBH"/>
                         <outlet property="passwordTextField" destination="4hO-Ip-W8U" id="xFN-wR-Nm5"/>
                         <outlet property="promptLabel" destination="WdX-lA-2Zs" id="rsB-1y-z6P"/>
+                        <outlet property="roundCornersView" destination="kX3-ZY-cuN" id="ImT-Z0-qks"/>
                         <outlet property="useBiometryButton" destination="Ahw-Ix-T9s" id="YNx-QK-vjH"/>
                         <segue destination="v1e-b9-268" kind="show" identifier="ChangePassword" id="AAL-3I-MRa"/>
                     </connections>
