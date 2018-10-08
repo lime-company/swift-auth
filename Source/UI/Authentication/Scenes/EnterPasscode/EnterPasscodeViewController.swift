@@ -38,8 +38,6 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     /// A PIN keyboard view
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
-    /// Image view dedicated for logo
-    @IBOutlet weak var logoImage: UIImageView!
     
     /// Label for PIN prompt
     @IBOutlet weak var promptLabel: UILabel!
@@ -57,9 +55,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     /// Close dialog button, displayed only when error occured
     @IBOutlet weak var closeErrorButton: UIButton!
     
-    
     // Layout adjustments
-    @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var pinKeyboardBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Getters
@@ -351,7 +347,6 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
         closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
         confirmPinButton?.applyButtonStyle(theme.buttons.ok)
-        logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor

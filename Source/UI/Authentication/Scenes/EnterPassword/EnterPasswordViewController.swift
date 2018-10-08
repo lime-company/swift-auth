@@ -34,9 +34,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     // MARK: - Outlets -
     
-    /// Image view dedicated for logo
-    @IBOutlet weak var logoImage: UIImageView!
-    
     /// Label for password prompt
     @IBOutlet weak var promptLabel: UILabel!
     /// Text field for password
@@ -59,9 +56,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     /// Keyboard accessory view
     @IBOutlet var keyboardAccessoryView: UIView!
-    
-    // Layout adjustments
-    @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     
     
     // MARK: - Getters
@@ -350,7 +344,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
         closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
         confirmPasswordButton?.applyButtonStyle(theme.buttons.ok)
-        logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
@@ -368,8 +361,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         self.keyboardAccessoryView.backgroundColor = theme.common.backgroundColor
         self.useBiometryButton.applyButtonStyle(theme.buttons.keyboardAuxiliary)
         
-        adjustLayout()
-        
         // Choose right initial mode of the scene
         if operationExecution.willUseBiometryFirst() {
             presentActivity(animated: false)
@@ -378,17 +369,6 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         }
         
         updateViews()
-    }
-    
-    /// Adjusts layout for various device screen sizes
-    open func adjustLayout() {
-        if LayoutHelper.phoneScreenSize == .small {
-            // 5, 5s, SE
-            self.logoImageTopConstraint?.constant = 0.0
-        } else {
-            // Other models
-            self.logoImageTopConstraint?.constant = 20.0
-        }
     }
     
     open func presentActivity(animated: Bool, afterDelay: TimeInterval = 0, completion: (()->Void)? = nil) {

@@ -44,9 +44,6 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     
     // MARK: - Outlets -
     
-    /// Image view dedicated for logo
-    @IBOutlet weak var logoImage: UIImageView!
-    
     // Group of views for first password
     @IBOutlet weak var group1: UIView!                    // grouping view
     @IBOutlet weak var prompt1Label: UILabel!            // prompt
@@ -72,9 +69,6 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     @IBOutlet var keyboardAccessoryView: UIView!
     /// An activity indicator
     @IBOutlet weak var activityIndicator: (UIView & CheckmarkWithActivity)!
-    
-    // Layout adjustments
-    @IBOutlet weak var logoImageTopConstraint: NSLayoutConstraint!
     
     // MARK: - Runtime variables
     
@@ -270,7 +264,6 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         roundCornersView1?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         roundCornersView2?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
-        logoImage?.setLazyImage(theme.images.logo)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
         
@@ -289,21 +282,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         self.keyboardAccessoryView.tintColor = self.view.tintColor
         // cancel
         self.cancelButton.isHidden = router.authenticationProcess.isPartOfActivation
-
-        // adjust layout and present initial state
-        self.adjustLayout()
+        
         self.presentFirstGroup(animated: false, withError: false)
-    }
-    
-    /// Adjusts layout for various device screen sizes
-    open func adjustLayout() {
-        if LayoutHelper.phoneScreenSize == .small {
-            // 5, 5s, SE
-            self.logoImageTopConstraint?.constant = 0.0
-        } else {
-            // Other models
-            self.logoImageTopConstraint?.constant = 20.0
-        }
     }
     
     open func presentFirstGroup(animated: Bool, withError: Bool = false) {
