@@ -544,16 +544,16 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         case .success:
             promptText = uiRequest.prompts.successMessage  ?? uiDataProvider.uiCommonStrings.success
         case .error:
-            promptText = localizedErrorMessage()
+            promptText = localizedErrorMessage(fallbackMessage: uiRequest.prompts.failFallbackMessage ?? uiDataProvider.uiCommonStrings.failure)
         default:
             promptText = ""
         }
         self.promptLabel?.text = promptText
     }
     
-	private func localizedErrorMessage() -> String {
+	private func localizedErrorMessage(fallbackMessage: String) -> String {
         guard let result = executionResult else {
-            return uiDataProvider.uiCommonStrings.failure
+            return fallbackMessage
         }
         if result.isAuthenticationError {
             if result.isActivationProblem {
@@ -565,6 +565,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             }
             return uiDataProvider.uiCommonErrors.wrongPin
         }
-        return uiDataProvider.localizeError(error: result.error, fallback: uiDataProvider.uiCommonStrings.failure)
+        return uiDataProvider.localizeError(error: result.error, fallback: fallbackMessage)
 	}
 }

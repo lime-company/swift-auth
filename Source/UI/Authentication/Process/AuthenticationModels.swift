@@ -94,6 +94,9 @@ public enum Authentication {
             /// A success message displayed when operation ends correctly
             public var successMessage: String?
             
+            /// A failure message displayed when operation fails with unknown reason. Known reason is for example wrong pin, no internet connection, blocked device etc...
+            public var failFallbackMessage: String?
+            
             public init() {
             }
         }
