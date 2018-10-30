@@ -557,7 +557,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         case .success:
             promptText = uiRequest.prompts.successMessage  ?? uiDataProvider.uiCommonStrings.success
         case .error:
-            promptText = localizedErrorMessage(fallbackMessage: uiRequest.prompts.failFallbackMessage ?? uiDataProvider.uiCommonStrings.failure)
+            promptText = localizedErrorMessage(fallbackMessage: uiRequest.prompts.errorFallbackMessage ?? uiDataProvider.uiCommonStrings.failure)
         default:
             promptText = ""
         }
