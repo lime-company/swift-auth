@@ -562,6 +562,15 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
                 } else if result.activationState == .removed {
                     return uiDataProvider.uiCommonErrors.activationWasRemoved
                 }
+            } else if result.isBiometryError {
+                switch PA2Keychain.biometricAuthenticationInfo.biometryType {
+                case .touchID:
+                    return uiDataProvider.uiCommonErrors.biometryNotRecognized_TouchId
+                case .faceID:
+                    return uiDataProvider.uiCommonErrors.biometryNotRecognized_FaceId
+                default:
+                    break
+                }
             }
             return uiDataProvider.uiCommonErrors.wrongPin
         }

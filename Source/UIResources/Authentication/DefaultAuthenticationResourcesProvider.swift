@@ -91,6 +91,8 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         Authentication.UIData.CommonErrors(
             wrongPin: localization.localizedString("limeauth.err.wrongPin"),
             wrongPassword: localization.localizedString("limeauth.err.wrongPassword"),
+            biometryNotRecognized_TouchId: localization.localizedString("limeauth.err.touchIdFail"),
+            biometryNotRecognized_FaceId: localization.localizedString("limeauth.err.faceIdFail"),
             activationWasRemoved: localization.localizedString("limeauth.err.activationWasRemoved" ),
             activationIsBlocked: localization.localizedString("limeauth.err.activationIsBlocked")
         )
