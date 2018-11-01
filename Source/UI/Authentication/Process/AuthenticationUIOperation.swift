@@ -95,6 +95,9 @@ public struct AuthenticationUIOperationResult {
     /// An authentication error occured (e.g. wrong PIN)
     public var isAuthenticationError: Bool = false
     
+    /// If biometry authentication failed (e.g. fingerprint not recognized)
+    public var isBiometryError: Bool = false
+    
     /// PowerAuth activation is in wrong state (UI has to investigate more and react properly on that situation)
     public var isActivationProblem: Bool = false
     
