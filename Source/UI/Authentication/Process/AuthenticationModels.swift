@@ -54,7 +54,7 @@ public enum Authentication {
             public let wrongPassword: String
             public let biometryNotRecognized_TouchId: String
             public let biometryNotRecognized_FaceId: String
-			public let activationWasRemoved: String
+            public let activationWasRemoved: String
             public let activationIsBlocked: String
         }
         
