@@ -16,10 +16,11 @@
 
 import UIKit
 
-open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate {
+open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate, PassphraseVerifying {
     
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
+    var passphraseValidator: LimeAuthPassphraseValidator?
     
     //
     
@@ -40,8 +41,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
+        passphraseValidator = process.session.configuration.passphraseValidatorProvider?.createValidator()
     }
-    
     
     // MARK: - Outlets -
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
@@ -227,12 +228,34 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         }
     }
     
+    private func clearPassword()  {
+        updatePassword { p in
+            p.removeAll()
+        }
+    }
+    
     /// Called after editing password is changed
     private func afterPassowrdChange() {
         self.updatePasswordLabel()
         let length = self.passwordLength
         if length == self.requiredPasswordLength {
-            self.doNext()
+            
+            if currentState == .firstPass {
+                
+                // this will prompt user when pin is too weak and gives him option to pick different one
+                verifyPassphrase(password1, type: .pin, uiDataProvider: uiDataProvider) { isOK in
+                    // pin is OK or user want to use weak one
+                    if isOK {
+                        self.doNext()
+                    } else {
+                        _ = self.getAndResetPasswords()
+                        self.updatePasswordLabel()
+                    }
+                }
+            } else {
+                doNext()
+            }
+            
         } else if length == 1 && self.currentState == .firstPass {
             // Hide error after first typed digit
             self.error1Label.text = ""

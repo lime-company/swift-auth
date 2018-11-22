@@ -39,6 +39,10 @@ public protocol LimeAuthSessionConfigType {
     /// If you want to handle this case by yourself, set this value to `false`
     /// and then use `LimeAuthSession.removeActivationLocal` method later on.
     var removeLocalActivationWhenRemovedOnServer: Bool { get }
+    
+    /// Factory for object that will decide when to show warning when PIN or password is
+    /// too weak during it's creation. This feature will be turned off if nil.
+    var passphraseValidatorProvider: LimeAuthPassphraseValidatorProvider? { get }
 }
 
 
@@ -53,6 +57,8 @@ public class LimeAuthSessionConfig: LimeAuthSessionConfigType {
     public var operationCompletionQueue: DispatchQueue = .main
     
     public var removeLocalActivationWhenRemovedOnServer = true
+    
+    public var passphraseValidatorProvider: LimeAuthPassphraseValidatorProvider? = nil
 
     public init(powerAuth: PowerAuthConfiguration = PowerAuthConfiguration(),
                 keychain: PA2KeychainConfiguration = .sharedInstance(),

@@ -92,6 +92,13 @@
 "limeauth.auth.retypeNewPassword"           = "Retype new password";
 "limeauth.auth.passwordsNotMatch"           = "Passwords did not match. Try again.";
 
+// Passphrase strength
+"limeauth.auth.passStrengthWarning"         = "Warning";
+"limeauth.auth.passStrengthDifferentPin"    = "Use different";
+"limeauth.auth.passStrengthDifferentPassword" = "Use different";
+"limeauth.auth.passStrengthIgnorePin"       = "Continue";
+"limeauth.auth.passStrengthIgnorePassword"  = "Continue";
+
 // Biometry buttons
 "limeauth.auth.useTouchId"                  = "Use Touch ID";
 "limeauth.auth.useFaceId"                   = "Use Face ID";

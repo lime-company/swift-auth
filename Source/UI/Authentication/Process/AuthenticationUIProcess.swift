@@ -36,6 +36,7 @@ public protocol AuthenticationUIDataProvider: class {
     var uiCommonStrings: Authentication.UIData.CommonStrings { get }
     var uiCommonErrors: Authentication.UIData.CommonErrors { get }
     var uiOperationStrings: Authentication.UIData.OperationStrings { get }
+    var uiPassphraseStrengthStrings: Authentication.UIData.PassphraseStrengthStrings { get }
     
     // Per scene getters
     

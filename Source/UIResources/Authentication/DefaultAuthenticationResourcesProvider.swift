@@ -128,6 +128,15 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         )
     }()
     
+    lazy var uiPassphraseStrengthStrings: Authentication.UIData.PassphraseStrengthStrings = {
+       Authentication.UIData.PassphraseStrengthStrings(
+            warningTitle: localization.localizedString("limeauth.auth.passStrengthWarning"),
+            pickDifferentPinButton: localization.localizedString("limeauth.auth.passStrengthDifferentPin"),
+            pickDifferentPasswordButton: localization.localizedString("limeauth.auth.passStrengthDifferentPassword"),
+            ignorePinButton: localization.localizedString("limeauth.auth.passStrengthIgnorePin"),
+            ignorePasswordButton: localization.localizedString("limeauth.auth.passStrengthIgnorePassword")
+        )
+    }()
     
     
     func localizePasswordComplexity(option: LimeAuthCredentials.Password) -> String {

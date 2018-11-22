@@ -16,10 +16,11 @@
 
 import UIKit
 
-open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, UITextFieldDelegate {
+open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, UITextFieldDelegate, PassphraseVerifying {
     
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
+    var passphraseValidator: LimeAuthPassphraseValidator?
     
     //
     
@@ -40,6 +41,7 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
+        passphraseValidator = process.session.configuration.passphraseValidatorProvider?.createValidator()
     }
     
     // MARK: - Outlets -
@@ -180,7 +182,20 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     }
     
     @IBAction private func confirmPasswordAction(_ sender: Any) {
-        self.doNext()
+        if currentState == .firstPass {
+            
+            // this will prompt user when password is too weak and gives him option to pick different one
+            verifyPassphrase(password1, type: .password, uiDataProvider: uiDataProvider) { isOK in
+                // password is OK or user want to use weak one
+                if isOK {
+                    self.doNext()
+                } else {
+                    _ = self.getAndResetPasswords()
+                }
+            }
+        } else {
+            doNext()
+        }
     }
     
     @IBAction private func cancelAction(_ sender: Any) {
