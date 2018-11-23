@@ -116,6 +116,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
         updateLocalizedStrings()
         prepareUIForFirstUse()
+        LimeAuthActionFeedback.shared.prepare()
     }
     
     // MARK: - Navigation
@@ -354,6 +355,8 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     open func presentSuccess(completion: @escaping ()->Void) {
         self.currentState = .success
         
+        LimeAuthActionFeedback.shared.scene(.operationSuccess)
+        
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
             self.groupsAnimationConstraint.constant = -2*self.view.frame.width
             self.view.layoutIfNeeded()
@@ -368,6 +371,8 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     
     open func presentFailure(completion: @escaping ()->Void) {
         self.currentState = .error
+        
+        LimeAuthActionFeedback.shared.scene(.operationFail)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
             completion()

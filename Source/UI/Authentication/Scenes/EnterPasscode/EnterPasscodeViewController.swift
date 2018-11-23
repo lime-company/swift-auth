@@ -140,6 +140,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         // Prepare UI
         updateLocalizedStrings()
         prepareUIForFirstUse()
+        LimeAuthActionFeedback.shared.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -432,11 +433,11 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     open func presentSuccess(animated: Bool, completion: @escaping ()->Void) {
+        
         self.changeState(to: .success)
-        
         self.activityIndicator.showSuccess(animated: animated)
-        
         self.updateViews()
+        LimeAuthActionFeedback.shared.scene(.operationSuccess)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
             self.commitChangeState()
@@ -445,10 +446,11 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     open func presentError(retry: Bool, completion: (()->Void)? = nil) {
+        
         self.changeState(to: .error)
         self.updateViews()
-        
         self.activityIndicator.showError()
+        LimeAuthActionFeedback.shared.scene(.operationFail)
         
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while

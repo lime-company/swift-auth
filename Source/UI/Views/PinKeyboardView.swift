@@ -162,6 +162,7 @@ open class PinKeyboardView : UIView {
     override open func awakeFromNib() {
         super.awakeFromNib()
         let _ = self.setupButtons()
+        LimeAuthActionFeedback.shared.prepare()
     }
     
     // MARK: - Styling
@@ -309,8 +310,10 @@ open class PinKeyboardView : UIView {
         let key = translateTagToKey(sender.tag)
         if let digit = key.digit {
             delegate?.pinKeyboardView(self, didTapOnDigit: digit)
+            LimeAuthActionFeedback.shared.scene(.digitKeyPressed)
         } else if let code = key.code {
             delegate?.pinKeyboardView(self, didTapOnSpecialKey: code)
+            LimeAuthActionFeedback.shared.scene(.specialKeyPressed)
         }
     }
     
