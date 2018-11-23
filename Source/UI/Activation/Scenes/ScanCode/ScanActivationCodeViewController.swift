@@ -51,6 +51,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        LimeAuthActionFeedback.shared.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -122,6 +123,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
             // signature is required for QR code
             return false
         }
+        LimeAuthActionFeedback.shared.haptic(.impact(.medium))
         return true
     }
     
