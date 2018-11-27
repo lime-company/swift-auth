@@ -18,52 +18,6 @@ import Foundation
 import AudioToolbox
 import AVFoundation
 
-// MARK: - Enums
-
-/// Type of haptic feedback
-public enum LimeAuthHapticType {
-    case impact(LimeAuthHapticImpactStrength)
-    case notification(LimeAuthHapticNotificationType)
-    case selection
-}
-
-/// Strength of haptic impact (vibration)
-public enum LimeAuthHapticImpactStrength {
-    case light
-    case medium
-    case heavy
-}
-
-/// Type of haptic notification
-public enum LimeAuthHapticNotificationType {
-    case success
-    case warning
-    case error
-}
-
-/// System sound defined in system
-public enum LimeAuthSystemSound: Int {
-    case tink = 1103
-    case tock = 1104
-    case tock2 = 1105
-}
-
-/// Custom lime auth sounds
-public enum LimeAuthSound: String {
-    case success = "success"
-    case error = "failed"
-}
-
-/// Predefined events for specific LimeAuth situations
-public enum LimeAuthFeedbackScene {
-    case digitKeyPressed
-    case specialKeyPressed
-    case operationSuccess
-    case operationFail
-}
-
-// MARK: - Main class
-
 /// Class that plays haptic and audio feedback for easier use.
 /// For simplicity and configuration of default LimeAuth UI components use `shared` singleton.
 public class LimeAuthActionFeedback {
@@ -75,6 +29,11 @@ public class LimeAuthActionFeedback {
     public var hapticEnabled = true
     /// When false, audio(..) calls will be ignored
     public var audioEnabled = true
+    
+    /// Success sound in predefined success scene. Default value available only when LimeAuth/UIResources_Sounds pod is used.
+    public var successSound: URL? = Bundle(for: LimeAuthActionFeedback.self).url(forResource: "success", withExtension: "m4a")
+    /// Fail sound in predefined success scene. Default value available only when LimeAuth/UIResources_Sounds pod is used.
+    public var failSound: URL? = Bundle(for: LimeAuthActionFeedback.self).url(forResource: "failed", withExtension: "m4a")
     
     // generators
     private var impactLight: UIImpactFeedbackGenerator?
@@ -90,7 +49,7 @@ public class LimeAuthActionFeedback {
     public init () {
         do {
             // This will set audio to play on background without interupting any music or video currently playing
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: .mixWithOthers)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
         }
@@ -158,24 +117,33 @@ public class LimeAuthActionFeedback {
     /// Also volume level is controlled by the system (user).
     public func audio(_ sound: LimeAuthSystemSound) {
         guard audioEnabled else {
+            D.print("Audio disabled, sound won't be played.")
             return
         }
         AudioServicesPlaySystemSound(SystemSoundID(sound.rawValue))
     }
     
-    /// Plays custom embeded audio
+    /// Plays custom audio
     ///
     /// - Parameters:
-    ///   - sound: Type of custom audio
-    ///   - volume: Volume that the sound will be played on. 0.5 by default. Range is <0,1>.
-    public func audio(_ sound: LimeAuthSound, volume: Float = 0.5) {
-        guard audioEnabled, let url = Bundle(for: LimeAuthActionFeedback.self).url(forResource: sound.rawValue, withExtension: "m4a") else {
+    ///   - sound: Path to custom audio
+    ///   - volume: Volume that the sound will be played on. 0.5 by default. Range is <0,1>. Note that this is
+    ///     relative volume to system volume.
+    public func audio(_ sound: URL?, volume: Float = 0.5) {
+        
+        guard audioEnabled else {
+            D.print("Audio disabled, sound won't be played.")
+            return
+        }
+        
+        guard let url = sound, FileManager.default.fileExists(atPath: url.path) else {
+            D.warning("Audio file is not set or doesn't exist, sound won't be played.")
             return
         }
         
         player.removeAllItems()
         player.insert(AVPlayerItem(url: url), after: nil)
-        player.volume = 0.35
+        player.volume = volume
         player.play()
     }
     
@@ -194,10 +162,10 @@ public class LimeAuthActionFeedback {
             audio(.tock2)
         case .operationSuccess:
             haptic(.notification(.success))
-            audio(.success)
+            audio(successSound)
         case .operationFail:
             haptic(.notification(.error))
-            audio(.error)
+            audio(failSound)
         }
     }
     
