@@ -106,6 +106,7 @@
 		DC1E501421A81AE20089B280 /* failed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501221A81AE20089B280 /* failed.m4a */; };
 		DC1E501521A81AE20089B280 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501321A81AE20089B280 /* success.m4a */; };
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
+		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +218,7 @@
 		DC1E501221A81AE20089B280 /* failed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = failed.m4a; sourceTree = "<group>"; };
 		DC1E501321A81AE20089B280 /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
+		DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedbackAssets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,11 +237,11 @@
 		BF2EBB5820A34B520079C465 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DCD62F6A21AD4648006CB765 /* ActionFeedback */,
 				BFA49C1F20A4653D000D82B6 /* Styles */,
 				BFA49C2920A480BE000D82B6 /* Private */,
 				BF6134512045C45300164496 /* LazyUIImage.swift */,
 				BF2EBB5920A34C720079C465 /* BundleExtension.swift */,
-				DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -506,6 +508,7 @@
 				BFA49C2E20A58D3A000D82B6 /* UIResources_Images */,
 				BFA49C2F20A58D57000D82B6 /* UIResources_Illustrations */,
 				BF87E18A20AC6906006B28D4 /* UIResources_Localization */,
+				DCD62F6921AD43CA006CB765 /* UIResources_Sounds */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -532,7 +535,6 @@
 		BF8CF43E203209AC002A6B6E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				DC1E500921A819B50089B280 /* Sounds */,
 				BF2EBB5820A34B520079C465 /* Common */,
 				BFDBCBBE2045D409001585BF /* Views */,
 				BFDB8CD120516DB30063C5EA /* Controllers */,
@@ -714,13 +716,22 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		DC1E500921A819B50089B280 /* Sounds */ = {
+		DCD62F6921AD43CA006CB765 /* UIResources_Sounds */ = {
 			isa = PBXGroup;
 			children = (
 				DC1E501221A81AE20089B280 /* failed.m4a */,
 				DC1E501321A81AE20089B280 /* success.m4a */,
 			);
-			path = Sounds;
+			path = UIResources_Sounds;
+			sourceTree = "<group>";
+		};
+		DCD62F6A21AD4648006CB765 /* ActionFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */,
+				DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */,
+			);
+			path = ActionFeedback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -876,6 +887,7 @@
 				BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */,
 				BFDB8CD020516D680063C5EA /* LimeAuthError.swift in Sources */,
 				BF2010E920A5B9F200FA0E78 /* LimeAuthAuthenticationUITheme.swift in Sources */,
+				DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */,
 				BF61344120448DA900164496 /* ScanActivationCodeViewController.swift in Sources */,
 				BFDB8CD720516DE00063C5EA /* LimeAuthCredentials.swift in Sources */,
 				BF61344820448EBD00164496 /* NoCameraAccessRouter.swift in Sources */,
