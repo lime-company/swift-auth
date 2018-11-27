@@ -162,10 +162,10 @@ public class LimeAuthActionFeedback {
             audio(.tock2)
         case .operationSuccess:
             haptic(.notification(.success))
-            audio(successSound)
+            audio(successSound, volume: 0.25)
         case .operationFail:
             haptic(.notification(.error))
-            audio(failSound)
+            audio(failSound, volume: 0.25)
         }
     }
     
