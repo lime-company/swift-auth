@@ -21,6 +21,10 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
     
+    private var actionFeedback: LimeAuthActionFeedback? {
+        return router.authenticationProcess.uiProvider.actionFeedback
+    }
+    
     //
     
     public func canHandlePasswordCreation(for passwordType: LimeAuthCredentials.Password.PasswordType) -> Bool {
@@ -107,7 +111,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
         updateLocalizedStrings()
         prepareUIForFirstUse()
-        LimeAuthActionFeedback.shared.prepare()
+        actionFeedback?.prepare()
     }
     
     // MARK: - Navigation
@@ -174,6 +178,10 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         let uiTheme = uiDataProvider.uiTheme
         let lazyImage = biometryIcon == .touchID ? uiTheme.images.touchIdIcon : uiTheme.images.touchIdIcon
         return lazyImage.optionalImage
+    }
+    
+    public func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback? {
+        return actionFeedback
     }
    
     // MARK: - Private functions
@@ -336,7 +344,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func presentSuccess(completion: @escaping ()->Void) {
         self.currentState = .success
         
-        LimeAuthActionFeedback.shared.scene(.operationSuccess)
+        actionFeedback?.scene(.operationSuccess)
         
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
             self.groupsAnimationConstraint.constant = -2*self.view.frame.width
@@ -353,7 +361,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func presentFailure(completion: @escaping ()->Void) {
         self.currentState = .error
         
-        LimeAuthActionFeedback.shared.scene(.operationFail)
+        actionFeedback?.scene(.operationFail)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
             completion()

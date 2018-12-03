@@ -67,6 +67,10 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         return router.authenticationProcess.operationExecution
     }
     
+    var actionFeedback: LimeAuthActionFeedback? {
+        return router.authenticationProcess.uiProvider.actionFeedback
+    }
+    
     // MARK: - Runtime variables
     
     /// Enum defining all internal UI states
@@ -131,7 +135,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         // Prepare UI
         updateLocalizedStrings()
         prepareUIForFirstUse()
-        LimeAuthActionFeedback.shared.prepare()
+        actionFeedback?.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -197,6 +201,10 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             self.password.append(stars)
         }
         return pass
+    }
+    
+    public func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback? {
+        return actionFeedback
     }
     
     private func executeOperation(biometry: Bool, delay: Bool = true) {
@@ -425,7 +433,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         self.changeState(to: .success)
         self.activityIndicator.showSuccess(animated: animated)
         self.updateViews()
-        LimeAuthActionFeedback.shared.scene(.operationSuccess)
+        actionFeedback?.scene(.operationSuccess)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
             self.commitChangeState()
@@ -437,7 +445,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         self.changeState(to: .error)
         self.updateViews()
         self.activityIndicator.showError()
-        LimeAuthActionFeedback.shared.scene(.operationFail)
+        actionFeedback?.scene(.operationFail)
         
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while
@@ -467,11 +475,6 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         guard let viewForShake = view else {
             return
-        }
-        
-        if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
         }
                 
         UIView.animate(withDuration: time, delay: 0, options: .curveEaseOut, animations: {

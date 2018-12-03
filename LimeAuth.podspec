@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
   # 'UI' subspec
   s.subspec 'UI' do |sub|
     sub.source_files = 'Source/UI/**/*.swift'
-    sub.resources = [ 'Source/UI/Sounds/*.m4a' ]
     sub.dependency 'LimeAuth/Core'
   end
   

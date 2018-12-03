@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -382,6 +382,7 @@
                                 <connections>
                                     <outlet property="backspaceButton" destination="VN9-z5-e5b" id="yCi-2K-mT7"/>
                                     <outlet property="cancelButton" destination="VN9-z5-e5b" id="Bps-Jg-Axl"/>
+                                    <outlet property="delegate" destination="zeQ-AG-UAj" id="Vj3-HX-mH4"/>
                                     <outletCollection property="numericButtonsCollection" destination="tIM-cR-zu8" collectionClass="NSMutableArray" id="qeu-NZ-Eh8"/>
                                     <outletCollection property="numericButtonsCollection" destination="xc1-Vx-NmX" collectionClass="NSMutableArray" id="YEt-dN-RUl"/>
                                     <outletCollection property="numericButtonsCollection" destination="xrH-Wp-kzL" collectionClass="NSMutableArray" id="OGC-8c-H1p"/>
@@ -771,6 +772,7 @@
                                     <outlet property="backspaceButton" destination="5ML-Hr-Olh" id="wqs-VU-umQ"/>
                                     <outlet property="biometryButton" destination="ONq-Ey-RUk" id="2ab-nf-efs"/>
                                     <outlet property="cancelButton" destination="5ML-Hr-Olh" id="6Wj-gn-ijl"/>
+                                    <outlet property="delegate" destination="Q92-aI-fge" id="3Rd-ng-AXS"/>
                                     <outletCollection property="numericButtonsCollection" destination="uSf-Bo-idv" collectionClass="NSMutableArray" id="OcI-PV-CrA"/>
                                     <outletCollection property="numericButtonsCollection" destination="5fv-gl-O4i" collectionClass="NSMutableArray" id="Uec-2C-Zht"/>
                                     <outletCollection property="numericButtonsCollection" destination="lN0-VB-fct" collectionClass="NSMutableArray" id="dvX-YH-kuB"/>
@@ -828,10 +830,10 @@
             </objects>
             <point key="canvasLocation" x="-1466" y="-463"/>
         </scene>
-        <!--Enter Variable PIN-->
+        <!--Enter Varaible PIN-->
         <scene sceneID="u8I-Px-7hq">
             <objects>
-                <viewController storyboardIdentifier="EnterPasscode" id="tJw-3x-9tb" customClass="EnterPasscodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterPasscode" id="tJw-3x-9tb" userLabel="Enter Varaible PIN" customClass="EnterPasscodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPK-Am-Qim"/>
                         <viewControllerLayoutGuide type="bottom" id="aeA-AC-Upz"/>
@@ -1288,6 +1290,7 @@
                                     <outlet property="backspaceButton" destination="1ua-ru-vLz" id="7qW-x3-Q3U"/>
                                     <outlet property="biometryButton" destination="WAZ-JU-Ieu" id="LO6-Ov-O2C"/>
                                     <outlet property="cancelButton" destination="1ua-ru-vLz" id="DTz-x8-b8d"/>
+                                    <outlet property="delegate" destination="tJw-3x-9tb" id="dvT-zh-P1n"/>
                                     <outletCollection property="numericButtonsCollection" destination="1Bg-8B-Zoq" collectionClass="NSMutableArray" id="48H-Du-cGi"/>
                                     <outletCollection property="numericButtonsCollection" destination="ZuW-WB-Nm4" collectionClass="NSMutableArray" id="mR7-mb-KPR"/>
                                     <outletCollection property="numericButtonsCollection" destination="57U-No-kRW" collectionClass="NSMutableArray" id="SMf-hW-oet"/>
@@ -1793,6 +1796,7 @@
                                 <connections>
                                     <outlet property="backspaceButton" destination="UDk-8A-aZj" id="gMP-5B-lDl"/>
                                     <outlet property="cancelButton" destination="UDk-8A-aZj" id="GQ2-vf-tvs"/>
+                                    <outlet property="delegate" destination="nB0-Rg-aqC" id="8qE-qV-cPA"/>
                                     <outletCollection property="numericButtonsCollection" destination="uoa-a2-yYJ" collectionClass="NSMutableArray" id="FxH-JC-2t1"/>
                                     <outletCollection property="numericButtonsCollection" destination="MVj-mE-LUu" collectionClass="NSMutableArray" id="PWY-XV-2Wo"/>
                                     <outletCollection property="numericButtonsCollection" destination="ujJ-TN-PdZ" collectionClass="NSMutableArray" id="Dv0-b9-rA9"/>
@@ -2318,6 +2322,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AAL-3I-MRa"/>
+        <segue reference="qJw-nM-RXb"/>
     </inferredMetricsTieBreakers>
 </document>

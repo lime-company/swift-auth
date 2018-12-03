@@ -22,6 +22,10 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     public var router: (ConfirmActivationRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
     
+    private var actionFeedback: LimeAuthActionFeedback? {
+        return router.activationProcess.uiProvider.actionFeedback
+    }
+    
     // MARK: - Object lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -46,7 +50,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     open override func viewDidLoad() {
         super.viewDidLoad()
         commitActivation()
-        LimeAuthActionFeedback.shared.prepare()
+        actionFeedback?.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -162,7 +166,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
             switch status.state {
             case .active:
                 router.routeToSuccess()
-                LimeAuthActionFeedback.shared.scene(.operationSuccess)
+                actionFeedback?.scene(.operationSuccess)
             case .removed:
                 errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationRemoved)
             case .blocked:
