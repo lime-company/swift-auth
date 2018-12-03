@@ -21,6 +21,7 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
 
     public let bundle: Bundle
     public let localization: GenericLocalizationProvider
+    public let actionFeedback: LimeAuthActionFeedback? = LimeAuthActionFeedback()
     
     public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?) {
         self.bundle = bundle ?? .limeAuthResourcesBundle

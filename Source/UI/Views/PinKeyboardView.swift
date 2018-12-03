@@ -46,6 +46,8 @@ import PowerAuth2
     func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnSpecialKey key: PinKeyboardSpecialKey)
     /// Called when keyboard wants to setup image for biometry button.
     func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage?
+    /// Called when action feedback needs to be loaded
+    func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback?
 }
 
 
@@ -82,6 +84,7 @@ open class PinKeyboardView : UIView {
     
     // MARK: Controlling keyboard
     
+    private lazy var actionFeedback = delegate?.pinKeyboardViewActionFeedback(self)
     
     /// Returns true when cancel and backspace shares the same button
     public var isBackspaceSharedWithCancel: Bool {
@@ -162,7 +165,7 @@ open class PinKeyboardView : UIView {
     override open func awakeFromNib() {
         super.awakeFromNib()
         let _ = self.setupButtons()
-        LimeAuthActionFeedback.shared.prepare()
+        actionFeedback?.prepare()
     }
     
     // MARK: - Styling
@@ -310,10 +313,10 @@ open class PinKeyboardView : UIView {
         let key = translateTagToKey(sender.tag)
         if let digit = key.digit {
             delegate?.pinKeyboardView(self, didTapOnDigit: digit)
-            LimeAuthActionFeedback.shared.scene(.digitKeyPressed)
+            actionFeedback?.scene(.digitKeyPressed)
         } else if let code = key.code {
             delegate?.pinKeyboardView(self, didTapOnSpecialKey: code)
-            LimeAuthActionFeedback.shared.scene(.specialKeyPressed)
+            actionFeedback?.scene(.specialKeyPressed)
         }
     }
     

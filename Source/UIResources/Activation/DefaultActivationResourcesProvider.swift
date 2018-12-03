@@ -79,6 +79,9 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return authenticationUIProviderClosure()
     }()
     
+    public var actionFeedback: LimeAuthActionFeedback? {
+        return authenticationUIProvider.actionFeedback
+    }
     
     //
     

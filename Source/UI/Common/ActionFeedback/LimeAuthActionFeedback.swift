@@ -20,10 +20,7 @@ import AVFoundation
 
 /// Class that plays haptic and audio feedback for easier use.
 /// For simplicity and configuration of default LimeAuth UI components use `shared` singleton.
-public class LimeAuthActionFeedback {
-    
-    /// Singleton instance used in default UI components
-    public static var shared = LimeAuthActionFeedback()
+public class LimeAuthActionFeedback: NSObject {
     
     /// When false, haptic(..) calls will be ignored
     public var hapticEnabled = true
@@ -46,13 +43,8 @@ public class LimeAuthActionFeedback {
     // player that will play custom sounds
     private lazy var player = AVQueuePlayer()
     
-    public init () {
-        do {
-            // This will set audio to play on background without interupting any music or video currently playing
-            try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: .mixWithOthers)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-        }
+    public override init () {
+        super.init()
     }
     
     // MARK: public API
@@ -69,11 +61,21 @@ public class LimeAuthActionFeedback {
     /// Prepares haptic engine for use (to remove potentional delay when haptic() is called.)
     public func prepare() {
         
-        if impactLight == nil {
-            wakeUp()
+        if hapticEnabled {
+            if impactLight == nil {
+                wakeUp()
+            }
+            generators.forEach { $0?.prepare() }
         }
         
-        generators.forEach { $0?.prepare() }
+        if audioEnabled {
+            do {
+                // This will set audio to play on background without interupting any music or video currently playing
+                try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: .mixWithOthers)
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+            }
+        }
     }
     
     /// Vibrates the phone with given type of haptic feedback.
@@ -120,6 +122,7 @@ public class LimeAuthActionFeedback {
             D.print("Audio disabled, sound won't be played.")
             return
         }
+        
         AudioServicesPlaySystemSound(SystemSoundID(sound.rawValue))
     }
     
@@ -155,17 +158,17 @@ public class LimeAuthActionFeedback {
         
         switch scene {
         case .digitKeyPressed:
-            haptic(.impact(.light))
             audio(.tock)
-        case .specialKeyPressed:
             haptic(.impact(.light))
+        case .specialKeyPressed:
             audio(.tock2)
+            haptic(.impact(.light))
         case .operationSuccess:
-            haptic(.notification(.success))
             audio(successSound, volume: 0.25)
+            haptic(.notification(.success))
         case .operationFail:
-            haptic(.notification(.error))
             audio(failSound, volume: 0.25)
+            haptic(.notification(.error))
         }
     }
     
