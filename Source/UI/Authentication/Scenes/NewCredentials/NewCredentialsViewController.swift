@@ -45,7 +45,7 @@ open class NewCredentialsViewController: UITabBarController, NewCredentialsRouta
         super.viewDidLoad()
         // Check controller's setup
         guard let _ = router?.authenticationProcess else {
-            fatalError("NewCredentialsViewController is not configured properly")
+            D.fatalError("NewCredentialsViewController is not configured properly")
         }
         
         // Hide tabbar

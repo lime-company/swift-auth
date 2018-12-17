@@ -33,35 +33,35 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     
     public func instantiateInitialScene() -> BeginActivationViewController {
         guard let controller = storyboard.instantiateInitialViewController() as? BeginActivationViewController else {
-            fatalError("Cannot instantiate Initial scene")
+            D.fatalError("Cannot instantiate Initial scene")
         }
         return controller
     }
     
     public func instantiateConfirmScene() -> ConfirmActivationViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "Confirm") as? ConfirmActivationViewController else {
-            fatalError("Cannot instantiate Confirm scene")
+            D.fatalError("Cannot instantiate Confirm scene")
         }
         return controller
     }
     
     public func instantiateScanCodeScene() -> ScanActivationCodeViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "ScanCode") as? ScanActivationCodeViewController else {
-            fatalError("Cannot instantiate ScanCode scene")
+            D.fatalError("Cannot instantiate ScanCode scene")
         }
         return controller
     }
     
     public func instantiateEnterCodeScene() -> EnterActivationCodeViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterCode") as? EnterActivationCodeViewController else {
-            fatalError("Cannot instantiate EnterCode scene")
+            D.fatalError("Cannot instantiate EnterCode scene")
         }
         return controller
     }
     
     public func instantiateErrorScene() -> ErrorActivationViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "Error") as? ErrorActivationViewController else {
-            fatalError("Cannot instantiate Error scene")
+            D.fatalError("Cannot instantiate Error scene")
         }
         return controller
     }

@@ -60,7 +60,7 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
     open override func configureController() {
         
         guard let _ = router?.activationProcess else {
-            fatalError("ErrorActivationViewController is not configured properly.")
+            D.fatalError("ErrorActivationViewController is not configured properly.")
         }
     }
     

@@ -36,28 +36,28 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     
     func instantiateNewCredentialsScene() -> (UIViewController & NewCredentialsRoutableController) {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "NewCredentials") as? (UIViewController & NewCredentialsRoutableController) else {
-            fatalError("Cannot instantiate CreateNewPassword scene")
+            D.fatalError("Cannot instantiate CreateNewPassword scene")
         }
         return controller
     }
     
     func instantiateEnterPasswordScene() -> (UIViewController & EnterPasswordRoutableController) {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterPassword") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterPassword scene")
+            D.fatalError("Cannot instantiate EnterPassword scene")
         }
         return controller
     }
     
     func instantiateEnterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController) {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterPasscode") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterPassword scene")
+            D.fatalError("Cannot instantiate EnterPassword scene")
         }
         return controller
     }
     
     func instantiateEnterFixedPasscodeScene() -> (UIViewController & EnterPasswordRoutableController) {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterFixedPasscode") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterFixedPasscode scene")
+            D.fatalError("Cannot instantiate EnterFixedPasscode scene")
         }
         return controller
     }

@@ -88,7 +88,7 @@ open class AsyncOperation: Operation, CompletableInSpecificQueue {
     /// Implement your operation in this method. When the operation is finished, don't fotget to call `markFinished()`.
     /// If operation was crerated with `completionQueue`, use it to call completion.
     open func started() {
-        fatalError("this method needs to be overriden")
+        D.fatalError("this method needs to be overriden")
     }
     
     /// Called when operation is canceled.

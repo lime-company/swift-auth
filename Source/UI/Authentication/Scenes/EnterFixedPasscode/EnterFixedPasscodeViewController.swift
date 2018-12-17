@@ -123,12 +123,12 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         // Initial checks
         guard let _ = router?.authenticationProcess else {
-            fatalError("EnterFixedPasscodeViewController is not configured properly")
+            D.fatalError("EnterFixedPasscodeViewController is not configured properly")
         }
         
         let credentials = authenticationProcess.credentialsProvider.credentials
         guard credentials.password.type == .fixedPin else {
-            fatalError("This controller implements different credentials input method than is requested.")
+            D.fatalError("This controller implements different credentials input method than is requested.")
         }
         requiredPasswordLength = credentials.password.maximumLength
         
