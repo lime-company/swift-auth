@@ -67,18 +67,18 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     open override func configureController() {
         guard let _ = router?.activationProcess else {
-            fatalError("ConfirmActivationViewController is not configured properly.")
+            D.fatalError("ConfirmActivationViewController is not configured properly.")
         }
         let ad = router.activationProcess.activationData
         recoveryFromBrokenActivation = ad.recoveryFromFailedActivation
         
         guard let _ = ad.createActivationResult?.activationFingerprint else {
-            fatalError("ConfirmActivationViewController missing activation fingerprint.")
+            D.fatalError("ConfirmActivationViewController missing activation fingerprint.")
         }
         if false == ad.recoveryFromFailedActivation {
             // For regular activation, password is required
             guard let _ = ad.password else {
-                fatalError("ConfirmActivationViewController missing password.")
+                D.fatalError("ConfirmActivationViewController missing password.")
             }
         }
     }

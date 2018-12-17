@@ -48,7 +48,7 @@ open class NoCameraAccessViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func configureController() {
         guard let _ = router?.activationProcess else {
-            fatalError("NoCameraAccessViewController is not configured properly.")
+            D.fatalError("NoCameraAccessViewController is not configured properly.")
         }
     }
     

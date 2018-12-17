@@ -73,7 +73,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     open override func configureController() {
         guard let _ = router?.activationProcess else {
-            fatalError("EnterActivationCodeViewController is not configured properly.")
+            D.fatalError("EnterActivationCodeViewController is not configured properly.")
         }
     }
     

@@ -67,7 +67,7 @@ public class LimeAuthActivationUI {
         case .confirmation:
             controller = controllerForRecoveryFromBrokenActivation()
         default:
-            fatalError()    // shold never happen
+            D.fatalError()    // shold never happen
         }
         
         // Connect objects...
@@ -147,7 +147,7 @@ public class LimeAuthActivationUI {
         }
         // Throw error if we cannot process scene for current session's state
         if wrongState {
-            fatalError("LimeAuthActivationUI: Invoking activation UI when session's state is wrong or is not determined yet.")
+            D.fatalError("LimeAuthActivationUI: Invoking activation UI when session's state is wrong or is not determined yet.")
         }
     }
     

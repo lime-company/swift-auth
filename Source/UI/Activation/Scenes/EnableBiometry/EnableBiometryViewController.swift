@@ -62,10 +62,10 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     
     open override func configureController() {
         guard let _ = router?.activationProcess else {
-            fatalError("EnableBiometryViewController is not configured properly.")
+            D.fatalError("EnableBiometryViewController is not configured properly.")
         }
         guard PA2Keychain.supportedBiometricAuthentication != .none else {
-            fatalError("EnableBiometryViewController biometry is not supported.")
+            D.fatalError("EnableBiometryViewController biometry is not supported.")
         }
     }
     
