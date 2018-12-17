@@ -45,7 +45,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
-        passphraseValidator = process.session.configuration.passphraseValidatorProvider?.createValidator()
+        passphraseValidator = process.credentialsProvider.passphraseValidatorProvider?.createValidator()
     }
     
     // MARK: - Outlets -

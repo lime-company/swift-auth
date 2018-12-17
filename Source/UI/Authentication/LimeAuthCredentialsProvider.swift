@@ -24,6 +24,10 @@ public protocol LimeAuthCredentialsProvider: class {
     /// Implementation must return configuration for currently applied credentials.
     var credentials: LimeAuthCredentials { get }
     
+    /// Factory for object that will decide when to show warning when PIN or password is
+    /// too weak during it's creation. This feature will be turned off if nil.
+    var passphraseValidatorProvider: LimeAuthPassphraseValidatorProvider? { get }
+    
     /// Implementation must change complexity of password. The complexity is represented
     /// by the index to the credential's passwordOptions array. In other words, function
     /// must effectively change type of password, used in the application.
@@ -31,7 +35,6 @@ public protocol LimeAuthCredentialsProvider: class {
     /// - parameter passwordIndex: index to credential's `passwordOptions` array
     /// - returns: false when provided index is out of bounds.
     func changePasswordComplexity(passwordIndex: Int) -> Bool
-    
 }
 
 /// The `LimeAuthCredentialsStore` class implements persistent storage for LimeAuthCredentials configuration.
@@ -51,8 +54,9 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     /// Key to underlying keychain service for store information about password complexity.
     public static let keyForPasswordIndex = "passwordIndex"
     
-    public init(credentials: LimeAuthCredentials, keychain: PA2Keychain? = nil) {
+    public init(credentials: LimeAuthCredentials, keychain: PA2Keychain? = nil, validatorProvider: LimeAuthPassphraseValidatorProvider? = nil) {
         self.credentials = credentials
+        self.passphraseValidatorProvider = validatorProvider
         self.keychain = keychain ?? PA2Keychain(identifier: LimeAuthCredentialsStore.defaultKeychainServiceName)
         if let restoredIndex = restoreIndex() {
             if isValid(passwordIndex: restoredIndex) {
@@ -71,6 +75,9 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     
     /// Contains `PA2Keychain` instance associated to this object.
     public let keychain: PA2Keychain
+    
+    /// Factory class that will create PassphraseValidator
+    public let passphraseValidatorProvider: LimeAuthPassphraseValidatorProvider?
     
     /// Changes password complexity. The complexity is represented by the index to the
     /// credential's passwordOptions array.

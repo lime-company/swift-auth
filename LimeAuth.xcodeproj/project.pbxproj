@@ -106,9 +106,9 @@
 		DC1E501421A81AE20089B280 /* failed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501221A81AE20089B280 /* failed.m4a */; };
 		DC1E501521A81AE20089B280 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501321A81AE20089B280 /* success.m4a */; };
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
-		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
 		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
+		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -469,6 +469,7 @@
 				BFAE06AA205967B7003485D7 /* Scenes */,
 				BFDB8CE42056ABE40063C5EA /* Process */,
 				BFAE06A520593338003485D7 /* Operations */,
+				DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */,
 				BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */,
 				BF2010E820A5B9F200FA0E78 /* LimeAuthAuthenticationUITheme.swift */,
 				BFDB8CD520516DE00063C5EA /* LimeAuthCredentials.swift */,
@@ -533,7 +534,6 @@
 				BFD126032034A03E001CE861 /* LimeAuthSession+Queue.swift */,
 				BFDB8CCF20516D680063C5EA /* LimeAuthError.swift */,
 				BFBF77DD20AF2A4300139655 /* LimeAuthRestApiError.swift */,
-				DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
