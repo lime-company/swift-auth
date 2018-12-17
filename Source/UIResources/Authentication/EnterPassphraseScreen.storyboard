@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Frc-Xf-PG9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Passphrase Screen Controller-->
+        <scene sceneID="ZTU-0u-d5n">
+            <objects>
+                <viewController id="Frc-Xf-PG9" customClass="PassphraseScreenController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d1H-4E-qez"/>
+                        <viewControllerLayoutGuide type="bottom" id="suj-Xu-9Xg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GeK-sX-7eW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxl-5U-qfu" userLabel="Pin Group">
+                                <rect key="frame" x="0.0" y="20" width="375" height="271"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JnV-h7-gcC">
+                                <rect key="frame" x="16" y="28" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="Frc-Xf-PG9" eventType="touchUpInside" id="5G3-0s-m7z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-dY-yPd">
+                                <rect key="frame" x="126.5" y="257" width="122" height="30"/>
+                                <state key="normal" title="Passphrase setup"/>
+                                <connections>
+                                    <action selector="complexityClicked:" destination="Frc-Xf-PG9" eventType="touchUpInside" id="An5-bF-q9c"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="ytA-eu-gsv">
+                                <rect key="frame" x="0.0" y="299" width="375" height="336"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="336" id="DSB-KB-S6h"/>
+                                    <constraint firstAttribute="height" priority="900" constant="336" id="Je1-Mx-gVH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao0-pe-A1K" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sKH-Y2-YUb" userLabel="Success Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16y-KI-92h" userLabel="Error Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-Sf-31S" userLabel="Activity">
+                                        <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="zTK-Sf-31S" firstAttribute="centerY" secondItem="ao0-pe-A1K" secondAttribute="centerY" id="0UF-tb-0L1"/>
+                                    <constraint firstItem="16y-KI-92h" firstAttribute="top" secondItem="ao0-pe-A1K" secondAttribute="top" id="1bf-5m-NgV"/>
+                                    <constraint firstItem="sKH-Y2-YUb" firstAttribute="top" secondItem="ao0-pe-A1K" secondAttribute="top" id="Hd7-5i-dqj"/>
+                                    <constraint firstItem="zTK-Sf-31S" firstAttribute="centerX" secondItem="ao0-pe-A1K" secondAttribute="centerX" id="Kuo-IT-rHr"/>
+                                    <constraint firstAttribute="trailing" secondItem="16y-KI-92h" secondAttribute="trailing" id="LgI-Ig-jaf"/>
+                                    <constraint firstAttribute="bottom" secondItem="sKH-Y2-YUb" secondAttribute="bottom" id="LkN-XO-oDJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="16y-KI-92h" secondAttribute="bottom" id="MCd-64-v6r"/>
+                                    <constraint firstAttribute="height" constant="100" id="THj-Up-9qq"/>
+                                    <constraint firstItem="sKH-Y2-YUb" firstAttribute="leading" secondItem="ao0-pe-A1K" secondAttribute="leading" id="cud-fD-c7B"/>
+                                    <constraint firstAttribute="trailing" secondItem="sKH-Y2-YUb" secondAttribute="trailing" id="iUZ-sR-WCV"/>
+                                    <constraint firstAttribute="width" constant="100" id="ugk-Jb-wLC"/>
+                                    <constraint firstItem="16y-KI-92h" firstAttribute="leading" secondItem="ao0-pe-A1K" secondAttribute="leading" id="x7S-XH-uc0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicatorView" destination="zTK-Sf-31S" id="lKh-OR-MvW"/>
+                                    <outlet property="failureImageView" destination="16y-KI-92h" id="hLU-qy-ESW"/>
+                                    <outlet property="succesImageView" destination="sKH-Y2-YUb" id="wM8-Hh-5qG"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ytA-eu-gsv" firstAttribute="top" secondItem="vxl-5U-qfu" secondAttribute="bottom" constant="8" id="3cJ-Ia-Luj"/>
+                            <constraint firstItem="ytA-eu-gsv" firstAttribute="leading" secondItem="GeK-sX-7eW" secondAttribute="leading" id="E1G-Mi-tgt"/>
+                            <constraint firstItem="vxl-5U-qfu" firstAttribute="trailing" secondItem="GeK-sX-7eW" secondAttribute="trailing" id="Egf-S8-24P"/>
+                            <constraint firstItem="ao0-pe-A1K" firstAttribute="centerY" secondItem="GeK-sX-7eW" secondAttribute="centerY" id="Enp-nA-fXL"/>
+                            <constraint firstItem="JnV-h7-gcC" firstAttribute="leading" secondItem="GeK-sX-7eW" secondAttribute="leadingMargin" id="HDE-Yl-bLN"/>
+                            <constraint firstItem="vxl-5U-qfu" firstAttribute="top" secondItem="d1H-4E-qez" secondAttribute="bottom" id="IWA-JG-LMe"/>
+                            <constraint firstAttribute="trailing" secondItem="ytA-eu-gsv" secondAttribute="trailing" id="axe-zH-v10"/>
+                            <constraint firstItem="ytA-eu-gsv" firstAttribute="top" secondItem="qbI-dY-yPd" secondAttribute="bottom" constant="12" id="g7n-Mn-LU0"/>
+                            <constraint firstItem="qbI-dY-yPd" firstAttribute="centerX" secondItem="GeK-sX-7eW" secondAttribute="centerX" id="o03-RF-7OE"/>
+                            <constraint firstItem="vxl-5U-qfu" firstAttribute="leading" secondItem="GeK-sX-7eW" secondAttribute="leading" id="pYJ-aF-AGW"/>
+                            <constraint firstItem="JnV-h7-gcC" firstAttribute="top" secondItem="d1H-4E-qez" secondAttribute="bottom" constant="8" id="uWG-Zy-bKy"/>
+                            <constraint firstItem="suj-Xu-9Xg" firstAttribute="top" secondItem="ytA-eu-gsv" secondAttribute="bottom" constant="32" id="yKQ-hg-zwW"/>
+                            <constraint firstItem="ao0-pe-A1K" firstAttribute="centerX" secondItem="GeK-sX-7eW" secondAttribute="centerX" id="z9Z-To-sSn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ao0-pe-A1K" id="sxA-tG-NR5"/>
+                        <outlet property="bottomKeyboardConstraint" destination="yKQ-hg-zwW" id="FgJ-oQ-sak"/>
+                        <outlet property="cancelButton" destination="JnV-h7-gcC" id="h9Q-K2-eLv"/>
+                        <outlet property="complexityButton" destination="qbI-dY-yPd" id="Ivw-20-2nz"/>
+                        <outlet property="complexityButtonBottomConstraint" destination="g7n-Mn-LU0" id="iXD-as-att"/>
+                        <outlet property="keyboardView" destination="ytA-eu-gsv" id="azE-Xb-qA0"/>
+                        <outlet property="pinView" destination="vxl-5U-qfu" id="cPJ-LK-OHO"/>
+                        <outlet property="pinViewLeadingConstraint" destination="pYJ-aF-AGW" id="Pbf-lt-Tm1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6O-yd-ITn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="99.400299850074973"/>
+        </scene>
+    </scenes>
+</document>

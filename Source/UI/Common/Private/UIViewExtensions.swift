@@ -14,26 +14,18 @@
 // and limitations under the License.
 //
 
-import UIKit
+import Foundation
 
-public enum NewCredentials {
-    
-    public struct UIData {
-        
-        public struct Strings {
-            
-            public let enterNewPin: String
-            public let retypePin: String
-            public let pinNoMatch: String
-            
-            public let enterNewPassword: String
-            public let retypePassword: String
-            public let passwordNoMatch: String
-            
-            public let changeComplexityTitle: String
-            public let changeComplexityButton: String
+internal extension UIView {
+    func fillWithSubview(_ subview: UIView) {
+        guard subviews.contains(subview) else {
+            return
         }
-        
-        public let strings: Strings
+        NSLayoutConstraint.activate([
+            subview.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            subview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            subview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            subview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+        ])
     }
 }

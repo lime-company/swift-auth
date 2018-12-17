@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   # 'UIResources' subspec
   s.subspec 'UIResources' do |sub|
     sub.source_files = 'Source/UIResources/**/*.swift'
-    sub.resources = [ 'Source/UIResources/**/*.storyboard', 'Source/UIResources/*.xcassets' ]
+    sub.resources = [ 'Source/UIResources/**/*.storyboard', 'Source/UIResources/**/*.xib', 'Source/UIResources/*.xcassets' ]
     sub.dependency 'LimeAuth/UI'
   end
 

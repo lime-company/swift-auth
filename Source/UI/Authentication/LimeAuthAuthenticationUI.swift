@@ -62,13 +62,13 @@ public class LimeAuthAuthenticationUI {
         var controller: UIViewController & AuthenticationUIProcessController
         switch entryScene {
         case .createPassword:
-            let router = newCredentialsRouter ?? NewCredentialsRouter()
+            let router = newCredentialsRouter ?? NewCredentialsRouter(authenticationProcess: authenticationProcess)
             controller = instantiateCreatePassword(router: router)
         case .enterPassword:
-            let router = enterPasswordRouter ?? EnterPasswordRouter()
+            let router = enterPasswordRouter ?? EnterPasswordRouter(authenticationProcess: authenticationProcess)
             controller = instantiateEnterPasswordScene(router: router)
         case .changePassword:
-            let router = enterPasswordRouter ?? EnterOldPasswordRouter()
+            let router = enterPasswordRouter ?? EnterOldPasswordRouter(authenticationProcess: authenticationProcess)
             controller = instantiateEnterPasswordScene(router: router)
         }
         controller.connect(authenticationProcess: authenticationProcess)

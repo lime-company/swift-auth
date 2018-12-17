@@ -23,8 +23,6 @@ public enum Authentication {
         case failure
         case cancel
     }
-    
-
 
     // MARK: - Common data
     
@@ -203,5 +201,27 @@ public enum Authentication {
     public struct UICredentialsChange {
         public let current: UICredentials
         public let next: UICredentials
+    }
+    
+    public enum NewCredentials {
+        
+        public struct UIData {
+            
+            public struct Strings {
+                
+                public let enterNewPin: String
+                public let retypePin: String
+                public let pinNoMatch: String
+                
+                public let enterNewPassword: String
+                public let retypePassword: String
+                public let passwordNoMatch: String
+                
+                public let changeComplexityTitle: String
+                public let changeComplexityButton: String
+            }
+            
+            public let strings: Strings
+        }
     }
 }

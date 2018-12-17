@@ -16,26 +16,23 @@
 
 import UIKit
 
-public protocol NewCredentialsRoutingLogic {
+public protocol NewCredentialsRoutingLogic: EnterPasswordRoutingLogic {
     
-    func routeToCancel()
-    func routeToSuccess(password: String)
-    func routeToError(error: LimeAuthError?)
-    
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
 /// Protocol for controller covering a whole "create password" operation
 public protocol NewCredentialsRoutableController: AuthenticationUIProcessController {
-    
     func connectCreatePasswordRouter(router: AuthenticationUIProcessRouter & NewCredentialsRoutingLogic)
 }
 
-
 public class NewCredentialsRouter: NewCredentialsRoutingLogic, AuthenticationUIProcessRouter {
     
-    public var authenticationProcess: AuthenticationUIProcess!
+    public let authenticationProcess: AuthenticationUIProcess
     public weak var viewController: (UIViewController & NewCredentialsRoutableController)?
+    
+    public init(authenticationProcess: AuthenticationUIProcess) {
+        self.authenticationProcess = authenticationProcess
+    }
     
     public func connect(controller: AuthenticationUIProcessController) {
         viewController = controller as? (UIViewController & NewCredentialsRoutableController)
@@ -46,26 +43,11 @@ public class NewCredentialsRouter: NewCredentialsRoutingLogic, AuthenticationUIP
         authenticationProcess.cancelAuthentication(controller: viewController)
     }
     
-    public func routeToSuccess(password: String) {
+    public func routeToSuccess() {
         authenticationProcess.completeAuthentication(controller: viewController)
     }
     
     public func routeToError(error: LimeAuthError?) {
         authenticationProcess.failAuthentication(controller: viewController)
-    }
-    
-    public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destinationVC = segue.destination
-        if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
-            destinationVC = first
-        }
-        if let authenticationVC = destinationVC as? AuthenticationUIProcessController {
-            authenticationVC.connect(authenticationProcess: authenticationProcess)
-        }
-        if authenticationProcess.isPartOfActivation {
-            if let activationVC = destinationVC as? ActivationUIProcessController {
-                activationVC.connect(activationProcess: authenticationProcess.activationProcess)
-            }
-        }
     }
 }

@@ -19,8 +19,12 @@ import UIKit
 public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
 
     public weak var viewController: (UIViewController & AuthenticationUIProcessController)?
-    public var authenticationProcess: AuthenticationUIProcess!
+    public let authenticationProcess: AuthenticationUIProcess
 
+    public init(authenticationProcess: AuthenticationUIProcess) {
+        self.authenticationProcess = authenticationProcess
+    }
+    
     public func connect(controller: AuthenticationUIProcessController) {
         viewController = controller as? (UIViewController & AuthenticationUIProcessController)
         assert(viewController != nil)
@@ -29,22 +33,21 @@ public class EnterOldPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUI
     public func routeToCancel() {
         authenticationProcess.cancelAuthentication(controller: viewController)
     }
-
+    
     public func routeToSuccess() {
-        viewController?.performSegue(withIdentifier: "ChangePassword", sender: nil)
+        
+        guard let vc = viewController else {
+            return
+        }
+        
+        let router = NewCredentialsRouter(authenticationProcess: authenticationProcess)
+        let nvc = authenticationProcess.uiProvider.instantiateNewCredentialsScene()
+        vc.navigationController?.pushViewController(nvc, animated: true)
+        nvc.connectCreatePasswordRouter(router: router)
+        nvc.connect(authenticationProcess: authenticationProcess)
     }
 
-    public func routeToError() {
+    public func routeToError(error: LimeAuthError?) {
         authenticationProcess.failAuthentication(controller: viewController)
-    }
-
-    public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destinationVC = segue.destination
-        if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
-            destinationVC = first
-        }
-        if let authenticationVC = destinationVC as? AuthenticationUIProcessController {
-            authenticationVC.connect(authenticationProcess: authenticationProcess)
-        }
     }
 }

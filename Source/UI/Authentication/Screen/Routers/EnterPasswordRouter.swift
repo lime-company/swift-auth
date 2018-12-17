@@ -17,23 +17,23 @@
 import UIKit
 
 public protocol EnterPasswordRoutingLogic {
-
     func routeToCancel()
     func routeToSuccess()
-    func routeToError()
-    
-    func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    func routeToError(error: LimeAuthError?)
 }
 
 public protocol EnterPasswordRoutableController: AuthenticationUIProcessController {
-    
     func connectEnterPasswordRouter(router: (AuthenticationUIProcessRouter & EnterPasswordRoutingLogic))
 }
 
 public class EnterPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIProcessRouter {
     
     public weak var viewController: (UIViewController & EnterPasswordRoutableController)?
-    public var authenticationProcess: AuthenticationUIProcess!
+    public let authenticationProcess: AuthenticationUIProcess
+    
+    public init(authenticationProcess: AuthenticationUIProcess) {
+        self.authenticationProcess = authenticationProcess
+    }
     
     public func connect(controller: AuthenticationUIProcessController) {
         viewController = controller as? (UIViewController & EnterPasswordRoutableController)
@@ -48,17 +48,7 @@ public class EnterPasswordRouter: EnterPasswordRoutingLogic, AuthenticationUIPro
         authenticationProcess.completeAuthentication(controller: viewController)
     }
     
-    public func routeToError() {
+    public func routeToError(error: LimeAuthError?) {
         authenticationProcess.failAuthentication(controller: viewController)
-    }
-    
-    public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destinationVC = segue.destination
-        if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
-            destinationVC = first
-        }
-        if let authenticationVC = destinationVC as? AuthenticationUIProcessController {
-            authenticationVC.connect(authenticationProcess: authenticationProcess)
-        }
     }
 }

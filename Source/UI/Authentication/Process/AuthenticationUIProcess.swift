@@ -40,7 +40,7 @@ public protocol AuthenticationUIDataProvider: class {
     
     // Per scene getters
     
-    var uiForCreateNewPassword: NewCredentials.UIData { get }
+    var uiForCreateNewPassword: Authentication.NewCredentials.UIData { get }
     
     // Localization function
     
@@ -57,7 +57,7 @@ public extension AuthenticationUIDataProvider {
 }
 
 public protocol AuthenticationUIProcessRouter: class {
-    var authenticationProcess: AuthenticationUIProcess! { get set }
+    var authenticationProcess: AuthenticationUIProcess { get }
     func connect(controller: AuthenticationUIProcessController)
 }
 

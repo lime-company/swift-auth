@@ -28,38 +28,26 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
     }
     
-    private var storyboard: UIStoryboard {
-        return UIStoryboard(name: "Authentication", bundle: bundle)
+    private var controller: UIViewController {
+        return UIStoryboard(name: "EnterPassphraseScreen", bundle: bundle).instantiateInitialViewController()!
     }
     
     //
     
     func instantiateNewCredentialsScene() -> (UIViewController & NewCredentialsRoutableController) {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "NewCredentials") as? (UIViewController & NewCredentialsRoutableController) else {
-            fatalError("Cannot instantiate CreateNewPassword scene")
-        }
-        return controller
+        return controller as! (UIViewController & NewCredentialsRoutableController)
     }
     
     func instantiateEnterPasswordScene() -> (UIViewController & EnterPasswordRoutableController) {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterPassword") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterPassword scene")
-        }
-        return controller
+        return controller as! (UIViewController & EnterPasswordRoutableController)
     }
     
     func instantiateEnterPasscodeScene() -> (UIViewController & EnterPasswordRoutableController) {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterPasscode") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterPassword scene")
-        }
-        return controller
+        return controller as! (UIViewController & EnterPasswordRoutableController)
     }
     
     func instantiateEnterFixedPasscodeScene() -> (UIViewController & EnterPasswordRoutableController) {
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterFixedPasscode") as? (UIViewController & EnterPasswordRoutableController) else {
-            fatalError("Cannot instantiate EnterFixedPasscode scene")
-        }
-        return controller
+        return controller as! (UIViewController & EnterPasswordRoutableController)
     }
     
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController? {
@@ -116,9 +104,9 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
         )
     }()
     
-    lazy var uiForCreateNewPassword: NewCredentials.UIData = {
-        NewCredentials.UIData(
-            strings: NewCredentials.UIData.Strings(
+    lazy var uiForCreateNewPassword: Authentication.NewCredentials.UIData = {
+        Authentication.NewCredentials.UIData(
+            strings: Authentication.NewCredentials.UIData.Strings(
                 enterNewPin: localization.localizedString("limeauth.auth.enterNewPin"),
                 retypePin: localization.localizedString("limeauth.auth.retypeNewPin"),
                 pinNoMatch: localization.localizedString("limeauth.auth.pinsNotMatch"),
