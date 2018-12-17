@@ -27,8 +27,8 @@ public protocol ActivationUIProvider: class {
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
     var uiDataProvider: ActivationUIDataProvider { get }
-    
     var authenticationUIProvider: AuthenticationUIProvider { get }
+    var actionFeedback: LimeAuthActionFeedback? { get }
 }
 
 public protocol ActivationUIDataProvider: class {

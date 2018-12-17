@@ -140,6 +140,8 @@
 
 "limeauth.err.wrongPin"                     = "Wrong passcode";
 "limeauth.err.wrongPassword"                = "Wrong password";
+"limeauth.err.touchIdFail"                  = "Fingerprint not recognized.";
+"limeauth.err.faceIdFail"                  = "Face not recognized.";
 "limeauth.err.activationWasRemoved"         = "This device has no longer a valid activation.";
 "limeauth.err.activationIsBlocked"          = "Activation on this device has been blocked.";
 

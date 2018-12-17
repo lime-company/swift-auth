@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/wultra/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
   s.swift_version = '4.2'
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   
   # Sources
   s.default_subspec = 'Core'
@@ -32,6 +32,12 @@ Pod::Spec.new do |s|
   s.subspec 'UIResources' do |sub|
     sub.source_files = 'Source/UIResources/**/*.swift'
     sub.resources = [ 'Source/UIResources/**/*.storyboard', 'Source/UIResources/*.xcassets' ]
+    sub.dependency 'LimeAuth/UI'
+  end
+
+  # 'UIResources_Sounds' subspec
+  s.subspec 'UIResources_Sounds' do |sub|
+    sub.resources = [ 'Source/UIResources_Sounds/*.m4a' ]
     sub.dependency 'LimeAuth/UI'
   end
 

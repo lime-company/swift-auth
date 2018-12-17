@@ -72,6 +72,10 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         return router.authenticationProcess.operationExecution
     }
     
+    var actionFeedback: LimeAuthActionFeedback? {
+        return router.authenticationProcess.uiProvider.actionFeedback
+    }
+    
     // MARK: - Runtime variables
     
     /// Enum defining all internal UI states
@@ -140,6 +144,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         // Prepare UI
         updateLocalizedStrings()
         prepareUIForFirstUse()
+        actionFeedback?.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -191,6 +196,10 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage? {
         let lazyImage = biometryIcon == .touchID ? uiTheme.images.touchIdIcon : uiTheme.images.faceIdIcon
         return lazyImage.optionalImage
+    }
+    
+    public func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback? {
+        return actionFeedback
     }
     
     // MARK: - Internals -
@@ -432,11 +441,11 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     open func presentSuccess(animated: Bool, completion: @escaping ()->Void) {
+        
         self.changeState(to: .success)
-        
         self.activityIndicator.showSuccess(animated: animated)
-        
         self.updateViews()
+        actionFeedback?.scene(.operationSuccess)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
             self.commitChangeState()
@@ -445,10 +454,11 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     }
     
     open func presentError(retry: Bool, completion: (()->Void)? = nil) {
+        
         self.changeState(to: .error)
         self.updateViews()
-        
         self.activityIndicator.showError()
+        actionFeedback?.scene(.operationFail)
         
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while
@@ -478,11 +488,6 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         
         guard let viewForShake = view else {
             return
-        }
-        
-        if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
         }
         
         UIView.animate(withDuration: time, delay: 0, options: .curveEaseOut, animations: {
@@ -570,6 +575,15 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
                     return uiDataProvider.uiCommonErrors.activationIsBlocked
                 } else if result.activationState == .removed {
                     return uiDataProvider.uiCommonErrors.activationWasRemoved
+                }
+            } else if result.isBiometryError {
+                switch PA2Keychain.biometricAuthenticationInfo.biometryType {
+                case .touchID:
+                    return uiDataProvider.uiCommonErrors.biometryNotRecognized_TouchId
+                case .faceID:
+                    return uiDataProvider.uiCommonErrors.biometryNotRecognized_FaceId
+                default:
+                    break
                 }
             }
             return uiDataProvider.uiCommonErrors.wrongPin

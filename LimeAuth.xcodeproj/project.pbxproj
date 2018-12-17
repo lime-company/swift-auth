@@ -102,7 +102,11 @@
 		BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */; };
 		BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27952035A929004BC16D /* AsyncOperation.swift */; };
 		BFDE27982035F34D004BC16D /* LimeAuthSession+Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */; };
+		DC1E500521A702580089B280 /* LimeAuthActionFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */; };
+		DC1E501421A81AE20089B280 /* failed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501221A81AE20089B280 /* failed.m4a */; };
+		DC1E501521A81AE20089B280 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501321A81AE20089B280 /* success.m4a */; };
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
+		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
 		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
 /* End PBXBuildFile section */
@@ -212,9 +216,13 @@
 		BFDE27932035A90E004BC16D /* AsyncBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncBlockOperation.swift; sourceTree = "<group>"; };
 		BFDE27952035A929004BC16D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		BFDE27972035F34D004BC16D /* LimeAuthSession+Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Activation.swift"; sourceTree = "<group>"; };
+		DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedback.swift; sourceTree = "<group>"; };
+		DC1E501221A81AE20089B280 /* failed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = failed.m4a; sourceTree = "<group>"; };
+		DC1E501321A81AE20089B280 /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
 		DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthPassphraseValidator.swift; sourceTree = "<group>"; };
 		DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVerifying.swift; sourceTree = "<group>"; };
+		DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedbackAssets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +241,7 @@
 		BF2EBB5820A34B520079C465 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DCD62F6A21AD4648006CB765 /* ActionFeedback */,
 				BFA49C1F20A4653D000D82B6 /* Styles */,
 				BFA49C2920A480BE000D82B6 /* Private */,
 				BF6134512045C45300164496 /* LazyUIImage.swift */,
@@ -504,6 +513,7 @@
 				BFA49C2E20A58D3A000D82B6 /* UIResources_Images */,
 				BFA49C2F20A58D57000D82B6 /* UIResources_Illustrations */,
 				BF87E18A20AC6906006B28D4 /* UIResources_Localization */,
+				DCD62F6921AD43CA006CB765 /* UIResources_Sounds */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -712,6 +722,24 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
+		DCD62F6921AD43CA006CB765 /* UIResources_Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DC1E501221A81AE20089B280 /* failed.m4a */,
+				DC1E501321A81AE20089B280 /* success.m4a */,
+			);
+			path = UIResources_Sounds;
+			sourceTree = "<group>";
+		};
+		DCD62F6A21AD4648006CB765 /* ActionFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */,
+				DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */,
+			);
+			path = ActionFeedback;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -783,8 +811,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF496435205995FC002560A8 /* Authentication.storyboard in Resources */,
+				DC1E501521A81AE20089B280 /* success.m4a in Resources */,
 				BF87E19320AC7F6C006B28D4 /* LimeAuth.strings in Resources */,
 				BFDBCBB42045D00D001585BF /* Activation.storyboard in Resources */,
+				DC1E501421A81AE20089B280 /* failed.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +895,7 @@
 				BF49643C205A6C33002560A8 /* EnterFixedPasscodeViewController.swift in Sources */,
 				BFDB8CD020516D680063C5EA /* LimeAuthError.swift in Sources */,
 				BF2010E920A5B9F200FA0E78 /* LimeAuthAuthenticationUITheme.swift in Sources */,
+				DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */,
 				BF61344120448DA900164496 /* ScanActivationCodeViewController.swift in Sources */,
 				BFDB8CD720516DE00063C5EA /* LimeAuthCredentials.swift in Sources */,
 				BF61344820448EBD00164496 /* NoCameraAccessRouter.swift in Sources */,
@@ -878,6 +909,7 @@
 				BF613434204485B400164496 /* BeginActivationViewController.swift in Sources */,
 				BFAE06AF20596D2D003485D7 /* NewCredentialsModels.swift in Sources */,
 				BFAE069F20583D55003485D7 /* AuthenticationUIOperationExecutor.swift in Sources */,
+				DC1E500521A702580089B280 /* LimeAuthActionFeedback.swift in Sources */,
 				BF31240D206115EA00E7533F /* LimeAuthSession+Biometry.swift in Sources */,
 				BFDE27942035A90E004BC16D /* AsyncBlockOperation.swift in Sources */,
 				BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */,
@@ -957,7 +989,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1015,7 +1047,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

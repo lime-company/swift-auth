@@ -22,6 +22,10 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     public var uiDataProvider: AuthenticationUIDataProvider!
     var passphraseValidator: LimeAuthPassphraseValidator?
     
+    var actionFeedback: LimeAuthActionFeedback? {
+        return router.authenticationProcess.uiProvider.actionFeedback
+    }
+    
     //
     
     public func canHandlePasswordCreation(for passwordType: LimeAuthCredentials.Password.PasswordType) -> Bool {
@@ -142,6 +146,7 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1
         updateLocalizedStrings()
         prepareUIForFirstUse()
+        actionFeedback?.prepare()
     }
     
     
@@ -337,6 +342,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     open func presentSuccess(completion: @escaping ()->Void) {
         self.currentState = .success
         
+        actionFeedback?.scene(.operationSuccess)
+        
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
             self.groupsAnimationConstraint.constant = -2*self.view.frame.width
             self.view.layoutIfNeeded()
@@ -351,6 +358,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     
     open func presentFailure(completion: @escaping ()->Void) {
         self.currentState = .error
+        
+        actionFeedback?.scene(.operationFail)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
             completion()

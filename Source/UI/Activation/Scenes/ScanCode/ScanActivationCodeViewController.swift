@@ -24,6 +24,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     public var uiDataProvider: ActivationUIDataProvider!
     public var qrCodeProvider: QRCodeProvider?
     
+    private var actionFeedback: LimeAuthActionFeedback?
     
     // MARK: - Object lifecycle
     
@@ -51,6 +52,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        actionFeedback?.prepare()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +86,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
+        actionFeedback = process.uiProvider.actionFeedback
     }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,6 +125,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
             // signature is required for QR code
             return false
         }
+        actionFeedback?.haptic(.impact(.medium))
         return true
     }
     

@@ -158,7 +158,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         if operation.isSerialized {
             // Already serialized operations can be executed directly. We're expecting that callback is called to main thread.
             operation.execute(session: session, authentication: auth) { (result, error) in
-                self.processExecutionResult(result: result, error: error, callback: callback)
+                self.processExecutionResult(auth: auth, result: result, error: error, callback: callback)
             }
             //
         } else {
@@ -166,7 +166,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             let op = AsyncBlockOperation { _, markFinished in
                 
                 self.operation.execute(session: self.session, authentication: auth) { result, error in
-                    self.processExecutionResult(result: result, error: error, callback: callback)
+                    self.processExecutionResult(auth: auth, result: result, error: error, callback: callback)
                     markFinished(nil)
                 }
             }
@@ -174,7 +174,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         }
     }
     
-    private func processExecutionResult(result: Any?, error: LimeAuthError?, callback: @escaping (AuthenticationUIOperationResult) -> Void) {
+    private func processExecutionResult(auth: PowerAuthAuthentication, result: Any?, error: LimeAuthError?, callback: @escaping (AuthenticationUIOperationResult) -> Void) {
         if let err = error {
             var response = AuthenticationUIOperationResult(error: error)
             // At first, check if it's Touch-ID cancel or error, we can report this immediately to the completion
@@ -184,9 +184,9 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 return
             }
             // Check if operation ended on auth error
-            if (err.httpStatusCode == 401) ||
-                (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
+            if (err.httpStatusCode == 401) || (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
                 response.isAuthenticationError = true
+                response.isBiometryError = auth.useBiometry
             }
             // If not offline, then check whether is network available.
             if !self.operation.isOffline {
@@ -233,17 +233,6 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 // Touch-ID is not supported.
                 // This usually means a broken keyboard logic, but we still can report the error
                 response.touchIdNotAvailable = true
-                return true
-            }
-        }
-        return false
-    }
-    
-    private func checkForAuthError(_ response: inout AuthenticationUIOperationResult) -> Bool {
-        if let error = response.error {
-            if (error.httpStatusCode == 401) ||
-                (error.domain == PA2ErrorDomain && error.code == PA2ErrorCodeAuthenticationFailed) {
-                response.isAuthenticationError = true
                 return true
             }
         }
