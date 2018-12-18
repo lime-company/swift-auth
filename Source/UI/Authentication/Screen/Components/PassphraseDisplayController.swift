@@ -134,6 +134,9 @@ class PassphraseDisplayController: UIViewController, PinKeyboardDelegate, Passco
                 bundle: bundle,
                 passwordChanged: { [weak self] password in
                     self?.passcode.set(to: password)
+                    if password.isEmpty == false {
+                        self?.clearError()
+                    }
                 },
                 okClicked: { [weak self] in
                     guard let this = self else {
@@ -280,6 +283,7 @@ class PassphraseDisplayController: UIViewController, PinKeyboardDelegate, Passco
             self.view.layoutIfNeeded()
         }, completion: nil)
         refreshKeyboardSpecial()
+        focusField()
         delegate.passphraseDisplay(isConfirmMode: confirmDisplayed)
     }
     

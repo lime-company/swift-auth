@@ -46,6 +46,8 @@ class PassphraseScreenController: LimeAuthUIBaseViewController, EnterPasswordRou
     private var keyboardController: PinKeyboardController?
     private var passphraseController: PassphraseDisplayController!
     
+    private var complexityButtonBottomConstraintDefault: CGFloat = 12
+    
     // only show cancel button for string password (due to actual system  keyboard insted of custom one)
     private var cancelButtonHidden: Bool = false {
         didSet {
@@ -69,6 +71,11 @@ class PassphraseScreenController: LimeAuthUIBaseViewController, EnterPasswordRou
         if uiRequest?.tweaks.presentedAsModal == true || uiRequest?.tweaks.hideNavigationBar == true {
             navigationController?.setNavigationBarHidden(true, animated: animated)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        complexityButtonBottomConstraintDefault = complexityButtonBottomConstraint.constant
     }
     
     // MARK: - IBActions
@@ -284,11 +291,17 @@ class PassphraseScreenController: LimeAuthUIBaseViewController, EnterPasswordRou
         let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
         let viewPosition = complexityButton.convert(complexityButton.frame.origin, to: nil)
         
-        complexityButtonBottomConstraint.constant = keyboardFrame.cgRectValue.height - viewPosition.y
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+            self.complexityButtonBottomConstraint.constant = keyboardFrame.cgRectValue.origin.y - viewPosition.y + self.complexityButtonBottomConstraintDefault
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        complexityButtonBottomConstraint.constant = 12
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+            self.complexityButtonBottomConstraint.constant = self.complexityButtonBottomConstraintDefault
+            self.view.layoutIfNeeded()
+        })
     }
     
     // MARK: - Passphrase display delegate

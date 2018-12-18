@@ -32,13 +32,6 @@
                                     <action selector="cancelClicked:" destination="Frc-Xf-PG9" eventType="touchUpInside" id="5G3-0s-m7z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-dY-yPd">
-                                <rect key="frame" x="126.5" y="257" width="122" height="30"/>
-                                <state key="normal" title="Passphrase setup"/>
-                                <connections>
-                                    <action selector="complexityClicked:" destination="Frc-Xf-PG9" eventType="touchUpInside" id="An5-bF-q9c"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="ytA-eu-gsv">
                                 <rect key="frame" x="0.0" y="299" width="375" height="336"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,6 +74,13 @@
                                     <outlet property="succesImageView" destination="sKH-Y2-YUb" id="wM8-Hh-5qG"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-dY-yPd">
+                                <rect key="frame" x="126.5" y="257" width="122" height="30"/>
+                                <state key="normal" title="Passphrase setup"/>
+                                <connections>
+                                    <action selector="complexityClicked:" destination="Frc-Xf-PG9" eventType="touchUpInside" id="An5-bF-q9c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
