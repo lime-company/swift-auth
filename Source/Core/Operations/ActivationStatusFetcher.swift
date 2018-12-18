@@ -112,7 +112,7 @@ internal class ActivationStatusFetcher {
         
         // lock ongoingFetch manipulation and access to prevent race condition
         schedulingLock.synchronized {
-            if let fetch = ongoingFetch {
+            if let fetch = ongoingFetch, fetch.isFinished == false, fetch.isCancelled == false {
                 operation.addDependency(fetch)
             } else {
                 ongoingFetch = operation

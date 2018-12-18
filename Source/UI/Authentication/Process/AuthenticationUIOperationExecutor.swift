@@ -35,7 +35,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
 
     private var state: State = .initialized
     private var canRetryAfterFailedBiometry: Bool = true
-    private var updateStatusOperation: Operation? = nil
+    private weak var updateStatusOperation: Operation? = nil
     private weak var synchronizedOperation: Operation? = nil
     
     init(session: LimeAuthSession, operation: AuthenticationUIOperation, requestOptions: Authentication.UIRequest.Options, credentialsProvider: LimeAuthCredentialsProvider) {
