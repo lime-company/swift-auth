@@ -94,7 +94,7 @@
 
 // Passphrase strength
 "limeauth.auth.passStrengthWarning"         = "Warning";
-"limeauth.auth.passStrengthDifferentPin"    = "Change PIN";
+"limeauth.auth.passStrengthDifferentPin"    = "Change passcode";
 "limeauth.auth.passStrengthDifferentPassword" = "Change password";
 "limeauth.auth.passStrengthIgnorePin"       = "Use anyway";
 "limeauth.auth.passStrengthIgnorePassword"  = "Use anyway";
