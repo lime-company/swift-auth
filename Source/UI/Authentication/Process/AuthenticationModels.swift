@@ -73,6 +73,14 @@ public enum Authentication {
             public let enableFaceId_Activity: String
             public let enableFaceId_Success: String
         }
+        
+        public struct PassphraseStrengthStrings {
+            public let warningTitle: String
+            public let pickDifferentPinButton: String
+            public let pickDifferentPasswordButton: String
+            public let ignorePinButton: String
+            public let ignorePasswordButton: String
+        }
     }
     
     

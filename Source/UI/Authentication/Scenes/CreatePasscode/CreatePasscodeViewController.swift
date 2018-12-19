@@ -16,10 +16,11 @@
 
 import UIKit
 
-open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate  {
+open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAndVerifyPasswordRoutableController, PinKeyboardViewDelegate, PassphraseVerifying  {
     
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
+    var passphraseValidator: LimeAuthPassphraseValidator?
     
     private var actionFeedback: LimeAuthActionFeedback? {
         return router.authenticationProcess.uiProvider.actionFeedback
@@ -44,6 +45,7 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
+        passphraseValidator = process.credentialsProvider.passphraseValidatorProvider?.createValidator()
     }
     
     // MARK: - Outlets -
@@ -158,7 +160,21 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
     
     @IBAction private func confirmPinAction(_ sender: Any) {
         if self.passwordLength >= self.minimumPasswordLength {
-            self.doNext()
+            if currentState == .firstPass {
+                
+                // this will prompt user when pin is too weak and gives him option to pick different one
+                verifyPassphrase(password1, type: .pin, uiDataProvider: uiDataProvider) { isOK in
+                    // pin is OK or user want to use weak one
+                    if isOK {
+                        self.doNext()
+                    } else {
+                        _ = self.getAndResetPasswords()
+                        self.updatePasswordLabel()
+                    }
+                }
+            } else {
+                doNext()
+            }
         }
     }
     

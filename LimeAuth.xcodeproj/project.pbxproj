@@ -106,6 +106,8 @@
 		DC1E501421A81AE20089B280 /* failed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501221A81AE20089B280 /* failed.m4a */; };
 		DC1E501521A81AE20089B280 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501321A81AE20089B280 /* success.m4a */; };
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
+		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
+		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
 		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +220,8 @@
 		DC1E501221A81AE20089B280 /* failed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = failed.m4a; sourceTree = "<group>"; };
 		DC1E501321A81AE20089B280 /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
+		DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthPassphraseValidator.swift; sourceTree = "<group>"; };
+		DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVerifying.swift; sourceTree = "<group>"; };
 		DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedbackAssets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,6 +296,7 @@
 				BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */,
 				BFAE069820582CF7003485D7 /* EnterPasswordRouter.swift */,
 				BFAE069C20583A30003485D7 /* ChangePasswordRouter.swift */,
+				DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */,
 			);
 			path = CommonLogic;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				BFAE06AA205967B7003485D7 /* Scenes */,
 				BFDB8CE42056ABE40063C5EA /* Process */,
 				BFAE06A520593338003485D7 /* Operations */,
+				DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */,
 				BF85E596203DBDED00B76FE8 /* LimeAuthAuthenticationUI.swift */,
 				BF2010E820A5B9F200FA0E78 /* LimeAuthAuthenticationUITheme.swift */,
 				BFDB8CD520516DE00063C5EA /* LimeAuthCredentials.swift */,
@@ -823,6 +829,7 @@
 				BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */,
 				BF565F9D20473BD100B9C897 /* ErrorActivationModels.swift in Sources */,
 				BF565FA82047410200B9C897 /* EnableBiometryRouter.swift in Sources */,
+				DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */,
 				BF565F96204728EC00B9C897 /* KeysExchangeModels.swift in Sources */,
 				BF565FB22047440000B9C897 /* ConfirmActivationModels.swift in Sources */,
 				BF61344E2045AD3E00164496 /* ActivationModels.swift in Sources */,
@@ -835,6 +842,7 @@
 				BFDBCBC02045DDEA001585BF /* NoCameraAccessModels.swift in Sources */,
 				BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */,
 				BFAE06A7205933B3003485D7 /* OnlineAuthenticationUIOperation.swift in Sources */,
+				DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */,
 				BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */,
 				BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */,
 				BFBF77DE20AF2A4300139655 /* LimeAuthRestApiError.swift in Sources */,
