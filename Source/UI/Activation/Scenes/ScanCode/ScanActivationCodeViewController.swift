@@ -77,7 +77,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     open override func configureController() {
         guard let _ = router?.activationProcess, let _ = qrCodeProvider else {
-            fatalError("ScanActivationCodeViewController is not configured properly.")
+            D.fatalError("ScanActivationCodeViewController is not configured properly.")
         }
     }
     

@@ -106,7 +106,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.isLoaded = true
         
         guard let _ = router?.authenticationProcess else {
-            fatalError("CreateFixedPasscodeViewController is not configured properly")
+            D.fatalError("CreateFixedPasscodeViewController is not configured properly")
         }
         
         complexityButtonIsHidden = router.authenticationProcess.credentialsProvider.credentials.passwordOptionsOrder.count <= 1

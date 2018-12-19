@@ -56,7 +56,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
     open override func configureController() {
         guard let _ = router?.activationProcess,
             let _ = router?.activationProcess.activationData.activationCode else {
-                fatalError("KeysExchangeViewController is not configured properly.")
+                D.fatalError("KeysExchangeViewController is not configured properly.")
         }
     }
     

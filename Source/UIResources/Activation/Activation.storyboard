@@ -271,16 +271,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-VD-fb1" userLabel="Top">
-                                <rect key="frame" x="16" y="84" width="343" height="107"/>
+                                <rect key="frame" x="16" y="84" width="343" height="102.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište aktivační kód zobrazený v Internetbankingu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV9-Dr-WLb">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="prB-Q1-ydZ" userLabel="Text Fields">
-                                        <rect key="frame" x="0.0" y="63" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="343" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WWWWW" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMe-b6-3QG" userLabel="AC2" customClass="TextFieldWithInset" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="44"/>
@@ -884,6 +884,6 @@
         <segue reference="mys-65-odR"/>
         <segue reference="2Jb-20-RaX"/>
         <segue reference="LPC-QH-zn5"/>
-        <segue reference="IJ1-g6-hd0"/>
+        <segue reference="K2W-jD-OVp"/>
     </inferredMetricsTieBreakers>
 </document>
