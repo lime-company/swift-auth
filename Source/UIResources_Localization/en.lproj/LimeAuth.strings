@@ -94,10 +94,10 @@
 
 // Passphrase strength
 "limeauth.auth.passStrengthWarning"         = "Warning";
-"limeauth.auth.passStrengthDifferentPin"    = "Use different";
-"limeauth.auth.passStrengthDifferentPassword" = "Use different";
-"limeauth.auth.passStrengthIgnorePin"       = "Continue";
-"limeauth.auth.passStrengthIgnorePassword"  = "Continue";
+"limeauth.auth.passStrengthDifferentPin"    = "Change PIN";
+"limeauth.auth.passStrengthDifferentPassword" = "Change password";
+"limeauth.auth.passStrengthIgnorePin"       = "Use anyway";
+"limeauth.auth.passStrengthIgnorePassword"  = "Use anyway";
 
 // Biometry buttons
 "limeauth.auth.useTouchId"                  = "Use Touch ID";
