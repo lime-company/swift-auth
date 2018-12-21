@@ -19,6 +19,9 @@ import PowerAuth2
 
 public extension LimeAuthSession {
     
+    /// Notification is fired after biometry factor is added or removed. Bool status (if factor is present) is passed as object.
+    public static let didChangeBiometryFactor = Notification.Name(rawValue: "LimeAuthSession_didChangeBiometryFactor")
+    
     public var hasBiometryFactor: Bool {
         return powerAuth.hasBiometryFactor()
     }
@@ -31,6 +34,11 @@ public extension LimeAuthSession {
             self.powerAuth.addBiometryFactor(password) { error in
                 markFinished {
                     completion(.wrap(error))
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: LimeAuthSession.didChangeBiometryFactor, object: self.powerAuth.hasBiometryFactor())
+                        }
+                    }
                 }
             }
         }
@@ -44,6 +52,11 @@ public extension LimeAuthSession {
             let result = self.powerAuth.removeBiometryFactor()
             self.operationCompletionQueue.async {
                 completion(result)
+                if result {
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: LimeAuthSession.didChangeBiometryFactor, object: self.powerAuth.hasBiometryFactor())
+                    }
+                }
             }
         }
         return self.addOperationToQueue(blockOperation, serialized: true)
