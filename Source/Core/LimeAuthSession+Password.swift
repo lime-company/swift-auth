@@ -19,6 +19,9 @@ import PowerAuth2
 
 public extension LimeAuthSession {
     
+    /// Notification is fired after successful password change
+    public static let didChangePassword = Notification.Name(rawValue: "LimeAuthSession_didChangePassword")
+    
     /// Function validates on server whether provided password is valid.
     public func validatePassword(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
         let operation = AsyncBlockOperation { _, markFinished in
@@ -38,6 +41,11 @@ public extension LimeAuthSession {
             let result = self.powerAuth.unsafeChangePassword(from: from, to: to)
             self.operationCompletionQueue.async {
                 completion(result)
+                if result {
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: LimeAuthSession.didChangePassword, object: nil)
+                    }
+                }
             }
         }
         return self.addOperationToQueue(blockOperation, serialized: true)
