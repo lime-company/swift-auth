@@ -300,7 +300,9 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         cancelButtonItem.title = commonStrings.cancelTitle
 
         // Apply themes
-        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        
+        // background should be clear color - no image
+        configureBackground(image: nil, color: theme.common.backgroundColor)
         hintLabel?.textColor = theme.common.textColor
         confirmButton?.applyButtonStyle(theme.buttons.primary)
         
