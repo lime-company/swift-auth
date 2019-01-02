@@ -93,11 +93,14 @@
 "limeauth.auth.passwordsNotMatch"           = "Passwords did not match. Try again.";
 
 // Passphrase strength
-"limeauth.auth.passStrengthWarning"         = "Warning";
-"limeauth.auth.passStrengthDifferentPin"    = "Change passcode";
-"limeauth.auth.passStrengthDifferentPassword" = "Change password";
-"limeauth.auth.passStrengthIgnorePin"       = "Use anyway";
-"limeauth.auth.passStrengthIgnorePassword"  = "Use anyway";
+"limeauth.auth.passStrength.defaultWarningPin"        = "Warning";
+"limeauth.auth.passStrength.defaultWarningPassword"   = "Warning";
+"limeauth.auth.passStrength.defaultDifferentPin"      = "Change passcode";
+"limeauth.auth.passStrength.defaultDifferentPassword" = "Change password";
+"limeauth.auth.passStrength.defaultIgnorePin"         = "Use anyway";
+"limeauth.auth.passStrength.defaultIgnorePassword"    = "Use anyway";
+"limeauth.auth.passStrength.defaultWeakPin"           = "This PIN looks weak. Are you sure you want to use it?";
+"limeauth.auth.passStrength.defaultWeakPassword"      = "This password is weak. Are you sure you want to use it?";
 
 // Biometry buttons
 "limeauth.auth.useTouchId"                  = "Use Touch ID";
