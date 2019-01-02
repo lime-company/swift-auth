@@ -77,6 +77,9 @@ public class AuthenticationUIProcess {
     }
     public let credentialsProvider: LimeAuthCredentialsProvider
     
+    /// Only credentials validator instance that should be used in the process of the passwrod change/creation
+    public lazy var credentialsValidator: LimeAuthPassphraseValidator? = credentialsProvider.passphraseValidatorProvider?.createValidator()
+    
     /// Request data. Valid only if process is not part of activation
     public let uiRequest: Authentication.UIRequest!
     

@@ -20,7 +20,10 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     
     public var router: (AuthenticationUIProcessRouter & CreateAndVerifyPasswordRoutingLogic)!
     public var uiDataProvider: AuthenticationUIDataProvider!
-    var passphraseValidator: LimeAuthPassphraseValidator?
+    
+    var passphraseValidator: LimeAuthPassphraseValidator? {
+        return router?.authenticationProcess?.credentialsValidator
+    }
     
     var actionFeedback: LimeAuthActionFeedback? {
         return router.authenticationProcess.uiProvider.actionFeedback
@@ -45,7 +48,6 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
         uiDataProvider = process.uiDataProvider
-        passphraseValidator = process.credentialsProvider.passphraseValidatorProvider?.createValidator()
     }
     
     // MARK: - Outlets -
