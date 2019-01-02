@@ -20,8 +20,23 @@ import Foundation
 public enum LimeAuthPassphraseResult {
     /// Strength is OK
     case ok
-    /// Warning should be displayed with provided warning string
-    case warning(_ localized: String)
+    /// Warning should be displayed with provided strings (defualt will be used in case of nil)
+    case warning(_ localized: LimeAuthPassphraseResultStrings?)
+}
+
+/// Strings for "Weak Passphrase Alert"
+public struct LimeAuthPassphraseResultStrings {
+    public let title: String
+    public let text: String
+    public let continueAnywayButton: String
+    public let differentPassphraseButton: String
+    
+    public init(title: String, text: String, continueAnywayButton: String, differentPassphraseButton: String) {
+        self.title = title
+        self.text = text
+        self.continueAnywayButton = continueAnywayButton
+        self.differentPassphraseButton = differentPassphraseButton
+    }
 }
 
 /// Types of passphrase

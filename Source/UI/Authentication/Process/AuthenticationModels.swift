@@ -75,11 +75,14 @@ public enum Authentication {
         }
         
         public struct PassphraseStrengthStrings {
-            public let warningTitle: String
+            public let warningPinTitle: String
+            public let warningPasswordTitle: String
             public let pickDifferentPinButton: String
             public let pickDifferentPasswordButton: String
             public let ignorePinButton: String
             public let ignorePasswordButton: String
+            public let weakPinText: String
+            public let weakPasswordText: String
         }
     }
     

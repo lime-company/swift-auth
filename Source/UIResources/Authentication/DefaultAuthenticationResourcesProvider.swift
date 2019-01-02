@@ -133,11 +133,14 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     
     lazy var uiPassphraseStrengthStrings: Authentication.UIData.PassphraseStrengthStrings = {
        Authentication.UIData.PassphraseStrengthStrings(
-            warningTitle: localization.localizedString("limeauth.auth.passStrengthWarning"),
-            pickDifferentPinButton: localization.localizedString("limeauth.auth.passStrengthDifferentPin"),
-            pickDifferentPasswordButton: localization.localizedString("limeauth.auth.passStrengthDifferentPassword"),
-            ignorePinButton: localization.localizedString("limeauth.auth.passStrengthIgnorePin"),
-            ignorePasswordButton: localization.localizedString("limeauth.auth.passStrengthIgnorePassword")
+            warningPinTitle: localization.localizedString("limeauth.auth.passStrength.defaultWarningPin"),
+            warningPasswordTitle: localization.localizedString("limeauth.auth.passStrength.defaultWarningPassword"),
+            pickDifferentPinButton: localization.localizedString("limeauth.auth.passStrength.defaultDifferentPin"),
+            pickDifferentPasswordButton: localization.localizedString("limeauth.auth.passStrength.defaultDifferentPassword"),
+            ignorePinButton: localization.localizedString("limeauth.auth.passStrength.defaultIgnorePin"),
+            ignorePasswordButton: localization.localizedString("limeauth.auth.passStrength.defaultIgnorePassword"),
+            weakPinText: localization.localizedString("limeauth.auth.passStrength.defaultWeakPin"),
+            weakPasswordText: localization.localizedString("limeauth.auth.passStrength.defaultWeakPassword")
         )
     }()
     
