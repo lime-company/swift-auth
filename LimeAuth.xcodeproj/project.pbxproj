@@ -105,6 +105,8 @@
 		DC1E500521A702580089B280 /* LimeAuthActionFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */; };
 		DC1E501421A81AE20089B280 /* failed.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501221A81AE20089B280 /* failed.m4a */; };
 		DC1E501521A81AE20089B280 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC1E501321A81AE20089B280 /* success.m4a */; };
+		DC24A25021DFB5CC00C59002 /* VibrationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24A24F21DFB5CB00C59002 /* VibrationEngine.swift */; };
+		DC42CA6D21DF697F00E13C23 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42CA6C21DF697F00E13C23 /* UIDeviceExtensions.swift */; };
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
 		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
 		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
@@ -219,6 +221,8 @@
 		DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedback.swift; sourceTree = "<group>"; };
 		DC1E501221A81AE20089B280 /* failed.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = failed.m4a; sourceTree = "<group>"; };
 		DC1E501321A81AE20089B280 /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
+		DC24A24F21DFB5CB00C59002 /* VibrationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrationEngine.swift; sourceTree = "<group>"; };
+		DC42CA6C21DF697F00E13C23 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
 		DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthPassphraseValidator.swift; sourceTree = "<group>"; };
 		DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVerifying.swift; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDB8CCD20516D4A0063C5EA /* PA2KeychainExtensions.swift */,
+				DC42CA6C21DF697F00E13C23 /* UIDeviceExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -736,6 +741,7 @@
 			children = (
 				DC1E500421A702580089B280 /* LimeAuthActionFeedback.swift */,
 				DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */,
+				DC24A24F21DFB5CB00C59002 /* VibrationEngine.swift */,
 			);
 			path = ActionFeedback;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */,
 				BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */,
 				BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */,
+				DC24A25021DFB5CC00C59002 /* VibrationEngine.swift in Sources */,
 				BFBF77DE20AF2A4300139655 /* LimeAuthRestApiError.swift in Sources */,
 				BFAE06AC2059685C003485D7 /* NewCredentialsViewController.swift in Sources */,
 				BF496437205997A6002560A8 /* DefaultAuthenticationResourcesProvider.swift in Sources */,
@@ -864,6 +871,7 @@
 				BF68809520480FC800351112 /* LimeAuthActivationUI+DefaultResources.swift in Sources */,
 				BFDB8CCE20516D4B0063C5EA /* PA2KeychainExtensions.swift in Sources */,
 				BF565FAC2047423600B9C897 /* EnableBiometryViewController.swift in Sources */,
+				DC42CA6D21DF697F00E13C23 /* UIDeviceExtensions.swift in Sources */,
 				BF565F92204728CC00B9C897 /* KeysExchangeViewController.swift in Sources */,
 				BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */,
 				BF565F94204728DE00B9C897 /* KeysExchangeRouter.swift in Sources */,
