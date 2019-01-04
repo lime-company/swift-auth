@@ -32,13 +32,7 @@ public class LimeAuthActionFeedback: NSObject {
     /// Fail sound in predefined success scene. Default value available only when LimeAuth/UIResources_Sounds pod is used.
     public var failSound: URL? = Bundle(for: LimeAuthActionFeedback.self).url(forResource: "failed", withExtension: "m4a")
     
-    // generators
-    private var impactLight: UIImpactFeedbackGenerator?
-    private var impactMedium: UIImpactFeedbackGenerator?
-    private var impactHeavy: UIImpactFeedbackGenerator?
-    private var notification: UINotificationFeedbackGenerator?
-    private var selection: UISelectionFeedbackGenerator?
-    private var generators: [UIFeedbackGenerator?] { return [impactLight, impactMedium, impactHeavy, notification, selection] }
+    private let vibrationEngine = VibrationEngine.create()
     
     // player that will play custom sounds
     private lazy var player = AVQueuePlayer()
@@ -51,21 +45,14 @@ public class LimeAuthActionFeedback: NSObject {
     
     /// Clears generator objects. This will put haptic engine to sleep (on HW level).
     public func sleep() {
-        impactLight = nil
-        impactMedium = nil
-        impactHeavy = nil
-        notification = nil
-        selection = nil
+        vibrationEngine.sleep()
     }
     
     /// Prepares haptic engine for use (to remove potentional delay when haptic() is called.)
     public func prepare() {
         
         if hapticEnabled {
-            if impactLight == nil {
-                wakeUp()
-            }
-            generators.forEach { $0?.prepare() }
+            vibrationEngine.prepare()
         }
         
         if audioEnabled {
@@ -83,32 +70,17 @@ public class LimeAuthActionFeedback: NSObject {
     /// - Parameter type: type of haptic feedback
     ///
     /// Note that this won't have any effect when `hapticEnabled` is false.
+    ///
+    /// Also, in some cases, the feedback might not be played. For example older device doesn't
+    /// support it or the system decides to not to play it (low battery).
     public func haptic(_ type: LimeAuthHapticType) {
         
         guard hapticEnabled else {
+            D.print("Haptic disabled, vibration won't be played")
             return
         }
         
-        if impactLight == nil {
-            wakeUp()
-        }
-        
-        switch type {
-        case .impact(let strength):
-            switch strength {
-            case .light: impactLight?.impactOccurred()
-            case .medium: impactMedium?.impactOccurred()
-            case  .heavy: impactHeavy?.impactOccurred()
-            }
-        case .notification(let notificationType):
-            switch notificationType {
-            case .success: notification?.notificationOccurred(.success)
-            case .warning: notification?.notificationOccurred(.warning)
-            case .error: notification?.notificationOccurred(.error)
-            }
-        case .selection:
-            selection?.selectionChanged()
-        }
+        vibrationEngine.play(type)
     }
     
     /// Plays system audio
@@ -170,16 +142,5 @@ public class LimeAuthActionFeedback: NSObject {
             audio(failSound, volume: 0.25)
             haptic(.notification(.error))
         }
-    }
-    
-    // MARK: private helper methods
-    
-    /// Prepares haptic generators
-    private func wakeUp() {
-        impactLight = UIImpactFeedbackGenerator(style: .light)
-        impactMedium = UIImpactFeedbackGenerator(style: .medium)
-        impactHeavy = UIImpactFeedbackGenerator(style: .heavy)
-        notification = UINotificationFeedbackGenerator()
-        selection = UISelectionFeedbackGenerator()
     }
 }
