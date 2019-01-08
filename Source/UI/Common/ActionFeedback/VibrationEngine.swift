@@ -17,7 +17,7 @@
 import Foundation
 import AudioToolbox
 
-// "Abstract" class for vibration
+// Default "silent" engine
 class VibrationEngine {
     
     // use static create() method instead
@@ -42,7 +42,7 @@ class VibrationEngine {
     }
     
     /// Factory function
-    static func create() -> VibrationEngine {
+    static func create(allowNontapticPhones: Bool) -> VibrationEngine {
         
         if UIDevice.hasHapticEngine {
             return HapticEngine()
@@ -52,7 +52,7 @@ class VibrationEngine {
             return TapticEngine()
         }
         
-        return DefaultEngine()
+        return allowNontapticPhones ? DefaultEngine() : VibrationEngine()
     }
 }
 

@@ -19,7 +19,6 @@ import AudioToolbox
 import AVFoundation
 
 /// Class that plays haptic and audio feedback for easier use.
-/// For simplicity and configuration of default LimeAuth UI components use `shared` singleton.
 public class LimeAuthActionFeedback: NSObject {
     
     /// When false, haptic(..) calls will be ignored
@@ -27,17 +26,25 @@ public class LimeAuthActionFeedback: NSObject {
     /// When false, audio(..) calls will be ignored
     public var audioEnabled = true
     
+    /// When false (default value), no vibrations will be played on devices without taptic or haptic engine (phones like 6 or SE).
+    public var allowFallbackVibrations = false {
+        didSet {
+            vibrationEngine = VibrationEngine.create(allowNontapticPhones: allowFallbackVibrations)
+        }
+    }
+    
     /// Success sound in predefined success scene. Default value available only when LimeAuth/UIResources_Sounds pod is used.
     public var successSound: URL? = Bundle(for: LimeAuthActionFeedback.self).url(forResource: "success", withExtension: "m4a")
     /// Fail sound in predefined success scene. Default value available only when LimeAuth/UIResources_Sounds pod is used.
     public var failSound: URL? = Bundle(for: LimeAuthActionFeedback.self).url(forResource: "failed", withExtension: "m4a")
     
-    private let vibrationEngine = VibrationEngine.create()
+    private var vibrationEngine: VibrationEngine
     
     // player that will play custom sounds
     private lazy var player = AVQueuePlayer()
     
-    public override init () {
+    public override init() {
+        vibrationEngine = VibrationEngine.create(allowNontapticPhones: allowFallbackVibrations)
         super.init()
     }
     
