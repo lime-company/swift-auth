@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'LimeAuth'
-  s.version = '0.5.0'
+  s.version = '0.6.0'
   # Metadata
   s.license = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.summary = 'High level PowerAuth based authentication library written in swift'
@@ -34,13 +34,13 @@ Pod::Spec.new do |s|
     sub.resources = [ 'Source/UIResources/**/*.storyboard', 'Source/UIResources/*.xcassets' ]
     sub.dependency 'LimeAuth/UI'
   end
-
+  
   # 'UIResources_Sounds' subspec
   s.subspec 'UIResources_Sounds' do |sub|
     sub.resources = [ 'Source/UIResources_Sounds/*.m4a' ]
     sub.dependency 'LimeAuth/UI'
   end
-
+  
   # 'UIResources_Images' subspec
   s.subspec 'UIResources_Images' do |sub|
     sub.resources = [ 'Source/UIResources_Images/*.xcassets' ]
