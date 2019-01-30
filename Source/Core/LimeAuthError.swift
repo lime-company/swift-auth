@@ -16,6 +16,7 @@
 
 import Foundation
 import PowerAuth2
+import LimeCore
 
 /// A class returned as Error from LimeAuth public library interfaces.
 public class LimeAuthError: Error {
@@ -252,5 +253,36 @@ public extension LimeAuthError {
             return code
         }
         return nil
+    }
+}
+
+extension LimeAuthError: CustomStringConvertible {
+    public var description: String {
+        
+        if let nsne = nestedError as? NSError {
+            return nsne.description
+        }
+        
+        if let nd = nestedDescription {
+            return nd
+        }
+        
+        var otherResult = "Error  domain: \(domain), code: \(code)"
+        
+        if httpStatusCode != -1 {
+            otherResult += "\nHTTP Status Code: \(httpStatusCode)"
+        }
+        
+        if let raec = powerAuthRestApiErrorCode {
+            otherResult += "\nPA REST API Code: \(raec)"
+        }
+        
+        return otherResult
+    }
+}
+
+extension LimeDebug {
+    static func error(_ error: @autoclosure ()->LimeAuthError) {
+        LimeDebug.error(error().description)
     }
 }
