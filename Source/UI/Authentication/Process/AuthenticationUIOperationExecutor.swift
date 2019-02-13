@@ -184,7 +184,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
                 return
             }
             // Check if operation ended on auth error
-            if (err.httpStatusCode == 401) || (err.domain == PA2ErrorDomain && err.code == PA2ErrorCodeAuthenticationFailed) {
+            if err.httpStatusCode == 401 {
                 response.isAuthenticationError = true
                 response.isBiometryError = auth.useBiometry
             }
