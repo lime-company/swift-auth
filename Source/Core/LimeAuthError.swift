@@ -259,7 +259,7 @@ public extension LimeAuthError {
 extension LimeAuthError: CustomStringConvertible {
     public var description: String {
         
-        if let nsne = nestedError as? NSError {
+        if let nsne = nestedError as NSError? {
             return nsne.description
         }
         
