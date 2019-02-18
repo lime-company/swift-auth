@@ -313,7 +313,9 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         prompt1Label?.textColor = theme.common.promptTextColor
         prompt2Label?.textColor = theme.common.promptTextColor
         password1Label?.textColor = theme.common.passwordTextColor
+        password1Label.font = UIFont.systemFont(ofSize: 40)
         password2Label?.textColor = theme.common.passwordTextColor
+        password2Label.font = UIFont.systemFont(ofSize: 40)
         error1Label?.textColor = theme.common.highlightedTextColor
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         changeComplexityButton?.applyButtonStyle(theme.buttons.keyboardAuxiliary)
