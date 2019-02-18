@@ -322,7 +322,9 @@ open class CreatePasscodeViewController: LimeAuthUIBaseViewController, CreateAnd
         prompt1Label?.textColor = theme.common.promptTextColor
         prompt2Label?.textColor = theme.common.promptTextColor
         password1Label?.textColor = theme.common.passwordTextColor
+        password1Label?.font = UIFont.systemFont(ofSize: 22)
         password2Label?.textColor = theme.common.passwordTextColor
+        password2Label?.font = UIFont.systemFont(ofSize: 22)
         error1Label?.textColor = theme.common.highlightedTextColor
         confirm1Button?.applyButtonStyle(theme.buttons.ok)
         confirm2Button?.applyButtonStyle(theme.buttons.ok)

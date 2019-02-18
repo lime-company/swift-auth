@@ -360,6 +360,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
         variablePinLabel?.textColor = theme.common.passwordTextColor
+        variablePinLabel?.font = UIFont.systemFont(ofSize: 22)
         roundCornersView?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
         // KB delegate

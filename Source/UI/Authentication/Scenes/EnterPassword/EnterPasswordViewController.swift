@@ -347,6 +347,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
+        passwordTextField?.font = UIFont.systemFont(ofSize: 17)
         closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
         confirmPasswordButton?.applyButtonStyle(theme.buttons.ok)
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)

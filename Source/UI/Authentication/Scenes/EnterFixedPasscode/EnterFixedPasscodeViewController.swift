@@ -346,6 +346,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
         fixedPinLabel?.textColor = theme.common.passwordTextColor
+        fixedPinLabel.font = UIFont.systemFont(ofSize: 40)
         
         // KB delegate
         pinKeyboard?.delegate = self
