@@ -6,6 +6,10 @@ This changelog is tracking all the changes that will affect the behavior of this
 
 - TBA
 
+### 0.6.1
+
+-  Forcing fonts on passcode dots ([related pull request](https://github.com/wultra/swift-lime-auth/pull/79))
+
 ### 0.6.0
 
 - Added support for vibration/sounds ([related pull request](https://github.com/wultra/swift-lime-auth/pull/50))
