@@ -116,6 +116,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     /// Result returned from operation execution
     private var executionResult: AuthenticationUIOperationResult?
     
+    private var isExecutingOperation = false
+    
     // MARK: - ViewController life cycle
     
     open override func viewDidLoad() {
@@ -209,6 +211,13 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     
     private func executeOperation(biometry: Bool, delay: Bool = true) {
         
+        guard isExecutingOperation == false else {
+            D.warning("Trying to execute operation more than once")
+            return
+        }
+        
+        isExecutingOperation = true
+        
         var changeStateDuration: TimeInterval = 0.1
         let authentication = PowerAuthAuthentication()
         let password = self.getAndResetPassword(keepFakePassword: true)
@@ -236,6 +245,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
                     self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: password))
                     self.showSuccessResult()
                 }
+                
+                self.isExecutingOperation = false
             }
         }
     }
@@ -278,21 +289,21 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     private func appendDigit(_ digit: Int) {
         if self.passwordLength < self.requiredPasswordLength {
             self.password.append(Character(UnicodeScalar(48 + digit)!))
+            // hide remaining attempts label during the typing
+            self.remainingAttemptsLabelIsVisible = false
+            afterPassowrdChange()
         } else {
             D.warning("Trying to add more digits than allowed")
         }
-        // hide remaining attempts label during the typing
-        self.remainingAttemptsLabelIsVisible = false
-        afterPassowrdChange()
     }
     
     private func removeLastDigit() {
         if !password.isEmpty {
             password.remove(at: password.index(before: password.endIndex))
+            afterPassowrdChange()
         } else {
             D.warning("Removing digit from already empty password")
         }
-        afterPassowrdChange()
     }
     
     private func afterPassowrdChange() {

@@ -123,6 +123,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     /// Result returned from operation execution
     private var executionResult: AuthenticationUIOperationResult?
     
+    private var isExecutingOperation = false
     
     // MARK: - ViewController life cycle
     
@@ -218,6 +219,13 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     
     private func executeOperation(biometry: Bool, delay: Bool = true) {
         
+        guard isExecutingOperation == false else {
+            D.warning("Trying to execute operation more than once")
+            return
+        }
+        
+        isExecutingOperation = true
+        
         var changeStateDuration: TimeInterval = 0.1
         let authentication = PowerAuthAuthentication()
         let password = self.getAndResetPassword(keepFakePassword: true)
@@ -246,6 +254,8 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
                     self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: password))
                     self.showSuccessResult()
                 }
+                
+                self.isExecutingOperation = false
             }
         }
     }
