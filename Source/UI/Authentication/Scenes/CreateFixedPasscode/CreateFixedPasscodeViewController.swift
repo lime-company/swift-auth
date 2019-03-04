@@ -201,16 +201,21 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     
     /// Allows update first or second password depending on which password is currently edited.
     /// The method also automatically calls `afterPasswordChange()` when the appropriate password is changed
-    private func updatePassword(block: (inout String)->Void) {
+    /// Block function should return true or false whether the password was edited or not
+    private func updatePassword(block: (inout String)->Bool) {
         if currentState == .firstPass {
             let before = password1
-            block(&password1)
+            guard block(&password1) else {
+                return
+            }
             if before != password1 {
                 afterPassowrdChange()
             }
         } else if currentState == .secondPass {
             let before = password2
-            block(&password2)
+            guard block(&password2) else {
+                return
+            }
             if before != password2 {
                 afterPassowrdChange()
             }
@@ -222,8 +227,10 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.updatePassword { (p) in
             if p.count < self.requiredPasswordLength {
                 p.append(Character(UnicodeScalar(48 + digit)!))
+                return true
             } else {
                 D.warning("Trying to add more digits than allowed")
+                return false
             }
         }
     }
@@ -233,8 +240,10 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.updatePassword { (p) in
             if !p.isEmpty {
                 p.remove(at: p.index(before: p.endIndex))
+                return true
             } else {
                 D.warning("Removing digit from already empty password")
+                return false
             }
         }
     }
@@ -242,6 +251,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     private func clearPassword()  {
         updatePassword { p in
             p.removeAll()
+            return true
         }
     }
     
