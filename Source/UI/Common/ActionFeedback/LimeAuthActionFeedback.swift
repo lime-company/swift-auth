@@ -40,6 +40,8 @@ public class LimeAuthActionFeedback: NSObject {
     
     private var vibrationEngine: VibrationEngine
     
+    private var ongoingSound: LimeAuthSystemSound?
+    
     // player that will play custom sounds
     private lazy var player = AVQueuePlayer()
     
@@ -102,7 +104,14 @@ public class LimeAuthActionFeedback: NSObject {
             return
         }
         
-        AudioServicesPlaySystemSound(SystemSoundID(sound.rawValue))
+        if let ongoingSound = ongoingSound {
+            AudioServicesDisposeSystemSoundID(SystemSoundID(ongoingSound.rawValue))
+            D.warning("sound \(ongoingSound.rawValue) canceled")
+        }
+        ongoingSound = sound
+        AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(sound.rawValue)) { [weak self] in
+            self?.ongoingSound = nil
+        }
     }
     
     /// Plays custom audio
