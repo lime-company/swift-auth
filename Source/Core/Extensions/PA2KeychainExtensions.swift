@@ -35,7 +35,7 @@ public extension PA2Keychain {
         return dec
     }()
     
-    public func update<T: CodableToDictionary & Codable>(value: T, for key: String) {
+    func update<T: CodableToDictionary & Codable>(value: T, for key: String) {
         if let encoded = self.encode(value) {
             if self.containsData(forKey: key) {
                 let _ = self.updateValue(encoded, forKey: key)
@@ -45,7 +45,7 @@ public extension PA2Keychain {
         }
     }
     
-    public func value<T: CodableToDictionary & Codable>(for key: String) -> T? {
+    func value<T: CodableToDictionary & Codable>(for key: String) -> T? {
         guard let data = self.data(forKey: key, status: nil)
             else { return nil }
         return self.decode(data)

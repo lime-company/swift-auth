@@ -27,19 +27,19 @@ public protocol CameraAccessProvider {
 
 public extension CameraAccessProvider {
     
-    public var isCameraDeviceAvailable: Bool {
+    var isCameraDeviceAvailable: Bool {
         return UIImagePickerController.isCameraDeviceAvailable(.rear)
     }
     
-    public var isCameraAccessGranted: Bool {
+    var isCameraAccessGranted: Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
     
-    public var needsCameraAccessApproval: Bool {
+    var needsCameraAccessApproval: Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined
     }
     
-    public func requestCameraAccess(completion: @escaping (Bool)->Void) {
+    func requestCameraAccess(completion: @escaping (Bool)->Void) {
         AVCaptureDevice.requestAccess(for: .video) { (approved) in
             DispatchQueue.main.async {
                 completion(approved)

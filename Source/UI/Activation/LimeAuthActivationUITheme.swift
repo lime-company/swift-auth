@@ -14,7 +14,7 @@
 // and limitations under the License.
 //
 
-import Foundation
+import UIKit
 
 /// The `LimeAuthActivationUITheme` structure defines colors, fonts and images used in the activation UI flow.
 ///
@@ -304,7 +304,7 @@ public struct LimeAuthActivationUITheme {
 public extension LimeAuthActivationUITheme.Illustrations {
     
     /// Function makes all illustrations tinted with given color.
-    public func tinted(with color: UIColor) -> LimeAuthActivationUITheme.Illustrations {
+    func tinted(with color: UIColor) -> LimeAuthActivationUITheme.Illustrations {
         return LimeAuthActivationUITheme.Illustrations(
             beginScene: .tinted(beginScene, with: color),
             noCameraScene: .tinted(noCameraScene, with: color),

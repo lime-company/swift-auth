@@ -52,7 +52,7 @@ public protocol AuthenticationUIDataProvider: class {
 
 public extension AuthenticationUIDataProvider {
     /// Localize error version without fallback string.
-    public func localizeError(error: LimeAuthError?) -> String {
+    func localizeError(error: LimeAuthError?) -> String {
         return localizeError(error: error, fallback: nil)
     }
 }

@@ -20,10 +20,10 @@ import PowerAuth2
 public extension LimeAuthSession {
     
     /// Notification is fired after successful password change
-    public static let didChangePassword = Notification.Name(rawValue: "LimeAuthSession_didChangePassword")
+    static let didChangePassword = Notification.Name(rawValue: "LimeAuthSession_didChangePassword")
     
     /// Function validates on server whether provided password is valid.
-    public func validatePassword(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
+    func validatePassword(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
         let operation = AsyncBlockOperation { _, markFinished in
             self.powerAuth.validatePasswordCorrect(password) { error in
                 markFinished {
@@ -36,7 +36,7 @@ public extension LimeAuthSession {
     
     /// Function changes user's password. The current password must be validated before you call this method,
     /// otherwise the user will no longer be able to authenticate with his knowledge factor.
-    public func changeValidatedPassword(from: String, to: String, completion: @escaping (Bool)->Void) -> Operation {
+    func changeValidatedPassword(from: String, to: String, completion: @escaping (Bool)->Void) -> Operation {
         let blockOperation = BlockOperation {
             let result = self.powerAuth.unsafeChangePassword(from: from, to: to)
             self.operationCompletionQueue.async {

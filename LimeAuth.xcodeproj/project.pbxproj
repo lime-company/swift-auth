@@ -789,7 +789,7 @@
 				TargetAttributes = {
 					BF8CF42D20320880002A6B6E = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -800,6 +800,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BF8CF42420320880002A6B6E;
 			productRefGroup = BF8CF42F20320880002A6B6E /* Products */;
@@ -1087,7 +1088,7 @@
 				PRODUCT_NAME = LimeAuth;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1113,7 +1114,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.getlime.lib.LimeAuth;
 				PRODUCT_NAME = LimeAuth;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -28,7 +28,7 @@ public enum SystemVariant {
 public extension UIDevice {
     
     /// Parses type and version of the system
-    public static var deviceVersion: SystemVariant = {
+    static var deviceVersion: SystemVariant = {
         
         var sysinfo = utsname()
         uname(&sysinfo)
@@ -78,7 +78,7 @@ public extension UIDevice {
     }()
     
     /// If device has 1st gen haptic engine (eg iP 6s)
-    public static var hasTapticEngine: Bool = {
+    static var hasTapticEngine: Bool = {
         
         guard case .iPhone(let gen, let version) = deviceVersion else {
             return false
@@ -88,7 +88,7 @@ public extension UIDevice {
     }()
     
     /// If device has 2nd gen haptic engine (eg iP 7 or 8)
-    public static var hasHapticEngine: Bool = {
+    static var hasHapticEngine: Bool = {
         
         guard case .iPhone(let gen, _) = deviceVersion else {
             return false

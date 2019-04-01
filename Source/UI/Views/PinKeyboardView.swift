@@ -291,7 +291,7 @@ open class PinKeyboardView : UIView {
     
     /// Translates view's tag into the digit or special key code.
     private func translateTagToKey(_ tag: Int) -> (digit: Int?, code: PinKeyboardSpecialKey?) {
-        if let index = tagPermutations?.index(of: tag) {
+        if let index = tagPermutations?.firstIndex(of: tag) {
             if index < 10 {
                 return (index, nil)
             } else if index == PinKeyboardSpecialKey.biometry.rawValue {
