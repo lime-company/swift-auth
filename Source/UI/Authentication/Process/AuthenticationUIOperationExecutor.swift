@@ -96,12 +96,10 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         if session.hasBiometryFactor && PA2Keychain.canUseBiometricAuthentication {
             // Translate supported biometric authentication to biometry option enum.
             switch LimeAuthSession.supportedBiometricAuthentication {
-            case .touchID:
-                biometryOption = credentials.biometry.touchId
-            case .faceID:
-                biometryOption = credentials.biometry.faceId
-            case .none:
-                biometryOption = .disabled
+            case .touchID: biometryOption = credentials.biometry.touchId
+            case .faceID: biometryOption = credentials.biometry.faceId
+            case .none: biometryOption = .disabled
+            @unknown default: D.fatalError("unknown factor")
             }
         } else {
             biometryOption = .disabled

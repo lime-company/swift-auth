@@ -112,6 +112,7 @@ extension LimeAuthSession: CustomDebugStringConvertible {
             case .removed: status = "REMOVED, activationID: \(aID)"
             case .otp_Used: status = "OTP_USED"
             case .created: status = "CREATED"
+            @unknown default: D.fatalError("unknown status")
             }
         } else {
             status = "NOT_FETCHED, activationID: \(aID)"
