@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author = { 'Wultra s.r.o.' => 'support@wultra.com' }
   s.source = { :git => 'https://github.com/wultra/swift-lime-auth.git', :tag => s.version }
   # Deployment targets
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
   
   # Sources
