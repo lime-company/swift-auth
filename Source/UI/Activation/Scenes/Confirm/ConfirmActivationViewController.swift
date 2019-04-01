@@ -175,6 +175,8 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 return true
             case .otp_Used:
                 return true
+            @unknown default:
+                D.fatalError("unknown state")
             }
         } else if let error = error {
             if error.domain != PA2ErrorDomain {
