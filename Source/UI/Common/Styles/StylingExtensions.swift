@@ -18,7 +18,7 @@ import Foundation
 
 public extension UIButton {
     
-    public func applyButtonStyle(_ style: ButtonStyle?) {
+    func applyButtonStyle(_ style: ButtonStyle?) {
         
         guard let style = style else {
             return

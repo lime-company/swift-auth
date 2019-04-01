@@ -139,7 +139,7 @@ public extension LimeAuthError {
     
     /// Returns LimeAuthError with nested error, or nil if provided error is nil.
     /// If the provided error object is already LimeAuthError, then returns the same object.
-    public static func wrap(_ error: Error?) -> LimeAuthError? {
+    static func wrap(_ error: Error?) -> LimeAuthError? {
         guard let error = error else { return nil }
         if let error = error as? LimeAuthError {
             return error
@@ -149,7 +149,7 @@ public extension LimeAuthError {
     
     /// Returns LimeAuthError object with nested error.
     /// If the provided error object is already LimeAuthError, then returns the same object.
-    public static func wrap(_ error: Error) -> LimeAuthError {
+    static func wrap(_ error: Error) -> LimeAuthError {
         if let error = error as? LimeAuthError {
             return error
         }
@@ -159,7 +159,7 @@ public extension LimeAuthError {
     /// Returns LimeAuthError object with nested error and additional nested description.
     /// If the provided error object is already LimeAuthError, then returns copy of the object,
     /// with modiffied nested description.
-    public static func wrap(_ error: Error, string: String) -> LimeAuthError {
+    static func wrap(_ error: Error, string: String) -> LimeAuthError {
         if let error = error as? LimeAuthError {
             return LimeAuthError(
                 nestedError: error.nestedError,
@@ -178,11 +178,11 @@ public extension LimeAuthError {
     
     /// A fallback domain identifier which is returned in situations, when the nested error
     /// is not set, or if it's not kind of NSError object.
-    public static let limeAuthDomain = "LimeAuthDomain"
+    static let limeAuthDomain = "LimeAuthDomain"
     
     
     /// If nestedError is valid, then returns its code
-    public var code: Int {
+    var code: Int {
         guard let e = nestedError as NSError? else {
             return 0
         }
@@ -191,7 +191,7 @@ public extension LimeAuthError {
     
     /// If nestedError is valid, then returns its domain.
     /// Otherwise returns `LimeAuthError.limeAuthDomain`
-    public var domain: String {
+    var domain: String {
         guard let e = nestedError as NSError? else {
             return LimeAuthError.limeAuthDomain
         }
@@ -199,7 +199,7 @@ public extension LimeAuthError {
     }
     
     /// If nestedError is valid, then returns its user info.
-    public var userInfo: [String:Any] {
+    var userInfo: [String:Any] {
         guard let e = nestedError as NSError? else {
             return [:]
         }
@@ -208,7 +208,7 @@ public extension LimeAuthError {
     
     /// Returns true if nested error has information about missing network connection.
     /// The device is typically not connected to the internet.
-    public var networkIsNotReachable: Bool {
+    var networkIsNotReachable: Bool {
         if self.domain == NSURLErrorDomain || self.domain == kCFErrorDomainCFNetwork as String {
             let ec = CFNetworkErrors(rawValue: Int32(self.code))
             return ec == .cfurlErrorNotConnectedToInternet ||
@@ -220,7 +220,7 @@ public extension LimeAuthError {
     
     /// Returns true if nested error has information about connection security, like untrusted TLS
     /// certificate, or similar TLS related problems.
-    public var networkConnectionIsNotTrusted: Bool {
+    var networkConnectionIsNotTrusted: Bool {
         let domain = self.domain
         if domain == NSURLErrorDomain || domain == kCFErrorDomainCFNetwork as String {
             let code = Int32(self.code)
@@ -237,7 +237,7 @@ public extension LimeAuthError {
     
     /// Returns `PA2ErrorResponse` if such object is embedded in nested error. This is typically useful
     /// for getting response created in the PowerAuth2 library.
-    public var powerAuthErrorResponse: PA2ErrorResponse? {
+    var powerAuthErrorResponse: PA2ErrorResponse? {
         if let responseObject = self.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
             return responseObject
         }
@@ -245,7 +245,7 @@ public extension LimeAuthError {
     }
     
     
-    public var powerAuthRestApiErrorCode: String? {
+    var powerAuthRestApiErrorCode: String? {
         if let response = restApiError {
             return response.code
         }

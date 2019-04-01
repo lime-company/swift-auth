@@ -38,7 +38,7 @@ open class AsyncOperation: Operation, CompletableInSpecificQueue {
         }
     }
     
-    internal(set) var completionQueue: DispatchQueue?
+    var completionQueue: DispatchQueue?
     
     // MARK: - Lifecycle of the operation
     

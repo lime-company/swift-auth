@@ -65,23 +65,23 @@ public class LimeAuthSession {
 
 public extension LimeAuthSession {
     
-    public var canStartActivation: Bool {
+    var canStartActivation: Bool {
         return powerAuth.canStartActivation()
     }
     
-    public var hasPendingActivation: Bool {
+    var hasPendingActivation: Bool {
         return powerAuth.hasPendingActivation()
     }
     
-    public var hasValidActivation: Bool {
+    var hasValidActivation: Bool {
         return powerAuth.hasValidActivation()
     }
     
-    public var activationIdentifier: String? {
+    var activationIdentifier: String? {
         return powerAuth.activationIdentifier
     }
     
-    public var activationFingerprint: String? {
+    var activationFingerprint: String? {
         return powerAuth.activationFingerprint
     }
 }

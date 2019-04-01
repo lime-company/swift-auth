@@ -20,15 +20,15 @@ import PowerAuth2
 public extension LimeAuthSession {
     
     /// Notification is fired after biometry factor is added or removed. Bool status (if factor is present) is passed as object.
-    public static let didChangeBiometryFactor = Notification.Name(rawValue: "LimeAuthSession_didChangeBiometryFactor")
+    static let didChangeBiometryFactor = Notification.Name(rawValue: "LimeAuthSession_didChangeBiometryFactor")
     
-    public var hasBiometryFactor: Bool {
+    var hasBiometryFactor: Bool {
         return powerAuth.hasBiometryFactor()
     }
     
     /// Adds biometry factor to the session. The user has to provide a password to unlock sensitive information,
     /// required for the operation.
-    public func addBiometryFactor(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
+    func addBiometryFactor(password: String, completion: @escaping (LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in
             self.powerAuth.addBiometryFactor(password) { error in
@@ -47,7 +47,7 @@ public extension LimeAuthSession {
     
     /// Removes biometry factor from the session. The operation is asynchronous, but you can count with fact,
     /// that it's execution time is very short.
-    public func removeBiometryFactor(completion: @escaping (Bool)->Void) -> Operation {
+    func removeBiometryFactor(completion: @escaping (Bool)->Void) -> Operation {
         let blockOperation = BlockOperation {
             let result = self.powerAuth.removeBiometryFactor()
             self.operationCompletionQueue.async {
@@ -65,19 +65,19 @@ public extension LimeAuthSession {
     
     /// Returns true if authentication with using biometry is supported on this device.
     /// The implementation simply returns result from `PA2Keychain.canUseBiometricAuthentication`
-    public static var canUseBiometricAuthentication: Bool {
+    static var canUseBiometricAuthentication: Bool {
         return PA2Keychain.canUseBiometricAuthentication
     }
 
     /// Returns true if authentication with using biometry is supported on this device.
     /// The implementation simply returns result from `PA2Keychain.supportedBiometricAuthentication`
-    public static var supportedBiometricAuthentication: PA2BiometricAuthenticationType {
+    static var supportedBiometricAuthentication: PA2BiometricAuthenticationType {
         return PA2Keychain.supportedBiometricAuthentication
     }
     
     /// Returns full information about biometry type and its state on this device.
     /// The implementation simply returns result from `PA2Keychain.biometricAuthenticationInfo`
-    public static var biometricAuthenticationInfo: PA2BiometricAuthenticationInfo {
+    static var biometricAuthenticationInfo: PA2BiometricAuthenticationInfo {
         return PA2Keychain.biometricAuthenticationInfo
     }
     

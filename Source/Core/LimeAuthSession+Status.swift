@@ -20,15 +20,15 @@ import PowerAuth2
 public extension LimeAuthSession {
     
     /// Notification is fired after the state of the activation change. PA2ActivationStatus is passed as object.
-    public static let didChangeActivationStatus = Notification.Name(rawValue: "LimeAuthSession_didChangeActivationStatus")    
+    static let didChangeActivationStatus = Notification.Name(rawValue: "LimeAuthSession_didChangeActivationStatus")    
 
     /// The method updates activation status from the server.
-    public func fetchActivationStatus(completion: @escaping (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void) -> Operation {
+    func fetchActivationStatus(completion: @escaping (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void) -> Operation {
         return statusFetcher.updateActivationStatus(completion: completion)
     }
     
     /// Contains last fetched activation status object or nil if status has not been fetched yet.
-    public var lastFetchedActivationStatus: PA2ActivationStatus? {
+    var lastFetchedActivationStatus: PA2ActivationStatus? {
         if powerAuth.hasValidActivation() {
             return self.statusFetcher.lastFetchedData?.status
         }
@@ -38,7 +38,7 @@ public extension LimeAuthSession {
     /// Contains last fetched data received together with activation status.
     ///
     /// Note that this kind of data depends on actual server implementation.
-    public var lastFetchedActivationStatusData: [AnyHashable : Any]? {
+    var lastFetchedActivationStatusData: [AnyHashable : Any]? {
         if powerAuth.hasValidActivation() {
             return self.statusFetcher.lastFetchedData?.data
         }
@@ -47,7 +47,7 @@ public extension LimeAuthSession {
     
     /// Contains true if application should update activation status. This is typically when the status data
     /// has not been fetched yet, or if last update failed on error.
-    public var shouldUpdateActivationStatus: Bool {
+    var shouldUpdateActivationStatus: Bool {
         if powerAuth.hasValidActivation() {
             return statusFetcher.shouldUpdateActivationStatus
         }
@@ -56,7 +56,7 @@ public extension LimeAuthSession {
     
     /// Performs a silent update for activation status. If the silent update fails, then the update will
     /// be executed before the next important operation and `shouldUpdateActivationStatus` will contain true.
-    public func setNeedUpdateActivationStatus() {
+    func setNeedUpdateActivationStatus() {
         if powerAuth.hasValidActivation() {
             statusFetcher.setNeedUpdateActivationStatus()
         }

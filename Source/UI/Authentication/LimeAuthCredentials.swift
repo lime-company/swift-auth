@@ -139,12 +139,12 @@ public extension LimeAuthCredentials {
     /// Returns true if current user's complexity is no longer supported in the current application.
     /// The application's UI should display a warning about this situation and user should change
     /// his password to a new, supported one.
-    public var isCurrentPasswordComplexityNoLongerSupported: Bool {
-        return self.passwordOptionsOrder.index(of: self.passwordIndex) == nil
+    var isCurrentPasswordComplexityNoLongerSupported: Bool {
+        return self.passwordOptionsOrder.firstIndex(of: self.passwordIndex) == nil
     }
     
     /// Constructs and returns default credentials object.
-    public static func defaultCredentials() -> LimeAuthCredentials {
+    static func defaultCredentials() -> LimeAuthCredentials {
         let passwordOptions: [LimeAuthCredentials.Password] = [
             .fixedPin(length: 4),
             .fixedPin(length: 6),
@@ -159,17 +159,17 @@ public extension LimeAuthCredentials {
 public extension LimeAuthCredentials.Password {
     
     /// Creates a password object for PIN with fixed length
-    public static func fixedPin(length: Int) ->  LimeAuthCredentials.Password {
+    static func fixedPin(length: Int) ->  LimeAuthCredentials.Password {
         return  LimeAuthCredentials.Password(.fixedPin, min: length, max: length)
     }
     
     /// Creates a password object for PIN with variable length
-    public static func variablePin(min: Int, max: Int) ->  LimeAuthCredentials.Password {
+    static func variablePin(min: Int, max: Int) ->  LimeAuthCredentials.Password {
         return  LimeAuthCredentials.Password(.variablePin, min: min, max: max)
     }
     
     /// Creates a password object for alphanumeric string with minimum length
-    public static func alphanumeric(min: Int) ->  LimeAuthCredentials.Password {
+    static func alphanumeric(min: Int) ->  LimeAuthCredentials.Password {
         return  LimeAuthCredentials.Password(.password, min: min, max: 0)
     }
 }
@@ -178,7 +178,7 @@ public extension LimeAuthCredentials.Password {
 public extension LimeAuthCredentials.Biometry {
     
     /// Contains true whether biometry configuration matches actual support on the device.
-    public var isSupportedOnDevice: Bool {
+    var isSupportedOnDevice: Bool {
         var supported = PA2Keychain.supportedBiometricAuthentication
         if supported == .touchID && touchId == .disabled {
             supported = .none

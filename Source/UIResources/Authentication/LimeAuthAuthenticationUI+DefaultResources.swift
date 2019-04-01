@@ -26,7 +26,7 @@ public extension LimeAuthAuthenticationUI {
     /// - parameter theme: Optional theme applied to UI. If nil, then `.defaultLightTheme()` is used
     /// - parameter bundle: Optional bundle, containing a compatible `Authentication.storyboard`
     /// - returns: object providing authentication UI
-    public static func defaultResourcesProvider(theme: LimeAuthAuthenticationUITheme? = nil,
+    static func defaultResourcesProvider(theme: LimeAuthAuthenticationUITheme? = nil,
                                                 localizationProvider: GenericLocalizationProvider? = nil,
                                                 bundle: Bundle? = nil) -> AuthenticationUIProvider {
         let provider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
@@ -50,7 +50,7 @@ public extension LimeAuthAuthenticationUITheme.Images {
     /// - parameter logo: Optional lazy image containing your custom logo
     /// - parameter bundle: Optional bundle, from whom all icons will be loaded.
     /// - returns: New Images structure.
-    public static func defaultImages(logo: LazyUIImage? = nil, bundle: Bundle? = nil) -> LimeAuthAuthenticationUITheme.Images {
+    static func defaultImages(logo: LazyUIImage? = nil, bundle: Bundle? = nil) -> LimeAuthAuthenticationUITheme.Images {
         let bundle = bundle ?? Bundle.limeAuthResourcesBundle
         return LimeAuthAuthenticationUITheme.Images(
             logo: logo,
@@ -67,7 +67,7 @@ public extension LimeAuthAuthenticationUITheme {
     
     /// Function returns a default light theme for authentication UI. You can optionally provide a Images part
     /// of theme structure, if you have your own custom images.
-    public static func defaultLightTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
+    static func defaultLightTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
         
 //        let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
 //        let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
@@ -101,7 +101,7 @@ public extension LimeAuthAuthenticationUITheme {
     
     /// Function returns a default dark theme for authentication UI. You can optionally provide a Images part
     /// of theme structure, if you have your own custom images.
-    public static func defaultDarkTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
+    static func defaultDarkTheme(images: Images? = nil) -> LimeAuthAuthenticationUITheme {
         
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)

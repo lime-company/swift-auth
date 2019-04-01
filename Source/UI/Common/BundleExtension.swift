@@ -19,5 +19,5 @@ import Foundation
 public extension Bundle {
     
     /// Contains a bundle for resources provided by the LimeAuth framework.
-    public static let limeAuthResourcesBundle = Bundle(for: LazyUIImage.self)
+    static let limeAuthResourcesBundle = Bundle(for: LazyUIImage.self)
 }

@@ -22,7 +22,7 @@ public protocol CompletableInSpecificQueue {
 
 public extension LimeAuthSession {
     
-    public func addOperationToQueue(_ operation: Operation, serialized: Bool) -> Operation {
+    func addOperationToQueue(_ operation: Operation, serialized: Bool) -> Operation {
         let queue = serialized ? serializedQueue : concurrentQueue
         if let completableInSpecificQueue = operation as? CompletableInSpecificQueue {
             completableInSpecificQueue.assignCompletionDispatchQueue(operationCompletionQueue)

@@ -19,7 +19,7 @@ import LimeCore
 
 public extension LimeAuthActivationUI {
     
-    public static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
+    static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
                                                 authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
                                                 localizationProvider: GenericLocalizationProvider? = nil,
                                                 bundle: Bundle? = nil) -> ActivationUIProvider {
@@ -35,7 +35,7 @@ public extension LimeAuthActivationUI {
 
 public extension LimeAuthActivationUITheme.Illustrations {
     
-    public static func defaultIllustrations(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Illustrations {
+    static func defaultIllustrations(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Illustrations {
         let bundle = bundle ?? Bundle.limeAuthResourcesBundle
         return LimeAuthActivationUITheme.Illustrations(
             beginScene: .named("il-begin-scene", bundle: bundle),
@@ -50,7 +50,7 @@ public extension LimeAuthActivationUITheme.Illustrations {
 
 public extension LimeAuthActivationUITheme.Images {
     
-    public static func defaultImages(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Images {
+    static func defaultImages(bundle: Bundle? = nil) -> LimeAuthActivationUITheme.Images {
         let bundle = bundle ?? Bundle.limeAuthResourcesBundle
         return LimeAuthActivationUITheme.Images(
             scannerCrosshair: .named("scanner-crosshair", bundle: bundle)
@@ -61,7 +61,7 @@ public extension LimeAuthActivationUITheme.Images {
 
 public extension LimeAuthActivationUITheme {
     
-    public static func defaultLightTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
+    static func defaultLightTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
 
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)
@@ -179,7 +179,7 @@ public extension LimeAuthActivationUITheme {
         )
     }
     
-    public static func defaultDarkTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
+    static func defaultDarkTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
         
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
         let smallButtonFont = UIFont.systemFont(ofSize: 16.0)

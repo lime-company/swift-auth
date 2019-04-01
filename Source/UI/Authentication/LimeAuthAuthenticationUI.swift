@@ -130,7 +130,7 @@ public class LimeAuthAuthenticationUI {
 public extension LimeAuthAuthenticationUI {
     
     /// Function returns Authentication UI preconfigured as a part of activation UI flow
-    public static func uiForCreatePassword(activationProcess: ActivationUIProcess,
+    static func uiForCreatePassword(activationProcess: ActivationUIProcess,
                                            uiProvider: AuthenticationUIProvider,
                                            completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         let authenticationProcess = AuthenticationUIProcess(activation: activationProcess, uiProvider: uiProvider)
@@ -154,7 +154,7 @@ public extension LimeAuthAuthenticationUI {
     }
     
     
-    public static func uiForChangePassword(session: LimeAuthSession,
+    static func uiForChangePassword(session: LimeAuthSession,
                                            uiProvider: AuthenticationUIProvider,
                                            credentialsProvider: LimeAuthCredentialsProvider,
                                            completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
@@ -211,7 +211,7 @@ public extension LimeAuthAuthenticationUI {
     }
     
     
-    public static func uiForRemoveActivation(session: LimeAuthSession,
+    static func uiForRemoveActivation(session: LimeAuthSession,
                                              uiProvider: AuthenticationUIProvider,
                                              credentialsProvider: LimeAuthCredentialsProvider,
                                              completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
@@ -236,7 +236,7 @@ public extension LimeAuthAuthenticationUI {
     }
     
     
-    public static func uiForEnableBiometry(session: LimeAuthSession,
+    static func uiForEnableBiometry(session: LimeAuthSession,
                                            uiProvider: AuthenticationUIProvider,
                                            credentialsProvider: LimeAuthCredentialsProvider,
                                            completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
