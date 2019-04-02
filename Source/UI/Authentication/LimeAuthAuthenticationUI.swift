@@ -131,8 +131,8 @@ public extension LimeAuthAuthenticationUI {
     
     /// Function returns Authentication UI preconfigured as a part of activation UI flow
     static func uiForCreatePassword(activationProcess: ActivationUIProcess,
-                                           uiProvider: AuthenticationUIProvider,
-                                           completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+                                    uiProvider: AuthenticationUIProvider,
+                                    completion: @escaping (Authentication.Result, LimeAuthError?, Authentication.UICredentials?, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         let authenticationProcess = AuthenticationUIProcess(activation: activationProcess, uiProvider: uiProvider)
         authenticationProcess.createCredentialsCompletion = { (result, error, credentials, finalController) in
             // Check result and if operation succeeded, then keep password in activation data & store selected complexity
@@ -155,9 +155,9 @@ public extension LimeAuthAuthenticationUI {
     
     
     static func uiForChangePassword(session: LimeAuthSession,
-                                           uiProvider: AuthenticationUIProvider,
-                                           credentialsProvider: LimeAuthCredentialsProvider,
-                                           completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+                                    uiProvider: AuthenticationUIProvider,
+                                    credentialsProvider: LimeAuthCredentialsProvider,
+                                    completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
 
         let uiDataProvider = uiProvider.uiDataProvider
         let opStrings = uiDataProvider.uiOperationStrings
@@ -212,9 +212,9 @@ public extension LimeAuthAuthenticationUI {
     
     
     static func uiForRemoveActivation(session: LimeAuthSession,
-                                             uiProvider: AuthenticationUIProvider,
-                                             credentialsProvider: LimeAuthCredentialsProvider,
-                                             completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+                                      uiProvider: AuthenticationUIProvider,
+                                      credentialsProvider: LimeAuthCredentialsProvider,
+                                      completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         // Build operation object
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.removeActivation(authentication: authentication) { (error) in
@@ -237,9 +237,9 @@ public extension LimeAuthAuthenticationUI {
     
     
     static func uiForEnableBiometry(session: LimeAuthSession,
-                                           uiProvider: AuthenticationUIProvider,
-                                           credentialsProvider: LimeAuthCredentialsProvider,
-                                           completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+                                    uiProvider: AuthenticationUIProvider,
+                                    credentialsProvider: LimeAuthCredentialsProvider,
+                                    completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         // Build operation object
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.addBiometryFactor(password: authentication.usePassword!) { (error) in
