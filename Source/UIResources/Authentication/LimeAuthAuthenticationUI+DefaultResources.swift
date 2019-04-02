@@ -27,8 +27,8 @@ public extension LimeAuthAuthenticationUI {
     /// - parameter bundle: Optional bundle, containing a compatible `Authentication.storyboard`
     /// - returns: object providing authentication UI
     static func defaultResourcesProvider(theme: LimeAuthAuthenticationUITheme? = nil,
-                                                localizationProvider: GenericLocalizationProvider? = nil,
-                                                bundle: Bundle? = nil) -> AuthenticationUIProvider {
+                                         localizationProvider: GenericLocalizationProvider? = nil,
+                                         bundle: Bundle? = nil) -> AuthenticationUIProvider {
         let provider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
         provider.loadTheme(theme: theme ?? .defaultLightTheme())
         return provider
