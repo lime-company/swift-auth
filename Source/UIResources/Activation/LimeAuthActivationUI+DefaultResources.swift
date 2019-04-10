@@ -170,6 +170,12 @@ public extension LimeAuthActivationUITheme {
                     options: []
                 )
             ),
+            recoveryCodeScene: RecoveryCodeScene(
+                warningTextColor: .red,
+                activationCodeColor: .orange,
+                pukColor: .orange,
+                errorTitleColor: .red
+            ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,
                 titleColor: .orange,
@@ -287,6 +293,12 @@ public extension LimeAuthActivationUITheme {
                     keyboardAppearance: .dark,
                     options: []
                 )
+            ),
+            recoveryCodeScene: RecoveryCodeScene(
+                warningTextColor: .red,
+                activationCodeColor: .orange,
+                pukColor: .orange,
+                errorTitleColor: .red
             ),
             navigationBar: NavigationBar(
                 backgroundColor: .black,

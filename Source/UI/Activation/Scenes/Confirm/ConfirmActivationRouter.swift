@@ -30,7 +30,11 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationU
     
 
     public func routeToSuccess() {
-        activationProcess.completeActivation(controller: viewController)
+        if activationProcess.session.hasRecoveryActivation {
+            viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
+        } else {
+            activationProcess.completeActivation(controller: viewController)
+        }
     }
     
     public func routeToError(with error: LimeAuthError) {
