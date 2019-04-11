@@ -17,7 +17,7 @@
 import UIKit
 import LimeCore
 
-public extension LiemeAuthRecoveryUI {
+public extension LimeAuthRecoveryUI {
     
     static func defaultResourcesProvider(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?, theme: LimeAuthRecoveryUITheme?) -> RecoveryUIProvider {
         return DefaultRecoveryResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, theme: theme)

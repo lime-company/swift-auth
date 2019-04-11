@@ -25,12 +25,10 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public init(
         bundle: Bundle? = nil,
         localizationProvider: GenericLocalizationProvider?,
-        authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider,
-        recoveryUIProviderClosure: @escaping ()->RecoveryUIProvider) {
+        authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
         self.bundle = bundle ?? .limeAuthResourcesBundle
         self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
         self.authenticationUIProviderClosure = authenticationUIProviderClosure
-        self.recoveryUIProviderClosure = recoveryUIProviderClosure
     }
     
     
@@ -82,11 +80,6 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     private let authenticationUIProviderClosure: ()->AuthenticationUIProvider
     public lazy var authenticationUIProvider: AuthenticationUIProvider = {
         return authenticationUIProviderClosure()
-    }()
-    
-    private let recoveryUIProviderClosure: ()->RecoveryUIProvider
-    public lazy var recoveryUIProvider: RecoveryUIProvider = {
-        return recoveryUIProviderClosure()
     }()
     
     public var actionFeedback: LimeAuthActionFeedback? {

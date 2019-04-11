@@ -31,15 +31,11 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        hideAll()
-    }
-    
-    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider) {
+    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, finishedCallback: @escaping FinishedCallback) {
         self.uiProvider = uiProvider
         viewModel = RecoveryViewModel(withData: data)
         viewModel.presenter = self
+        self.finishedCallback = finishedCallback
     }
     
     public func setup(withAuthentication auth: PowerAuthAuthentication, andSession session: LimeAuthSession, uiProvider: RecoveryUIProvider, finishedCallback: @escaping FinishedCallback) {

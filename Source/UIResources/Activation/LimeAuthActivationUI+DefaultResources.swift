@@ -21,19 +21,16 @@ public extension LimeAuthActivationUI {
     
     static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
                                          authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
-                                         recoveryTheme: LimeAuthRecoveryUITheme? = nil,
                                          localizationProvider: GenericLocalizationProvider? = nil,
-                                         bundle: Bundle? = nil) -> ActivationUIProvider {
+                                         bundle: Bundle? = nil,
+                                         recoveryClosure: @escaping @autoclosure ()->RecoveryUIProvider) -> ActivationUIProvider {
         let activationUIProvider = DefaultActivationResourcesProvider(
             bundle: bundle,
             localizationProvider: localizationProvider,
             authenticationUIProviderClosure: { () -> AuthenticationUIProvider in
-                let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
+                let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, recoveryClosure: recoveryClosure())
                 authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
                 return authenticationUIProvider
-            },
-            recoveryUIProviderClosure: {
-                return DefaultRecoveryResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, theme: recoveryTheme ?? .defaultLightTheme)
             })
         activationUIProvider.loadTheme(theme: activationTheme ?? .defaultLightTheme())
         return activationUIProvider

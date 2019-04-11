@@ -28,8 +28,9 @@ public extension LimeAuthAuthenticationUI {
     /// - returns: object providing authentication UI
     static func defaultResourcesProvider(theme: LimeAuthAuthenticationUITheme? = nil,
                                          localizationProvider: GenericLocalizationProvider? = nil,
-                                         bundle: Bundle? = nil) -> AuthenticationUIProvider {
-        let provider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
+                                         bundle: Bundle? = nil,
+                                         recoveryClosure: @escaping @autoclosure ()->RecoveryUIProvider) -> AuthenticationUIProvider {
+        let provider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, recoveryClosure: recoveryClosure())
         provider.loadTheme(theme: theme ?? .defaultLightTheme())
         return provider
     }

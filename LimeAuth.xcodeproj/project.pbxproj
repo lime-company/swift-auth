@@ -764,10 +764,10 @@
 			isa = PBXGroup;
 			children = (
 				DC291888225F417600001478 /* Scene */,
+				DC291893225F853F00001478 /* LimeAuthRecoveryUI.swift */,
 				DC291886225F3D6600001478 /* LimeAuthRecoveryUITheme.swift */,
 				DCF62CB7225E106E0012EB0C /* RecoveryModels.swift */,
 				DC29188D225F6DBA00001478 /* RecoveryProviders.swift */,
-				DC291893225F853F00001478 /* LimeAuthRecoveryUI.swift */,
 			);
 			path = Recovery;
 			sourceTree = "<group>";

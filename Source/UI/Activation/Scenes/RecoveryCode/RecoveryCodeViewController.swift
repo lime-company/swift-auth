@@ -56,7 +56,7 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
     open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
-        uiRecoveryProvider = process.uiProvider.recoveryUIProvider
+        uiRecoveryProvider = process.uiProvider.authenticationUIProvider.recoveryUIProvider
     }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
