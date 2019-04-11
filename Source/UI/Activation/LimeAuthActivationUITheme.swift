@@ -195,24 +195,6 @@ public struct LimeAuthActivationUITheme {
         }
     }
     
-    public struct RecoveryCodeScene {
-        /// Color for text displayed on the bottom of "recovery code" screen
-        public var warningTextColor: UIColor
-        /// Color for activation code
-        public var activationCodeColor: UIColor
-        /// Color for PUK
-        public var pukColor: UIColor
-        /// Color for error title
-        public var errorTitleColor: UIColor
-        
-        public init(warningTextColor: UIColor, activationCodeColor: UIColor, pukColor: UIColor, errorTitleColor: UIColor) {
-            self.warningTextColor = warningTextColor
-            self.activationCodeColor = activationCodeColor
-            self.pukColor = pukColor
-            self.errorTitleColor = errorTitleColor
-        }
-    }
-    
     /// This section affects appearance of UINavigationBar & buttons, when it's visible.
     /// (typically in enter activation code scene)
     public struct NavigationBar {
@@ -251,7 +233,6 @@ public struct LimeAuthActivationUITheme {
     public var scannerScene: ScannerScene
     public var enterCodeScene: EnterCodeScene
     public var navigationBar: NavigationBar
-    public var recoveryCodeScene: RecoveryCodeScene
     
     /// Theme initializer
     public init(
@@ -261,7 +242,6 @@ public struct LimeAuthActivationUITheme {
         buttons: Buttons,
         scannerScene: ScannerScene,
         enterCodeScene: EnterCodeScene,
-        recoveryCodeScene: RecoveryCodeScene,
         navigationBar: NavigationBar)
     {
         self.common = common
@@ -270,7 +250,6 @@ public struct LimeAuthActivationUITheme {
         self.buttons = buttons
         self.scannerScene = scannerScene
         self.enterCodeScene = enterCodeScene
-        self.recoveryCodeScene = recoveryCodeScene
         self.navigationBar = navigationBar
     }
     
@@ -311,12 +290,6 @@ public struct LimeAuthActivationUITheme {
             ),
             enterCodeScene: EnterCodeScene(
                 activationCode: .noStyle
-            ),
-            recoveryCodeScene: RecoveryCodeScene(
-                warningTextColor: .red,
-                activationCodeColor: .orange,
-                pukColor: .orange,
-                errorTitleColor: .red
             ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,

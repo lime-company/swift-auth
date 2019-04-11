@@ -16,13 +16,13 @@
 
 import UIKit
 
-@objc protocol RecoveryCodeViewDelegate: class {
+@objc protocol RecoveryViewDelegate: class {
     func continueAction()
     func tryAgainAction()
     func laterAction()
 }
 
-class RecoveryCodeDisplayView: UIView {
+class RecoveryDisplayView: UIView {
     
     private let continueButtonWait: Int = 10
     
@@ -33,7 +33,7 @@ class RecoveryCodeDisplayView: UIView {
     @IBOutlet private weak var pukLabel: UILabel!
     @IBOutlet private weak var warningLabel: UILabel!
     @IBOutlet private weak var continueButton: UIButton!
-    @IBOutlet private weak var delegate: RecoveryCodeViewDelegate?
+    @IBOutlet private weak var delegate: RecoveryViewDelegate?
     
     private var stopWatch: UIStopWatch?
     private var continueString = ""
@@ -57,11 +57,10 @@ class RecoveryCodeDisplayView: UIView {
         stopCountdown()
     }
     
-    func prepareUI(provider: ActivationUIDataProvider) {
+    func prepareUI(provider: RecoveryUIDataProvider) {
         
-        let uiData = provider.uiDataForRecoveryCode
         let theme = provider.uiTheme
-        let strings = uiData.strings
+        let strings = provider.strings
         
         // Strings
         introTextLabel.text = strings.description
@@ -72,13 +71,13 @@ class RecoveryCodeDisplayView: UIView {
         continueTimeString = strings.continueButtonWithSeconds
         
         // Styles
-        introTextLabel.textColor = theme.common.textColor
-        codeHeaderLabel.textColor = theme.common.textColor
-        codeLabel.textColor = theme.recoveryCodeScene.activationCodeColor
-        pukHeaderLabel.textColor = theme.common.textColor
-        pukLabel.textColor = theme.recoveryCodeScene.pukColor
-        warningLabel.textColor = theme.recoveryCodeScene.warningTextColor
-        continueButton.applyButtonStyle(theme.buttons.primary)
+        introTextLabel.textColor = theme.recoveryScene.textColor
+        codeHeaderLabel.textColor = theme.recoveryScene.headerTextColor
+        codeLabel.textColor = theme.recoveryScene.activationCodeColor
+        pukHeaderLabel.textColor = theme.recoveryScene.headerTextColor
+        pukLabel.textColor = theme.recoveryScene.pukColor
+        warningLabel.textColor = theme.recoveryScene.warningTextColor
+        continueButton.applyButtonStyle(theme.recoveryScene.continueButtonStyle)
     }
     
     @IBAction private func continueClicked(_ sender: UIButton) {
@@ -118,13 +117,13 @@ class RecoveryCodeDisplayView: UIView {
     }
 }
 
-class RecoveryCodeErrorView: UIView {
+class RecoveryErrorView: UIView {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var tryAgainButton: UIButton!
     @IBOutlet private weak var laterButton: UIButton!
-    @IBOutlet private weak var delegate: RecoveryCodeViewDelegate?
+    @IBOutlet private weak var delegate: RecoveryViewDelegate?
     
     func show() {
         isHidden = false
@@ -134,10 +133,10 @@ class RecoveryCodeErrorView: UIView {
         isHidden = true
     }
     
-    func prepareUI(provider: ActivationUIDataProvider) {
-        let uiData = provider.uiDataForRecoveryCode
+    func prepareUI(provider: RecoveryUIDataProvider) {
+        
         let theme = provider.uiTheme
-        let strings = uiData.strings
+        let strings = provider.strings
         
         // Strings
         titleLabel.text = strings.errorTitle
@@ -146,10 +145,10 @@ class RecoveryCodeErrorView: UIView {
         laterButton.setTitle(strings.skipButton, for: .normal)
         
         // Styles
-        titleLabel.textColor = theme.recoveryCodeScene.errorTitleColor
-        textLabel.textColor = theme.common.textColor
-        tryAgainButton.applyButtonStyle(theme.buttons.primary)
-        laterButton.applyButtonStyle(theme.buttons.secondary)
+        titleLabel.textColor = theme.recoveryScene.errorTitleColor
+        textLabel.textColor = theme.recoveryScene.textColor
+        tryAgainButton.applyButtonStyle(theme.recoveryScene.errorButton)
+        laterButton.applyButtonStyle(theme.recoveryScene.skipButton)
     }
     
     @IBAction private func tryAgainClick(_ sender: UIButton) {

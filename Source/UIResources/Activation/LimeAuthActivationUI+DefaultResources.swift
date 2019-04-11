@@ -20,14 +20,21 @@ import LimeCore
 public extension LimeAuthActivationUI {
     
     static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
-                                                authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
-                                                localizationProvider: GenericLocalizationProvider? = nil,
-                                                bundle: Bundle? = nil) -> ActivationUIProvider {
-        let activationUIProvider = DefaultActivationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider) { () -> AuthenticationUIProvider in
-            let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
-            authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
-            return authenticationUIProvider
-        }
+                                         authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
+                                         recoveryTheme: LimeAuthRecoveryUITheme? = nil,
+                                         localizationProvider: GenericLocalizationProvider? = nil,
+                                         bundle: Bundle? = nil) -> ActivationUIProvider {
+        let activationUIProvider = DefaultActivationResourcesProvider(
+            bundle: bundle,
+            localizationProvider: localizationProvider,
+            authenticationUIProviderClosure: { () -> AuthenticationUIProvider in
+                let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
+                authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
+                return authenticationUIProvider
+            },
+            recoveryUIProviderClosure: {
+                return DefaultRecoveryResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, theme: recoveryTheme ?? .defaultLightTheme)
+            })
         activationUIProvider.loadTheme(theme: activationTheme ?? .defaultLightTheme())
         return activationUIProvider
     }
@@ -170,12 +177,6 @@ public extension LimeAuthActivationUITheme {
                     options: []
                 )
             ),
-            recoveryCodeScene: RecoveryCodeScene(
-                warningTextColor: .red,
-                activationCodeColor: .orange,
-                pukColor: .orange,
-                errorTitleColor: .red
-            ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,
                 titleColor: .orange,
@@ -293,12 +294,6 @@ public extension LimeAuthActivationUITheme {
                     keyboardAppearance: .dark,
                     options: []
                 )
-            ),
-            recoveryCodeScene: RecoveryCodeScene(
-                warningTextColor: .red,
-                activationCodeColor: .orange,
-                pukColor: .orange,
-                errorTitleColor: .red
             ),
             navigationBar: NavigationBar(
                 backgroundColor: .black,

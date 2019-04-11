@@ -211,6 +211,43 @@ public extension LimeAuthAuthenticationUI {
     }
     
     
+    static func uiForShowRecovery(session: LimeAuthSession,
+                                  uiProvider: AuthenticationUIProvider,
+                                  credentialsProvider: LimeAuthCredentialsProvider,
+                                  completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
+        
+        let uiDataProvider = uiProvider.uiDataProvider
+        let opStrings = uiDataProvider.uiOperationStrings
+        let credentials = credentialsProvider.credentials
+        
+        // UIRequest
+        var uiRequest = Authentication.UIRequest()
+        let prompt = credentials.password.type == .password ? opStrings.changePassword_PromptPassword : opStrings.changePassword_PromptPin
+        uiRequest.prompts.keyboardPrompt = prompt
+        uiRequest.prompts.activityMessage = "Display recovery information"
+        uiRequest.prompts.successMessage = ""
+        uiRequest.tweaks.successAnimationDelay = 450
+        
+        let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
+            return session.getActivationRecovery(authentication: authentication) { data, error in
+                completionCallback(data, error)
+            }
+        }
+        
+        let operationExecutor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: uiRequest.options, credentialsProvider: credentialsProvider)
+        
+        // Construct authentication process with credentials change closure
+        let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, executor: operationExecutor)
+        process.operationCompletion = { result, error, data, finalController in
+            
+        }
+        
+        let ui = LimeAuthAuthenticationUI(authenticationProcess: process)
+        ui.entryScene = .enterPassword
+        return ui
+    }
+    
+    
     static func uiForRemoveActivation(session: LimeAuthSession,
                                       uiProvider: AuthenticationUIProvider,
                                       credentialsProvider: LimeAuthCredentialsProvider,
