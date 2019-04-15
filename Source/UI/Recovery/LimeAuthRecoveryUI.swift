@@ -60,8 +60,8 @@ public extension LimeAuthRecoveryUI {
         process.operationCompletion = { result, _, _, finalController in
             if result == .success, let data = resultData {
                 let vc = uiProvider.recoveryUIProvider.instantiateRecoveryController()
-                vc.setup(withData: data, uiProvider: uiProvider.recoveryUIProvider, insideActivtion: false) { [weak vc] _ in
-                    completion(.success, vc)
+                vc.setup(withData: data, uiProvider: uiProvider.recoveryUIProvider, insideActivtion: false) { [weak vc] displayed in
+                    completion(displayed ? .success : .failure, vc)
                 }
                 let style = finalController?.navigationController?.modalTransitionStyle ?? .coverVertical
                 finalController?.navigationController?.modalTransitionStyle = .partialCurl

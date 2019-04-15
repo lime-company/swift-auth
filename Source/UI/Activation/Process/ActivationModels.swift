@@ -42,6 +42,10 @@ public enum Activation {
         public var failureReason: LimeAuthError?
         
         public var failureReasonString: String?
+        
+        /// If recovery data was displayed to the user.
+        /// If recovery data weren't displayed (and the feature is available), you should nag user to do it.
+        public var recoveryDataDisplayed = false
     }
 
     

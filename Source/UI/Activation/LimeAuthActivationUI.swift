@@ -45,6 +45,8 @@ public class LimeAuthActivationUI {
         case confirmation
     }
     
+    public typealias CompletionClosure = (_ result: Activation.Result, _ recoveryDisplayed: Bool, _ finalController: UIViewController?)->Void
+    
     /// Entry scene. You can adjust this variable before you invoke UI construction.
     public var entryScene: EntryScene
     
@@ -52,10 +54,10 @@ public class LimeAuthActivationUI {
     private let activationProcess: ActivationUIProcess
     
     /// Completion closure
-    private var completion: ((Activation.Result, UIViewController?)->Void)?
+    private var completion: CompletionClosure?
     
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping CompletionClosure) {
         self.activationProcess = ActivationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider)
         self.completion = completion
         self.entryScene = .default
@@ -167,7 +169,7 @@ public class LimeAuthActivationUI {
     
     ///
     private func complete(with activationData: Activation.Data) {
-        completion?(activationData.result ?? .cancel, activationProcess.finalController)
+        completion?(activationData.result ?? .cancel, activationData.recoveryDataDisplayed, activationProcess.finalController)
         completion = nil
     }
 
