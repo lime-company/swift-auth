@@ -25,33 +25,45 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     private var uiProvider: RecoveryUIProvider!
     private var viewModel: RecoveryViewModel!
     private var finishedCallback: FinishedCallback!
+    private var insideActivtion: Bool!
     
     @IBOutlet private weak var displayView: RecoveryDisplayView!
     @IBOutlet private weak var errorView: RecoveryErrorView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
-    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, finishedCallback: @escaping FinishedCallback) {
+    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, insideActivtion: Bool, finishedCallback: @escaping FinishedCallback) {
+        guard self.viewModel == nil else {
+            D.warning("Controller was already setup")
+            return
+        }
+        self.viewModel = RecoveryViewModel(withData: data)
+        self.viewModel.presenter = self
         self.uiProvider = uiProvider
-        viewModel = RecoveryViewModel(withData: data)
-        viewModel.presenter = self
         self.finishedCallback = finishedCallback
+        self.insideActivtion = insideActivtion
     }
     
-    public func setup(withAuthentication auth: PowerAuthAuthentication, andSession session: LimeAuthSession, uiProvider: RecoveryUIProvider, finishedCallback: @escaping FinishedCallback) {
+    public func setup(withAuthentication auth: PowerAuthAuthentication, andSession session: LimeAuthSession, uiProvider: RecoveryUIProvider, insideActivtion: Bool, finishedCallback: @escaping FinishedCallback) {
+        guard self.viewModel == nil else {
+            D.warning("Controller was already setup")
+            return
+        }
+        self.viewModel = RecoveryViewModel(withAuthentication: auth, andSession: session)
+        self.viewModel.presenter = self
         self.uiProvider = uiProvider
-        viewModel = RecoveryViewModel(withAuthentication: auth, andSession: session)
-        viewModel.presenter = self
         self.finishedCallback = finishedCallback
+        self.insideActivtion = insideActivtion
     }
     
     override public func prepareUI() {
         super.prepareUI()
         hideAll()
-        titleLabel.text = uiProvider.uiDataProvider.strings.sceneTitle
+        let strings = insideActivtion ? uiProvider.uiDataProvider.activationStrings : uiProvider.uiDataProvider.standaloneStrings
+        titleLabel.text = strings.sceneTitle
         titleLabel.textColor = uiProvider.uiDataProvider.uiTheme.recoveryScene.titleColor
-        displayView.prepareUI(provider: uiProvider!.uiDataProvider)
-        errorView.prepareUI(provider: uiProvider!.uiDataProvider)
+        displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
+        errorView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
         viewModel.start()
     }
     
@@ -65,7 +77,7 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     
     private func showCodes(code: LimeAuthRecoveryData) {
         hideAll()
-        displayView.showRecoveryCode(code)
+        displayView.showRecoveryCode(code, withWaitingCountdown: insideActivtion)
     }
     
     private func showError() {

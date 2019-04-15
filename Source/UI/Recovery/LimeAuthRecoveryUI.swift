@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import PowerAuth2
 
 public class LimeAuthRecoveryUI {
     
@@ -45,12 +46,10 @@ public extension LimeAuthRecoveryUI {
         uiRequest.tweaks.successAnimationDelay = 450
         
         var resultData: LimeAuthRecoveryData?
-        var resultError: LimeAuthError?
         
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.getActivationRecovery(authentication: authentication) { data, error in
                 resultData = data
-                resultError = error
                 completionCallback(data, error)
             }
         }
@@ -58,13 +57,18 @@ public extension LimeAuthRecoveryUI {
         let operationExecutor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: uiRequest.options, credentialsProvider: credentialsProvider)
         
         let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, executor: operationExecutor)
-        process.operationCompletion = { result, error, data, finalController in
-            if let data = resultData {
+        process.operationCompletion = { result, _, _, finalController in
+            if result == .success, let data = resultData {
                 let vc = uiProvider.recoveryUIProvider.instantiateRecoveryController()
-                vc.setup(withData: data, uiProvider: uiProvider.recoveryUIProvider) { [weak finalController] _ in
-                    finalController?.dismiss(animated: true, completion: nil)
+                vc.setup(withData: data, uiProvider: uiProvider.recoveryUIProvider, insideActivtion: false) { [weak vc] _ in
+                    completion(.success, vc)
                 }
-                finalController?.navigationController?.present(vc, animated: true, completion: nil)
+                let style = finalController?.navigationController?.modalTransitionStyle ?? .coverVertical
+                finalController?.navigationController?.modalTransitionStyle = .partialCurl
+                finalController?.navigationController?.pushViewController(vc, animated: true)
+                finalController?.navigationController?.modalTransitionStyle = style
+            } else {
+                completion(result, finalController)
             }
         }
         

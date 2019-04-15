@@ -21,14 +21,26 @@ public class LimeAuthActivationUI {
     
     public enum EntryScene {
         /// Start of activation UI flow is determined by state of the session. If session has activation
-        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `initial`
+        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `selfActivationInitial`
         case `default`
+        
+        // SELF ACTIVATION
+        
         /// Activation UI flow will begin in initial scene. The provided session must be empty.
-        case initial
+        case selfActivationInitial
         /// Activation UI flow will begin in QR code scanner. The provided session must be empty.
-        case scanCode
+        case selfActivationScanCode
         /// Activation UI flow will begin in entering activation scene. The provided session must be empty.
-        case enterCode
+        case selfActivationEnterCode
+        
+        // RECOVERY ACTIVATION
+        
+        case recoveryInitial
+        case recoveryScanCode
+        case recoveryEnterCode
+        
+        // OTHER
+        
         /// Activation UI flow will begin in confirmation cene. The provided session contain valid activation in `otp_Used` state.
         case confirmation
     }
@@ -58,11 +70,11 @@ public class LimeAuthActivationUI {
         let uiProvider = activationProcess.uiProvider
         var controller: UIViewController & ActivationUIProcessController
         switch entryScene {
-        case .initial:
+        case .selfActivationInitial:
             controller = uiProvider.instantiateInitialScene()
-        case .enterCode:
+        case .selfActivationEnterCode:
             controller = uiProvider.instantiateEnterCodeScene()
-        case .scanCode:
+        case .selfActivationScanCode:
             controller = uiProvider.instantiateScanCodeScene()
         case .confirmation:
             controller = controllerForRecoveryFromBrokenActivation()
@@ -132,18 +144,20 @@ public class LimeAuthActivationUI {
             if hasActivation && hasOtpUsed {
                 entryScene = .confirmation
             } else if canStartActivation {
-                entryScene = .initial
+                entryScene = .selfActivationInitial
             } else {
                 wrongState = true
             }
-        case .initial:
+        case .selfActivationInitial:
             wrongState = !canStartActivation
-        case .scanCode:
+        case .selfActivationScanCode:
             wrongState = !canStartActivation
-        case .enterCode:
+        case .selfActivationEnterCode:
             wrongState = !canStartActivation
         case .confirmation:
             wrongState = !hasOtpUsed
+        default:
+            D.fatalError("Not implemented yet") // TODO: implement
         }
         // Throw error if we cannot process scene for current session's state
         if wrongState {

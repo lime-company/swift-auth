@@ -36,7 +36,7 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
     public override func viewDidLoad() {
         super.viewDidLoad()
         let vc = uiRecoveryProvider.instantiateRecoveryController()
-        vc.setup(withAuthentication: PowerAuthAuthentication.possession(withPassword: router.activationProcess.activationData.password ?? ""), andSession: router.activationProcess.session, uiProvider: uiRecoveryProvider) { [weak self] success in
+        vc.setup(withAuthentication: PowerAuthAuthentication.possession(withPassword: router.activationProcess.activationData.password ?? ""), andSession: router.activationProcess.session, uiProvider: uiRecoveryProvider, insideActivtion: true) { [weak self] success in
             // TODO mark if success or not in the process
             self?.router.routeToSuccess()
         }

@@ -27,5 +27,6 @@ public protocol RecoveryUIProvider: class {
 public protocol RecoveryUIDataProvider: class {
     
     var uiTheme: LimeAuthRecoveryUITheme { get }
-    var strings: RecoveryCode.UIData.Strings { get }
+    var activationStrings: RecoveryCode.UIData.Strings { get }
+    var standaloneStrings: RecoveryCode.UIData.Strings { get }
 }

@@ -18,11 +18,16 @@ import UIKit
 import LimeCore
 
 public protocol ActivationUIProvider: class {
-    
+    // self activation
     func instantiateInitialScene() -> BeginActivationViewController
-    func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    // recovery activation
+    func instantiateRecoveryInitialScene() -> Void
+    func instantiateRecoveryScanCodeScene() -> Void
+    func instantiateRecoveryEnterCodeScene() -> Void
+    // other
+    func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateErrorScene() -> ErrorActivationViewController
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     

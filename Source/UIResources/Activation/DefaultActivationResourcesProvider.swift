@@ -34,6 +34,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     
     // MARK: - LimeAuthActivationUIProvider
     
+    // Self-activation
+    
     public func instantiateInitialScene() -> BeginActivationViewController {
         guard let controller = storyboard.instantiateInitialViewController() as? BeginActivationViewController else {
             D.fatalError("Cannot instantiate Initial scene")
@@ -60,6 +62,20 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             D.fatalError("Cannot instantiate EnterCode scene")
         }
         return controller
+    }
+    
+    // Recovery-activation
+    
+    func instantiateRecoveryInitialScene() -> Void {
+        D.fatalError("TODO")
+    }
+    
+    func instantiateRecoveryScanCodeScene() -> Void {
+        D.fatalError("TODO")
+    }
+    
+    func instantiateRecoveryEnterCodeScene() -> Void {
+        D.fatalError("TODO")
     }
     
     public func instantiateErrorScene() -> ErrorActivationViewController {

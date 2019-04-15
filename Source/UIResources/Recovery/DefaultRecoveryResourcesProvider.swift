@@ -44,7 +44,7 @@ class DefaultRecoveryResourcesProvider: RecoveryUIProvider, RecoveryUIDataProvid
         return theme
     }
     
-    lazy var strings: RecoveryCode.UIData.Strings = {
+    lazy var activationStrings: RecoveryCode.UIData.Strings = {
         RecoveryCode.UIData.Strings(
             // TODO: LOCALIZE!
             sceneTitle: "Activation recovery",
@@ -61,5 +61,8 @@ class DefaultRecoveryResourcesProvider: RecoveryUIProvider, RecoveryUIDataProvid
         )
     }()
     
+    lazy var standaloneStrings: RecoveryCode.UIData.Strings = {
+        return activationStrings
+    }()
     
 }

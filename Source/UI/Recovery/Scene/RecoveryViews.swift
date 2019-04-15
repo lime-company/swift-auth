@@ -43,12 +43,14 @@ class RecoveryDisplayView: UIView {
         stopWatch?.stop()
     }
     
-    func showRecoveryCode(_ data: LimeAuthRecoveryData) {
+    func showRecoveryCode(_ data: LimeAuthRecoveryData, withWaitingCountdown: Bool) {
         codeLabel.text = data.activationCodeFormatted
         pukLabel.text = data.pukFormatted
-        continueButton.setTitle(continueString, for: .normal)
         stopCountdown()
-        startCountdown()
+        continueButton.setTitle(continueString, for: .normal)
+        if withWaitingCountdown {
+            startCountdown()
+        }
         isHidden = false
     }
     
@@ -57,10 +59,7 @@ class RecoveryDisplayView: UIView {
         stopCountdown()
     }
     
-    func prepareUI(provider: RecoveryUIDataProvider) {
-        
-        let theme = provider.uiTheme
-        let strings = provider.strings
+    func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings) {
         
         // Strings
         introTextLabel.text = strings.description
@@ -133,10 +132,7 @@ class RecoveryErrorView: UIView {
         isHidden = true
     }
     
-    func prepareUI(provider: RecoveryUIDataProvider) {
-        
-        let theme = provider.uiTheme
-        let strings = provider.strings
+    func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings) {
         
         // Strings
         titleLabel.text = strings.errorTitle

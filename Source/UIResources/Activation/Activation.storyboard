@@ -538,6 +538,264 @@
             </objects>
             <point key="canvasLocation" x="-23.199999999999999" y="1052.9235382308846"/>
         </scene>
+        <!--Enter Code Recovery View Controller-->
+        <scene sceneID="wux-Y5-Anf">
+            <objects>
+                <viewController id="i2l-Yo-Zrg" customClass="EnterCodeRecoveryViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bgd-ga-Fju"/>
+                        <viewControllerLayoutGuide type="bottom" id="TkB-3E-iJB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XQd-ZH-cc8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gf5-y8-2eK">
+                                <rect key="frame" x="112.5" y="278.5" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Wcv-nw-Xac"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-ba-396">
+                                <rect key="frame" x="112.5" y="318.5" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="utc-bl-8JQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAf-Kg-hsK">
+                                <rect key="frame" x="149" y="358.5" width="77" height="30"/>
+                                <state key="normal" title="Pokracovat"/>
+                                <connections>
+                                    <action selector="continueAction:" destination="i2l-Yo-Zrg" eventType="touchUpInside" id="IIz-sQ-r4H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5L-eC-2vx" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="26" y="20" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="FQR-ok-jzP"/>
+                                    <constraint firstAttribute="height" constant="44" id="xhB-79-uZu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelAction:" destination="i2l-Yo-Zrg" eventType="touchUpInside" id="F8A-5d-gQC"/>
+                                    <action selector="cancelAction:" destination="fug-RB-Hju" eventType="touchUpInside" id="ezR-kq-N2p"/>
+                                    <action selector="cancelActivationAction:" destination="4qz-fD-Xx7" eventType="touchUpInside" id="SZr-dA-RJU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nAf-Kg-hsK" firstAttribute="centerX" secondItem="XQd-ZH-cc8" secondAttribute="centerX" id="A2J-TR-2Jo"/>
+                            <constraint firstItem="Rlz-ba-396" firstAttribute="centerX" secondItem="XQd-ZH-cc8" secondAttribute="centerX" id="Lkt-vI-j2s"/>
+                            <constraint firstItem="Gf5-y8-2eK" firstAttribute="centerX" secondItem="XQd-ZH-cc8" secondAttribute="centerX" id="Pfr-74-sd8"/>
+                            <constraint firstItem="Gf5-y8-2eK" firstAttribute="centerY" secondItem="XQd-ZH-cc8" secondAttribute="centerY" constant="-40" id="RTz-E4-Veu"/>
+                            <constraint firstItem="R5L-eC-2vx" firstAttribute="top" secondItem="Bgd-ga-Fju" secondAttribute="bottom" id="W6u-GC-7bJ"/>
+                            <constraint firstItem="Rlz-ba-396" firstAttribute="top" secondItem="Gf5-y8-2eK" secondAttribute="bottom" constant="10" id="Zle-MX-Ljk"/>
+                            <constraint firstItem="nAf-Kg-hsK" firstAttribute="top" secondItem="Rlz-ba-396" secondAttribute="bottom" constant="10" id="geK-XK-qgU"/>
+                            <constraint firstItem="R5L-eC-2vx" firstAttribute="leading" secondItem="XQd-ZH-cc8" secondAttribute="leadingMargin" constant="10" id="xMx-IF-a1R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeField" destination="Gf5-y8-2eK" id="2Xk-tZ-CU1"/>
+                        <outlet property="pukField" destination="Rlz-ba-396" id="UWK-Se-azQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQF-5S-eNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="1375"/>
+        </scene>
+        <!--Begin Recovery Activation View Controller-->
+        <scene sceneID="d9n-sw-iU6">
+            <objects>
+                <viewController id="fug-RB-Hju" customClass="BeginRecoveryActivationViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8V-fX-urt"/>
+                        <viewControllerLayoutGuide type="bottom" id="JDN-4l-BXn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jTr-iZ-SEt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovery code flow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev6-Zn-s2N">
+                                <rect key="frame" x="112.5" y="323" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWx-Ec-thh">
+                                <rect key="frame" x="170" y="354" width="35" height="30"/>
+                                <state key="normal" title="Scan"/>
+                                <connections>
+                                    <action selector="scanCodeAction:" destination="fug-RB-Hju" eventType="touchUpInside" id="xKM-Ry-mUk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zii-zB-aL8">
+                                <rect key="frame" x="156.5" y="394" width="62" height="30"/>
+                                <state key="normal" title="Manually"/>
+                                <connections>
+                                    <action selector="manualCodeAction:" destination="fug-RB-Hju" eventType="touchUpInside" id="JVe-Ry-Zpd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Y2-v8-vBm" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="26" y="20" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Fmf-Ol-bJA"/>
+                                    <constraint firstAttribute="width" constant="80" id="JSE-ME-pLl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelAction:" destination="fug-RB-Hju" eventType="touchUpInside" id="7ew-dQ-Dvn"/>
+                                    <action selector="cancelActivationAction:" destination="4qz-fD-Xx7" eventType="touchUpInside" id="mFT-DK-aRV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Y2-v8-vBm" firstAttribute="top" secondItem="Z8V-fX-urt" secondAttribute="bottom" id="4ZS-Fb-msb"/>
+                            <constraint firstItem="Zii-zB-aL8" firstAttribute="top" secondItem="aWx-Ec-thh" secondAttribute="bottom" constant="10" id="B16-7M-41Y"/>
+                            <constraint firstItem="ev6-Zn-s2N" firstAttribute="centerY" secondItem="jTr-iZ-SEt" secondAttribute="centerY" id="HuX-nz-emK"/>
+                            <constraint firstItem="aWx-Ec-thh" firstAttribute="top" secondItem="ev6-Zn-s2N" secondAttribute="bottom" constant="10" id="SkM-Eg-lDO"/>
+                            <constraint firstItem="8Y2-v8-vBm" firstAttribute="leading" secondItem="jTr-iZ-SEt" secondAttribute="leadingMargin" constant="10" id="Zp7-7I-CXu"/>
+                            <constraint firstItem="Zii-zB-aL8" firstAttribute="centerX" secondItem="jTr-iZ-SEt" secondAttribute="centerX" id="dzJ-NF-pQe"/>
+                            <constraint firstItem="ev6-Zn-s2N" firstAttribute="centerX" secondItem="jTr-iZ-SEt" secondAttribute="centerX" id="hlG-zd-s4P"/>
+                            <constraint firstItem="aWx-Ec-thh" firstAttribute="centerX" secondItem="jTr-iZ-SEt" secondAttribute="centerX" id="mJD-M0-Az4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Yer-ZO-Hol" kind="show" identifier="RecoveryNoCameraAccess" id="pnV-pN-ssg"/>
+                        <segue destination="t1F-XT-fM0" kind="show" identifier="RecoveryScanCode" id="H8j-WJ-hGT"/>
+                        <segue destination="i2l-Yo-Zrg" kind="show" identifier="RecoveryEnterCode" id="b5x-Ij-NU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vND-8M-fPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="1896"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o6j-7t-Np9">
+            <objects>
+                <viewController id="t1F-XT-fM0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ScB-nP-QDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4e5-Cg-Utu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ymL-5O-MfB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3j-G7-fWd" userLabel="Black overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="D7P-yW-GUy">
+                                        <rect key="frame" x="69" y="60" width="237" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the activation QR code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4j-0V-aAq">
+                                                <rect key="frame" x="0.0" y="0.0" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="gGw-Pt-iBx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5td-8B-X94" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="38" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="30" id="9bp-Bb-h3Y"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.49928477110000002" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Unable to scan? Rewrite the code">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enterCodeFallbackAction:" destination="s6U-Ia-WUV" eventType="touchUpInside" id="KIu-27-4hi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="D7P-yW-GUy" firstAttribute="centerX" secondItem="J3j-G7-fWd" secondAttribute="centerX" id="RPy-vu-bXp"/>
+                                    <constraint firstItem="D7P-yW-GUy" firstAttribute="top" secondItem="J3j-G7-fWd" secondAttribute="top" constant="60" id="eOu-jD-75g"/>
+                                    <constraint firstItem="D7P-yW-GUy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J3j-G7-fWd" secondAttribute="leading" constant="24" id="p7e-D5-3aI"/>
+                                    <constraint firstAttribute="bottom" secondItem="D7P-yW-GUy" secondAttribute="bottom" constant="24" id="pkF-w6-bec"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D7P-yW-GUy" secondAttribute="trailing" constant="24" id="uTY-Jw-dUg"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8fQ-GA-wwN">
+                                <rect key="frame" x="67.5" y="213.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="6KB-V6-JRy"/>
+                                    <constraint firstAttribute="width" constant="240" id="cCf-oO-aXF"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8N-Kv-7vv" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="157.5" y="587" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="JKt-h3-hyc"/>
+                                    <constraint firstAttribute="height" constant="60" id="X2d-1y-EwJ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeSceneAction:" destination="s6U-Ia-WUV" eventType="touchUpInside" id="7U9-Ue-OMT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="J3j-G7-fWd" firstAttribute="top" secondItem="ymL-5O-MfB" secondAttribute="top" id="6A6-1Q-h8T"/>
+                            <constraint firstItem="8fQ-GA-wwN" firstAttribute="centerY" secondItem="ymL-5O-MfB" secondAttribute="centerY" id="B9X-Hn-GeA"/>
+                            <constraint firstItem="J3j-G7-fWd" firstAttribute="leading" secondItem="ymL-5O-MfB" secondAttribute="leading" id="Fa7-ek-z3V"/>
+                            <constraint firstItem="x8N-Kv-7vv" firstAttribute="centerX" secondItem="ymL-5O-MfB" secondAttribute="centerX" id="LG9-E1-HOC"/>
+                            <constraint firstAttribute="trailing" secondItem="J3j-G7-fWd" secondAttribute="trailing" id="RcF-lj-SAj"/>
+                            <constraint firstItem="8fQ-GA-wwN" firstAttribute="centerX" secondItem="ymL-5O-MfB" secondAttribute="centerX" id="ZRL-Ya-k2D"/>
+                            <constraint firstItem="4e5-Cg-Utu" firstAttribute="top" secondItem="x8N-Kv-7vv" secondAttribute="bottom" constant="20" id="dOX-sZ-k5S"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIF-9y-aHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="2109"/>
+        </scene>
         <!--Error Activation View Controller-->
         <scene sceneID="AUi-3X-aVa">
             <objects>
@@ -902,7 +1160,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="mys-65-odR"/>
         <segue reference="BzB-ih-qyI"/>
-        <segue reference="LPC-QH-zn5"/>
-        <segue reference="K2W-jD-OVp"/>
+        <segue reference="pnV-pN-ssg"/>
+        <segue reference="KEQ-ev-lI5"/>
+        <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>
 </document>
