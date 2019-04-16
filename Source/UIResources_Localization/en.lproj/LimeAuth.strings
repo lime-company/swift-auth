@@ -69,6 +69,11 @@
 // Activation :: Error Scene
 "limeauth.act.error.title"                  = "Error";
 
+// Activation :: Begin Recovery Scene
+"limeauth.act.beginRec.title"                  = "Prepare your Recovery Information";
+"limeauth.act.beginRec.description"            = "During your last activation, you were asked to write down a Recovery Information that consist of Recovery Code and PUK. Please, prepare this information";
+"limeauth.act.beginRec.continue"               = "Continue";
+
 
 
 // MARK: - Authentication

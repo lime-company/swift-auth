@@ -22,11 +22,11 @@ public protocol ActivationUIProvider: class {
     func instantiateInitialScene() -> BeginActivationViewController
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    func instantiateConfirmScene() -> ConfirmActivationViewController
     // recovery activation
     func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController
     func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController
     // other
-    func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateErrorScene() -> ErrorActivationViewController
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
@@ -40,13 +40,19 @@ public protocol ActivationUIDataProvider: class {
     var uiTheme: LimeAuthActivationUITheme { get }
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     
+    // self-activation strings
     var uiDataForBeginActivation: BeginActivation.UIData { get }
     var uiDataForNoCameraAccess: NoCameraAccess.UIData { get }
     var uiDataForEnterActivationCode: EnterActivationCode.UIData { get }
     var uiDataForScanActivationCode: ScanActivationCode.UIData { get }
+    var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
+    
+    // recovery activation strings
+    var uiDataForBeginRecoveryActivation: BeginRecoveryActivation.UIData { get}
+    
+    // common strings
     var uiDataForKeysExchange: KeysExchange.UIData { get }
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
-    var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
 }
 

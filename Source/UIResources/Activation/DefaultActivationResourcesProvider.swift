@@ -210,6 +210,14 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             )
         )
     }()
+    
+    public lazy var uiDataForBeginRecoveryActivation = BeginRecoveryActivation.UIData(
+        strings: BeginRecoveryActivation.UIData.Strings(
+            sceneTitle: localization.localizedString("limeauth.act.beginRec.title"),
+            sceneDescription: localization.localizedString("limeauth.act.beginRec.description"),
+            continueButton: localization.localizedString("limeauth.act.beginRec.continue")
+        )
+    )
 
     public func loadTheme(theme: LimeAuthActivationUITheme) {
         

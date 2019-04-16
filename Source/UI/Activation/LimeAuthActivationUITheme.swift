@@ -96,19 +96,24 @@ public struct LimeAuthActivationUITheme {
         /// Illustration at "error" scene
         public var errorScene: LazyUIImage
         
+        /// Illustration at begin recovery scene
+        public var beginRecoveryScene: LazyUIImage
+        
         /// Structure initializer
         public init(
             beginScene: LazyUIImage,
             noCameraScene: LazyUIImage,
             enableBiometryScene: LazyUIImage,
             confirmScene: LazyUIImage,
-            errorScene: LazyUIImage)
+            errorScene: LazyUIImage,
+            beginRecoveryScene: LazyUIImage)
         {
             self.beginScene = beginScene
             self.noCameraScene = noCameraScene
             self.enableBiometryScene = enableBiometryScene
             self.confirmScene = confirmScene
             self.errorScene = errorScene
+            self.beginRecoveryScene = beginRecoveryScene
         }
     }
     
@@ -271,7 +276,8 @@ public struct LimeAuthActivationUITheme {
                 noCameraScene: .empty,
                 enableBiometryScene: .empty,
                 confirmScene: .empty,
-                errorScene: .empty
+                errorScene: .empty,
+                beginRecoveryScene: .empty
             ),
             images: Images(
                 scannerCrosshair: .empty
@@ -310,7 +316,8 @@ public extension LimeAuthActivationUITheme.Illustrations {
             noCameraScene: .tinted(noCameraScene, with: color),
             enableBiometryScene: .tinted(enableBiometryScene, with: color),
             confirmScene: .tinted(confirmScene, with: color),
-            errorScene: .tinted(errorScene, with: color)
+            errorScene: .tinted(errorScene, with: color),
+            beginRecoveryScene: .tinted(beginRecoveryScene, with: color)
         )
     }
 }

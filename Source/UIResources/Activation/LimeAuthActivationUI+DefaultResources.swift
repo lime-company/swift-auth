@@ -46,7 +46,8 @@ public extension LimeAuthActivationUITheme.Illustrations {
             noCameraScene: .named("il-no-camera-scene", bundle: bundle),
             enableBiometryScene: .named("il-enable-biometry-scene", bundle: bundle),
             confirmScene: .named("il-confirm-scene", bundle: bundle),
-            errorScene: .named("il-error-scene", bundle: bundle)
+            errorScene: .named("il-error-scene", bundle: bundle),
+            beginRecoveryScene: .named("il-begin-recovery-scene", bundle: bundle)
         )
     }
     

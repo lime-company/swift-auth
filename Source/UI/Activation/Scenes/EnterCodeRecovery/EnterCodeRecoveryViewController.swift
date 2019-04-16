@@ -24,9 +24,14 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     @IBOutlet weak var confirmButton: PrimaryWizardButton!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var pukLabel: UILabel!
+    @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
     
     public var router: (ActivationUIProcessRouter & EnterCodeRecoveryRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
+    
+    private var bottomSafeArea: CGFloat = 0.0
+    
+    // MARK: - lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -48,30 +53,21 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        //registerForKeyboardNotifications()
+        registerForKeyboardNotifications()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        //unregisterForKeyboardNotifications()
+        unregisterForKeyboardNotifications()
         self.view.resignFirstResponder()
     }
     
-    private func setup() {
-        let viewController = self
-        let router = EnterCodeRecoveryRouter()
-        router.viewController = self
-        viewController.router = router
-    }
-    
-    open func connect(activationProcess process: ActivationUIProcess) {
-        router?.activationProcess = process
-        uiDataProvider = process.uiDataProvider
-    }
-    
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router?.prepare(for: segue, sender: sender)
+    open override func viewSafeAreaInsetsDidChange() {
+        if #available(iOS 11.0, *) {
+            super.viewSafeAreaInsetsDidChange()
+            self.bottomSafeArea = view.safeAreaInsets.bottom
+        }
     }
     
     open override func prepareUI() {
@@ -87,6 +83,46 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         pukView.prepareComponent(uiDataProvider: uiDataProvider)
     }
     
+    // MARK: - routing
+    
+    open func connect(activationProcess process: ActivationUIProcess) {
+        router?.activationProcess = process
+        uiDataProvider = process.uiDataProvider
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.prepare(for: segue, sender: sender)
+    }
+    
+    // MARK: - Keyboard handling
+    
+    var keyboardObserver: Any?
+    
+    private func registerForKeyboardNotifications() {
+        if keyboardObserver != nil {
+            return
+        }
+        keyboardObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { [weak self] notification in
+            guard let `self` = self else {
+                return
+            }
+            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height - self.bottomSafeArea + 20.0
+                self.bottomKeyboardConstraint?.constant = keyboardHeight
+            }
+        }
+    }
+    
+    private func unregisterForKeyboardNotifications() {
+        if let observer = keyboardObserver {
+            NotificationCenter.default.removeObserver(observer)
+            keyboardObserver = nil
+        }
+    }
+    
+    // MARK: - Actions
+    
     @IBAction func continueAction(_ sender: UIButton) {
         let code = codeView.buildCode()
         let puk = pukView.buildPUK()
@@ -97,6 +133,8 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         router.routeToCancel()
     }
     
+    // MARK: - Delegating
+    
     public func pukChanged(puk: String) {
         validateInfo()
     }
@@ -105,10 +143,18 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         validateInfo()
     }
     
+    // MARK: - helpers
+    
+    private func setup() {
+        let viewController = self
+        let router = EnterCodeRecoveryRouter()
+        router.viewController = self
+        viewController.router = router
+    }
+    
     private func validateInfo() {
         let code = codeView.buildCode()
         let puk = pukView.buildPUK()
-        
         confirmButton.isEnabled = PA2OtpUtil.validateRecoveryCode(code) && PA2OtpUtil.validateRecoveryPuk(puk)
     }
 }

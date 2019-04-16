@@ -58,6 +58,28 @@ open class BeginRecoveryActivationViewController: LimeAuthUIBaseViewController, 
         router.activationProcess.cancelShouldRouteToBegin = true
     }
     
+    open override func prepareUI() {
+        
+        super.prepareUI()
+        
+        let uiData = uiDataProvider.uiDataForBeginRecoveryActivation
+        let commonStrings = uiDataProvider.uiCommonStrings
+        let theme = uiDataProvider.uiTheme
+        
+        illustration?.setLazyImage(theme.illustrations.beginRecoveryScene)
+        titleLabel?.text = uiData.strings.sceneTitle
+        message?.text = uiData.strings.sceneDescription
+        cancelButton?.setTitle(commonStrings.cancelTitle, for: .normal)
+        continueButton?.setTitle(uiData.strings.continueButton, for: .normal)
+        
+        configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        titleLabel?.textColor = theme.common.titleColor
+        message?.textColor = theme.common.textColor
+        cancelButton?.applyButtonStyle(theme.buttons.cancel)
+        continueButton?.applyButtonStyle(theme.buttons.primary)
+    }
+    
+    
     // MARK: - Routing
     
     open func connect(activationProcess process: ActivationUIProcess) {

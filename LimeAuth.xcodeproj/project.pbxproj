@@ -121,6 +121,8 @@
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
 		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
 		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
+		DC8261452266540000CEA1D4 /* BeginRecoveryActivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8261442266540000CEA1D4 /* BeginRecoveryActivationModels.swift */; };
+		DC8261472266592300CEA1D4 /* EnterCodeRecoveryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8261462266592300CEA1D4 /* EnterCodeRecoveryModels.swift */; };
 		DCA1505D22662F7300C5A30B /* PukView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1505C22662F7300C5A30B /* PukView.swift */; };
 		DCCA528922660961008C7ECE /* ActivationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA528822660961008C7ECE /* ActivationCodeView.swift */; };
 		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
@@ -256,6 +258,8 @@
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
 		DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthPassphraseValidator.swift; sourceTree = "<group>"; };
 		DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVerifying.swift; sourceTree = "<group>"; };
+		DC8261442266540000CEA1D4 /* BeginRecoveryActivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginRecoveryActivationModels.swift; sourceTree = "<group>"; };
+		DC8261462266592300CEA1D4 /* EnterCodeRecoveryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeRecoveryModels.swift; sourceTree = "<group>"; };
 		DCA1505C22662F7300C5A30B /* PukView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukView.swift; sourceTree = "<group>"; };
 		DCCA528822660961008C7ECE /* ActivationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCodeView.swift; sourceTree = "<group>"; };
 		DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedbackAssets.swift; sourceTree = "<group>"; };
@@ -802,6 +806,7 @@
 			children = (
 				DC291899226085DA00001478 /* BeginRecoveryActivationViewController.swift */,
 				DC29189B226086FC00001478 /* BeginRecoveryActivationRouter.swift */,
+				DC8261442266540000CEA1D4 /* BeginRecoveryActivationModels.swift */,
 			);
 			path = BeginRecovery;
 			sourceTree = "<group>";
@@ -841,6 +846,7 @@
 		DC29189D226092FC00001478 /* EnterCodeRecovery */ = {
 			isa = PBXGroup;
 			children = (
+				DC8261462266592300CEA1D4 /* EnterCodeRecoveryModels.swift */,
 				DC29189E226093BA00001478 /* EnterCodeRecoveryViewController.swift */,
 				DC2918A02260969E00001478 /* EnterCodeRecoveryRouter.swift */,
 			);
@@ -1052,7 +1058,9 @@
 				DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */,
 				BF61344120448DA900164496 /* ScanActivationCodeViewController.swift in Sources */,
 				BFDB8CD720516DE00063C5EA /* LimeAuthCredentials.swift in Sources */,
+				DC8261452266540000CEA1D4 /* BeginRecoveryActivationModels.swift in Sources */,
 				BF61344820448EBD00164496 /* NoCameraAccessRouter.swift in Sources */,
+				DC8261472266592300CEA1D4 /* EnterCodeRecoveryModels.swift in Sources */,
 				BF565F822045E59C00B9C897 /* EnterActivationCodeModels.swift in Sources */,
 				BFAE069B20582E5F003485D7 /* NewCredentialsRouter.swift in Sources */,
 				BFDB8CE92056ABE40063C5EA /* AuthenticationUIOperation.swift in Sources */,

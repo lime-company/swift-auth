@@ -573,6 +573,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="bottomKeyboardConstraint" destination="YBR-yB-anz" id="KXR-Pa-xks"/>
                         <outlet property="codeLabel" destination="1Qc-zC-GiU" id="KR2-eg-9js"/>
                         <outlet property="codeView" destination="prD-DU-LDY" id="O6L-ex-hlE"/>
                         <outlet property="confirmButton" destination="Opn-SX-mJk" id="9gV-JE-5pz"/>
