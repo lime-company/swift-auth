@@ -23,9 +23,8 @@ public protocol ActivationUIProvider: class {
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
     // recovery activation
-    func instantiateRecoveryInitialScene() -> Void
-    func instantiateRecoveryScanCodeScene() -> Void
-    func instantiateRecoveryEnterCodeScene() -> Void
+    func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController
+    func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController
     // other
     func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateErrorScene() -> ErrorActivationViewController

@@ -15,11 +15,12 @@
 //
 
 import Foundation
+import PowerAuth2
 
 public protocol EnterCodeRecoveryRoutingLogic {
     
-    func routeToPreviousScene()
-    func routeToNextScreen(recoveryCode: String, puk: String)
+    func routeToCancel()
+    func routeToKeyExchange(activationCode: String, puk: String)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
@@ -29,18 +30,16 @@ public class EnterCodeRecoveryRouter: EnterCodeRecoveryRoutingLogic, ActivationU
     public weak var viewController: EnterCodeRecoveryViewController?
     public var activationProcess: ActivationUIProcess!
     
-    public func routeToPreviousScene() {
-        if activationProcess.cancelShouldRouteToBegin {
-            // BeginScene is at the top of the stack
-            viewController?.navigationController?.popViewController(animated: true)
-        } else {
-            activationProcess.cancelActivation(controller: viewController)
-        }
+    private var authenticationUI: LimeAuthAuthenticationUI?
+    
+    public func routeToCancel() {
+        activationProcess.cancelActivation(controller: viewController)
     }
     
-    public func routeToNextScreen(recoveryCode: String, puk: String) {
-        // TODO!
-        viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
+    public func routeToKeyExchange(activationCode: String, puk: String) {
+        activationProcess?.activationData.activationCode = activationCode
+        activationProcess?.activationData.puk = puk
+        viewController?.performSegue(withIdentifier: "RecoveryKeyExchange", sender: nil)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,5 +51,4 @@ public class EnterCodeRecoveryRouter: EnterCodeRecoveryRoutingLogic, ActivationU
             activationVC.connect(activationProcess: activationProcess)
         }
     }
-    
 }

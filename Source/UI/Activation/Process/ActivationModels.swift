@@ -29,6 +29,8 @@ public enum Activation {
         
         public var activationCode: String?
         
+        public var puk: String?
+        
         public var createActivationResult: PA2ActivationResult?
         
         public var recoveryFromFailedActivation = false

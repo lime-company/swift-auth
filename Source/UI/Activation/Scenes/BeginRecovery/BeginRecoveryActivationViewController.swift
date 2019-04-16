@@ -22,6 +22,12 @@ open class BeginRecoveryActivationViewController: LimeAuthUIBaseViewController, 
     public var uiDataProvider: ActivationUIDataProvider!
     public var cameraAccessProvider: CameraAccessProvider!
     
+    @IBOutlet weak var cancelButton: CancelWizardButton!
+    @IBOutlet weak var illustration: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var continueButton: PrimaryWizardButton!
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -37,13 +43,11 @@ open class BeginRecoveryActivationViewController: LimeAuthUIBaseViewController, 
         let router = BeginRecoveryActivationRouter()
         router.viewController = self
         viewController.router = router
-        // Camera access
-        cameraAccessProvider = CameraAccess()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     open override func configureController() {
@@ -67,31 +71,11 @@ open class BeginRecoveryActivationViewController: LimeAuthUIBaseViewController, 
     
     // MARK: - UI Actions
     
-    @IBAction func scanCodeAction(_ sender: UIButton) {
-        scanActivationCode()
-    }
-    
     @IBAction func manualCodeAction(_ sender: UIButton) {
         router?.routeToEnterCode()
     }
     
     @IBAction func cancelAction(_ sender: UIButton) {
         router?.cancelActivation()
-    }
-    
-    public func scanActivationCode() {
-        if cameraAccessProvider.needsCameraAccessApproval {
-            cameraAccessProvider.requestCameraAccess { granted in
-                if granted {
-                    self.router?.routeToScanCode()
-                } else {
-                    self.router?.routeToNoCameraAccess()
-                }
-            }
-        } else if cameraAccessProvider.isCameraAccessGranted {
-            self.router?.routeToScanCode()
-        } else {
-            self.router?.routeToNoCameraAccess()
-        }
     }
 }

@@ -121,6 +121,8 @@
 		DC4763812153E04100187DF7 /* StylingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4763802153E04100187DF7 /* StylingExtensions.swift */; };
 		DC519B5921A421B000768D8B /* LimeAuthPassphraseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */; };
 		DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */; };
+		DCA1505D22662F7300C5A30B /* PukView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1505C22662F7300C5A30B /* PukView.swift */; };
+		DCCA528922660961008C7ECE /* ActivationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA528822660961008C7ECE /* ActivationCodeView.swift */; };
 		DCD62F6C21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */; };
 		DCF62CB8225E106E0012EB0C /* RecoveryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF62CB4225E106E0012EB0C /* RecoveryCodeViewController.swift */; };
 		DCF62CB9225E106E0012EB0C /* RecoveryCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF62CB5225E106E0012EB0C /* RecoveryCodeRouter.swift */; };
@@ -254,6 +256,8 @@
 		DC4763802153E04100187DF7 /* StylingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingExtensions.swift; sourceTree = "<group>"; };
 		DC519B5821A421B000768D8B /* LimeAuthPassphraseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthPassphraseValidator.swift; sourceTree = "<group>"; };
 		DC519B5A21A47A0900768D8B /* PassphraseVerifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseVerifying.swift; sourceTree = "<group>"; };
+		DCA1505C22662F7300C5A30B /* PukView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukView.swift; sourceTree = "<group>"; };
+		DCCA528822660961008C7ECE /* ActivationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationCodeView.swift; sourceTree = "<group>"; };
 		DCD62F6B21AD46B2006CB765 /* LimeAuthActionFeedbackAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthActionFeedbackAssets.swift; sourceTree = "<group>"; };
 		DCF62CB4225E106E0012EB0C /* RecoveryCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoveryCodeViewController.swift; sourceTree = "<group>"; };
 		DCF62CB5225E106E0012EB0C /* RecoveryCodeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoveryCodeRouter.swift; sourceTree = "<group>"; };
@@ -746,6 +750,8 @@
 				BF4BD1332049A26200A2E52C /* TextFieldWithInsets.swift */,
 				BF49642820598EF3002560A8 /* PinKeyboardView.swift */,
 				BF49642E20599022002560A8 /* CheckmarkWithActivity.swift */,
+				DCCA528822660961008C7ECE /* ActivationCodeView.swift */,
+				DCA1505C22662F7300C5A30B /* PukView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -806,6 +812,7 @@
 				BF61342E2044764C00164496 /* Begin */,
 				BF6134302044764C00164496 /* EnterCode */,
 				BF61342F2044764C00164496 /* ScanCode */,
+				BF565FA6204740E100B9C897 /* Confirm */,
 			);
 			name = SelfActivation;
 			sourceTree = "<group>";
@@ -826,7 +833,6 @@
 				BF61343820448ADB00164496 /* NoCameraAccess */,
 				BF565F902047288B00B9C897 /* KeysExchange */,
 				BF565FA52047400900B9C897 /* EnableBiometry */,
-				BF565FA6204740E100B9C897 /* Confirm */,
 				BF565F9720473B6300B9C897 /* Error */,
 			);
 			name = Other;
@@ -1003,6 +1009,7 @@
 				BFDB8CCE20516D4B0063C5EA /* PA2KeychainExtensions.swift in Sources */,
 				BF565FAC2047423600B9C897 /* EnableBiometryViewController.swift in Sources */,
 				DC42CA6D21DF697F00E13C23 /* UIDeviceExtensions.swift in Sources */,
+				DCA1505D22662F7300C5A30B /* PukView.swift in Sources */,
 				BF565F92204728CC00B9C897 /* KeysExchangeViewController.swift in Sources */,
 				DC29188A225F418A00001478 /* RecoveryViewController.swift in Sources */,
 				BF6134322044765E00164496 /* QRCodeScanner.swift in Sources */,
@@ -1012,6 +1019,7 @@
 				BF85E595203DBDD600B76FE8 /* LimeAuthActivationUI.swift in Sources */,
 				BF565F9B20473BA900B9C897 /* ErrorActivationRouter.swift in Sources */,
 				DCF62CBF225E169E0012EB0C /* StopWatch.swift in Sources */,
+				DCCA528922660961008C7ECE /* ActivationCodeView.swift in Sources */,
 				BFDB8CE82056ABE40063C5EA /* AuthenticationModels.swift in Sources */,
 				BF565F89204717E100B9C897 /* RoundCornersButton.swift in Sources */,
 				BF6134522045C45300164496 /* LazyUIImage.swift in Sources */,

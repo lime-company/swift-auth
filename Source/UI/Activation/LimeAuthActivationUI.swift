@@ -36,7 +36,6 @@ public class LimeAuthActivationUI {
         // RECOVERY ACTIVATION
         
         case recoveryInitial
-        case recoveryScanCode
         case recoveryEnterCode
         
         // OTHER
@@ -80,6 +79,10 @@ public class LimeAuthActivationUI {
             controller = uiProvider.instantiateScanCodeScene()
         case .confirmation:
             controller = controllerForRecoveryFromBrokenActivation()
+        case .recoveryInitial:
+            controller = uiProvider.instantiateRecoveryInitialScene()
+        case .recoveryEnterCode:
+            controller = uiProvider.instantiateRecoveryEnterCodeScene()
         default:
             D.fatalError()    // shold never happen
         }
@@ -158,8 +161,10 @@ public class LimeAuthActivationUI {
             wrongState = !canStartActivation
         case .confirmation:
             wrongState = !hasOtpUsed
-        default:
-            D.fatalError("Not implemented yet") // TODO: implement
+        case .recoveryInitial:
+            wrongState = !canStartActivation
+        case .recoveryEnterCode:
+            wrongState = !canStartActivation
         }
         // Throw error if we cannot process scene for current session's state
         if wrongState {

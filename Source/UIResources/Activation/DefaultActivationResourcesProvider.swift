@@ -66,16 +66,18 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     
     // Recovery-activation
     
-    func instantiateRecoveryInitialScene() -> Void {
-        D.fatalError("TODO")
+    func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecoveryBegin") as? BeginRecoveryActivationViewController else {
+            D.fatalError("Cannot instantiate RecoveryBegin scene")
+        }
+        return controller
     }
     
-    func instantiateRecoveryScanCodeScene() -> Void {
-        D.fatalError("TODO")
-    }
-    
-    func instantiateRecoveryEnterCodeScene() -> Void {
-        D.fatalError("TODO")
+    func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecoveryCodeEnter") as? EnterCodeRecoveryViewController else {
+            D.fatalError("Cannot instantiate RecoveryCodeEnter scene")
+        }
+        return controller
     }
     
     public func instantiateErrorScene() -> ErrorActivationViewController {

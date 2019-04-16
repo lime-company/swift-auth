@@ -14,12 +14,16 @@
 // and limitations under the License.
 //
 
-import Foundation
+import UIKit
+import PowerAuth2
 
-open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
+open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, ActivationCodeDelegate, PukViewDelegate {
     
-    @IBOutlet weak var codeField: UITextField!
-    @IBOutlet weak var pukField: UITextField!
+    @IBOutlet weak var codeView: ActivationCodeView!
+    @IBOutlet weak var pukView: PukView!
+    @IBOutlet weak var confirmButton: PrimaryWizardButton!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var pukLabel: UILabel!
     
     public var router: (ActivationUIProcessRouter & EnterCodeRecoveryRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -32,6 +36,26 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        codeView.delegate = self
+        pukView.delegate = self
+        confirmButton.isEnabled = false
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        //registerForKeyboardNotifications()
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        //unregisterForKeyboardNotifications()
+        self.view.resignFirstResponder()
     }
     
     private func setup() {
@@ -50,14 +74,41 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         router?.prepare(for: segue, sender: sender)
     }
     
-    @IBAction func continueAction(_ sender: UIButton) {
-        let code = codeField.text ?? ""
-        let puk = pukField.text ?? ""
+    open override func prepareUI() {
         
-        router?.routeToNextScreen(recoveryCode: code, puk: puk)
+        let theme = uiDataProvider.uiTheme
+        
+        configureBackground(image: nil, color: theme.common.backgroundColor)
+        codeLabel.textColor = theme.common.textColor
+        pukLabel.textColor = theme.common.textColor
+        confirmButton?.applyButtonStyle(theme.buttons.primary)
+        
+        codeView.prepareComponent(uiDataProvider: uiDataProvider)
+        pukView.prepareComponent(uiDataProvider: uiDataProvider)
     }
     
-    @IBAction func cancelAction(_ sender: UIButton) {
-        router.routeToPreviousScene()
+    @IBAction func continueAction(_ sender: UIButton) {
+        let code = codeView.buildCode()
+        let puk = pukView.buildPUK()
+        router.routeToKeyExchange(activationCode: code, puk: puk)
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        router.routeToCancel()
+    }
+    
+    public func pukChanged(puk: String) {
+        validateInfo()
+    }
+    
+    public func codeChanged(code: String) {
+        validateInfo()
+    }
+    
+    private func validateInfo() {
+        let code = codeView.buildCode()
+        let puk = pukView.buildPUK()
+        
+        confirmButton.isEnabled = PA2OtpUtil.validateRecoveryCode(code) && PA2OtpUtil.validateRecoveryPuk(puk)
     }
 }

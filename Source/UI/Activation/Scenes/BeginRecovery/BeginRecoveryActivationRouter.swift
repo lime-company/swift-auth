@@ -20,9 +20,7 @@ public protocol BeginRecoveryActivationRoutingLogic {
     
     func cancelActivation()
     
-    func routeToScanCode()
     func routeToEnterCode()
-    func routeToNoCameraAccess()
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
     
@@ -33,16 +31,8 @@ public class BeginRecoveryActivationRouter: BeginRecoveryActivationRoutingLogic,
     public weak var viewController: BeginRecoveryActivationViewController?
     public var activationProcess: ActivationUIProcess!
     
-    public func routeToScanCode() {
-        viewController?.performSegue(withIdentifier: "RecoveryScanCode", sender: nil)
-    }
-    
     public func routeToEnterCode() {
         viewController?.performSegue(withIdentifier: "RecoveryEnterCode", sender: nil)
-    }
-    
-    public func routeToNoCameraAccess() {
-        viewController?.performSegue(withIdentifier: "RecoveryNoCameraAccess", sender: nil)
     }
     
     public func cancelActivation() {

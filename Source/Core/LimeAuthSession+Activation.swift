@@ -59,6 +59,21 @@ public extension LimeAuthSession {
         return self.addOperationToQueue(blockOperation, serialized: true)
     }
     
+    // MARK: - Activation recovery -
+    
+    func createActivation(name: String?, extras: String?, recoveryCode: String, puk: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
+        
+        let operation = AsyncBlockOperation { _, markFinished in
+            self.powerAuth.createActivation(withName: name, recoveryCode: recoveryCode, puk: puk, extras: extras) { result, error in
+                markFinished {
+                    completion(result, .wrap(error))
+                }
+            }
+        }
+        
+        return addOperationToQueue(operation, serialized: true)
+    }
+    
     
     // MARK: - Activation Remove -
     

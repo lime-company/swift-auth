@@ -58,7 +58,13 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
     public func routeToNextScene() {
         let credentials = activationProcess.credentialsProvider.credentials
         if credentials.biometry.isSupportedOnDevice {
+            
             viewController?.performSegue(withIdentifier: "EnableBiometry", sender: nil)
+            
+        } else if activationProcess.activationData.puk != nil {
+            
+            autoCommit()
+            
         } else {
             viewController?.performSegue(withIdentifier: "Confirm", sender: nil)
         }
@@ -74,10 +80,41 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
         if let navigationVC = destinationVC as? UINavigationController, let first = navigationVC.viewControllers.first {
             destinationVC = first
         }
+        if activationProcess.activationData.puk != nil, let biometryVC = destinationVC as? EnableBiometryViewController {
+            biometryVC.router = EnableBiometryRouterWithCompletion { enabled in
+                self.activationProcess.activationData.useBiometry = enabled
+                self.autoCommit()
+            }
+        }
         if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
     }
     
+    private func autoCommit() {
+        
+        if activationProcess.session.hasValidActivation {
+            D.fatalError("flow error")
+        }
+        
+        let authentication = PowerAuthAuthentication()
+        authentication.usePossession = true
+        authentication.useBiometry = activationProcess.activationData.useBiometry
+        authentication.usePassword = activationProcess.activationData.password!
+        
+        let _ = activationProcess.session.commitActivation(authentication: authentication) { [weak self] (error) in
+            guard let `self` = self else { return }
+            if let error = error {
+                let message = self.activationProcess.uiDataProvider.uiDataForConfirmActivation.errors.passwordSetupFailure
+                self.routeToError(with: .wrap(error, string: message))
+            } else {
+                if self.activationProcess.activationData.createActivationResult?.activationRecovery != nil {
+                    self.viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
+                } else {
+                    self.activationProcess.completeActivation(controller: self.viewController)
+                }
+            }
+        }
+    }
 }
 

@@ -43,3 +43,17 @@ public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProce
     }
 }
 
+public class EnableBiometryRouterWithCompletion: EnableBiometryRouter {
+    
+    public typealias Completion = (_ enableBiometry: Bool)->Void
+    
+    private let completion: Completion
+    
+    public init(confirmCompletion: @escaping Completion) {
+        self.completion = confirmCompletion
+    }
+    
+    public override func routeToConfirm(withBiometryEnabled enabled: Bool) {
+        completion(enabled)
+    }
+}

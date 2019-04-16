@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import PowerAuth2
 
 open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
     
@@ -83,7 +84,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         let activationName = UIDevice.current.name
         let activationCode = process.activationData.activationCode ?? ""
         
-        sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode) { [weak self] (result, error) in
+        let completion = { [weak self] (result: PA2ActivationResult?, error: LimeAuthError?) in
             guard let `self` = self else {
                 return
             }
@@ -93,6 +94,12 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
             } else if let error = error {
                 self.router.routeToError(with: error)
             }
+        }
+        
+        if let puk = process.activationData.puk {
+            sessionOperation = router.activationProcess.session.createActivation(name: activationName, extras: nil, recoveryCode: activationCode, puk: puk, completion: completion)
+        } else {
+            sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode, completion: completion)
         }
     }
     
