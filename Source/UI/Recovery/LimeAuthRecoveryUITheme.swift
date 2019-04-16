@@ -36,6 +36,11 @@ public struct LimeAuthRecoveryUITheme {
         /// Continue button
         public var continueButtonStyle: ButtonStyle
         
+        /// How long (seconds) should be user unable to continue during activation
+        public var activationContinueDelay: Int = 10
+        /// If user should be informed that screenshots are bad in this case
+        public var warnUserAboutScreenshot = true
+        
         public init(
             titleColor: UIColor,
             textColor: UIColor,

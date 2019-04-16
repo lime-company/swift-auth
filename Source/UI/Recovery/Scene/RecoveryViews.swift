@@ -22,7 +22,7 @@ import UIKit
 
 class RecoveryDisplayView: UIView {
     
-    private let continueButtonWait: Int = 10
+    private var continueButtonWait: Int = 10
     
     @IBOutlet private weak var introTextLabel: UILabel!
     @IBOutlet private weak var codeHeaderLabel: UILabel!
@@ -58,6 +58,8 @@ class RecoveryDisplayView: UIView {
     }
     
     func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings) {
+        
+        continueButtonWait = theme.recoveryScene.activationContinueDelay
         
         // Strings
         introTextLabel.text = strings.description

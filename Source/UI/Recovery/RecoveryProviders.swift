@@ -35,4 +35,6 @@ public protocol RecoveryUIDataProvider: class {
     var reactivationStrings: RecoveryCode.UIData.Strings { get }
     /// Strings that are used when the recovery info is displayed after the activation (when user request to see them again)
     var standaloneStrings: RecoveryCode.UIData.Strings { get }
+    /// Strings that are used when user takes screenshot of the recovery code
+    var screenshotAlertStrings: RecoveryCode.UIData.ScreenshotStrings { get }
 }

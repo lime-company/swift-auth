@@ -50,6 +50,20 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         self.recoveryData = data
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if uiProvider.uiDataProvider.uiTheme.recoveryScene.warnUserAboutScreenshot {
+            NotificationCenter.default.addObserver(self, selector: #selector(useDidTakeScreenshot), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+        }
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override public func prepareUI() {
         super.prepareUI()
         let strings: RecoveryCode.UIData.Strings
@@ -64,6 +78,12 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         titleLabel.textColor = uiProvider.uiDataProvider.uiTheme.recoveryScene.titleColor
         displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
         displayView.showRecoveryCode(recoveryData, withWaitingCountdown: showCountdownDelay)
+    }
+    
+    @objc private func useDidTakeScreenshot() {
+        let alert = UIAlertController(title: uiProvider.uiDataProvider.screenshotAlertStrings.title, message: uiProvider.uiDataProvider.screenshotAlertStrings.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: uiProvider.uiDataProvider.screenshotAlertStrings.button, style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: Views delegate (actions)

@@ -35,5 +35,11 @@ public struct RecoveryCode {
             let retryButton: String
             let skipButton: String
         }
+        
+        public struct ScreenshotStrings {
+            let title: String
+            let message: String
+            let button: String
+        }
     }
 }
