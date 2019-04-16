@@ -35,7 +35,5 @@ public struct RecoveryCode {
             let retryButton: String
             let skipButton: String
         }
-        
-        public let strings: Strings
     }
 }

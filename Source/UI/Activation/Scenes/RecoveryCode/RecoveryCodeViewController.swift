@@ -36,8 +36,10 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
     public override func viewDidLoad() {
         super.viewDidLoad()
         let vc = uiRecoveryProvider.instantiateRecoveryController()
-        vc.setup(withAuthentication: PowerAuthAuthentication.possession(withPassword: router.activationProcess.activationData.password ?? ""), andSession: router.activationProcess.session, uiProvider: uiRecoveryProvider, insideActivtion: true) { [weak self] displayed in
-            self?.router.activationProcess.activationData.recoveryDataDisplayed = displayed
+        guard let recoveryData = router.activationProcess.activationData.createActivationResult?.activationRecovery else {
+            D.fatalError("recovery data expected here")
+        }
+        vc.setup(withData: LimeAuthRecoveryData(activationCode: recoveryData.recoveryCode, puk: recoveryData.puk), uiProvider: uiRecoveryProvider, context: .activation) { [weak self] _ in
             self?.router.routeToSuccess()
         }
         addChild(vc)
@@ -56,7 +58,7 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
     open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
         uiDataProvider = process.uiDataProvider
-        uiRecoveryProvider = process.uiProvider.authenticationUIProvider.recoveryUIProvider
+        uiRecoveryProvider = process.uiRecoveryProvider
     }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

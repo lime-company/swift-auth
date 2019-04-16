@@ -17,106 +17,58 @@
 import UIKit
 import PowerAuth2
 
-public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewDelegate, RecoveryPresenter {
+public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewDelegate {
+    
+    public enum DisplayContext {
+        case activation
+        case reactivation
+        case standalone
+    }
     
     public typealias FinishedCallback = (_ displayed: Bool) -> Void
     
+    var showCountdownDelay = true
+    
     private var isRecoveryLoading = false
     private var uiProvider: RecoveryUIProvider!
-    private var viewModel: RecoveryViewModel!
     private var finishedCallback: FinishedCallback!
-    private var insideActivtion: Bool!
+    private var displayContext: DisplayContext!
+    private var recoveryData: LimeAuthRecoveryData!
     
     @IBOutlet private weak var displayView: RecoveryDisplayView!
-    @IBOutlet private weak var errorView: RecoveryErrorView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
-    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, insideActivtion: Bool, finishedCallback: @escaping FinishedCallback) {
-        guard self.viewModel == nil else {
+    public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, context: DisplayContext, finishedCallback: @escaping FinishedCallback) {
+        guard self.uiProvider == nil else {
             D.warning("Controller was already setup")
             return
         }
-        self.viewModel = RecoveryViewModel(withData: data)
-        self.viewModel.presenter = self
         self.uiProvider = uiProvider
         self.finishedCallback = finishedCallback
-        self.insideActivtion = insideActivtion
-    }
-    
-    public func setup(withAuthentication auth: PowerAuthAuthentication, andSession session: LimeAuthSession, uiProvider: RecoveryUIProvider, insideActivtion: Bool, finishedCallback: @escaping FinishedCallback) {
-        guard self.viewModel == nil else {
-            D.warning("Controller was already setup")
-            return
-        }
-        self.viewModel = RecoveryViewModel(withAuthentication: auth, andSession: session)
-        self.viewModel.presenter = self
-        self.uiProvider = uiProvider
-        self.finishedCallback = finishedCallback
-        self.insideActivtion = insideActivtion
+        self.displayContext = context
+        self.recoveryData = data
     }
     
     override public func prepareUI() {
         super.prepareUI()
-        hideAll()
-        let strings = insideActivtion ? uiProvider.uiDataProvider.activationStrings : uiProvider.uiDataProvider.standaloneStrings
+        let strings: RecoveryCode.UIData.Strings
+        
+        switch displayContext! {
+        case .activation: strings = uiProvider.uiDataProvider.activationStrings
+        case .reactivation: strings = uiProvider.uiDataProvider.reactivationStrings
+        case .standalone: strings = uiProvider.uiDataProvider.standaloneStrings
+        }
+        
         titleLabel.text = strings.sceneTitle
         titleLabel.textColor = uiProvider.uiDataProvider.uiTheme.recoveryScene.titleColor
         displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
-        errorView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
-        viewModel.start()
-    }
-    
-    // MARK: - UI display logic
-    
-    private func showLoading() {
-        hideAll()
-        loadingIndicator.startAnimating()
-        loadingIndicator.isHidden = false
-    }
-    
-    private func showCodes(code: LimeAuthRecoveryData) {
-        hideAll()
-        displayView.showRecoveryCode(code, withWaitingCountdown: insideActivtion)
-    }
-    
-    private func showError() {
-        hideAll()
-        displayView.hide()
-        errorView.show()
-    }
-    
-    private func hideAll() {
-        displayView.hide()
-        errorView.hide()
-        loadingIndicator.stopAnimating()
-        loadingIndicator.isHidden = true
+        displayView.showRecoveryCode(recoveryData, withWaitingCountdown: showCountdownDelay)
     }
     
     // MARK: Views delegate (actions)
     
     func continueAction() {
         finishedCallback(true)
-    }
-    
-    func laterAction() {
-        finishedCallback(false)
-    }
-    
-    func tryAgainAction() {
-        viewModel.getRecoveryCode()
-    }
-    
-    // MARK: presenter delegate
-    
-    func presentState(_ state: RecoveryViewModel.DisplayState) {
-        switch state {
-        case .data(let data):
-            showCodes(code: data)
-        case .error:
-            showError()
-        case .loading:
-            showLoading()
-        }
     }
 }

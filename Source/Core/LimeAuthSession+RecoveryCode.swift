@@ -58,12 +58,7 @@ public extension LimeAuthSession {
         let blockOperation = AsyncBlockOperation { operation, markFinished in
             self.powerAuth.activationRecoveryData(authentication) { recoveryData, error in
                 
-                //Thread.sleep(forTimeInterval: 3)
-                
                 markFinished {
-                    
-//                    completion(nil, LimeAuthError(string: "Test"))
-//                    return
                     
                     guard error == nil else {
                         completion(nil, LimeAuthError.wrap(error))

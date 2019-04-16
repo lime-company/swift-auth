@@ -28,7 +28,6 @@ public protocol AuthenticationUIProvider: class {
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
     var uiDataProvider: AuthenticationUIDataProvider { get }
-    var recoveryUIProvider: RecoveryUIProvider { get }
     var actionFeedback: LimeAuthActionFeedback? { get }
 }
 

@@ -28,45 +28,53 @@ public class LimeAuthRecoveryUI {
 
 public extension LimeAuthRecoveryUI {
     
+    /// Creates a `LimeAuthAuthenticationUI` object that will authenticate the user and then displays his recovery code.
+    /// Before using this, you should make sure that the recovery codes are supported via `LimeAuthSession.hasRecoveryActivation` property.
     static func uiForShowRecovery(session: LimeAuthSession,
-                                  uiProvider: AuthenticationUIProvider,
+                                  uiAuthProvider: AuthenticationUIProvider,
+                                  uiRecoveryProvider: RecoveryUIProvider,
                                   credentialsProvider: LimeAuthCredentialsProvider,
                                   completion: @escaping (Authentication.Result, UIViewController?)->Void) -> LimeAuthAuthenticationUI {
         
-        let uiDataProvider = uiProvider.uiDataProvider
-        let opStrings = uiDataProvider.uiOperationStrings
+        let opStrings = uiAuthProvider.uiDataProvider.uiOperationStrings
         let credentials = credentialsProvider.credentials
         
         // UIRequest
         var uiRequest = Authentication.UIRequest()
         let prompt = credentials.password.type == .password ? opStrings.changePassword_PromptPassword : opStrings.changePassword_PromptPin
         uiRequest.prompts.keyboardPrompt = prompt
-        uiRequest.prompts.activityMessage = "Display recovery information"
+        uiRequest.prompts.activityMessage = "Getting recovery informations"
         uiRequest.prompts.successMessage = ""
         uiRequest.tweaks.successAnimationDelay = 450
         
         var resultData: LimeAuthRecoveryData?
         
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
+            // in this point, we now that user authenticated, so lets get the recovery information
             return session.getActivationRecovery(authentication: authentication) { data, error in
-                resultData = data
+                resultData = data // we need to store the data for later use
                 completionCallback(data, error)
             }
         }
         
         let operationExecutor = AuthenticationUIOperationExecutor(session: session, operation: operation, requestOptions: uiRequest.options, credentialsProvider: credentialsProvider)
         
-        let process = AuthenticationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider, request: uiRequest, executor: operationExecutor)
+        let process = AuthenticationUIProcess(session: session, uiProvider: uiAuthProvider, credentialsProvider: credentialsProvider, request: uiRequest, executor: operationExecutor)
         process.operationCompletion = { result, _, _, finalController in
-            if result == .success, let data = resultData {
-                let vc = uiProvider.recoveryUIProvider.instantiateRecoveryController()
-                vc.setup(withData: data, uiProvider: uiProvider.recoveryUIProvider, insideActivtion: false) { [weak vc] displayed in
+            
+            if result == .success, let data = resultData { // user sucesfully authenticated and we got the data from the server, lets present it
+                
+                let vc = uiRecoveryProvider.instantiateRecoveryController()
+                vc.showCountdownDelay = false
+                vc.setup(withData: data, uiProvider: uiRecoveryProvider, context: .standalone) { [weak vc] displayed in
+                    // user needs to confirm that he saw and wrote down recoveryData
+                    // if he does not, lets consider the operation as failure
                     completion(displayed ? .success : .failure, vc)
                 }
-                let style = finalController?.navigationController?.modalTransitionStyle ?? .coverVertical
-                finalController?.navigationController?.modalTransitionStyle = .partialCurl
+//                let style = finalController?.navigationController?.modalTransitionStyle ?? .coverVertical
+//                finalController?.navigationController?.modalTransitionStyle = .partialCurl
                 finalController?.navigationController?.pushViewController(vc, animated: true)
-                finalController?.navigationController?.modalTransitionStyle = style
+//                finalController?.navigationController?.modalTransitionStyle = style
             } else {
                 completion(result, finalController)
             }

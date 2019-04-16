@@ -134,84 +134,6 @@
                                     <outlet property="warningLabel" destination="t44-9g-6aG" id="BVb-Nd-meW"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWN-4E-diG" customClass="RecoveryErrorView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="20" y="117" width="374" height="725"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f1-rj-LK9">
-                                        <rect key="frame" x="0.0" y="282" width="374" height="161"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InK-vv-Qku">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2D-R3-AiP">
-                                                <rect key="frame" x="0.0" y="39" width="374" height="122"/>
-                                                <string key="text">We were unable to get your recovery code. Recovery code is important part of your activation which is needed in situations where you'll need to activate new device. You can display your recovery code anytime in Mobile Key settings.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="InK-vv-Qku" firstAttribute="leading" secondItem="2f1-rj-LK9" secondAttribute="leading" id="BpQ-pc-g1h"/>
-                                            <constraint firstItem="Y2D-R3-AiP" firstAttribute="leading" secondItem="2f1-rj-LK9" secondAttribute="leading" id="G02-MH-bZY"/>
-                                            <constraint firstAttribute="trailing" secondItem="Y2D-R3-AiP" secondAttribute="trailing" id="MYe-cI-7jc"/>
-                                            <constraint firstItem="InK-vv-Qku" firstAttribute="top" secondItem="2f1-rj-LK9" secondAttribute="top" id="QCe-7C-fvg"/>
-                                            <constraint firstItem="Y2D-R3-AiP" firstAttribute="top" secondItem="InK-vv-Qku" secondAttribute="bottom" constant="10" id="RlI-t5-4pf"/>
-                                            <constraint firstAttribute="bottom" secondItem="Y2D-R3-AiP" secondAttribute="bottom" id="h0v-4Y-KmG"/>
-                                            <constraint firstAttribute="trailing" secondItem="InK-vv-Qku" secondAttribute="trailing" id="vRC-NZ-S2E"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJS-VS-esv" customClass="PrimaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="629" width="374" height="44"/>
-                                        <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="CUp-B2-Xoy"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Try again"/>
-                                        <connections>
-                                            <action selector="tryAgainClick:" destination="oWN-4E-diG" eventType="touchUpInside" id="Qa3-PV-3kP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVA-Yw-wZJ" customClass="SecondaryWizardButton" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="681" width="374" height="44"/>
-                                        <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="7sj-9z-MiX"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Get recovery code later">
-                                            <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="laterClickWith_sender:" destination="oWN-4E-diG" eventType="touchUpInside" id="dlq-gN-MUp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="2f1-rj-LK9" firstAttribute="leading" secondItem="oWN-4E-diG" secondAttribute="leading" id="AZR-Kc-KyN"/>
-                                    <constraint firstAttribute="trailing" secondItem="UVA-Yw-wZJ" secondAttribute="trailing" id="GCt-83-pbS"/>
-                                    <constraint firstItem="UVA-Yw-wZJ" firstAttribute="top" secondItem="LJS-VS-esv" secondAttribute="bottom" constant="8" id="Oxf-N8-dxa"/>
-                                    <constraint firstAttribute="trailing" secondItem="2f1-rj-LK9" secondAttribute="trailing" id="Prl-yv-vgV"/>
-                                    <constraint firstAttribute="bottom" secondItem="UVA-Yw-wZJ" secondAttribute="bottom" id="TQp-53-yJh"/>
-                                    <constraint firstAttribute="trailing" secondItem="LJS-VS-esv" secondAttribute="trailing" id="dhK-1N-paI"/>
-                                    <constraint firstItem="2f1-rj-LK9" firstAttribute="centerY" secondItem="oWN-4E-diG" secondAttribute="centerY" id="eV5-yC-MKl"/>
-                                    <constraint firstItem="LJS-VS-esv" firstAttribute="leading" secondItem="oWN-4E-diG" secondAttribute="leading" id="f4j-Fn-x9Z"/>
-                                    <constraint firstItem="UVA-Yw-wZJ" firstAttribute="leading" secondItem="oWN-4E-diG" secondAttribute="leading" id="hPV-wm-tgl"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="feV-5M-2Ga" id="C9j-yf-qWy"/>
-                                    <outlet property="laterButton" destination="UVA-Yw-wZJ" id="gB6-eW-PRh"/>
-                                    <outlet property="textLabel" destination="Y2D-R3-AiP" id="kvH-Oo-1iG"/>
-                                    <outlet property="titleLabel" destination="InK-vv-Qku" id="89x-sG-Hgb"/>
-                                    <outlet property="tryAgainButton" destination="LJS-VS-esv" id="QMj-hd-W5f"/>
-                                </connections>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovery code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwS-og-32F">
                                 <rect key="frame" x="0.0" y="74" width="414" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -223,24 +145,18 @@
                         <constraints>
                             <constraint firstItem="ZwS-og-32F" firstAttribute="top" secondItem="2zM-KU-EeL" secondAttribute="topMargin" constant="30" id="1l6-ZK-0Nu"/>
                             <constraint firstItem="ZwS-og-32F" firstAttribute="leading" secondItem="2zM-KU-EeL" secondAttribute="leading" id="2GZ-YR-8QZ"/>
-                            <constraint firstItem="oWN-4E-diG" firstAttribute="centerX" secondItem="Z6V-jG-9xc" secondAttribute="centerX" id="6Wn-7V-EE9"/>
-                            <constraint firstItem="oWN-4E-diG" firstAttribute="width" secondItem="Z6V-jG-9xc" secondAttribute="width" id="CgP-Oc-F2S"/>
-                            <constraint firstItem="oWN-4E-diG" firstAttribute="centerY" secondItem="Z6V-jG-9xc" secondAttribute="centerY" id="DbW-xw-bSP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z6V-jG-9xc" secondAttribute="trailing" id="LxG-5m-4GY"/>
-                            <constraint firstItem="oWN-4E-diG" firstAttribute="top" secondItem="ZwS-og-32F" secondAttribute="bottom" constant="14" id="SZK-1k-Sgl"/>
                             <constraint firstItem="mHL-Xs-Pkq" firstAttribute="bottom" secondItem="Z6V-jG-9xc" secondAttribute="bottom" constant="20" id="cpN-Dq-dJS"/>
                             <constraint firstAttribute="trailing" secondItem="ZwS-og-32F" secondAttribute="trailing" id="hpb-cR-v2Y"/>
                             <constraint firstItem="FGn-Xe-Kcu" firstAttribute="centerY" secondItem="2zM-KU-EeL" secondAttribute="centerY" id="qJp-Vh-t3S"/>
                             <constraint firstItem="Z6V-jG-9xc" firstAttribute="top" secondItem="ZwS-og-32F" secondAttribute="bottom" constant="14" id="qz6-Ah-hak"/>
                             <constraint firstItem="FGn-Xe-Kcu" firstAttribute="centerX" secondItem="2zM-KU-EeL" secondAttribute="centerX" id="viJ-br-6kP"/>
-                            <constraint firstItem="oWN-4E-diG" firstAttribute="height" secondItem="Z6V-jG-9xc" secondAttribute="height" id="vkS-oL-fub"/>
                             <constraint firstItem="Z6V-jG-9xc" firstAttribute="leading" secondItem="2zM-KU-EeL" secondAttribute="leadingMargin" id="xAM-YF-3Rk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mHL-Xs-Pkq"/>
                     </view>
                     <connections>
                         <outlet property="displayView" destination="Z6V-jG-9xc" id="TyA-jd-MKt"/>
-                        <outlet property="errorView" destination="oWN-4E-diG" id="HRp-eE-yk7"/>
                         <outlet property="loadingIndicator" destination="FGn-Xe-Kcu" id="Rwx-ka-KJf"/>
                         <outlet property="titleLabel" destination="ZwS-og-32F" id="Bzh-qK-JuA"/>
                     </connections>

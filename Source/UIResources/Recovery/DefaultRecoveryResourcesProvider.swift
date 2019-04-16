@@ -61,6 +61,10 @@ class DefaultRecoveryResourcesProvider: RecoveryUIProvider, RecoveryUIDataProvid
         )
     }()
     
+    lazy var reactivationStrings: RecoveryCode.UIData.Strings = {
+        return activationStrings
+    }()
+    
     lazy var standaloneStrings: RecoveryCode.UIData.Strings = {
         return activationStrings
     }()

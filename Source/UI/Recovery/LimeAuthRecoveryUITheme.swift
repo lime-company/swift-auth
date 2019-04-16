@@ -32,16 +32,9 @@ public struct LimeAuthRecoveryUITheme {
         public var activationCodeColor: UIColor
         /// Color for PUK
         public var pukColor: UIColor
-        /// Color for error title
-        public var errorTitleColor: UIColor
         
         /// Continue button
         public var continueButtonStyle: ButtonStyle
-        /// Skip button
-        public var skipButton: ButtonStyle
-        /// Error button
-        public var errorButton: ButtonStyle
-        
         
         public init(
             titleColor: UIColor,
@@ -61,10 +54,7 @@ public struct LimeAuthRecoveryUITheme {
             self.headerTextColor = headerTextColor
             self.activationCodeColor = activationCodeColor
             self.pukColor = pukColor
-            self.errorTitleColor = errorTitleColor
             self.continueButtonStyle = continueButtonStyle
-            self.skipButton = skipButton
-            self.errorButton = errorButton
         }
     }
     

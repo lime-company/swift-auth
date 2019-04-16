@@ -18,8 +18,6 @@ import UIKit
 
 @objc protocol RecoveryViewDelegate: class {
     func continueAction()
-    func tryAgainAction()
-    func laterAction()
 }
 
 class RecoveryDisplayView: UIView {
@@ -113,45 +111,5 @@ class RecoveryDisplayView: UIView {
     private func stopCountdown() {
         stopWatch?.stop()
         stopWatch = nil
-    }
-}
-
-class RecoveryErrorView: UIView {
-    
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var textLabel: UILabel!
-    @IBOutlet private weak var tryAgainButton: UIButton!
-    @IBOutlet private weak var laterButton: UIButton!
-    @IBOutlet private weak var delegate: RecoveryViewDelegate?
-    
-    func show() {
-        isHidden = false
-    }
-    
-    func hide() {
-        isHidden = true
-    }
-    
-    func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings) {
-        
-        // Strings
-        titleLabel.text = strings.errorTitle
-        textLabel.text = strings.errorText
-        tryAgainButton.setTitle(strings.retryButton, for: .normal)
-        laterButton.setTitle(strings.skipButton, for: .normal)
-        
-        // Styles
-        titleLabel.textColor = theme.recoveryScene.errorTitleColor
-        textLabel.textColor = theme.recoveryScene.textColor
-        tryAgainButton.applyButtonStyle(theme.recoveryScene.errorButton)
-        laterButton.applyButtonStyle(theme.recoveryScene.skipButton)
-    }
-    
-    @IBAction private func tryAgainClick(_ sender: UIButton) {
-        delegate?.tryAgainAction()
-    }
-    
-    @IBAction private func laterClick(_sender: UIButton) {
-        delegate?.laterAction()
     }
 }

@@ -26,7 +26,13 @@ public protocol RecoveryUIProvider: class {
 
 public protocol RecoveryUIDataProvider: class {
     
+    /// UI elements branding/coloring
     var uiTheme: LimeAuthRecoveryUITheme { get }
+    
+    /// Strings that are used when the recovery info is displayed during activation
     var activationStrings: RecoveryCode.UIData.Strings { get }
+    /// Strings that are used when the recovery info is displayd during activation that was started with activation codes
+    var reactivationStrings: RecoveryCode.UIData.Strings { get }
+    /// Strings that are used when the recovery info is displayed after the activation (when user request to see them again)
     var standaloneStrings: RecoveryCode.UIData.Strings { get }
 }

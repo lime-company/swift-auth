@@ -109,7 +109,6 @@
 		DC291883225F3CB500001478 /* Recovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC291882225F3CB500001478 /* Recovery.storyboard */; };
 		DC291887225F3D6600001478 /* LimeAuthRecoveryUITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC291886225F3D6600001478 /* LimeAuthRecoveryUITheme.swift */; };
 		DC29188A225F418A00001478 /* RecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC291889225F418A00001478 /* RecoveryViewController.swift */; };
-		DC29188C225F42AF00001478 /* RecoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC29188B225F42AF00001478 /* RecoveryViewModel.swift */; };
 		DC29188E225F6DBA00001478 /* RecoveryProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC29188D225F6DBA00001478 /* RecoveryProviders.swift */; };
 		DC291890225F700E00001478 /* DefaultRecoveryResourcesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC29188F225F700E00001478 /* DefaultRecoveryResourcesProvider.swift */; };
 		DC291892225F733300001478 /* LimeAuthRecoveryUIThemeDefaultResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC291891225F733300001478 /* LimeAuthRecoveryUIThemeDefaultResources.swift */; };
@@ -243,7 +242,6 @@
 		DC291882225F3CB500001478 /* Recovery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Recovery.storyboard; sourceTree = "<group>"; };
 		DC291886225F3D6600001478 /* LimeAuthRecoveryUITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthRecoveryUITheme.swift; sourceTree = "<group>"; };
 		DC291889225F418A00001478 /* RecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewController.swift; sourceTree = "<group>"; };
-		DC29188B225F42AF00001478 /* RecoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewModel.swift; sourceTree = "<group>"; };
 		DC29188D225F6DBA00001478 /* RecoveryProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryProviders.swift; sourceTree = "<group>"; };
 		DC29188F225F700E00001478 /* DefaultRecoveryResourcesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRecoveryResourcesProvider.swift; sourceTree = "<group>"; };
 		DC291891225F733300001478 /* LimeAuthRecoveryUIThemeDefaultResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthRecoveryUIThemeDefaultResources.swift; sourceTree = "<group>"; };
@@ -788,7 +786,6 @@
 			isa = PBXGroup;
 			children = (
 				DC291889225F418A00001478 /* RecoveryViewController.swift */,
-				DC29188B225F42AF00001478 /* RecoveryViewModel.swift */,
 				DCF62CB6225E106E0012EB0C /* RecoveryViews.swift */,
 			);
 			path = Scene;
@@ -1034,7 +1031,6 @@
 				DC29189F226093BA00001478 /* EnterCodeRecoveryViewController.swift in Sources */,
 				BF87E18620A9F1FA006B28D4 /* GenericLayerStyle.swift in Sources */,
 				DCF62CB9225E106E0012EB0C /* RecoveryCodeRouter.swift in Sources */,
-				DC29188C225F42AF00001478 /* RecoveryViewModel.swift in Sources */,
 				BF2010E720A5B25C00FA0E78 /* LimeAuthUINavigationController.swift in Sources */,
 				BF49642F20599022002560A8 /* CheckmarkWithActivity.swift in Sources */,
 				BF61344320448DDF00164496 /* ScanActivationCodeRouter.swift in Sources */,

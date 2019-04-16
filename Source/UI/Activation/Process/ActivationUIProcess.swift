@@ -49,7 +49,6 @@ public protocol ActivationUIDataProvider: class {
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
     var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
-    var uiDataForRecoveryCode: RecoveryCode.UIData { get }
 }
 
 public protocol ActivationUIProcessRouter: class {
@@ -65,6 +64,7 @@ public class ActivationUIProcess {
     
     public let session: LimeAuthSession
     public let uiProvider: ActivationUIProvider
+    public let uiRecoveryProvider: RecoveryUIProvider
     public let uiDataProvider: ActivationUIDataProvider
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
@@ -75,10 +75,11 @@ public class ActivationUIProcess {
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
         self.uiProvider = uiProvider
         self.uiDataProvider = uiProvider.uiDataProvider
+        self.uiRecoveryProvider = uiRecoveryProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
     }

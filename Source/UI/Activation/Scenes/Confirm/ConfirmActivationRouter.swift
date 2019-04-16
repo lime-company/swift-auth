@@ -30,7 +30,7 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationU
     
 
     public func routeToSuccess() {
-        if activationProcess.session.hasRecoveryActivation {
+        if activationProcess.activationData.createActivationResult != nil {
             viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
         } else {
             activationProcess.completeActivation(controller: viewController)
