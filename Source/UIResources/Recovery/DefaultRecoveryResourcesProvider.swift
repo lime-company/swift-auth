@@ -45,28 +45,39 @@ class DefaultRecoveryResourcesProvider: RecoveryUIProvider, RecoveryUIDataProvid
     }
     
     lazy var activationStrings = RecoveryCode.UIData.Strings(
-        // TODO: LOCALIZE!
-        sceneTitle: "Activation recovery",
-        description: "Please write your Activation code and PUK down and store it in a secure place.",
-        activationCodeHeader: "ACTIVATION CODE",
-        pukHeader: "PUK",
-        warning: "If you'll lose your Recovery information, you won't be able to re-activate again on a new device. In such case you will need to visit us on one of our branches.",
-        continueButton: "Continue",
-        continueButtonWithSeconds: "Continue (%@)",
-        errorTitle: "Something went wrong",
-        errorText: "Failed to get your recovery codes. These codes are important part of your activation and needed in situations where you'll need to activate a new device. You can display your recovery code anytime in Mobile Key settings.",
-        retryButton: "Try again",
-        skipButton: "Get recovery codes later"
+        sceneTitle: localization.localizedString("limeauth.recovery.act.title"),
+        description: localization.localizedString("limeauth.recovery.act.description"),
+        activationCodeHeader: localization.localizedString("limeauth.recovery.act.codeheader"),
+        pukHeader: localization.localizedString("limeauth.recovery.act.pukHeader"),
+        warning: localization.localizedString("limeauth.recovery.act.warning"),
+        continueButton: localization.localizedString("limeauth.recovery.act.continue"),
+        continueButtonWithSeconds: localization.localizedString("limeauth.recovery.act.continueSeconds")
     )
     
-    lazy var reactivationStrings = activationStrings
+    lazy var reactivationStrings = RecoveryCode.UIData.Strings(
+        sceneTitle: localization.localizedString("limeauth.recovery.react.title"),
+        description: localization.localizedString("limeauth.recovery.react.description"),
+        activationCodeHeader: localization.localizedString("limeauth.recovery.react.codeheader"),
+        pukHeader: localization.localizedString("limeauth.recovery.react.pukHeader"),
+        warning: localization.localizedString("limeauth.recovery.react.warning"),
+        continueButton: localization.localizedString("limeauth.recovery.react.continue"),
+        continueButtonWithSeconds: localization.localizedString("limeauth.recovery.react.continueSeconds")
+    )
     
-    lazy var standaloneStrings = activationStrings
+    lazy var standaloneStrings = RecoveryCode.UIData.Strings(
+        sceneTitle: localization.localizedString("limeauth.recovery.view.title"),
+        description: localization.localizedString("limeauth.recovery.view.description"),
+        activationCodeHeader: localization.localizedString("limeauth.recovery.view.codeheader"),
+        pukHeader: localization.localizedString("limeauth.recovery.view.pukHeader"),
+        warning: localization.localizedString("limeauth.recovery.view.warning"),
+        continueButton: localization.localizedString("limeauth.recovery.view.continue"),
+        continueButtonWithSeconds: localization.localizedString("limeauth.recovery.view.continueSeconds")
+    )
     
     lazy var screenshotAlertStrings = RecoveryCode.UIData.ScreenshotStrings(
-        title: "Screenshot detected!",
-        message: "Taking screenshots of the recovery informations is a potentional risk. We strongly recommend to delete such a screenshot as soon as possible",
-        button: "I understand"
+        title: localization.localizedString("limeauth.recovery.screenshot.title"),
+        message: localization.localizedString("limeauth.recovery.screenshot.message"),
+        button: localization.localizedString("limeauth.recovery.screenshot.button")
     )
     
 }

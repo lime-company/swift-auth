@@ -49,6 +49,7 @@ public protocol ActivationUIDataProvider: class {
     
     // recovery activation strings
     var uiDataForBeginRecoveryActivation: BeginRecoveryActivation.UIData { get}
+    var uiDataForEnterCodeRecovery: EnterCodeRecovery.UIData { get }
     
     // common strings
     var uiDataForKeysExchange: KeysExchange.UIData { get }

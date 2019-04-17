@@ -30,6 +30,9 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     private var fields: [UITextField] { return [tf1, tf2, tf3, tf4] }
     
     @IBOutlet weak var delegate: ActivationCodeDelegate?
+    @IBOutlet weak var afterFilledResponder: UIResponder?
+    
+    private let segmentLength = 5
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +50,7 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         return fields.map { $0.text ?? "" }.joined(separator: "-")
     }
     
-    // MARK: - private helpers
+    // MARK: - Private helpers
     
     private var isEmptyCode: Bool {
         return fields.allSatisfy { $0.text?.isEmpty != false }
@@ -117,8 +120,6 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     
     public func textField(_ tf: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let segmentLength = 5
-        
         if tf == fields.first && isEmptyCode && range.location == 0 && PA2OtpUtil.validateActivationCode(string) {
             pasteFullCode(code:string)
             return false
@@ -178,12 +179,18 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     
     private func focusNextTextField(current: UITextField) {
         
-        if let idx = fields.firstIndex(of: current), idx < fields.count - 1 {
+        guard let idx = fields.firstIndex(of: current) else {
+            return
+        }
+        
+        if idx < fields.count - 1 {
             let next = fields[idx + 1]
             next.becomeFirstResponder()
             if let position = next.position(from: next.endOfDocument, offset: 0) {
                 next.selectedTextRange = next.textRange(from: position, to: position)
             }
+        } else if idx == fields.count - 1 {
+            afterFilledResponder?.becomeFirstResponder()
         }
     }
     

@@ -218,6 +218,15 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             continueButton: localization.localizedString("limeauth.act.beginRec.continue")
         )
     )
+    
+    public lazy var uiDataForEnterCodeRecovery = EnterCodeRecovery.UIData(
+        strings: EnterCodeRecovery.UIData.Strings(
+            sceneTitle: localization.localizedString("limeauth.act.enterRecovery.title"),
+            codeDescription: localization.localizedString("limeauth.act.enterRecovery.codeDesc"),
+            pukDescription: localization.localizedString("limeauth.act.enterRecovery.pukDesc"),
+            confirmButton: localization.localizedString("limeauth.act.enterRecovery.confirm")
+        )
+    )
 
     public func loadTheme(theme: LimeAuthActivationUITheme) {
         

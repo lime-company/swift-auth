@@ -24,6 +24,7 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     @IBOutlet weak var confirmButton: PrimaryWizardButton!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var pukLabel: UILabel!
+    @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
     @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
     
     public var router: (ActivationUIProcessRouter & EnterCodeRecoveryRoutingLogic)!
@@ -72,7 +73,15 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     
     open override func prepareUI() {
         
+        let strings = uiDataProvider.uiDataForEnterCodeRecovery.strings
+        let commonStrings = uiDataProvider.uiCommonStrings
         let theme = uiDataProvider.uiTheme
+        
+        title = strings.sceneTitle
+        cancelButtonItem.title = commonStrings.cancelTitle
+        codeLabel.text = strings.codeDescription
+        pukLabel.text = strings.pukDescription
+        confirmButton.setTitle(strings.confirmButton, for: .normal)
         
         configureBackground(image: nil, color: theme.common.backgroundColor)
         codeLabel.textColor = theme.common.textColor

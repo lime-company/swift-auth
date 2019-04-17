@@ -22,18 +22,12 @@ public struct RecoveryCode {
         
         public struct Strings {
             let sceneTitle: String
-            // display strings
             let description: String
             let activationCodeHeader: String
             let pukHeader: String
             let warning: String
             let continueButton: String
             let continueButtonWithSeconds: String
-            // error strings
-            let errorTitle: String
-            let errorText: String
-            let retryButton: String
-            let skipButton: String
         }
         
         public struct ScreenshotStrings {

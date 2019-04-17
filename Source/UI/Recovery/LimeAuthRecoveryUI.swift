@@ -43,9 +43,9 @@ public extension LimeAuthRecoveryUI {
         var uiRequest = Authentication.UIRequest()
         let prompt = credentials.password.type == .password ? opStrings.changePassword_PromptPassword : opStrings.changePassword_PromptPin
         uiRequest.prompts.keyboardPrompt = prompt
-        uiRequest.prompts.activityMessage = "Getting recovery informations"
+        uiRequest.prompts.activityMessage = opStrings.recovery_Activity
         uiRequest.prompts.successMessage = ""
-        uiRequest.tweaks.successAnimationDelay = 450
+        uiRequest.tweaks.successAnimationDelay = 850
         
         var resultData: LimeAuthRecoveryData?
         

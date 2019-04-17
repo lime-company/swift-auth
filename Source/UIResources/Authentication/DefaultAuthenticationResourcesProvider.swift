@@ -118,7 +118,9 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             enableTouchId_Activity: localization.localizedString("limeauth.op.enableTouchId.activity"),
             enableTouchId_Success: localization.localizedString("limeauth.op.enableTouchId.success"),
             enableFaceId_Activity: localization.localizedString("limeauth.op.enableFaceId.activity"),
-            enableFaceId_Success: localization.localizedString("limeauth.op.enableFaceId.success")
+            enableFaceId_Success: localization.localizedString("limeauth.op.enableFaceId.success"),
+            
+            recovery_Activity: localization.localizedString("limeauth.op.recovery.activity")
         )
     }()
     

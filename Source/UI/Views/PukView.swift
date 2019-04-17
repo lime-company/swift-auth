@@ -28,6 +28,8 @@ public class PukView: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var delegate: PukViewDelegate?
     
+    private let segmentLength = 5
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
@@ -44,6 +46,12 @@ public class PukView: UIView, UITextFieldDelegate {
     public func buildPUK() -> String {
         return (tf1.text ?? "") + (tf2.text ?? "")
     }
+    
+    public override func becomeFirstResponder() -> Bool {
+        return tf1.becomeFirstResponder()
+    }
+    
+    // MARK: - private helpers and delegates
     
     private func createTextFields() {
         
@@ -63,7 +71,8 @@ public class PukView: UIView, UITextFieldDelegate {
         tf2 = createTF(sv)
         
         addSubview(sv)
-        addConstraint(sv.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1))
+        addConstraint(sv.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5))
+        addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
         addConstraint(sv.heightAnchor.constraint(equalToConstant: 44))
         addConstraint(sv.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1))
         
@@ -121,7 +130,7 @@ public class PukView: UIView, UITextFieldDelegate {
         
         let newLength = oldLength - rangeLenght + replaceLength
         
-        if newLength > 5 {
+        if newLength > segmentLength {
             return false
         }
         
@@ -129,7 +138,7 @@ public class PukView: UIView, UITextFieldDelegate {
             return false
         }
         
-        if tf === tf1 && nextString.count == 5 {
+        if tf === tf1 && nextString.count == segmentLength {
             tf.text = nextString
             tf2.becomeFirstResponder()
             return false
@@ -137,5 +146,4 @@ public class PukView: UIView, UITextFieldDelegate {
         
         return true
     }
-    
 }

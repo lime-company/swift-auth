@@ -15,3 +15,18 @@
 //
 
 import Foundation
+
+public enum EnterCodeRecovery {
+    
+    public struct UIData {
+        
+        public struct Strings {
+            let sceneTitle: String
+            let codeDescription: String
+            let pukDescription: String
+            let confirmButton: String
+        }
+        
+        public let strings: Strings
+    }
+}

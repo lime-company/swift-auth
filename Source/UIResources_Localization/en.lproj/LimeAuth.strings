@@ -70,11 +70,53 @@
 "limeauth.act.error.title"                  = "Error";
 
 // Activation :: Begin Recovery Scene
-"limeauth.act.beginRec.title"                  = "Prepare your Recovery Information";
-"limeauth.act.beginRec.description"            = "During your last activation, you were asked to write down a Recovery Information that consist of Recovery Code and PUK. Please, prepare this information";
+"limeauth.act.beginRec.title"                  = "Prepare your Recovery Informations";
+"limeauth.act.beginRec.description"            = "During your last activation, you were asked to write down Recovery Informations that consist of Recovery Code and PUK. Please, prepare this information";
 "limeauth.act.beginRec.continue"               = "Continue";
 
+// Activation :: Enter Code Recovery Scene
+"limeauth.act.enterRecovery.title"             = "Enter your Recovery Informations";
+"limeauth.act.enterRecovery.codeDesc"          = "Please retype the Recovery code in its alphanumeric format.";
+"limeauth.act.enterRecovery.pukDesc"           = "Please retype the PUK in its numeric format.";
+"limeauth.act.enterRecovery.confirm"           = "Continue";
 
+// MARK: - Recovery Code Screen
+
+// during activation
+
+"limeauth.recovery.act.title"           = "Activation recovery";
+"limeauth.recovery.act.description"     = "Please write your recovery Activation code and PUK down and store it in a secure place.";
+"limeauth.recovery.act.codeheader"      = "ACTIVATION CODE";
+"limeauth.recovery.act.pukHeader"       = "PUK";
+"limeauth.recovery.act.warning"         = "If you'll lose your recovery information, you won't be able to re-activate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.act.continue"        = "Continue";
+"limeauth.recovery.act.continueSeconds" = "Continue (%@)";
+
+// during reactivation
+
+"limeauth.recovery.react.title"            = "New activation recovery";
+"limeauth.recovery.react.description"      = "Please write your new recovery Activation code and PUK down and store it in a secure place. Your current ones you just used won't work anymore.";
+"limeauth.recovery.react.codeheader"       = "NEW ACTIVATION CODE";
+"limeauth.recovery.react.pukHeader"        = "NEW PUK";
+"limeauth.recovery.react.warning"          = "If you'll lose your new recovery information, you won't be able to re-activate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.react.continue"         = "Continue";
+"limeauth.recovery.react.continueSeconds"  = "Continue (%@)";
+
+// on single page
+
+"limeauth.recovery.view.title"           = "Activation recovery";
+"limeauth.recovery.view.description"     = "Please write your recovery Activation code and PUK down and store it in a secure place.";
+"limeauth.recovery.view.codeheader"      = "ACTIVATION CODE";
+"limeauth.recovery.view.pukHeader"       = "PUK";
+"limeauth.recovery.view.warning"         = "If you'll lose your recovery information, you won't be able to re-activate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.view.continue"        = "OK";
+"limeauth.recovery.view.continueSeconds" = "OK (%@)";
+
+// warning alert
+
+"limeauth.recovery.screenshot.title"   = "Screenshot detected!";
+"limeauth.recovery.screenshot.message" = "Taking screenshots of the recovery codes is a potential risk. We strongly recommend deleting such a screenshot as soon as possible and not to share it with anyone.";
+"limeauth.recovery.screenshot.button"  = "I understand";
 
 // MARK: - Authentication
 
@@ -135,6 +177,8 @@
 "limeauth.op.enableTouchId.success"         = "Touch ID has been successfully enabled.";
 "limeauth.op.enableFaceId.activity"         = "Enabling Face ID support...";
 "limeauth.op.enableFaceId.success"          = "Face ID has been successfully enabled.";
+
+"limeauth.op.recovery.activity"             = "Retrieving Recovery code...";
 
 // MARK: - Errors
 

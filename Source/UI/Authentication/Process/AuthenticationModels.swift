@@ -72,6 +72,8 @@ public enum Authentication {
             public let enableTouchId_Success: String
             public let enableFaceId_Activity: String
             public let enableFaceId_Success: String
+            
+            public let recovery_Activity: String
         }
         
         public struct PassphraseStrengthStrings {
