@@ -159,6 +159,8 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        title = ""
+        
         // first presentation, ask for biometric authentication execution
         if operationExecution.willUseBiometryFirst() {
             executeOperation(biometry: true)

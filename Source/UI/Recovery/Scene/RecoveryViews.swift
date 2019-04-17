@@ -36,6 +36,7 @@ class RecoveryDisplayView: UIView {
     private var stopWatch: UIStopWatch?
     private var continueString = ""
     private var continueTimeString = ""
+    private lazy var codeFont = UIFont(name: "Menlo-Bold", size: 20)
     
     deinit {
         stopWatch?.stop()
@@ -68,6 +69,10 @@ class RecoveryDisplayView: UIView {
         warningLabel.text = strings.warning
         continueString = strings.continueButton
         continueTimeString = strings.continueButtonWithSeconds
+        
+        // Font
+        codeLabel.font = theme.recoveryScene.activationPukAndCodeFont ?? codeFont
+        pukLabel.font = theme.recoveryScene.activationPukAndCodeFont ?? codeFont
         
         // Styles
         introTextLabel.textColor = theme.recoveryScene.textColor

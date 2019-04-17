@@ -106,6 +106,7 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     private func createTF(_ sv: UIStackView) -> UITextField {
         let tf = UITextField(frame: .zero)
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.autocapitalizationType = .allCharacters
         sv.addArrangedSubview(tf)
         return tf
     }
