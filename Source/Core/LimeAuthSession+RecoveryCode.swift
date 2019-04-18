@@ -17,11 +17,15 @@
 import Foundation
 import PowerAuth2
 
+/// Class that holds information about recovery data (activation code and PUK).
 public class LimeAuthRecoveryData {
     
+    /// Activation code as provided by powerauth protocol
     public let activationCode: String
+    /// PUK as provided by powerauth protocol
     public let puk: String
     
+    /// Formatted activation code with dashes for displaying on the screen
     public var activationCodeFormatted: String {
         var code = activationCode
         if code.count == 20 {
@@ -32,6 +36,7 @@ public class LimeAuthRecoveryData {
         return code.replacingOccurrences(of: "-", with: " - ")
     }
     
+    /// Formatted PUK with one dash in the middle for displaying on the screen.
     public var pukFormatted: String {
         var code = puk
         if code.count == 10 {
@@ -48,10 +53,14 @@ public class LimeAuthRecoveryData {
 
 public extension LimeAuthSession {
     
+    /// Returns if current activation has recovery data. Recovery data are encrypted and needs to be unlocked first with
+    /// vault unlock. To get recovery data use `getActivationRecovery`.
     var hasRecoveryActivation: Bool {
         return powerAuth.hasActivationRecoveryData()
     }
-    
+
+    /// Unlocks the vault with provided authentication and retrieves the recovery data. This methdo does not check if the data exists in the first place - you
+    /// should do it with `hasRecoveryActivation` check first.
     @discardableResult
     func getActivationRecovery(authentication: PowerAuthAuthentication, completion: @escaping (LimeAuthRecoveryData?, LimeAuthError?)->Void) -> Operation {
         

@@ -59,8 +59,11 @@ public extension LimeAuthSession {
         return self.addOperationToQueue(blockOperation, serialized: true)
     }
     
-    // MARK: - Activation recovery -
+    // MARK: - Recovery Activation -
     
+    /// Creates a new activation with given name, recovery code and puk by calling a PowerAuth Standard RESTful API endpoint '/pa/activation/create'.
+    ///
+    /// This is 1st step of the activation. If this operation succeeds, then you can call `commitActivation`
     func createActivation(name: String?, extras: String?, recoveryCode: String, puk: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in

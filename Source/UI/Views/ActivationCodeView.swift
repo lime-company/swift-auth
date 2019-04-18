@@ -158,8 +158,26 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         return false
     }
     
-    private func errorBlink(textField: UITextField) {
-        // TODO: implement blink
+    private func errorBlink(textField: UITextField, count: Int = 2) {
+        
+        let duration: TimeInterval = 0.08
+        
+        textField.layer.removeAllAnimations()
+        
+        UIView.animate(withDuration: duration, animations: {
+            textField.layer.opacity = 0.5
+        }, completion: { complete in
+            guard complete else {
+                return
+            }
+            UIView.animate(withDuration: duration, animations: {
+                textField.layer.opacity = 1
+            }) { completeBack in
+                if completeBack && count > 1 {
+                    self.errorBlink(textField: textField, count: count - 1)
+                }
+            }
+        })
     }
     
     private func validateAndCorrectCharacters(_ string: String) -> (Bool, String) {

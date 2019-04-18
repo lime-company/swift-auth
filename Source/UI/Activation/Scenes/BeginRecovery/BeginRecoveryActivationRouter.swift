@@ -17,13 +17,9 @@
 import Foundation
 
 public protocol BeginRecoveryActivationRoutingLogic {
-    
     func cancelActivation()
-    
     func routeToEnterCode()
-    
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    
 }
 
 public class BeginRecoveryActivationRouter: BeginRecoveryActivationRoutingLogic, ActivationUIProcessRouter {

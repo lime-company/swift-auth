@@ -36,7 +36,7 @@ class RecoveryDisplayView: UIView {
     private var stopWatch: UIStopWatch?
     private var continueString = ""
     private var continueTimeString = ""
-    private lazy var codeFont = UIFont(name: "Menlo-Bold", size: 20)
+    private lazy var codeFont = UIFont(name: "CourierNewPS-BoldMT", size: 20)
     
     deinit {
         stopWatch?.stop()

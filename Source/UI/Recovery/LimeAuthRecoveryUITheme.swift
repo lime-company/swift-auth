@@ -36,6 +36,7 @@ public struct LimeAuthRecoveryUITheme {
         /// Continue button
         public var continueButtonStyle: ButtonStyle
         
+        /// Font for displaying Activation Code and PUK
         public var activationPukAndCodeFont: UIFont?
         
         /// How long (seconds) should be user unable to continue during activation

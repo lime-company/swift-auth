@@ -43,6 +43,7 @@ public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProce
     }
 }
 
+/// Router with closure injection for confirm routing
 public class EnableBiometryRouterWithCompletion: EnableBiometryRouter {
     
     public typealias Completion = (_ enableBiometry: Bool)->Void

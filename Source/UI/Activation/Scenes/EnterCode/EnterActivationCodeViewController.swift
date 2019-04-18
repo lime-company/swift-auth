@@ -34,10 +34,6 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         setup()
     }
     
-    public func codeChanged(code: String) {
-        confirmButton?.isEnabled = PA2OtpUtil.validateActivationCode(code)
-    }
-    
     private func setup() {
         let viewController = self
         let router = EnterActivationCodeRouter()
@@ -141,6 +137,12 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
             NotificationCenter.default.removeObserver(observer)
             keyboardObserver = nil
         }
+    }
+    
+    // MARK: - UI delegates
+    
+    public func codeChanged(code: String) {
+        confirmButton?.isEnabled = PA2OtpUtil.validateActivationCode(code)
     }
     
     // MARK: - Presentation

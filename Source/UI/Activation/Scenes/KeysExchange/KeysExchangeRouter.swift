@@ -56,16 +56,17 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
     }
     
     public func routeToNextScene() {
-        let credentials = activationProcess.credentialsProvider.credentials
-        if credentials.biometry.isSupportedOnDevice {
-            
+        
+        if activationProcess.credentialsProvider.credentials.biometry.isSupportedOnDevice {
+            // if the device supports biometry, navigate to "enable biometry screen first
             viewController?.performSegue(withIdentifier: "EnableBiometry", sender: nil)
             
         } else if activationProcess.activationData.puk != nil {
-            
+            // if this is recovery activation, commit right away - this operation is local and doesnt need remote confirm
             autoCommit()
-            
+
         } else {
+            // otherwise, just navigate and wait for confirm
             viewController?.performSegue(withIdentifier: "Confirm", sender: nil)
         }
     }
@@ -81,6 +82,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
             destinationVC = first
         }
         if activationProcess.activationData.puk != nil, let biometryVC = destinationVC as? EnableBiometryViewController {
+            // in case that we're in recoveru activation, do commit right after user selected if he wants to use biometry
             biometryVC.router = EnableBiometryRouterWithCompletion { enabled in
                 self.activationProcess.activationData.useBiometry = enabled
                 self.autoCommit()
@@ -108,6 +110,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
                 let message = self.activationProcess.uiDataProvider.uiDataForConfirmActivation.errors.passwordSetupFailure
                 self.routeToError(with: .wrap(error, string: message))
             } else {
+                // if recovery is part of the new activation, navigate to recovery screen
                 if self.activationProcess.activationData.createActivationResult?.activationRecovery != nil {
                     self.viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
                 } else {

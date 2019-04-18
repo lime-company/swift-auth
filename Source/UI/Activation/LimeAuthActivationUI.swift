@@ -35,7 +35,9 @@ public class LimeAuthActivationUI {
         
         // RECOVERY ACTIVATION
         
+        /// Activation UI flow will begin in initial recovery scene. The provided session must be empty.
         case recoveryInitial
+        /// Activation UI flow will begin in entering recovery code scene. The provided session must be empty.
         case recoveryEnterCode
         
         // OTHER
@@ -83,8 +85,8 @@ public class LimeAuthActivationUI {
             controller = uiProvider.instantiateRecoveryInitialScene()
         case .recoveryEnterCode:
             controller = uiProvider.instantiateRecoveryEnterCodeScene()
-        default:
-            D.fatalError()    // shold never happen
+        case .default:
+            D.fatalError("Flow error") // this should never happened
         }
         
         // Connect objects...

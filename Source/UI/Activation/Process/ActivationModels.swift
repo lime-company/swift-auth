@@ -29,7 +29,7 @@ public enum Activation {
         
         public var activationCode: String?
         
-        public var puk: String?
+        public var puk: String? // needed for activation via recovery
         
         public var createActivationResult: PA2ActivationResult?
         

@@ -60,7 +60,6 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self)
     }
     

@@ -34,7 +34,9 @@ class UIStopWatch {
                 return
             }
             if let started = this.started {
-                callback(Date().timeIntervalSince(started))
+                DispatchQueue.main.async {
+                    callback(Date().timeIntervalSince(started))
+                }
             }
         }
     }
@@ -44,5 +46,4 @@ class UIStopWatch {
         timer = nil
         started = nil
     }
-    
 }

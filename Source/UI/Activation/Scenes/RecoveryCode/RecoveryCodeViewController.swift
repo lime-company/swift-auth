@@ -35,13 +35,22 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Lets reuse the RecoveryViewController to display data
+        
         let vc = uiRecoveryProvider.instantiateRecoveryController()
         guard let recoveryData = router.activationProcess.activationData.createActivationResult?.activationRecovery else {
             D.fatalError("recovery data expected here")
         }
-        vc.setup(withData: LimeAuthRecoveryData(activationCode: recoveryData.recoveryCode, puk: recoveryData.puk), uiProvider: uiRecoveryProvider, context: .activation) { [weak self] _ in
+        
+        let rData = LimeAuthRecoveryData(activationCode: recoveryData.recoveryCode, puk: recoveryData.puk)
+        let isReactivation = router.activationProcess.activationData.puk != nil
+        
+        vc.setup(withData: rData, uiProvider: uiRecoveryProvider, context: isReactivation ? .reactivation : .activation) { [weak self] _ in
             self?.router.routeToSuccess()
         }
+        
+        // embed the recovery code controller into this one
         addChild(vc)
         view.addSubview(vc.view)
         vc.didMove(toParent: self)
@@ -65,17 +74,9 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
         router?.prepare(for: segue, sender: sender)
     }
     
-    // MARK: Views delegate (actions)
+    // MARK: Actions
     
     func continueAction() {
         router?.routeToSuccess()
-    }
-    
-    func laterAction() {
-        router?.routeToSuccess()
-    }
-    
-    func tryAgainAction() {
-        //getRecoveryCode()
     }
 }
