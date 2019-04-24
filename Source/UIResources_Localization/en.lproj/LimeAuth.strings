@@ -178,7 +178,7 @@
 "limeauth.op.enableFaceId.activity"         = "Enabling Face ID support...";
 "limeauth.op.enableFaceId.success"          = "Face ID has been successfully enabled.";
 
-"limeauth.op.recovery.activity"             = "Retrieving Recovery code...";
+"limeauth.op.recovery.activity"             = "Retrieving recovery data...";
 
 // MARK: - Errors
 
