@@ -527,8 +527,8 @@
                                     <action selector="continueAction:" destination="i2l-Yo-Zrg" eventType="touchUpInside" id="ZI7-ZO-lxO"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o3W-G5-fqt" userLabel="Top">
-                                <rect key="frame" x="16" y="84" width="343" height="237"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="o3W-G5-fqt" userLabel="Top">
+                                <rect key="frame" x="16" y="84" width="343" height="207"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište kod obnovy, ktery jste si ulozili pri predchozi aktivaci." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-zC-GiU">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="38.5"/>
@@ -537,20 +537,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="prD-DU-LDY" customClass="ActivationCodeView" customModule="LimeAuth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="58.5" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="343" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="afterFilledResponder" destination="DkZ-Il-q7n" id="x44-jR-KjI"/>
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím přepište PUK, ktery jste si opsali pri predchozi aktivaci." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-KK-Ct6">
-                                        <rect key="frame" x="0.0" y="128.5" width="343" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="108.5" width="343" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="DkZ-Il-q7n" userLabel="Puk View" customClass="PukView" customModule="LimeAuth">
-                                        <rect key="frame" x="0.0" y="187" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="157" width="343" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -583,6 +583,7 @@
                         <outlet property="confirmButton" destination="Opn-SX-mJk" id="9gV-JE-5pz"/>
                         <outlet property="pukLabel" destination="DbV-KK-Ct6" id="Eiw-tp-4pM"/>
                         <outlet property="pukView" destination="DkZ-Il-q7n" id="Q9o-4L-XTZ"/>
+                        <outlet property="stackView" destination="o3W-G5-fqt" id="kWn-Kf-HIi"/>
                         <segue destination="xao-2H-SKp" kind="show" identifier="RecoveryKeyExchange" id="iqc-eg-Ntz"/>
                     </connections>
                 </viewController>

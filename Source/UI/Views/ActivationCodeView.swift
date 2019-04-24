@@ -79,6 +79,8 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         addConstraint(sv.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1))
         addConstraint(sv.heightAnchor.constraint(equalToConstant: 44))
         addConstraint(sv.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1))
+        addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
+        addConstraint(sv.centerYAnchor.constraint(equalTo: centerYAnchor))
         
         for field in fields {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.height))
@@ -107,6 +109,7 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         let tf = UITextField(frame: .zero)
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.autocapitalizationType = .allCharacters
+        tf.autocorrectionType = .no
         sv.addArrangedSubview(tf)
         return tf
     }

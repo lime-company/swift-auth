@@ -72,9 +72,10 @@ public class PukView: UIView, UITextFieldDelegate {
         
         addSubview(sv)
         addConstraint(sv.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5))
-        addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
         addConstraint(sv.heightAnchor.constraint(equalToConstant: 44))
         addConstraint(sv.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1))
+        addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
+        addConstraint(sv.centerYAnchor.constraint(equalTo: centerYAnchor))
         
         for field in fields {
             let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.height))
@@ -110,6 +111,7 @@ public class PukView: UIView, UITextFieldDelegate {
     private func createTF(_ sv: UIStackView) -> UITextField {
         let tf = UITextField(frame: .zero)
         tf.keyboardType = .numberPad
+        tf.autocorrectionType = .no
         tf.translatesAutoresizingMaskIntoConstraints = false
         sv.addArrangedSubview(tf)
         return tf

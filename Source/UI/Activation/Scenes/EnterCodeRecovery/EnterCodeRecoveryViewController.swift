@@ -26,6 +26,7 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     @IBOutlet weak var pukLabel: UILabel!
     @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
     @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
+    @IBOutlet weak var stackView: UIStackView!
     
     public var router: (ActivationUIProcessRouter & EnterCodeRecoveryRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
@@ -49,6 +50,11 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         codeView.delegate = self
         pukView.delegate = self
         confirmButton.isEnabled = false
+        if LayoutHelper.phoneScreenSize == .small || LayoutHelper.phoneScreenSize == .verySmall {
+            stackView.spacing = 12
+        } else {
+            stackView.spacing = 20
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
