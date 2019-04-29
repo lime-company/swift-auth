@@ -41,7 +41,7 @@ public extension LimeAuthRecoveryUI {
         
         // UIRequest
         var uiRequest = Authentication.UIRequest()
-        uiRequest.options = [ .usePossession, .allowBiometryFactor ]
+        uiRequest.options = [ .usePossession ]
         let prompt = credentials.password.type == .password ? opStrings.changePassword_PromptPassword : opStrings.changePassword_PromptPin
         uiRequest.prompts.keyboardPrompt = prompt
         uiRequest.prompts.activityMessage = opStrings.recovery_Activity
