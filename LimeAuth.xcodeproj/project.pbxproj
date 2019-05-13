@@ -773,7 +773,7 @@
 		DC29187E225F3B0200001478 /* Recovery */ = {
 			isa = PBXGroup;
 			children = (
-				DC291888225F417600001478 /* Scene */,
+				DC291888225F417600001478 /* Scenes */,
 				DC291893225F853F00001478 /* LimeAuthRecoveryUI.swift */,
 				DC291886225F3D6600001478 /* LimeAuthRecoveryUITheme.swift */,
 				DCF62CB7225E106E0012EB0C /* RecoveryModels.swift */,
@@ -792,13 +792,13 @@
 			path = Recovery;
 			sourceTree = "<group>";
 		};
-		DC291888225F417600001478 /* Scene */ = {
+		DC291888225F417600001478 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				DC291889225F418A00001478 /* RecoveryViewController.swift */,
 				DCF62CB6225E106E0012EB0C /* RecoveryViews.swift */,
 			);
-			path = Scene;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		DC291895226084A400001478 /* BeginRecovery */ = {

@@ -85,30 +85,30 @@
 // during activation
 
 "limeauth.recovery.act.title"           = "Activation Recovery data";
-"limeauth.recovery.act.description"     = "Please write your recovery Activation Code and PUK down and store it in a secure place.";
+"limeauth.recovery.act.description"     = "Please write down your recovery Activation Code and PUK and store it in a secure place.";
 "limeauth.recovery.act.codeheader"      = "ACTIVATION CODE";
 "limeauth.recovery.act.pukHeader"       = "PUK";
-"limeauth.recovery.act.warning"         = "If you'll lose your recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.act.warning"         = "If you lose your recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
 "limeauth.recovery.act.continue"        = "Continue";
 "limeauth.recovery.act.continueSeconds" = "Continue (%@)";
 
 // during reactivation
 
 "limeauth.recovery.react.title"            = "New Activation Recovery data";
-"limeauth.recovery.react.description"      = "Please write your new recovery Activation Code and PUK down and store it in a secure place. The code and PUK you just used won't work anymore.";
+"limeauth.recovery.react.description"      = "Please write down your new recovery Activation Code and PUK and store it in a secure place. The code and PUK you just used won't work anymore.";
 "limeauth.recovery.react.codeheader"       = "NEW ACTIVATION CODE";
 "limeauth.recovery.react.pukHeader"        = "NEW PUK";
-"limeauth.recovery.react.warning"          = "If you'll lose your new recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.react.warning"          = "If you lose your new recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
 "limeauth.recovery.react.continue"         = "Continue";
 "limeauth.recovery.react.continueSeconds"  = "Continue (%@)";
 
 // on single page
 
 "limeauth.recovery.view.title"           = "Activation Recovery data";
-"limeauth.recovery.view.description"     = "Please write your recovery Activation Code and PUK down and store it in a secure place.";
+"limeauth.recovery.view.description"     = "Please write down your recovery Activation Code and PUK and store it in a secure place.";
 "limeauth.recovery.view.codeheader"      = "ACTIVATION CODE";
 "limeauth.recovery.view.pukHeader"       = "PUK";
-"limeauth.recovery.view.warning"         = "If you'll lose your recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
+"limeauth.recovery.view.warning"         = "If you lose your recovery data, you won't be able to reactivate again on a new device. In such a case, you will need to visit us at one of our branches.";
 "limeauth.recovery.view.continue"        = "OK";
 "limeauth.recovery.view.continueSeconds" = "OK (%@)";
 

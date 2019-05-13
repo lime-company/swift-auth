@@ -54,7 +54,7 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         super.viewDidAppear(animated)
         
         if uiProvider.uiDataProvider.uiTheme.recoveryScene.warnUserAboutScreenshot {
-            NotificationCenter.default.addObserver(self, selector: #selector(useDidTakeScreenshot), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(userDidTakeScreenshot), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
         }
     }
     
@@ -79,7 +79,7 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         displayView.showRecoveryCode(recoveryData, withWaitingCountdown: showCountdownDelay)
     }
     
-    @objc private func useDidTakeScreenshot() {
+    @objc private func userDidTakeScreenshot() {
         let alert = UIAlertController(title: uiProvider.uiDataProvider.screenshotAlertStrings.title, message: uiProvider.uiDataProvider.screenshotAlertStrings.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: uiProvider.uiDataProvider.screenshotAlertStrings.button, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
