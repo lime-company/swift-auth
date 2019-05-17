@@ -21,17 +21,32 @@ public class LimeAuthActivationUI {
     
     public enum EntryScene {
         /// Start of activation UI flow is determined by state of the session. If session has activation
-        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `initial`
+        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `selfActivationInitial`
         case `default`
+        
+        // SELF ACTIVATION
+        
         /// Activation UI flow will begin in initial scene. The provided session must be empty.
-        case initial
+        case selfActivationInitial
         /// Activation UI flow will begin in QR code scanner. The provided session must be empty.
-        case scanCode
+        case selfActivationScanCode
         /// Activation UI flow will begin in entering activation scene. The provided session must be empty.
-        case enterCode
+        case selfActivationEnterCode
+        
+        // RECOVERY ACTIVATION
+        
+        /// Activation UI flow will begin in initial recovery scene. The provided session must be empty.
+        case recoveryInitial
+        /// Activation UI flow will begin in entering recovery code scene. The provided session must be empty.
+        case recoveryEnterCode
+        
+        // OTHER
+        
         /// Activation UI flow will begin in confirmation cene. The provided session contain valid activation in `otp_Used` state.
         case confirmation
     }
+    
+    public typealias CompletionClosure = (_ result: Activation.Result, _ finalController: UIViewController?)->Void
     
     /// Entry scene. You can adjust this variable before you invoke UI construction.
     public var entryScene: EntryScene
@@ -40,11 +55,11 @@ public class LimeAuthActivationUI {
     private let activationProcess: ActivationUIProcess
     
     /// Completion closure
-    private var completion: ((Activation.Result, UIViewController?)->Void)?
+    private var completion: CompletionClosure?
     
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping (Activation.Result, UIViewController?)->Void ) {
-        self.activationProcess = ActivationUIProcess(session: session, uiProvider: uiProvider, credentialsProvider: credentialsProvider)
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping CompletionClosure) {
+        self.activationProcess = ActivationUIProcess(session: session, uiProvider: uiProvider, uiRecoveryProvider: uiRecoveryProvider, credentialsProvider: credentialsProvider)
         self.completion = completion
         self.entryScene = .default
     }
@@ -58,16 +73,20 @@ public class LimeAuthActivationUI {
         let uiProvider = activationProcess.uiProvider
         var controller: UIViewController & ActivationUIProcessController
         switch entryScene {
-        case .initial:
+        case .selfActivationInitial:
             controller = uiProvider.instantiateInitialScene()
-        case .enterCode:
+        case .selfActivationEnterCode:
             controller = uiProvider.instantiateEnterCodeScene()
-        case .scanCode:
+        case .selfActivationScanCode:
             controller = uiProvider.instantiateScanCodeScene()
         case .confirmation:
             controller = controllerForRecoveryFromBrokenActivation()
-        default:
-            D.fatalError()    // shold never happen
+        case .recoveryInitial:
+            controller = uiProvider.instantiateRecoveryInitialScene()
+        case .recoveryEnterCode:
+            controller = uiProvider.instantiateRecoveryEnterCodeScene()
+        case .default:
+            D.fatalError("Flow error") // this should never happened
         }
         
         // Connect objects...
@@ -132,18 +151,22 @@ public class LimeAuthActivationUI {
             if hasActivation && hasOtpUsed {
                 entryScene = .confirmation
             } else if canStartActivation {
-                entryScene = .initial
+                entryScene = .selfActivationInitial
             } else {
                 wrongState = true
             }
-        case .initial:
+        case .selfActivationInitial:
             wrongState = !canStartActivation
-        case .scanCode:
+        case .selfActivationScanCode:
             wrongState = !canStartActivation
-        case .enterCode:
+        case .selfActivationEnterCode:
             wrongState = !canStartActivation
         case .confirmation:
             wrongState = !hasOtpUsed
+        case .recoveryInitial:
+            wrongState = !canStartActivation
+        case .recoveryEnterCode:
+            wrongState = !canStartActivation
         }
         // Throw error if we cannot process scene for current session's state
         if wrongState {

@@ -20,14 +20,18 @@ import LimeCore
 public extension LimeAuthActivationUI {
     
     static func defaultResourcesProvider(activationTheme: LimeAuthActivationUITheme? = nil,
-                                                authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
-                                                localizationProvider: GenericLocalizationProvider? = nil,
-                                                bundle: Bundle? = nil) -> ActivationUIProvider {
-        let activationUIProvider = DefaultActivationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider) { () -> AuthenticationUIProvider in
-            let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider)
-            authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
-            return authenticationUIProvider
-        }
+                                         authenticationTheme: LimeAuthAuthenticationUITheme? = nil,
+                                         localizationProvider: GenericLocalizationProvider? = nil,
+                                         bundle: Bundle? = nil,
+                                         recoveryClosure: @escaping @autoclosure ()->RecoveryUIProvider) -> ActivationUIProvider {
+        let activationUIProvider = DefaultActivationResourcesProvider(
+            bundle: bundle,
+            localizationProvider: localizationProvider,
+            authenticationUIProviderClosure: { () -> AuthenticationUIProvider in
+                let authenticationUIProvider = DefaultAuthenticationResourcesProvider(bundle: bundle, localizationProvider: localizationProvider, recoveryClosure: recoveryClosure())
+                authenticationUIProvider.loadTheme(theme: authenticationTheme ?? .defaultLightTheme())
+                return authenticationUIProvider
+            })
         activationUIProvider.loadTheme(theme: activationTheme ?? .defaultLightTheme())
         return activationUIProvider
     }
@@ -42,7 +46,8 @@ public extension LimeAuthActivationUITheme.Illustrations {
             noCameraScene: .named("il-no-camera-scene", bundle: bundle),
             enableBiometryScene: .named("il-enable-biometry-scene", bundle: bundle),
             confirmScene: .named("il-confirm-scene", bundle: bundle),
-            errorScene: .named("il-error-scene", bundle: bundle)
+            errorScene: .named("il-error-scene", bundle: bundle),
+            beginRecoveryScene: .named("il-begin-recovery-scene", bundle: bundle)
         )
     }
     

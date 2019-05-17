@@ -18,11 +18,15 @@ import UIKit
 import LimeCore
 
 public protocol ActivationUIProvider: class {
-    
+    // self activation
     func instantiateInitialScene() -> BeginActivationViewController
-    func instantiateConfirmScene() -> ConfirmActivationViewController
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    func instantiateConfirmScene() -> ConfirmActivationViewController
+    // recovery activation
+    func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController
+    func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController
+    // other
     func instantiateErrorScene() -> ErrorActivationViewController
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
     
@@ -36,13 +40,20 @@ public protocol ActivationUIDataProvider: class {
     var uiTheme: LimeAuthActivationUITheme { get }
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     
+    // self-activation strings
     var uiDataForBeginActivation: BeginActivation.UIData { get }
     var uiDataForNoCameraAccess: NoCameraAccess.UIData { get }
     var uiDataForEnterActivationCode: EnterActivationCode.UIData { get }
     var uiDataForScanActivationCode: ScanActivationCode.UIData { get }
+    var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
+    
+    // recovery activation strings
+    var uiDataForBeginRecoveryActivation: BeginRecoveryActivation.UIData { get}
+    var uiDataForEnterCodeRecovery: EnterCodeRecovery.UIData { get }
+    
+    // common strings
     var uiDataForKeysExchange: KeysExchange.UIData { get }
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
-    var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
 }
 
@@ -59,6 +70,7 @@ public class ActivationUIProcess {
     
     public let session: LimeAuthSession
     public let uiProvider: ActivationUIProvider
+    public let uiRecoveryProvider: RecoveryUIProvider
     public let uiDataProvider: ActivationUIDataProvider
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
@@ -69,10 +81,11 @@ public class ActivationUIProcess {
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
         self.session = session
         self.uiProvider = uiProvider
         self.uiDataProvider = uiProvider.uiDataProvider
+        self.uiRecoveryProvider = uiRecoveryProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
     }

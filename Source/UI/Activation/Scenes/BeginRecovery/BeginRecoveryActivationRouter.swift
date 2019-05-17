@@ -1,5 +1,5 @@
 //
-// Copyright 2018 Wultra s.r.o.
+// Copyright 2019 Wultra s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,22 +14,25 @@
 // and limitations under the License.
 //
 
-import UIKit
+import Foundation
 
-public protocol EnableBiometryRoutingLogic {
-    func routeToConfirm(withBiometryEnabled enabled: Bool)
+public protocol BeginRecoveryActivationRoutingLogic {
+    func cancelActivation()
+    func routeToEnterCode()
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProcessRouter {
+public class BeginRecoveryActivationRouter: BeginRecoveryActivationRoutingLogic, ActivationUIProcessRouter {
     
+    public weak var viewController: BeginRecoveryActivationViewController?
     public var activationProcess: ActivationUIProcess!
-    public weak var viewController: EnableBiometryViewController?
     
+    public func routeToEnterCode() {
+        viewController?.performSegue(withIdentifier: "RecoveryEnterCode", sender: nil)
+    }
     
-    public func routeToConfirm(withBiometryEnabled enabled: Bool) {
-        activationProcess.activationData.useBiometry = enabled
-        viewController?.performSegue(withIdentifier: "Confirm", sender: nil)
+    public func cancelActivation() {
+        activationProcess?.cancelActivation(controller: viewController)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,21 +43,5 @@ public class EnableBiometryRouter: EnableBiometryRoutingLogic, ActivationUIProce
         if let activationVC = destinationVC as? ActivationUIProcessController {
             activationVC.connect(activationProcess: activationProcess)
         }
-    }
-}
-
-/// Router with closure injection for confirm routing
-public class EnableBiometryRouterWithCompletion: EnableBiometryRouter {
-    
-    public typealias Completion = (_ enableBiometry: Bool)->Void
-    
-    private let completion: Completion
-    
-    public init(confirmCompletion: @escaping Completion) {
-        self.completion = confirmCompletion
-    }
-    
-    public override func routeToConfirm(withBiometryEnabled enabled: Bool) {
-        completion(enabled)
     }
 }

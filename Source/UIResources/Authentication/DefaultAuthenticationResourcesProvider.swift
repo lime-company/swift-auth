@@ -23,14 +23,20 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
     public let localization: GenericLocalizationProvider
     public lazy var actionFeedback: LimeAuthActionFeedback? = LimeAuthActionFeedback()
     
-    public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?) {
+    public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?, recoveryClosure: @escaping @autoclosure ()->RecoveryUIProvider) {
         self.bundle = bundle ?? .limeAuthResourcesBundle
         self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
+        self.recoveryUIProviderClosure = recoveryClosure
     }
     
     private var storyboard: UIStoryboard {
         return UIStoryboard(name: "Authentication", bundle: bundle)
     }
+    
+    private let recoveryUIProviderClosure: ()->RecoveryUIProvider
+    public lazy var recoveryUIProvider: RecoveryUIProvider = {
+        return recoveryUIProviderClosure()
+    }()
     
     //
     
@@ -112,7 +118,9 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             enableTouchId_Activity: localization.localizedString("limeauth.op.enableTouchId.activity"),
             enableTouchId_Success: localization.localizedString("limeauth.op.enableTouchId.success"),
             enableFaceId_Activity: localization.localizedString("limeauth.op.enableFaceId.activity"),
-            enableFaceId_Success: localization.localizedString("limeauth.op.enableFaceId.success")
+            enableFaceId_Success: localization.localizedString("limeauth.op.enableFaceId.success"),
+            
+            recovery_Activity: localization.localizedString("limeauth.op.recovery.activity")
         )
     }()
     

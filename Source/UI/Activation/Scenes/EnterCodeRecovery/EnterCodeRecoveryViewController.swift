@@ -1,5 +1,5 @@
 //
-// Copyright 2018 Wultra s.r.o.
+// Copyright 2019 Wultra s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,12 +17,23 @@
 import UIKit
 import PowerAuth2
 
-open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, ActivationCodeDelegate {
-
-    public var router: (ActivationUIProcessRouter & EnterActivationCodeRoutingLogic)?
+open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, ActivationCodeDelegate, PukViewDelegate {
+    
+    @IBOutlet weak var codeView: ActivationCodeView!
+    @IBOutlet weak var pukView: PukView!
+    @IBOutlet weak var confirmButton: PrimaryWizardButton!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var pukLabel: UILabel!
+    @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
+    @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
+    @IBOutlet weak var stackView: UIStackView!
+    
+    public var router: (ActivationUIProcessRouter & EnterCodeRecoveryRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     
-    // MARK: - Object lifecycle
+    private var bottomSafeArea: CGFloat = 0.0
+    
+    // MARK: - lifecycle
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -34,22 +45,16 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         setup()
     }
     
-    private func setup() {
-        let viewController = self
-        let router = EnterActivationCodeRouter()
-        router.viewController = self
-        viewController.router = router
-    }
-    
-    deinit {
-        unregisterForKeyboardNotifications()
-    }
-    
-    // MARK: - View lifecycle
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        confirmButton?.isEnabled = false
+        codeView.delegate = self
+        pukView.delegate = self
+        confirmButton.isEnabled = false
+        if LayoutHelper.phoneScreenSize == .small || LayoutHelper.phoneScreenSize == .verySmall {
+            stackView.spacing = 12
+        } else {
+            stackView.spacing = 20
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -72,13 +77,28 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         }
     }
     
-    open override func configureController() {
-        guard let _ = router?.activationProcess else {
-            D.fatalError("EnterActivationCodeViewController is not configured properly.")
-        }
+    open override func prepareUI() {
+        
+        let strings = uiDataProvider.uiDataForEnterCodeRecovery.strings
+        let commonStrings = uiDataProvider.uiCommonStrings
+        let theme = uiDataProvider.uiTheme
+        
+        title = strings.sceneTitle
+        cancelButtonItem.title = commonStrings.cancelTitle
+        codeLabel.text = strings.codeDescription
+        pukLabel.text = strings.pukDescription
+        confirmButton.setTitle(strings.confirmButton, for: .normal)
+        
+        configureBackground(image: nil, color: theme.common.backgroundColor)
+        codeLabel.textColor = theme.common.textColor
+        pukLabel.textColor = theme.common.textColor
+        confirmButton?.applyButtonStyle(theme.buttons.primary)
+        
+        codeView.prepareComponent(uiDataProvider: uiDataProvider)
+        pukView.prepareComponent(uiDataProvider: uiDataProvider)
     }
     
-    // MARK: - Routing
+    // MARK: - routing
     
     open func connect(activationProcess process: ActivationUIProcess) {
         router?.activationProcess = process
@@ -87,29 +107,6 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.prepare(for: segue, sender: sender)
-    }
-    
-    
-    // MARK: - Interactions
-    
-    @IBAction func cancelAction(_ sender: Any) {
-        cancel()
-    }
-    
-    @IBAction func confirmAction(_ sender: Any) {
-        confirm()
-    }
-    
-    public func cancel() {
-        router?.routeToPreviousScene()
-    }
-    
-    public func confirm() {
-        let code = activationCodeView.buildCode()
-        guard PA2OtpUtil.validateActivationCode(code) else {
-            return
-        }
-        router?.routeToKeyExchange(activationCode: code)
     }
     
     // MARK: - Keyboard handling
@@ -131,7 +128,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
             }
         }
     }
-
+    
     private func unregisterForKeyboardNotifications() {
         if let observer = keyboardObserver {
             NotificationCenter.default.removeObserver(observer)
@@ -139,47 +136,40 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         }
     }
     
-    // MARK: - UI delegates
+    // MARK: - Actions
     
-    public func codeChanged(code: String) {
-        confirmButton?.isEnabled = PA2OtpUtil.validateActivationCode(code)
+    @IBAction func continueAction(_ sender: UIButton) {
+        let code = codeView.buildCode()
+        let puk = pukView.buildPUK()
+        router.routeToKeyExchange(activationCode: code, puk: puk)
     }
     
-    // MARK: - Presentation
+    @IBAction func cancelAction(_ sender: Any) {
+        router.routeToCancel()
+    }
     
-    @IBOutlet weak var hintLabel: UILabel!
-    @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
-    @IBOutlet weak var confirmButton: UIButton?
-    @IBOutlet weak var activationCodeView: ActivationCodeView!
+    // MARK: - Delegating
     
-    @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
+    public func pukChanged(puk: String) {
+        validateInfo()
+    }
     
-    var bottomSafeArea: CGFloat = 0.0
-
-    var textFieldDefaultColor: UIColor?
-    var textFieldBlinkColor: UIColor?
+    public func codeChanged(code: String) {
+        validateInfo()
+    }
     
-    // MARK: -
+    // MARK: - helpers
     
-    open override func prepareUI() {
-        let uiData = uiDataProvider.uiDataForEnterActivationCode
-        let commonStrings = uiDataProvider.uiCommonStrings
-        let theme = uiDataProvider.uiTheme
-        
-        // Apply texts & images
-        self.title = uiData.strings.sceneTitle
-        hintLabel?.text = uiData.strings.sceneDescription
-        confirmButton?.setTitle(uiData.strings.confirmButton, for: .normal)
-        cancelButtonItem.title = commonStrings.cancelTitle
-
-        // Apply themes
-        
-        // background should be clear color - no image
-        configureBackground(image: nil, color: theme.common.backgroundColor)
-        hintLabel?.textColor = theme.common.textColor
-        confirmButton?.applyButtonStyle(theme.buttons.primary)
-        
-        // Prepare text fields
-        activationCodeView.prepareComponent(uiDataProvider: uiDataProvider)
+    private func setup() {
+        let viewController = self
+        let router = EnterCodeRecoveryRouter()
+        router.viewController = self
+        viewController.router = router
+    }
+    
+    private func validateInfo() {
+        let code = codeView.buildCode()
+        let puk = pukView.buildPUK()
+        confirmButton.isEnabled = PA2OtpUtil.validateRecoveryCode(code) && PA2OtpUtil.validateRecoveryPuk(puk)
     }
 }

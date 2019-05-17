@@ -22,7 +22,10 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public let bundle: Bundle
     public let localization: GenericLocalizationProvider
     
-    public init(bundle: Bundle? = nil, localizationProvider: GenericLocalizationProvider?, authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
+    public init(
+        bundle: Bundle? = nil,
+        localizationProvider: GenericLocalizationProvider?,
+        authenticationUIProviderClosure: @escaping ()->AuthenticationUIProvider) {
         self.bundle = bundle ?? .limeAuthResourcesBundle
         self.localization = localizationProvider ?? SystemLocalizationProvider(tableName: "LimeAuth", bundle: .limeAuthResourcesBundle)
         self.authenticationUIProviderClosure = authenticationUIProviderClosure
@@ -30,6 +33,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     
     
     // MARK: - LimeAuthActivationUIProvider
+    
+    // Self-activation
     
     public func instantiateInitialScene() -> BeginActivationViewController {
         guard let controller = storyboard.instantiateInitialViewController() as? BeginActivationViewController else {
@@ -55,6 +60,22 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     public func instantiateEnterCodeScene() -> EnterActivationCodeViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "EnterCode") as? EnterActivationCodeViewController else {
             D.fatalError("Cannot instantiate EnterCode scene")
+        }
+        return controller
+    }
+    
+    // Recovery-activation
+    
+    func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecoveryBegin") as? BeginRecoveryActivationViewController else {
+            D.fatalError("Cannot instantiate RecoveryBegin scene")
+        }
+        return controller
+    }
+    
+    func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecoveryCodeEnter") as? EnterCodeRecoveryViewController else {
+            D.fatalError("Cannot instantiate RecoveryCodeEnter scene")
         }
         return controller
     }
@@ -189,6 +210,23 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             )
         )
     }()
+    
+    public lazy var uiDataForBeginRecoveryActivation = BeginRecoveryActivation.UIData(
+        strings: BeginRecoveryActivation.UIData.Strings(
+            sceneTitle: localization.localizedString("limeauth.act.beginRec.title"),
+            sceneDescription: localization.localizedString("limeauth.act.beginRec.description"),
+            continueButton: localization.localizedString("limeauth.act.beginRec.continue")
+        )
+    )
+    
+    public lazy var uiDataForEnterCodeRecovery = EnterCodeRecovery.UIData(
+        strings: EnterCodeRecovery.UIData.Strings(
+            sceneTitle: localization.localizedString("limeauth.act.enterRecovery.title"),
+            codeDescription: localization.localizedString("limeauth.act.enterRecovery.codeDesc"),
+            pukDescription: localization.localizedString("limeauth.act.enterRecovery.pukDesc"),
+            confirmButton: localization.localizedString("limeauth.act.enterRecovery.confirm")
+        )
+    )
 
     public func loadTheme(theme: LimeAuthActivationUITheme) {
         
