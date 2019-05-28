@@ -44,6 +44,11 @@ public struct LimeAuthRecoveryUITheme {
         /// If user should be informed that screenshots are bad in this case
         public var warnUserAboutScreenshot = true
         
+        /// Background color
+        public var backgroundColor: UIColor?
+        /// Background image
+        public var backgroundImage: LazyUIImage?
+        
         public init(
             titleColor: UIColor,
             textColor: UIColor,
@@ -54,7 +59,9 @@ public struct LimeAuthRecoveryUITheme {
             errorTitleColor: UIColor,
             continueButtonStyle: ButtonStyle,
             skipButton: ButtonStyle,
-            errorButton: ButtonStyle) {
+            errorButton: ButtonStyle,
+            backgroundColor: UIColor?,
+            backgroundImage: LazyUIImage?) {
             
             self.titleColor = titleColor
             self.textColor = textColor
@@ -63,6 +70,8 @@ public struct LimeAuthRecoveryUITheme {
             self.activationCodeColor = activationCodeColor
             self.pukColor = pukColor
             self.continueButtonStyle = continueButtonStyle
+            self.backgroundColor = backgroundColor
+            self.backgroundImage = backgroundImage
         }
     }
     

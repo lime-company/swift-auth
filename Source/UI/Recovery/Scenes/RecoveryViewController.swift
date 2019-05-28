@@ -73,8 +73,11 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         case .standalone: strings = uiProvider.uiDataProvider.standaloneStrings
         }
         
+        let recoveryScene = uiProvider!.uiDataProvider.uiTheme.recoveryScene
+        configureBackground(image: recoveryScene.backgroundImage, color: recoveryScene.backgroundColor)
+        
         titleLabel.text = strings.sceneTitle
-        titleLabel.textColor = uiProvider.uiDataProvider.uiTheme.recoveryScene.titleColor
+        titleLabel.textColor = recoveryScene.titleColor
         displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
         displayView.showRecoveryCode(recoveryData, withWaitingCountdown: showCountdownDelay)
     }

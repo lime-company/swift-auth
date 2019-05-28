@@ -40,7 +40,9 @@ public extension LimeAuthRecoveryUITheme {
             errorTitleColor: .red,
             continueButtonStyle: activation.buttons.primary,
             skipButton: activation.buttons.secondary,
-            errorButton: activation.buttons.destructive
+            errorButton: activation.buttons.destructive,
+            backgroundColor: activation.common.backgroundColor,
+            backgroundImage: activation.common.backgroundImage
         ))
     }
     
@@ -58,7 +60,9 @@ public extension LimeAuthRecoveryUITheme {
             errorTitleColor: .red,
             continueButtonStyle: activation.buttons.primary,
             skipButton: activation.buttons.secondary,
-            errorButton: activation.buttons.destructive
+            errorButton: activation.buttons.destructive,
+            backgroundColor: activation.common.backgroundColor,
+            backgroundImage: activation.common.backgroundImage
         ))
     }
 }
