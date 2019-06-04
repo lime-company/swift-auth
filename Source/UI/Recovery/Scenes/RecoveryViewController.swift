@@ -29,7 +29,6 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     
     var showCountdownDelay = true
     
-    private var isRecoveryLoading = false
     private var uiProvider: RecoveryUIProvider!
     private var finishedCallback: FinishedCallback!
     private var displayContext: DisplayContext!
@@ -37,7 +36,6 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     
     @IBOutlet private weak var displayView: RecoveryDisplayView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
     public func setup(withData data: LimeAuthRecoveryData, uiProvider: RecoveryUIProvider, context: DisplayContext, finishedCallback: @escaping FinishedCallback) {
         guard self.uiProvider == nil else {
