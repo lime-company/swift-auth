@@ -142,7 +142,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
     
     private func waitForActivationConfirmation() {
         statusAttempts = statusAttempts + 1
-        if statusAttempts == 5 {
+        if statusAttempts == router.activationProcess.uiDataProvider.uiDataForConfirmActivation.other.statusCheckCountBeforeCancelButton {
             UIView.animate(withDuration: 0.33) {
                 self.removeActivationButton?.alpha = 1
             }

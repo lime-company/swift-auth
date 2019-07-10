@@ -198,7 +198,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 activationBlocked: localization.localizedString("limeauth.err.activation.blocked"),
                 passwordSetupFailure: localization.localizedString("limeauth.err.activation.pinSetupFailure"),
                 recoveryFailure: localization.localizedString("limeauth.err.activation.recoveryFailure")
-            )
+            ),
+            other: ConfirmActivation.UIData.Other(statusCheckCountBeforeCancelButton: 5)
         )
     }()
     
