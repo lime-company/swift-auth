@@ -371,6 +371,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         passwordTextField.returnKeyType = .send
         passwordTextField.isSecureTextEntry = true
         passwordTextField.clearButtonMode = .never
+        passwordTextField.autocorrectionType = .no
         (passwordTextField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
         
         roundCornersView.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
