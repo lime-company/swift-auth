@@ -300,7 +300,9 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
             (textField as? TextFieldWithInset)?.textContentInset = CGPoint(x: 12, y: 0)
         }
         password1TextField.returnKeyType = .next
+        password1TextField.autocorrectionType = .no
         password2TextField.returnKeyType = .send
+        password2TextField.autocorrectionType = .no
         
         // keep tint in accessory view
         self.keyboardAccessoryView.tintColor = self.view.tintColor
