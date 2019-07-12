@@ -30,17 +30,17 @@ public class LimeAuthRecoveryData {
         var code = activationCode
         if code.count == 20 {
             for c in 3...1 {
-                code.insert("-", at: code.index(code.startIndex, offsetBy: c * 5))
+                code.insert("–", at: code.index(code.startIndex, offsetBy: c * 5))
             }
         }
-        return code.replacingOccurrences(of: "-", with: " - ")
+        return code
     }
     
     /// Formatted PUK with one dash in the middle for displaying on the screen.
     public var pukFormatted: String {
         var code = puk
         if code.count == 10 {
-            code.insert(contentsOf: " - ", at: code.index(code.startIndex, offsetBy: 5))
+            code.insert(contentsOf: "–", at: code.index(code.startIndex, offsetBy: 5))
         }
         return code
     }
