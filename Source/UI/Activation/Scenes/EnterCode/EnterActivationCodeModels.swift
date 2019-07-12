@@ -24,6 +24,10 @@ public enum EnterActivationCode {
             let sceneTitle: String
             let sceneDescription: String
             let confirmButton: String
+            
+            let notValidAlertTitle: String
+            let notValidAlertText: String
+            let notValidAlertButton: String
         }
         
         public let strings: Strings        

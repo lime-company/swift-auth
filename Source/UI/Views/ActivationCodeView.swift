@@ -50,6 +50,10 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         return fields.map { $0.text ?? "" }.joined(separator: "-")
     }
     
+    public var isCodeFilled: Bool {
+        return fields.allSatisfy { $0.text?.count == segmentLength }
+    }
+    
     // MARK: - Private helpers
     
     private var isEmptyCode: Bool {

@@ -148,7 +148,10 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             strings: EnterActivationCode.UIData.Strings(
                 sceneTitle: localization.localizedString("limeauth.act.enterCode.title"),
                 sceneDescription: localization.localizedString("limeauth.act.enterCode.description"),
-                confirmButton: localization.localizedString("limeauth.act.enterCode.confirmButton")
+                confirmButton: localization.localizedString("limeauth.act.enterCode.confirmButton"),
+                notValidAlertTitle: localization.localizedString("limeauth.act.enterCode.notValidTitle"),
+                notValidAlertText: localization.localizedString("limeauth.act.enterCode.notValidText"),
+                notValidAlertButton: localization.localizedString("limeauth.act.enterCode.notValidButton")
             )
         )
     }()

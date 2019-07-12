@@ -107,6 +107,10 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     public func confirm() {
         let code = activationCodeView.buildCode()
         guard PA2OtpUtil.validateActivationCode(code) else {
+            let strings = uiDataProvider.uiDataForEnterActivationCode.strings
+            let alert = UIAlertController(title: strings.notValidAlertTitle, message: strings.notValidAlertText, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: strings.notValidAlertButton, style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
             return
         }
         router?.routeToKeyExchange(activationCode: code)
@@ -142,7 +146,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     // MARK: - UI delegates
     
     public func codeChanged(code: String) {
-        confirmButton?.isEnabled = PA2OtpUtil.validateActivationCode(code)
+        confirmButton?.isEnabled = activationCodeView.isCodeFilled
     }
     
     // MARK: - Presentation
