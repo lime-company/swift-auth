@@ -47,6 +47,10 @@ public class PukView: UIView, UITextFieldDelegate {
         return (tf1.text ?? "") + (tf2.text ?? "")
     }
     
+    public var isCodeFilled: Bool {
+        return fields.allSatisfy { $0.text?.count == segmentLength }
+    }
+    
     public override func becomeFirstResponder() -> Bool {
         return tf1.becomeFirstResponder()
     }

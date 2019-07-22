@@ -141,6 +141,20 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     @IBAction func continueAction(_ sender: UIButton) {
         let code = codeView.buildCode()
         let puk = pukView.buildPUK()
+        guard PA2OtpUtil.validateRecoveryCode(code) else {
+            let strings = uiDataProvider.uiDataForEnterCodeRecovery.strings
+            let alert = UIAlertController(title: strings.notValidCodeAlertTitle, message: strings.notValidCodeAlertText, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: strings.notValidAlertButton, style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        guard PA2OtpUtil.validateRecoveryPuk(puk) else {
+            let strings = uiDataProvider.uiDataForEnterCodeRecovery.strings
+            let alert = UIAlertController(title: strings.notValidPukAlertTitle, message: strings.notValidPukAlertText, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: strings.notValidAlertButton, style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
         router.routeToKeyExchange(activationCode: code, puk: puk)
     }
     
@@ -168,8 +182,6 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
     }
     
     private func validateInfo() {
-        let code = codeView.buildCode()
-        let puk = pukView.buildPUK()
-        confirmButton.isEnabled = PA2OtpUtil.validateRecoveryCode(code) && PA2OtpUtil.validateRecoveryPuk(puk)
+        confirmButton.isEnabled = codeView.isCodeFilled && pukView.isCodeFilled
     }
 }

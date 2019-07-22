@@ -25,6 +25,12 @@ public enum EnterCodeRecovery {
             let codeDescription: String
             let pukDescription: String
             let confirmButton: String
+            
+            let notValidCodeAlertTitle: String
+            let notValidCodeAlertText: String
+            let notValidPukAlertTitle: String
+            let notValidPukAlertText: String
+            let notValidAlertButton: String
         }
         
         public let strings: Strings

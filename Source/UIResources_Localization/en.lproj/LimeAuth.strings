@@ -82,6 +82,11 @@
 "limeauth.act.enterRecovery.codeDesc"          = "Please retype the Activation Code.";
 "limeauth.act.enterRecovery.pukDesc"           = "Please retype the PUK.";
 "limeauth.act.enterRecovery.confirm"           = "Continue";
+"limeauth.act.enterRecovery.notValidCodeTitle" = "Invalid activation code";
+"limeauth.act.enterRecovery.notValidCodeText"  = "This activation code is not valid. Make sure that you entered it right.";
+"limeauth.act.enterRecovery.notValidPukTitle"  = "Invalid PUK";
+"limeauth.act.enterRecovery.notValidPukText"   = "This PUK is not valid. Make sure that you entered it right.";
+"limeauth.act.enterRecovery.notValidButton"    = "OK";
 
 // MARK: - Recovery Code Screen
 
