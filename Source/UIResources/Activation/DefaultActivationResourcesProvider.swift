@@ -228,7 +228,12 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
             sceneTitle: localization.localizedString("limeauth.act.enterRecovery.title"),
             codeDescription: localization.localizedString("limeauth.act.enterRecovery.codeDesc"),
             pukDescription: localization.localizedString("limeauth.act.enterRecovery.pukDesc"),
-            confirmButton: localization.localizedString("limeauth.act.enterRecovery.confirm")
+            confirmButton: localization.localizedString("limeauth.act.enterRecovery.confirm"),
+            notValidCodeAlertTitle: localization.localizedString("limeauth.act.enterRecovery.notValidCodeTitle"),
+            notValidCodeAlertText: localization.localizedString("limeauth.act.enterRecovery.notValidCodeText"),
+            notValidPukAlertTitle: localization.localizedString("limeauth.act.enterRecovery.notValidPukTitle"),
+            notValidPukAlertText: localization.localizedString("limeauth.act.enterRecovery.notValidPukText"),
+            notValidAlertButton: localization.localizedString("limeauth.act.enterRecovery.notValidButton")
         )
     )
 
