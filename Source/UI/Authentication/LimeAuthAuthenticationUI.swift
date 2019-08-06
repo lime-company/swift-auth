@@ -95,6 +95,10 @@ public class LimeAuthAuthenticationUI {
         controller.present(controllerToPresent, animated: animated, completion: completion)
     }
     
+    /// Cancels AuthenticationUIOperation and finishes presentation with cancel result
+    public func cancel() {
+        authenticationProcess.cancel()
+    }
     
     
     // MARK: - Private methods

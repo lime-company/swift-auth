@@ -64,6 +64,7 @@ open class NewCredentialsViewController: UITabBarController, NewCredentialsRouta
     
     public func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
+        process.currentRouter = router
         uiDataProvider = process.uiDataProvider
     }
     

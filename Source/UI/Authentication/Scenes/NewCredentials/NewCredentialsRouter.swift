@@ -18,7 +18,6 @@ import UIKit
 
 public protocol NewCredentialsRoutingLogic {
     
-    func routeToCancel()
     func routeToSuccess(password: String)
     func routeToError(error: LimeAuthError?)
     
