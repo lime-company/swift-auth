@@ -98,6 +98,8 @@ public class AuthenticationUIProcess {
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     
+    /// Router that is presenting currently visible viewcontroller
+    /// Needs to be set by the viewcontroller when presented
     public internal(set) weak var currentRouter: AuthenticationUIProcessRouter?
     
     public private(set) var processResult: Authentication.Result = .cancel
