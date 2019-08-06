@@ -60,6 +60,7 @@ public extension AuthenticationUIDataProvider {
 public protocol AuthenticationUIProcessRouter: class {
     var authenticationProcess: AuthenticationUIProcess! { get set }
     func connect(controller: AuthenticationUIProcessController)
+    func routeToCancel()
 }
 
 public protocol AuthenticationUIProcessController: class {
@@ -97,6 +98,8 @@ public class AuthenticationUIProcess {
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     
+    public internal(set) weak var currentRouter: AuthenticationUIProcessRouter?
+    
     public private(set) var processResult: Authentication.Result = .cancel
     public private(set) var processError: LimeAuthError?
     public private(set) var operationResponse: Any?
@@ -131,6 +134,12 @@ public class AuthenticationUIProcess {
     
     
     // Completes process
+    
+    public func cancel() {
+        operationExecution.cancel()
+        assert(currentRouter != nil)
+        currentRouter?.routeToCancel()
+    }
     
     public func completeAuthentication(controller: UIViewController?, response: Any? = nil) {
         finalController = controller

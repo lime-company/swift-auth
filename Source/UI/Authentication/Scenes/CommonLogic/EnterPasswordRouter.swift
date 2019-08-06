@@ -18,7 +18,6 @@ import UIKit
 
 public protocol EnterPasswordRoutingLogic {
 
-    func routeToCancel()
     func routeToSuccess()
     func routeToError()
     

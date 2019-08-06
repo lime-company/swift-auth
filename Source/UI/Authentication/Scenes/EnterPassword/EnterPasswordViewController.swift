@@ -29,6 +29,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     open func connect(authenticationProcess process: AuthenticationUIProcess) {
         router?.authenticationProcess = process
+        process.currentRouter = router
         uiDataProvider = process.uiDataProvider
     }
     
