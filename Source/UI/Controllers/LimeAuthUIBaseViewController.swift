@@ -90,4 +90,13 @@ open class LimeAuthUIBaseViewController: UIViewController {
     
     /// If controller's background was configured with image, then this property contains a view with that image.
     public private(set) weak var backgroundImageView: UIImageView?
+    
+    // MARK: - Others
+    
+    /// Sets if "swipe down to dismiss" gesture should be enable when presented modally on iOS 13 and later
+    public func setGestureDismissEnabled(to enabled: Bool) {
+        if #available(iOS 13.0, *) {
+            (navigationController ?? self).isModalInPresentation = enabled == false
+        }
+    }
 }

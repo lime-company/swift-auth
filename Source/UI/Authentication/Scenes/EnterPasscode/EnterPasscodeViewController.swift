@@ -461,7 +461,10 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         self.updateViews()
         actionFeedback?.scene(.operationSuccess)
         
+        // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
+        setGestureDismissEnabled(to: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
+            self.setGestureDismissEnabled(to: true)
             self.commitChangeState()
             completion()
         }

@@ -356,8 +356,11 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
             self.view.layoutIfNeeded()
         }, completion: nil)
         
+        // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
+        setGestureDismissEnabled(to: false)
         self.activityIndicator.showSuccess {
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                self.setGestureDismissEnabled(to: true)
                 completion()
             }
         }
