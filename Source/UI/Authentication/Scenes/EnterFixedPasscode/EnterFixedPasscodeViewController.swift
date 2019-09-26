@@ -221,35 +221,39 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         
         isExecutingOperation = true
         
-        var changeStateDuration: TimeInterval = 0.1
-        let authentication = PowerAuthAuthentication()
-        let password = self.getAndResetPassword(keepFakePassword: true)
-        if biometry {
-            // simulate "full bullets" when biometry is used
-            self.updatePasswordLabel()
-            // create biometry credentials object
-            authentication.useBiometry = true
-            authentication.biometryPrompt = uiRequest.prompts.biometricPrompt
-        } else {
-            // we need wait for a while, to show present last typed digit
-            changeStateDuration = 0.1
-            // create password credentials
-            authentication.usePassword = password
-        }
+        setSwipeToDismissGestureEnabled(to: false) { resetBlock in
         
-        // Switch to "activity"
-        self.presentActivity(animated: true, afterDelay: changeStateDuration) {
-            // And execute operation after
-            self.operationExecution.execute(for: authentication) { (result) in
-                if result.isError {
-                    self.authenticationProcess.storeFailureReason(error: result.error!)
-                    self.showFailureResult(result)
-                } else {
-                    self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: password))
-                    self.showSuccessResult()
+            var changeStateDuration: TimeInterval = 0.1
+            let authentication = PowerAuthAuthentication()
+            let password = self.getAndResetPassword(keepFakePassword: true)
+            if biometry {
+                // simulate "full bullets" when biometry is used
+                self.updatePasswordLabel()
+                // create biometry credentials object
+                authentication.useBiometry = true
+                authentication.biometryPrompt = self.uiRequest.prompts.biometricPrompt
+            } else {
+                // we need wait for a while, to show present last typed digit
+                changeStateDuration = 0.1
+                // create password credentials
+                authentication.usePassword = password
+            }
+            
+            // Switch to "activity"
+            self.presentActivity(animated: true, afterDelay: changeStateDuration) {
+                // And execute operation after
+                self.operationExecution.execute(for: authentication) { (result) in
+                    resetBlock()
+                    if result.isError {
+                        self.authenticationProcess.storeFailureReason(error: result.error!)
+                        self.showFailureResult(result)
+                    } else {
+                        self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: password))
+                        self.showSuccessResult()
+                    }
+                    
+                    self.isExecutingOperation = false
                 }
-                
-                self.isExecutingOperation = false
             }
         }
     }
@@ -451,11 +455,12 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         actionFeedback?.scene(.operationSuccess)
         
         // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
-        setGestureDismissEnabled(to: false)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
-            self.setGestureDismissEnabled(to: true)
-            self.commitChangeState()
-            completion()
+        setSwipeToDismissGestureEnabled(to: false) { resetBlock in
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.successAnimationDelay)) {
+                resetBlock()
+                self.commitChangeState()
+                completion()
+            }
         }
     }
     

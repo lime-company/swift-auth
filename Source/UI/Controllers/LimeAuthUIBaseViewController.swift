@@ -94,9 +94,19 @@ open class LimeAuthUIBaseViewController: UIViewController {
     // MARK: - Others
     
     /// Sets if "swipe down to dismiss" gesture should be enable when presented modally on iOS 13 and later
-    public func setGestureDismissEnabled(to enabled: Bool) {
+    /// - Parameter enabled: if the gesture should be enabled
+    /// - Parameter opBlock: block that will be executed right after the change was done.
+    ///    - you can use it's first argument to reset the value back to it's original
+    public func setSwipeToDismissGestureEnabled(to enabled: Bool, opBlock: ((_ resetBlock: @escaping () -> Void) -> Void)? = nil) {
         if #available(iOS 13.0, *) {
-            (navigationController ?? self).isModalInPresentation = enabled == false
+            let ctrl = (navigationController ?? self)
+            let originalValue = ctrl.isModalInPresentation
+            ctrl.isModalInPresentation = enabled == false
+            opBlock? {
+                ctrl.isModalInPresentation = originalValue
+            }
+        } else {
+            opBlock? {  }
         }
     }
 }
