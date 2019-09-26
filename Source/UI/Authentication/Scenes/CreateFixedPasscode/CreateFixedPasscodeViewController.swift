@@ -389,9 +389,13 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
             self.view.layoutIfNeeded()
         }, completion: nil)
         
-        self.activityIndicator.showSuccess(animated: true) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
-                completion()
+        // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
+        setSwipeToDismissGestureEnabled(to: false) { resetBlock in
+            self.activityIndicator.showSuccess(animated: true) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                    resetBlock()
+                    completion()
+                }
             }
         }
     }

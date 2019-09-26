@@ -246,34 +246,37 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         
         isExecutingOperation = true
         
-        let changeStateDuration: TimeInterval = 0.1
-        let authentication = PowerAuthAuthentication()
-        let currentPassword = self.password
-        if biometry {
-            // simulate "full bullets" when biometry is used
-            self.passwordTextField.text = String(repeating: "*", count: self.minimumPasswordLength)
-            // create biometry credentials object
-            authentication.useBiometry = true
-            authentication.biometryPrompt = uiRequest.prompts.biometricPrompt
-        } else {
-            // create password credentials
-            authentication.usePassword = currentPassword
-        }
-        
-        // Switch to "activity"
-        self.presentActivity(animated: true, afterDelay: changeStateDuration) {
-            // And execute operation after
-            self.operationExecution.execute(for: authentication) { (result) in
-                // Operation is completed, so process the result
-                if result.isError {
-                    self.authenticationProcess.storeFailureReason(error: result.error!)
-                    self.showFailureResult(result)
-                } else {
-                    self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: currentPassword))
-                    self.showSuccessResult()
+        setSwipeToDismissGestureEnabled(to: false) { resetBlock in
+            let changeStateDuration: TimeInterval = 0.1
+            let authentication = PowerAuthAuthentication()
+            let currentPassword = self.password
+            if biometry {
+                // simulate "full bullets" when biometry is used
+                self.passwordTextField.text = String(repeating: "*", count: self.minimumPasswordLength)
+                // create biometry credentials object
+                authentication.useBiometry = true
+                authentication.biometryPrompt = self.uiRequest.prompts.biometricPrompt
+            } else {
+                // create password credentials
+                authentication.usePassword = currentPassword
+            }
+            
+            // Switch to "activity"
+            self.presentActivity(animated: true, afterDelay: changeStateDuration) {
+                // And execute operation after
+                self.operationExecution.execute(for: authentication) { (result) in
+                    resetBlock()
+                    // Operation is completed, so process the result
+                    if result.isError {
+                        self.authenticationProcess.storeFailureReason(error: result.error!)
+                        self.showFailureResult(result)
+                    } else {
+                        self.authenticationProcess.storeCurrentCredentials(credentials: Authentication.UICredentials(password: currentPassword))
+                        self.showSuccessResult()
+                    }
+                    
+                    self.isExecutingOperation = false
                 }
-                
-                self.isExecutingOperation = false
             }
         }
     }
@@ -456,9 +459,13 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         self.updateViews()
         actionFeedback?.scene(.operationSuccess)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(uiRequest.tweaks.successAnimationDelay)) {
-            self.commitChangeState()
-            completion()
+        // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
+        setSwipeToDismissGestureEnabled(to: false) { resetBlock in
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(self.uiRequest.tweaks.successAnimationDelay)) {
+                resetBlock()
+                self.commitChangeState()
+                completion()
+            }
         }
     }
     

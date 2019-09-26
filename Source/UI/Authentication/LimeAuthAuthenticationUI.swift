@@ -86,12 +86,21 @@ public class LimeAuthAuthenticationUI {
     
     /// Function invokes entry scene and presents it modally into provided controller. The appropriate navigation controller is
     /// constructed automatically, when `AuthenticationUIProvider` uses navigation stack.
-    public func present(to controller: UIViewController, animated: Bool = true, completion: (()->Void)? = nil) {
+    public func present(to controller: UIViewController,
+                        animated: Bool = true,
+                        modalPresentationStyle: UIModalPresentationStyle? = nil,
+                        modalPresentationDelegate: UIAdaptivePresentationControllerDelegate? = nil,
+                        completion: (()->Void)? = nil) {
+        
         let entryScene = instantiateEntryScene()
         var controllerToPresent = entryScene
         if let navigationController = authenticationProcess.uiProvider.instantiateNavigationController(with: entryScene) {
             controllerToPresent = navigationController
         }
+        if let presentationStyle = modalPresentationStyle {
+            controllerToPresent.modalPresentationStyle = presentationStyle
+        }
+        controllerToPresent.presentationController?.delegate = modalPresentationDelegate
         controller.present(controllerToPresent, animated: animated, completion: completion)
     }
     
