@@ -110,6 +110,7 @@ extension LimeAuthSession: CustomDebugStringConvertible {
             case .active: status = "ACTIVE, activationID: \(aID), attempts: \(fs.remainingAttempts)/\(fs.maxFailCount)"
             case .blocked: status = "BLOCKED, activationID: \(aID)"
             case .removed: status = "REMOVED, activationID: \(aID)"
+            case .deadlock: status = "DEADLOCK, activationID: \(aID)"
             case .otp_Used: status = "OTP_USED"
             case .created: status = "CREATED"
             @unknown default: D.fatalError("unknown status")

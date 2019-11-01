@@ -169,7 +169,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 actionFeedback?.scene(.operationSuccess)
             case .removed:
                 errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationRemoved)
-            case .blocked:
+            case .blocked, .deadlock: // including deadlock here for simplicity. It's very unlikely that it will actually happen
                 errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationBlocked)
             case .created:
                 return true
