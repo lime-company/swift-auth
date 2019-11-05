@@ -157,15 +157,21 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         }
     }
     
+    /// Helper variable to prevent repeated execution of biometry
+    /// after the controller is re-introduced
+    private var viewDidAppearOnce = false
+    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         title = ""
         
         // first presentation, ask for biometric authentication execution
-        if operationExecution.willUseBiometryFirst() {
+        if operationExecution.willUseBiometryFirst() && viewDidAppearOnce == false {
             doBiometryAuth()
         }
+        
+        viewDidAppearOnce = true
     }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
