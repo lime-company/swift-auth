@@ -4,7 +4,10 @@ This changelog is tracking all the changes that will affect the behavior of this
 
 ### Upcoming version
 
-- TBA
+- using PowerAuth  SDK v `1.2+`
+- support for iOS 13 modal presentation
+- added `cancel()` to `LimeAuthAuthenticationUI`
+- UI fixes
 
 ### 0.7.2
 
