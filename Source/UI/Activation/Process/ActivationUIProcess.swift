@@ -55,6 +55,9 @@ public protocol ActivationUIDataProvider: class {
     var uiDataForKeysExchange: KeysExchange.UIData { get }
     var uiDataForEnableBiometry: EnableBiometry.UIData { get }
     var uiDataForErrorActivation: ErrorActivation.UIData { get }
+    
+    // error localization
+    func localizeError(error: LimeAuthError?, fallback: String?) -> String
 }
 
 public protocol ActivationUIProcessRouter: class {

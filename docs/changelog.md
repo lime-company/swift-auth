@@ -4,6 +4,8 @@ This changelog is tracking all the changes that will affect the behavior of this
 
 ### Upcoming version
 
+- better error handling during activation process
+  - `ActivationUIDataProvider` now requires implementation of `localizeError` method
 - using PowerAuth  SDK v `1.2+`
 - support for iOS 13 modal presentation
 - added `cancel()` to `LimeAuthAuthenticationUI`

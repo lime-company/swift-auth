@@ -90,11 +90,9 @@ open class ErrorActivationViewController: LimeAuthUIBaseViewController, Activati
 			return description
 		}
 		if let description = activationData.failureReason?.nestedDescription {
-			// TODO: reimplement with using uiDataProvider.localizeError()...
 			return description
 		}
-		let uiData = uiDataProvider.uiDataForErrorActivation
-		return uiData.strings.genericError
+        return uiDataProvider.localizeError(error: activationData.failureReason, fallback: uiDataProvider.uiDataForErrorActivation.strings.genericError)
 	}
 	
     open override func prepareUI() {
