@@ -255,6 +255,23 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         appearanceBarButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: theme.navigationBar.buttonColor], for: .normal)
     }
     
+    func localizeError(error: LimeAuthError?, fallback: String?) -> String {
+        if let error = error {
+            if error.networkIsNotReachable {
+                return localization.localizedString("limeauth.err.network.isOffline")
+            }
+            if error.networkConnectionIsNotTrusted {
+                return localization.localizedString("limeauth.err.network.untrustedSSL")
+            }
+            let statusCode = error.httpStatusCode
+            let statusCodeType = statusCode / 100
+            if statusCodeType == 5 {
+                // 5xx
+                return localization.localizedString("limeauth.err.network.serverIsDown")
+            }
+        }
+        return fallback ?? localization.localizedString("limeauth.err.generic")
+    }
     
 }
 
