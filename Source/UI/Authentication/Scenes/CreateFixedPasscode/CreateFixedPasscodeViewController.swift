@@ -187,6 +187,14 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     public func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback? {
         return actionFeedback
     }
+    
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, accessibilityDescriptionFor icon: PinKeyboardSpecialKey) -> String? {
+        switch icon {
+        case .backspace: return uiDataProvider.uiCommonStrings.accessibilityRemoveLastChar
+        case .biometry: return uiDataProvider.uiCommonStrings.accessibilityUseBiometry
+        case .cancel: return uiDataProvider.uiCommonStrings.accessibilityCancel
+        }
+    }
    
     // MARK: - Private functions
     
@@ -311,6 +319,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         let visibleCancel = !visibleBackspace && (self.currentState == .secondPass || !router.authenticationProcess.isPartOfActivation)
         self.pinKeyboard.setSpecialKeyVisible(.backspace, visible: visibleBackspace)
         self.pinKeyboard.setSpecialKeyVisible(.cancel, visible: visibleCancel)
+        currentLabel?.accessibilityLabel = String(format: uiDataProvider.uiCommonStrings.accessibilityPinDisplay, filledBulletsCount, self.requiredPasswordLength)
     }
     
     //

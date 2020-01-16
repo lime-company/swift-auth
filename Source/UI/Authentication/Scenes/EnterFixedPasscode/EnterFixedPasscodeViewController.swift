@@ -200,6 +200,14 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
         return lazyImage.optionalImage
     }
     
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, accessibilityDescriptionFor icon: PinKeyboardSpecialKey) -> String? {
+        switch icon {
+        case .backspace: return uiDataProvider.uiCommonStrings.accessibilityRemoveLastChar
+        case .biometry: return uiDataProvider.uiCommonStrings.accessibilityUseBiometry
+        case .cancel: return uiDataProvider.uiCommonStrings.accessibilityCancel
+        }
+    }
+    
     // MARK: - Internals -
     
     private func getAndResetPassword(keepFakePassword: Bool = false) -> String {
@@ -550,6 +558,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
             bulletsText.append(String(repeating: "◦ ", count: emptyBulletsCount))
         }
         self.fixedPinLabel?.text = bulletsText
+        self.fixedPinLabel?.accessibilityLabel = String(format: uiDataProvider.uiCommonStrings.accessibilityPinDisplay, filledBulletsCount, self.requiredPasswordLength)
     }
     
     /// Triggers visibility of remaining attempts label

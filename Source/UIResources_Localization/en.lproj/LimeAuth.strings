@@ -133,6 +133,13 @@
 "limeauth.auth.operationSuccess"            = "Operation succeeded";            // Fallback string when success message for operation is not specified
 "limeauth.auth.operationFailure"            = "Operation execution did fail.";  // Generic failure
 
+// Accessibility
+"limeauth.auth.accessibility.removeLastChar"           = "Remove last pin digit.";
+"limeauth.auth.accessibility.cancel"                   = "Cancel";
+"limeauth.auth.accessibility.useBiometry"              = "Confirm with Biometry";
+"limeauth.auth.accessibility.pinDisplay(curr,max)"     = "PIN display. %d out of %d digits."
+"limeauth.auth.accessibility.variablePinDisplay(curr)" = "PIN display. %d digits."
+
 // PIN prompts
 "limeauth.auth.enterPin"                    = "Enter passcode";         // Generic PIN prompt, when prompt for operation is not specified
 "limeauth.auth.enterOldPin"                 = "Enter old passcode";

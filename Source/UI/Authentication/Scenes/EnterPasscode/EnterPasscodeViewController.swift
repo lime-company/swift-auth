@@ -208,6 +208,14 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         return lazyImage.optionalImage
     }
     
+    public func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, accessibilityDescriptionFor icon: PinKeyboardSpecialKey) -> String? {
+        switch icon {
+        case .backspace: return uiDataProvider.uiCommonStrings.accessibilityRemoveLastChar
+        case .biometry: return uiDataProvider.uiCommonStrings.accessibilityUseBiometry
+        case .cancel: return uiDataProvider.uiCommonStrings.accessibilityCancel
+        }
+    }
+    
     public func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback? {
         return actionFeedback
     }
@@ -559,6 +567,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         let bulletsText = String(repeating: "• ", count: length)
         self.variablePinLabel?.text = bulletsText
         self.confirmPinButton.isEnabled = length >= self.minimumPasswordLength && self.nextState == .password
+        self.variablePinLabel?.accessibilityLabel = String(format: uiDataProvider.uiCommonStrings.accessibilityVariablePinDisplay, length)
     }
     
     /// Triggers visibility of remaining attempts label

@@ -47,6 +47,18 @@ public enum Authentication {
             public let pleaseWait: String
             public let success: String
             public let failure: String
+            
+            /// Accessibility label for "remove last character" button
+            public let accessibilityRemoveLastChar: String
+            /// Accessibility label for cancel button
+            public let accessibilityCancel: String
+            /// Accessibility label for "confirm with biometry" button
+            public let accessibilityUseBiometry: String
+            /// Accessibility label for pin label.
+            /// This string needs to have formatable with 2 digits - 1 for current digit count and second for max pin lenth
+            public let accessibilityPinDisplay: String
+            /// This string needs to have formatable with 1 digitfor current digit count
+            public let accessibilityVariablePinDisplay: String
         }
         
         public struct CommonErrors {
