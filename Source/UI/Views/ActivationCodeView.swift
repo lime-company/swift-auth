@@ -43,7 +43,11 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     
     public func prepareComponent(uiDataProvider: ActivationUIDataProvider) {
         createTextFields()
-        fields.forEach { $0.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode)}
+        tf1.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityFirstCode
+        tf2.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilitySecondCode
+        tf3.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityThirdCode
+        tf4.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityFourthCode
+        fields.forEach { $0.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode) }
     }
     
     public func buildCode() -> String {
