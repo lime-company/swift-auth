@@ -28,6 +28,11 @@ public enum EnterActivationCode {
             let notValidAlertTitle: String
             let notValidAlertText: String
             let notValidAlertButton: String
+            
+            let accessibilityFirstCode: String
+            let accessibilitySecondCode: String
+            let accessibilityThirdCode: String
+            let accessibilityFourthCode: String
         }
         
         public let strings: Strings        

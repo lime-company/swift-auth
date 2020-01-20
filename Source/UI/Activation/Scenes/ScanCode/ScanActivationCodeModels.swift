@@ -23,6 +23,7 @@ public enum ScanActivationCode {
         public struct Strings {
             let sceneTitle: String
             let enterCodeFallbackButton: String
+            let closeScanAccessibilityLabel: String
         }
         
         public let strings: Strings        

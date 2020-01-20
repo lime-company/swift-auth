@@ -90,7 +90,12 @@ internal class DefaultAuthenticationResourcesProvider: AuthenticationUIProvider,
             noButton: localization.localizedString("limeauth.common.no"),
             pleaseWait: localization.localizedString("limeauth.auth.pleaseWait"),
             success: localization.localizedString("limeauth.auth.operationSuccess"),
-            failure: localization.localizedString("limeauth.auth.operationFailure")
+            failure: localization.localizedString("limeauth.auth.operationFailure"),
+            accessibilityRemoveLastChar: localization.localizedString("limeauth.auth.accessibility.removeLastChar"),
+            accessibilityCancel: localization.localizedString("limeauth.auth.accessibility.cancel"),
+            accessibilityUseBiometry: localization.localizedString("limeauth.auth.accessibility.useBiometry"),
+            accessibilityPinDisplay: localization.localizedString("limeauth.auth.accessibility.pinDisplay(curr,max)"),
+            accessibilityVariablePinDisplay: localization.localizedString("limeauth.auth.accessibility.variablePinDisplay(curr)")
         )
     }()
     

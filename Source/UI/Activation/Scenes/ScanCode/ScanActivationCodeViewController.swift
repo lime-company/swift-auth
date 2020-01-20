@@ -176,6 +176,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
         crossHairImageView?.setLazyImage(theme.images.scannerCrosshair)
         enterCodeFallbackButton?.applyButtonStyle(theme.scannerScene.fallbackButton)
         closeSceneButton?.applyButtonStyle(theme.scannerScene.closeButton)
+        closeSceneButton?.accessibilityLabel = uiData.strings.closeScanAccessibilityLabel
     }
     
     private func animateInitialUI(animated: Bool) {

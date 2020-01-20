@@ -151,7 +151,11 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 confirmButton: localization.localizedString("limeauth.act.enterCode.confirmButton"),
                 notValidAlertTitle: localization.localizedString("limeauth.act.enterCode.notValidTitle"),
                 notValidAlertText: localization.localizedString("limeauth.act.enterCode.notValidText"),
-                notValidAlertButton: localization.localizedString("limeauth.act.enterCode.notValidButton")
+                notValidAlertButton: localization.localizedString("limeauth.act.enterCode.notValidButton"),
+                accessibilityFirstCode: localization.localizedString("limeauth.act.enterCode.accessibility.firstField"),
+                accessibilitySecondCode: localization.localizedString("limeauth.act.enterCode.accessibility.secondField"),
+                accessibilityThirdCode: localization.localizedString("limeauth.act.enterCode.accessibility.thirdField"),
+                accessibilityFourthCode: localization.localizedString("limeauth.act.enterCode.accessibility.fourthField")
             )
         )
     }()
@@ -160,7 +164,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         ScanActivationCode.UIData(
             strings: ScanActivationCode.UIData.Strings(
                 sceneTitle: localization.localizedString("limeauth.act.scanCode.title"),
-                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCode.fallbackButton")
+                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCode.fallbackButton"),
+                closeScanAccessibilityLabel: localization.localizedString("limeauth.act.scanCode.acs.close")
             )
         )
     }()

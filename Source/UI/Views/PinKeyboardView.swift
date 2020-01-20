@@ -46,6 +46,8 @@ import PowerAuth2
     func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, didTapOnSpecialKey key: PinKeyboardSpecialKey)
     /// Called when keyboard wants to setup image for biometry button.
     func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, imageFor biometryIcon: PinKeyboardBiometryIcon) -> UIImage?
+    /// Called when keyboard wants to setup accessibility description for special key.
+    func pinKeyboardView(_ pinKeyboardView: PinKeyboardView, accessibilityDescriptionFor icon: PinKeyboardSpecialKey) -> String?
     /// Called when action feedback needs to be loaded
     func pinKeyboardViewActionFeedback(_ pinKeyboardView: PinKeyboardView) -> LimeAuthActionFeedback?
 }
@@ -151,9 +153,9 @@ open class PinKeyboardView : UIView {
     // to implement diffrent presentation of shared Backspace & Cancel key.
     open func updateSharedBackspaceAndCancel(currentKey: PinKeyboardSpecialKey?) {
         if let currentKey = currentKey {
-            let nextTitle = currentKey == .cancel ? titleForSharedCancelButton : titleForSharedBackspaceButton
-            backspaceButton?.setTitle(nextTitle, for: .normal)
+            backspaceButton?.setTitle(currentKey == .cancel ? titleForSharedCancelButton : titleForSharedBackspaceButton, for: .normal)
             backspaceButton?.isHidden = false
+            backspaceButton?.accessibilityLabel = delegate?.pinKeyboardView(self, accessibilityDescriptionFor: currentKey)
         } else {
             backspaceButton?.setTitle("", for: .normal)
             backspaceButton?.isHidden = true
@@ -224,6 +226,7 @@ open class PinKeyboardView : UIView {
         biometryButton?.isHidden = true
         cancelButton?.isHidden = true
         backspaceButton?.isHidden = true
+        biometryButton?.accessibilityLabel = delegate?.pinKeyboardView(self, accessibilityDescriptionFor: .biometry)
         return true
     }
     
