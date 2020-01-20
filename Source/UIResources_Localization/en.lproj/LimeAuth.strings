@@ -53,6 +53,7 @@
 // Activation :: Scan Activation Code
 "limeauth.act.scanCode.title"               = "Scan the activation QR code";
 "limeauth.act.scanCode.fallbackButton"      = "Unsuccessful? Rewrite the code.";
+"limeauth.act.scanCode.acs.close"           = "Close the QR scanner.";
 
 // Activation :: Keys Exchange
 "limeauth.act.keysExchange.inProgress"      = "Pairing your device...";

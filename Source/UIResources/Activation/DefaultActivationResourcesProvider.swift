@@ -164,7 +164,8 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         ScanActivationCode.UIData(
             strings: ScanActivationCode.UIData.Strings(
                 sceneTitle: localization.localizedString("limeauth.act.scanCode.title"),
-                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCode.fallbackButton")
+                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCode.fallbackButton"),
+                closeScanAccessibilityLabel: localization.localizedString("limeauth.act.scanCode.acs.close")
             )
         )
     }()
