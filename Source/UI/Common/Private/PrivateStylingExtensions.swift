@@ -101,6 +101,11 @@ extension UITextField {
             layer.borderColor = color.cgColor
         }
         self.keyboardAppearance = style.keyboardAppearance
+        self.keyboardType = style.keyboardType
+        self.textAlignment = style.alignment
+        if let textContentType = style.textContentType {
+            self.textContentType = textContentType
+        }
     }
     
 }

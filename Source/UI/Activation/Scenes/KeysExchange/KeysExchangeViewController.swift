@@ -83,6 +83,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         
         let activationName = UIDevice.current.name
         let activationCode = process.activationData.activationCode ?? ""
+        let otp = process.activationData.activationOTP
         
         let completion = { [weak self] (result: PA2ActivationResult?, error: LimeAuthError?) in
             guard let `self` = self else {
@@ -97,9 +98,9 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         }
         
         if let puk = process.activationData.puk {
-            sessionOperation = router.activationProcess.session.createActivation(name: activationName, extras: nil, recoveryCode: activationCode, puk: puk, completion: completion)
+            sessionOperation = router.activationProcess.session.createActivation(name: activationName, extras: nil, recoveryCode: activationCode, puk: puk, otp: otp, completion: completion)
         } else {
-            sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode, completion: completion)
+            sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode, otp: otp, completion: completion)
         }
     }
     

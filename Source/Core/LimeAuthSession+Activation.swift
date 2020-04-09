@@ -26,10 +26,23 @@ public extension LimeAuthSession {
     /// Creates a new activation with given name and activation code by calling a PowerAuth Standard RESTful API endpoint '/pa/activation/create'.
     ///
     /// This is 1st step of the activation. If this operation succeeds, then you can call `commitActivation`
-    func createActivation(name: String?, activationCode: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
+    func createActivation(name: String?, activationCode: String, otp: String?, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in
-            self.powerAuth.createActivation(withName: name, activationCode: activationCode) { result, error in
+            guard let activation = PowerAuthActivation(activationCode: activationCode) else {
+                markFinished {
+                    completion(nil, LimeAuthError(string: "Cannot create activation"))
+                }
+                return
+            }
+            if let name = name {
+                activation.with(name: name)
+            }
+            if let otp = otp {
+                activation.with(additionalActivationOtp: otp)
+            }
+            
+            self.powerAuth.createActivation(activation) { result, error in
                 markFinished {
                     completion(result, .wrap(error))
                 }
@@ -64,13 +77,26 @@ public extension LimeAuthSession {
     /// Creates a new activation with given name, recovery code and puk by calling a PowerAuth Standard RESTful API endpoint '/pa/activation/create'.
     ///
     /// This is 1st step of the activation. If this operation succeeds, then you can call `commitActivation`
-    func createActivation(name: String?, extras: String?, recoveryCode: String, puk: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
+    func createActivation(name: String?, extras: String?, recoveryCode: String, puk: String, otp: String?, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in
-            self.powerAuth.createActivation(withName: name, recoveryCode: recoveryCode, puk: puk, extras: extras) { result, error in
+            guard let activation = PowerAuthActivation(recoveryCode: recoveryCode, recoveryPuk: puk) else {
                 markFinished {
-                    completion(result, .wrap(error))
+                    completion(nil, LimeAuthError(string: "Cannot create activation"))
                 }
+                return
+            }
+            if let name = name {
+               activation.with(name: name)
+            }
+            if let otp = otp {
+               activation.with(additionalActivationOtp: otp)
+            }
+
+            self.powerAuth.createActivation(activation) { result, error in
+               markFinished {
+                   completion(result, .wrap(error))
+               }
             }
         }
         

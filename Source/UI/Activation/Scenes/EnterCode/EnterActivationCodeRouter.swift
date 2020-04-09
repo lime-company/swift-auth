@@ -39,7 +39,11 @@ public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, Activat
     
     public func routeToKeyExchange(activationCode: String) {
         activationProcess?.activationData.activationCode = activationCode
-        viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
+        if activationProcess.authenticationOTPRequired {
+            viewController?.performSegue(withIdentifier: "AuthOTP", sender: nil)
+        } else {
+            viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
+        }
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

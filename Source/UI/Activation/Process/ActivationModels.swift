@@ -39,6 +39,8 @@ public enum Activation {
         
         public var useBiometry = false
         
+        public var activationOTP: String? // when additional OTP is needed
+        
         public var result: Result?
         
         public var failureReason: LimeAuthError?
