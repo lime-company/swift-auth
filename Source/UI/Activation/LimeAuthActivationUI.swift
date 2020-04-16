@@ -30,6 +30,15 @@ public class LimeAuthActivationUI {
     /// Completion closure
     private var completion: CompletionClosure?
     
+    
+    /// Creates instance of Activation UI
+    /// - Parameters:
+    ///   - session: started limeauth session
+    ///   - uiProvider: ui configuration
+    ///   - uiRecoveryProvider: recovery ui configuration
+    ///   - credentialsProvider: credentials configuration
+    ///   - additionalOTP: otp configuration. Note that this configuration does not have any effect during recovery activation
+    ///   - completion: completion closure
     public init(session: LimeAuthSession,
                 uiProvider: ActivationUIProvider,
                 uiRecoveryProvider: RecoveryUIProvider,

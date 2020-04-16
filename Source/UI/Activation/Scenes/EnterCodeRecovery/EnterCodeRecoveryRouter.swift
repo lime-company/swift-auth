@@ -40,10 +40,10 @@ public class EnterCodeRecoveryRouter: EnterCodeRecoveryRoutingLogic, ActivationU
         activationProcess.activationData.activationCode = activationCode
         activationProcess.activationData.puk = puk
         if activationProcess.authenticationOTPRequired {
-            viewController?.performSegue(withIdentifier: "AuthOTP", sender: nil)
-        } else {
-            viewController?.performSegue(withIdentifier: "RecoveryKeyExchange", sender: nil)
+            D.warning("OTP is required, but not available in Recovery flow, to it will be ignored.")
         }
+        
+        viewController?.performSegue(withIdentifier: "RecoveryKeyExchange", sender: nil)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -661,7 +661,6 @@
                         <outlet property="pukView" destination="DkZ-Il-q7n" id="Q9o-4L-XTZ"/>
                         <outlet property="stackView" destination="o3W-G5-fqt" id="kWn-Kf-HIi"/>
                         <segue destination="xao-2H-SKp" kind="show" identifier="RecoveryKeyExchange" id="iqc-eg-Ntz"/>
-                        <segue destination="Xwa-Ty-P4n" kind="show" identifier="AuthOTP" id="VF9-Qt-mfX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQF-5S-eNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
