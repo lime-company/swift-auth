@@ -29,14 +29,11 @@ public extension LimeAuthSession {
     func createActivation(name: String?, activationCode: String, otp: String?, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in
-            guard let activation = PowerAuthActivation(activationCode: activationCode) else {
+            guard let activation = PowerAuthActivation(activationCode: activationCode, name: name) else {
                 markFinished {
                     completion(nil, LimeAuthError(string: "Cannot create activation"))
                 }
                 return
-            }
-            if let name = name {
-                activation.with(name: name)
             }
             if let otp = otp {
                 activation.with(additionalActivationOtp: otp)
@@ -80,14 +77,11 @@ public extension LimeAuthSession {
     func createActivation(name: String?, extras: String?, recoveryCode: String, puk: String, completion: @escaping (PA2ActivationResult?, LimeAuthError?)->Void) -> Operation {
         
         let operation = AsyncBlockOperation { _, markFinished in
-            guard let activation = PowerAuthActivation(recoveryCode: recoveryCode, recoveryPuk: puk) else {
+            guard let activation = PowerAuthActivation(recoveryCode: recoveryCode, recoveryPuk: puk, name: name) else {
                 markFinished {
                     completion(nil, LimeAuthError(string: "Cannot create activation"))
                 }
                 return
-            }
-            if let name = name {
-               activation.with(name: name)
             }
 
             self.powerAuth.createActivation(activation) { result, error in

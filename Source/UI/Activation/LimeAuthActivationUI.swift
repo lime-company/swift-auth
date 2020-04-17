@@ -138,13 +138,13 @@ public class LimeAuthActivationUI {
         
         let hasActivation = activationProcess.session.hasValidActivation
         let canStartActivation = activationProcess.session.canStartActivation
-        let hasOtpUsed = hasActivation && (activationProcess.session.lastFetchedActivationStatus?.state ?? .created)  == .otp_Used
+        let isPending = hasActivation && (activationProcess.session.lastFetchedActivationStatus?.state ?? .created) == .pendingCommit
         
         var wrongState = false
         
         switch entryScene {
         case .default:
-            if hasActivation && hasOtpUsed {
+            if hasActivation && isPending {
                 entryScene = .confirmation
             } else if canStartActivation {
                 entryScene = .selfActivationInitial
@@ -154,7 +154,7 @@ public class LimeAuthActivationUI {
         case .selfActivationInitial, .selfActivationScanCode, .selfActivationEnterCode, .selfActivationWithCode:
             wrongState = !canStartActivation
         case .confirmation:
-            wrongState = !hasOtpUsed
+            wrongState = !isPending
         case .recoveryInitial:
             wrongState = !canStartActivation
         case .recoveryEnterCode:
