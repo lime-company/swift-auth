@@ -83,6 +83,9 @@
 		BFAE06AC2059685C003485D7 /* NewCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06AB2059685C003485D7 /* NewCredentialsViewController.swift */; };
 		BFAE06AF20596D2D003485D7 /* NewCredentialsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06AE20596D2D003485D7 /* NewCredentialsModels.swift */; };
 		BFAE06B120598304003485D7 /* CreateAndVerifyPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */; };
+		BFB437A8244DBF8000AD1911 /* AuthenticationOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB437A5244DBF8000AD1911 /* AuthenticationOTPRouter.swift */; };
+		BFB437A9244DBF8000AD1911 /* AuthenticationOTPModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB437A6244DBF8000AD1911 /* AuthenticationOTPModels.swift */; };
+		BFB437AA244DBF8000AD1911 /* AuthenticationOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB437A7244DBF8000AD1911 /* AuthenticationOTPViewController.swift */; };
 		BFBF77DE20AF2A4300139655 /* LimeAuthRestApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBF77DD20AF2A4300139655 /* LimeAuthRestApiError.swift */; };
 		BFD125F5203334DA001CE861 /* PowerAuthSDK+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */; };
 		BFD1260220335057001CE861 /* LimeAuthSession+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */; };
@@ -191,7 +194,7 @@
 		BF87E18320A9C57B006B28D4 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		BF87E18520A9F1FA006B28D4 /* GenericLayerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLayerStyle.swift; sourceTree = "<group>"; };
 		BF87E18720AAE35B006B28D4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		BF87E19420AC7F6C006B28D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LimeAuth.strings; sourceTree = "<group>"; };
+		BF87E19420AC7F6C006B28D4 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LimeAuth.strings; sourceTree = "<group>"; };
 		BF8CF42E20320880002A6B6E /* LimeAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LimeAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8CF44F20320A40002A6B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8CF45020320A40002A6B6E /* LimeAuth.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = LimeAuth.podspec; sourceTree = "<group>"; };
@@ -220,6 +223,9 @@
 		BFAE06AB2059685C003485D7 /* NewCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCredentialsViewController.swift; sourceTree = "<group>"; };
 		BFAE06AE20596D2D003485D7 /* NewCredentialsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCredentialsModels.swift; sourceTree = "<group>"; };
 		BFAE06B020598304003485D7 /* CreateAndVerifyPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndVerifyPasswordRouter.swift; sourceTree = "<group>"; };
+		BFB437A5244DBF8000AD1911 /* AuthenticationOTPRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationOTPRouter.swift; sourceTree = "<group>"; };
+		BFB437A6244DBF8000AD1911 /* AuthenticationOTPModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationOTPModels.swift; sourceTree = "<group>"; };
+		BFB437A7244DBF8000AD1911 /* AuthenticationOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationOTPViewController.swift; sourceTree = "<group>"; };
 		BFBF77DD20AF2A4300139655 /* LimeAuthRestApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeAuthRestApiError.swift; sourceTree = "<group>"; };
 		BFD125F4203334DA001CE861 /* PowerAuthSDK+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PowerAuthSDK+Config.swift"; sourceTree = "<group>"; };
 		BFD1260120335057001CE861 /* LimeAuthSession+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LimeAuthSession+Status.swift"; sourceTree = "<group>"; };
@@ -708,6 +714,16 @@
 			path = NewCredentials;
 			sourceTree = "<group>";
 		};
+		BFB437A4244DBF8000AD1911 /* AuthenticationOTP */ = {
+			isa = PBXGroup;
+			children = (
+				BFB437A5244DBF8000AD1911 /* AuthenticationOTPRouter.swift */,
+				BFB437A6244DBF8000AD1911 /* AuthenticationOTPModels.swift */,
+				BFB437A7244DBF8000AD1911 /* AuthenticationOTPViewController.swift */,
+			);
+			path = AuthenticationOTP;
+			sourceTree = "<group>";
+		};
 		BFD126002033421F001CE861 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +850,7 @@
 		DC2918982260855100001478 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				BFB437A4244DBF8000AD1911 /* AuthenticationOTP */,
 				DCF62CB3225E106E0012EB0C /* RecoveryCode */,
 				BF61343820448ADB00164496 /* NoCameraAccess */,
 				BF565F902047288B00B9C897 /* KeysExchange */,
@@ -987,11 +1004,13 @@
 				BF4BD1342049A26200A2E52C /* TextFieldWithInsets.swift in Sources */,
 				BF8CF53A2032F765002A6B6E /* LimeAuthSessionConfig.swift in Sources */,
 				BFDBCBC02045DDEA001585BF /* NoCameraAccessModels.swift in Sources */,
+				BFB437A8244DBF8000AD1911 /* AuthenticationOTPRouter.swift in Sources */,
 				BFA49C2820A47FD2000D82B6 /* PrivateStylingExtensions.swift in Sources */,
 				BFAE06A7205933B3003485D7 /* OnlineAuthenticationUIOperation.swift in Sources */,
 				DC519B5B21A47A0900768D8B /* PassphraseVerifying.swift in Sources */,
 				BFDB8CD620516DE00063C5EA /* LimeAuthCredentialsProvider.swift in Sources */,
 				BFA49C2B20A48CA7000D82B6 /* ActivityIndicatorStyle.swift in Sources */,
+				BFB437A9244DBF8000AD1911 /* AuthenticationOTPModels.swift in Sources */,
 				DC24A25021DFB5CC00C59002 /* VibrationEngine.swift in Sources */,
 				BFBF77DE20AF2A4300139655 /* LimeAuthRestApiError.swift in Sources */,
 				BFAE06AC2059685C003485D7 /* NewCredentialsViewController.swift in Sources */,
@@ -1079,6 +1098,7 @@
 				BFDE27962035A929004BC16D /* AsyncOperation.swift in Sources */,
 				BFA49C2D20A49C0E000D82B6 /* LimeAuthActivationUITheme.swift in Sources */,
 				BF49643220599074002560A8 /* LayoutHelper.swift in Sources */,
+				BFB437AA244DBF8000AD1911 /* AuthenticationOTPViewController.swift in Sources */,
 				BFDBCBC22045E1AD001585BF /* ActivationUIProcess.swift in Sources */,
 				BFA49C2120A465B9000D82B6 /* ButtonStyle.swift in Sources */,
 				DCF62CBB225E106E0012EB0C /* RecoveryModels.swift in Sources */,
