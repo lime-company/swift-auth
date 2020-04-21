@@ -17,7 +17,7 @@
 import UIKit
 import PowerAuth2
 
-open class AuthenticationOTPViewController: LimeAuthUIBaseViewController, ActivationUIProcessController {
+open class AuthenticationOTPViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, UITextFieldDelegate {
     
     public var router: (ActivationUIProcessRouter & AuthenticationOTPRoutingLogic)?
     public var uiDataProvider: ActivationUIDataProvider!
@@ -51,6 +51,7 @@ open class AuthenticationOTPViewController: LimeAuthUIBaseViewController, Activa
         super.viewDidLoad()
         confirmButton?.isEnabled = false
         otpInput.addTarget(self, action: #selector(otpFieldDidChange), for: .editingChanged)
+        otpInput.delegate = self
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -186,5 +187,13 @@ open class AuthenticationOTPViewController: LimeAuthUIBaseViewController, Activa
     
     @objc private func otpFieldDidChange() {
         confirmButton?.isEnabled = !(otpInput.text?.isEmpty ?? true)
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldLength = textField.text?.count ?? 0
+        let replacementLength = string.count
+        let rangeLength = range.length
+        let newLength = oldLength - rangeLength + replacementLength
+        return newLength <= 128 // to keep it in the sane length
     }
 }

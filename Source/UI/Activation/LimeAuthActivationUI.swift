@@ -50,7 +50,7 @@ public class LimeAuthActivationUI {
             uiProvider: uiProvider,
             uiRecoveryProvider: uiRecoveryProvider,
             credentialsProvider: credentialsProvider,
-            authenticationOTPRequired: additionalOTP == .authentication
+            additionalOTP: additionalOTP
         )
         self.completion = completion
         self.entryScene = .default

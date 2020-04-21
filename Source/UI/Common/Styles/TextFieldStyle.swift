@@ -40,7 +40,7 @@ public struct TextFieldStyle {
     /// Changes color of text field's border. Applied to text field's layer.
     public let borderColor: UIColor?
     
-    /// Affects corner radius of text field's border. Appled to view's layer.
+    /// Affects corner radius of text field's border. Applied to view's layer.
     public let borderCornerRadius: CGFloat
     
     /// System keyboard's appearance

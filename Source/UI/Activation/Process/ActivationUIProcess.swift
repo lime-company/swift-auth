@@ -80,21 +80,21 @@ public class ActivationUIProcess {
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
     
-    public internal(set) var authenticationOTPRequired: Bool
+    public internal(set) var additionalOTP: LimeAuthActivationUI.AdditionalOTP
     public internal(set) var cancelShouldRouteToBegin = false
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider, authenticationOTPRequired: Bool) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider, additionalOTP: LimeAuthActivationUI.AdditionalOTP) {
         self.session = session
         self.uiProvider = uiProvider
         self.uiDataProvider = uiProvider.uiDataProvider
         self.uiRecoveryProvider = uiRecoveryProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
-        self.authenticationOTPRequired = authenticationOTPRequired
+        self.additionalOTP = additionalOTP
     }
     
     // MARK: - Activation control
