@@ -50,6 +50,15 @@
 "limeauth.act.enterCode.accessibility.thirdField" = "Third part of the code.";
 "limeauth.act.enterCode.accessibility.fourthField" = "Fourth part of the code.";
 
+// Activation :: Authentication OTP
+"limeauth.act.authOTP.title"               = "Authentication code";
+"limeauth.act.authOTP.description"         = "Please retype the code you recieved in SMS message.";
+"limeauth.act.authOTP.confirmButton"       = "Confirm";
+"limeauth.act.authOTP.notValidTitle"       = "Invalid activation code";
+"limeauth.act.authOTP.notValidText"        = "This activation code is not valid. Make sure that you entered it right.";
+"limeauth.act.authOTP.notValidButton"      = "OK";
+"limeauth.act.authOTP.accessibility.input" = "SMS code";
+
 // Activation :: Scan Activation Code
 "limeauth.act.scanCode.title"               = "Scan the activation QR code";
 "limeauth.act.scanCode.fallbackButton"      = "Unsuccessful? Rewrite the code.";
@@ -143,8 +152,8 @@
 "limeauth.auth.accessibility.removeLastChar"           = "Remove last pin digit.";
 "limeauth.auth.accessibility.cancel"                   = "Cancel";
 "limeauth.auth.accessibility.useBiometry"              = "Confirm with Biometry";
-"limeauth.auth.accessibility.pinDisplay(curr,max)"     = "PIN display. %d out of %d digits."
-"limeauth.auth.accessibility.variablePinDisplay(curr)" = "PIN display. %d digits."
+"limeauth.auth.accessibility.pinDisplay(curr,max)"     = "PIN display. %d out of %d digits.";
+"limeauth.auth.accessibility.variablePinDisplay(curr)" = "PIN display. %d digits.";
 
 // PIN prompts
 "limeauth.auth.enterPin"                    = "Enter passcode";         // Generic PIN prompt, when prompt for operation is not specified

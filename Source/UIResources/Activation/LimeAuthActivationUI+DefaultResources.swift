@@ -66,6 +66,14 @@ public extension LimeAuthActivationUITheme.Images {
 
 public extension LimeAuthActivationUITheme {
     
+    // default otp text field type
+    private static var otpContentType: UITextContentType? {
+        if #available(iOS 12.0, *) {
+            return .oneTimeCode
+        }
+        return nil
+    }
+    
     static func defaultLightTheme(illustrations: Illustrations? = nil, images: Images? = nil) -> LimeAuthActivationUITheme {
 
         let bigButtonFont = UIFont.systemFont(ofSize: 18.0)
@@ -180,6 +188,21 @@ public extension LimeAuthActivationUITheme {
                 titleColor: .orange,
                 tintColor: .orange,
                 buttonColor: .orange
+            ),
+            authOTP: ValidateOTPScene(
+                otpCode: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .white,
+                    textColor: .black,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .black,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .default,
+                    options: [],
+                    alignment: .center,
+                    contentType: otpContentType
+                )
             )
         )
     }
@@ -298,6 +321,21 @@ public extension LimeAuthActivationUITheme {
                 titleColor: .orange,
                 tintColor: .orange,
                 buttonColor: .orange
+            ),
+            authOTP: ValidateOTPScene(
+                otpCode: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .black,
+                    textColor: .white,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .white,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .dark,
+                    options: [],
+                    alignment: .center,
+                    contentType: otpContentType
+                )
             )
         )
     }

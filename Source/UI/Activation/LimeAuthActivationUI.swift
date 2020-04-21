@@ -19,33 +19,6 @@ import PowerAuth2
 
 public class LimeAuthActivationUI {
     
-    public enum EntryScene {
-        /// Start of activation UI flow is determined by state of the session. If session has activation
-        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `selfActivationInitial`
-        case `default`
-        
-        // SELF ACTIVATION
-        
-        /// Activation UI flow will begin in initial scene. The provided session must be empty.
-        case selfActivationInitial
-        /// Activation UI flow will begin in QR code scanner. The provided session must be empty.
-        case selfActivationScanCode
-        /// Activation UI flow will begin in entering activation scene. The provided session must be empty.
-        case selfActivationEnterCode
-        
-        // RECOVERY ACTIVATION
-        
-        /// Activation UI flow will begin in initial recovery scene. The provided session must be empty.
-        case recoveryInitial
-        /// Activation UI flow will begin in entering recovery code scene. The provided session must be empty.
-        case recoveryEnterCode
-        
-        // OTHER
-        
-        /// Activation UI flow will begin in confirmation cene. The provided session contain valid activation in `otp_Used` state.
-        case confirmation
-    }
-    
     public typealias CompletionClosure = (_ result: Activation.Result, _ finalController: UIViewController?)->Void
     
     /// Entry scene. You can adjust this variable before you invoke UI construction.
@@ -58,12 +31,32 @@ public class LimeAuthActivationUI {
     private var completion: CompletionClosure?
     
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider, completion: @escaping CompletionClosure) {
-        self.activationProcess = ActivationUIProcess(session: session, uiProvider: uiProvider, uiRecoveryProvider: uiRecoveryProvider, credentialsProvider: credentialsProvider)
+    /// Creates instance of Activation UI
+    /// - Parameters:
+    ///   - session: started limeauth session
+    ///   - uiProvider: ui configuration
+    ///   - uiRecoveryProvider: recovery ui configuration
+    ///   - credentialsProvider: credentials configuration
+    ///   - additionalOTP: otp configuration. Note that this configuration does not have any effect during recovery activation
+    ///   - completion: completion closure
+    public init(session: LimeAuthSession,
+                uiProvider: ActivationUIProvider,
+                uiRecoveryProvider: RecoveryUIProvider,
+                credentialsProvider: LimeAuthCredentialsProvider,
+                additionalOTP: AdditionalOTP,
+                completion: @escaping CompletionClosure) {
+        self.activationProcess = ActivationUIProcess(
+            session: session,
+            uiProvider: uiProvider,
+            uiRecoveryProvider: uiRecoveryProvider,
+            credentialsProvider: credentialsProvider,
+            additionalOTP: additionalOTP
+        )
         self.completion = completion
         self.entryScene = .default
     }
     
+    // MARK: - Public API
     
     /// Function invokes initial scene
     public func instantiateEntryScene() -> UIViewController {
@@ -79,6 +72,9 @@ public class LimeAuthActivationUI {
             controller = uiProvider.instantiateEnterCodeScene()
         case .selfActivationScanCode:
             controller = uiProvider.instantiateScanCodeScene()
+        case .selfActivationWithCode(let code):
+            activationProcess.activationData.activationCode = code
+            controller = uiProvider.instantiateOTPAuthenticationScene()
         case .confirmation:
             controller = controllerForRecoveryFromBrokenActivation()
         case .recoveryInitial:
@@ -96,23 +92,6 @@ public class LimeAuthActivationUI {
         activationProcess.initialController = controller
         controller.connect(activationProcess: activationProcess)
         return controller
-    }
-    
-    /// Function returns confirmation or error scene controller depending on whether it's possible to recovery from
-    /// a broken activation.
-    private func controllerForRecoveryFromBrokenActivation() -> UIViewController & ActivationUIProcessController {
-        let uiProvider = activationProcess.uiProvider
-        if let activationFingerprint = activationProcess.session.activationFingerprint {
-            // In this case, there's no full activation result available, but we can restore at least activation fingerprint.
-            let activationResult = PA2ActivationResult()
-            activationResult.activationFingerprint = activationFingerprint
-            activationProcess.activationData.recoveryFromFailedActivation = true
-            activationProcess.activationData.createActivationResult = activationResult
-            return uiProvider.instantiateConfirmScene()
-        }
-        D.error("Cannot recovery from previously broken activation.")
-		activationProcess.activationData.failureReason = LimeAuthError(string: uiProvider.uiDataProvider.uiDataForConfirmActivation.errors.recoveryFailure)
-        return uiProvider.instantiateErrorScene()
     }
     
     /// Function invokes entry scene and pushes it into the provided navigation controller.
@@ -133,7 +112,24 @@ public class LimeAuthActivationUI {
         controller.present(controllerToPresent, animated: animated, completion: completion)
     }
     
+    // MARK: - Private helpers
     
+    /// Function returns confirmation or error scene controller depending on whether it's possible to recovery from
+    /// a broken activation.
+    private func controllerForRecoveryFromBrokenActivation() -> UIViewController & ActivationUIProcessController {
+        let uiProvider = activationProcess.uiProvider
+        if let activationFingerprint = activationProcess.session.activationFingerprint {
+            // In this case, there's no full activation result available, but we can restore at least activation fingerprint.
+            let activationResult = PA2ActivationResult()
+            activationResult.activationFingerprint = activationFingerprint
+            activationProcess.activationData.recoveryFromFailedActivation = true
+            activationProcess.activationData.createActivationResult = activationResult
+            return uiProvider.instantiateConfirmScene()
+        }
+        D.error("Cannot recovery from previously broken activation.")
+		activationProcess.activationData.failureReason = LimeAuthError(string: uiProvider.uiDataProvider.uiDataForConfirmActivation.errors.recoveryFailure)
+        return uiProvider.instantiateErrorScene()
+    }
 
     // MARK: - Private methods
     
@@ -142,27 +138,23 @@ public class LimeAuthActivationUI {
         
         let hasActivation = activationProcess.session.hasValidActivation
         let canStartActivation = activationProcess.session.canStartActivation
-        let hasOtpUsed = hasActivation && (activationProcess.session.lastFetchedActivationStatus?.state ?? .created)  == .otp_Used
+        let isPending = hasActivation && (activationProcess.session.lastFetchedActivationStatus?.state ?? .created) == .pendingCommit
         
         var wrongState = false
         
         switch entryScene {
         case .default:
-            if hasActivation && hasOtpUsed {
+            if hasActivation && isPending {
                 entryScene = .confirmation
             } else if canStartActivation {
                 entryScene = .selfActivationInitial
             } else {
                 wrongState = true
             }
-        case .selfActivationInitial:
-            wrongState = !canStartActivation
-        case .selfActivationScanCode:
-            wrongState = !canStartActivation
-        case .selfActivationEnterCode:
+        case .selfActivationInitial, .selfActivationScanCode, .selfActivationEnterCode, .selfActivationWithCode:
             wrongState = !canStartActivation
         case .confirmation:
-            wrongState = !hasOtpUsed
+            wrongState = !isPending
         case .recoveryInitial:
             wrongState = !canStartActivation
         case .recoveryEnterCode:
@@ -174,10 +166,50 @@ public class LimeAuthActivationUI {
         }
     }
     
-    ///
+    /// Mark process as finished
     private func complete(with activationData: Activation.Data) {
         completion?(activationData.result ?? .cancel, activationProcess.finalController)
         completion = nil
     }
+    
+    // MARK: - Nested classes
+    
+    /// Configuration for additional OTP confirmation.
+    /// For example when user has to authenticate via additional SMS or other channel.
+    public enum AdditionalOTP {
+        case none
+        case authentication
+        // NOT AVAILABLE YET
+        //case confirmation
+    }
 
+    /// Entry scene for the activation UI
+    public enum EntryScene {
+        /// Start of activation UI flow is determined by state of the session. If session has activation
+        /// and it's state is `otp_Used`, then the `confirmation` scene is used, otherwise `selfActivationInitial`
+        case `default`
+        
+        // SELF ACTIVATION
+        
+        /// Activation UI flow will begin in initial scene. The provided session must be empty.
+        case selfActivationInitial
+        /// Activation UI flow will begin in QR code scanner. The provided session must be empty.
+        case selfActivationScanCode
+        /// Activation UI flow will begin in entering activation scene. The provided session must be empty.
+        case selfActivationEnterCode
+        /// Activation code was already obtained and passed to LimeAuthActivationUI. The provided session must be empty.
+        case selfActivationWithCode(_ code: String)
+        
+        // RECOVERY ACTIVATION
+        
+        /// Activation UI flow will begin in initial recovery scene. The provided session must be empty.
+        case recoveryInitial
+        /// Activation UI flow will begin in entering recovery code scene. The provided session must be empty.
+        case recoveryEnterCode
+        
+        // OTHER
+        
+        /// Activation UI flow will begin in confirmation scene. The provided session contains valid activation in `otp_Used` state.
+        case confirmation
+    }
 }

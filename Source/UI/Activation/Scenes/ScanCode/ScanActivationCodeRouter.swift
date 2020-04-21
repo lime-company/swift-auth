@@ -41,7 +41,12 @@ public class ScanActivationCodeRouter: ScanActivationCodeRoutingLogic, Activatio
     
     public func routeToKeyExchange(activationCode: String) {
         activationProcess.activationData.activationCode = activationCode
-        viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
+        switch activationProcess.additionalOTP {
+        case .authentication:
+            viewController?.performSegue(withIdentifier: "AuthOTP", sender: nil)
+        case .none:
+            viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
+        }
     }
     
     public func routeToEnterCode() {

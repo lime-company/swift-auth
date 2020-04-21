@@ -37,8 +37,12 @@ public class EnterCodeRecoveryRouter: EnterCodeRecoveryRoutingLogic, ActivationU
     }
     
     public func routeToKeyExchange(activationCode: String, puk: String) {
-        activationProcess?.activationData.activationCode = activationCode
-        activationProcess?.activationData.puk = puk
+        activationProcess.activationData.activationCode = activationCode
+        activationProcess.activationData.puk = puk
+        if case .authentication = activationProcess.additionalOTP {
+            D.warning("OTP is required, but not available in Recovery flow, to it will be ignored.")
+        }
+        
         viewController?.performSegue(withIdentifier: "RecoveryKeyExchange", sender: nil)
     }
     

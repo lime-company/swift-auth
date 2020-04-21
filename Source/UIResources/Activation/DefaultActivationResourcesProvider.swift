@@ -64,6 +64,13 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return controller
     }
     
+    func instantiateOTPAuthenticationScene() -> AuthenticationOTPViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "AuthOTP") as? AuthenticationOTPViewController else {
+            D.fatalError("Cannot instantiate Authenticate with OTP scene")
+        }
+        return controller
+    }
+    
     // Recovery-activation
     
     func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController {
@@ -168,6 +175,20 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 closeScanAccessibilityLabel: localization.localizedString("limeauth.act.scanCode.acs.close")
             )
         )
+    }()
+    
+    public lazy var uiDataForAuthenticationOTP: AuthenticationOTP.UIData = {
+        AuthenticationOTP.UIData(
+            strings: AuthenticationOTP.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.authOTP.title"),
+                sceneDescription: localization.localizedString("limeauth.act.authOTP.description"),
+                confirmButton: localization.localizedString("limeauth.act.authOTP.confirmButton"),
+                notValidAlertTitle: localization.localizedString("limeauth.act.authOTP.notValidTitle"),
+                notValidAlertText: localization.localizedString("limeauth.act.authOTP.notValidText"),
+                notValidAlertButton: localization.localizedString("limeauth.act.authOTP.notValidButton"),
+                accessibilityInput: localization.localizedString("limeauth.act.authOTP.accessibility.input")
+            ),
+            validator: nil)
     }()
     
     public lazy var uiDataForKeysExchange: KeysExchange.UIData = {

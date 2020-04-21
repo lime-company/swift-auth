@@ -173,7 +173,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 errorToReport = LimeAuthError(string: uiDataProvider.uiDataForConfirmActivation.errors.activationBlocked)
             case .created:
                 return true
-            case .otp_Used:
+            case .pendingCommit:
                 return true
             @unknown default:
                 D.fatalError("unknown state")

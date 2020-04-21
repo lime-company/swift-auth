@@ -200,6 +200,16 @@ public struct LimeAuthActivationUITheme {
         }
     }
     
+    public struct ValidateOTPScene {
+        /// Style for text field in "enter OTP" scene
+        public var otpCode: TextFieldStyle
+        
+        /// Structure initializer
+        public init(otpCode: TextFieldStyle) {
+            self.otpCode = otpCode
+        }
+    }
+    
     /// This section affects appearance of UINavigationBar & buttons, when it's visible.
     /// (typically in enter activation code scene)
     public struct NavigationBar {
@@ -237,6 +247,7 @@ public struct LimeAuthActivationUITheme {
     public var buttons: Buttons
     public var scannerScene: ScannerScene
     public var enterCodeScene: EnterCodeScene
+    public var authOTP: ValidateOTPScene
     public var navigationBar: NavigationBar
     
     /// Theme initializer
@@ -247,7 +258,8 @@ public struct LimeAuthActivationUITheme {
         buttons: Buttons,
         scannerScene: ScannerScene,
         enterCodeScene: EnterCodeScene,
-        navigationBar: NavigationBar)
+        navigationBar: NavigationBar,
+        authOTP: ValidateOTPScene)
     {
         self.common = common
         self.illustrations = illustrations
@@ -256,6 +268,7 @@ public struct LimeAuthActivationUITheme {
         self.scannerScene = scannerScene
         self.enterCodeScene = enterCodeScene
         self.navigationBar = navigationBar
+        self.authOTP = authOTP
     }
     
     /// Function provides a fallback theme used internally, for theme's initial values.
@@ -302,6 +315,9 @@ public struct LimeAuthActivationUITheme {
                 titleColor: .black,
                 tintColor: .blue,
                 buttonColor: .blue
+            ),
+            authOTP: ValidateOTPScene(
+                otpCode: .noStyle
             )
         )
     }

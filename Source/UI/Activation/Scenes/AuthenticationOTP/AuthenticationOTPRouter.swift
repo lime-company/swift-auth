@@ -1,5 +1,5 @@
 //
-// Copyright 2018 Wultra s.r.o.
+// Copyright 2020 Wultra s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,16 +16,16 @@
 
 import UIKit
 
-public protocol EnterActivationCodeRoutingLogic {
+public protocol AuthenticationOTPRoutingLogic {
     func routeToPreviousScene()
-    func routeToKeyExchange(activationCode: String)
+    func routeToKeyExchange(otp: String)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
 }
 
-public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, ActivationUIProcessRouter {
+public class AuthenticationOTPRouter: AuthenticationOTPRoutingLogic, ActivationUIProcessRouter {
 
-    public weak var viewController: EnterActivationCodeViewController?
+    public weak var viewController: AuthenticationOTPViewController?
     public var activationProcess: ActivationUIProcess!
 
     public func routeToPreviousScene() {
@@ -37,14 +37,9 @@ public class EnterActivationCodeRouter: EnterActivationCodeRoutingLogic, Activat
         }
     }
     
-    public func routeToKeyExchange(activationCode: String) {
-        activationProcess?.activationData.activationCode = activationCode
-        switch activationProcess.additionalOTP {
-        case .authentication:
-            viewController?.performSegue(withIdentifier: "AuthOTP", sender: nil)
-        case .none:
-            viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
-        }
+    public func routeToKeyExchange(otp: String) {
+        activationProcess?.activationData.activationOTP = otp
+        viewController?.performSegue(withIdentifier: "KeyExchange", sender: nil)
     }
     
     public func prepare(for segue: UIStoryboardSegue, sender: Any?) {

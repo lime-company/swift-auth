@@ -99,7 +99,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         if let puk = process.activationData.puk {
             sessionOperation = router.activationProcess.session.createActivation(name: activationName, extras: nil, recoveryCode: activationCode, puk: puk, completion: completion)
         } else {
-            sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode, completion: completion)
+            sessionOperation = router.activationProcess.session.createActivation(name: activationName, activationCode: activationCode, otp: process.activationData.activationOTP, completion: completion)
         }
     }
     

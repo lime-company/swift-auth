@@ -22,6 +22,7 @@ public protocol ActivationUIProvider: class {
     func instantiateInitialScene() -> BeginActivationViewController
     func instantiateScanCodeScene() -> ScanActivationCodeViewController
     func instantiateEnterCodeScene() -> EnterActivationCodeViewController
+    func instantiateOTPAuthenticationScene() -> AuthenticationOTPViewController
     func instantiateConfirmScene() -> ConfirmActivationViewController
     // recovery activation
     func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController
@@ -45,6 +46,7 @@ public protocol ActivationUIDataProvider: class {
     var uiDataForNoCameraAccess: NoCameraAccess.UIData { get }
     var uiDataForEnterActivationCode: EnterActivationCode.UIData { get }
     var uiDataForScanActivationCode: ScanActivationCode.UIData { get }
+    var uiDataForAuthenticationOTP: AuthenticationOTP.UIData { get }
     var uiDataForConfirmActivation: ConfirmActivation.UIData { get }
     
     // recovery activation strings
@@ -78,19 +80,21 @@ public class ActivationUIProcess {
     public let credentialsProvider: LimeAuthCredentialsProvider
     public private(set) var activationData: Activation.Data
     
+    public internal(set) var additionalOTP: LimeAuthActivationUI.AdditionalOTP
     public internal(set) var cancelShouldRouteToBegin = false
     public internal(set) weak var initialController: UIViewController?
     public internal(set) weak var finalController: UIViewController?
     
     internal var completion: ((Activation.Data)->Void)?
     
-    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider) {
+    public init(session: LimeAuthSession, uiProvider: ActivationUIProvider, uiRecoveryProvider: RecoveryUIProvider, credentialsProvider: LimeAuthCredentialsProvider, additionalOTP: LimeAuthActivationUI.AdditionalOTP) {
         self.session = session
         self.uiProvider = uiProvider
         self.uiDataProvider = uiProvider.uiDataProvider
         self.uiRecoveryProvider = uiRecoveryProvider
         self.activationData = Activation.Data()
         self.credentialsProvider = credentialsProvider
+        self.additionalOTP = additionalOTP
     }
     
     // MARK: - Activation control
