@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1103,11 +1103,17 @@
                                     <constraint firstAttribute="trailing" secondItem="cvA-NH-oHg" secondAttribute="trailing" id="ycZ-4f-au5"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4ay-eR-D4h">
+                                <rect key="frame" x="169" y="305" width="37" height="37"/>
+                                <color key="color" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4ay-eR-D4h" firstAttribute="centerY" secondItem="U35-zg-StT" secondAttribute="centerY" id="7nn-O6-xfv"/>
                             <constraint firstItem="oAi-9r-gSh" firstAttribute="leading" secondItem="U35-zg-StT" secondAttribute="leadingMargin" id="GFi-f0-S3P"/>
                             <constraint firstItem="gOb-bb-uys" firstAttribute="top" secondItem="oAi-9r-gSh" secondAttribute="bottom" id="O30-L0-BFc"/>
+                            <constraint firstItem="4ay-eR-D4h" firstAttribute="centerX" secondItem="U35-zg-StT" secondAttribute="centerX" id="QHF-df-Vsz"/>
                             <constraint firstItem="gOb-bb-uys" firstAttribute="leading" secondItem="U35-zg-StT" secondAttribute="leadingMargin" id="QfN-AY-rK9"/>
                             <constraint firstItem="gOb-bb-uys" firstAttribute="trailing" secondItem="U35-zg-StT" secondAttribute="trailingMargin" id="cre-bf-a9L"/>
                             <constraint firstItem="zUL-OW-Yt7" firstAttribute="top" secondItem="gOb-bb-uys" secondAttribute="bottom" id="g3S-dN-kS9"/>
@@ -1119,10 +1125,13 @@
                     <connections>
                         <outlet property="activationFingerprintLabel" destination="86r-OI-7nV" id="Usp-CA-JRx"/>
                         <outlet property="activityIndicatorView" destination="Hoc-dC-Vh1" id="7dt-2h-dsK"/>
+                        <outlet property="bottomUI" destination="gOb-bb-uys" id="umv-U1-acN"/>
+                        <outlet property="centerActivityIndicatorView" destination="4ay-eR-D4h" id="Njj-k7-Ipg"/>
                         <outlet property="promoImageView" destination="KgQ-bV-0oe" id="LWL-JK-T20"/>
                         <outlet property="removeActivationButton" destination="xFS-SY-2vK" id="CaN-4v-6UC"/>
                         <outlet property="sceneDescriptionLabel" destination="rec-it-akc" id="8t8-Yv-gur"/>
                         <outlet property="sceneTitleLabel" destination="mVD-Hf-krI" id="iPJ-qO-bkx"/>
+                        <outlet property="topUI" destination="oAi-9r-gSh" id="Hto-fZ-nmC"/>
                         <outlet property="waitingForActivationLabel" destination="cvA-NH-oHg" id="scr-Tx-JgQ"/>
                         <segue destination="woQ-PU-JYk" kind="show" identifier="ErrorActivation" id="BzB-ih-qyI"/>
                         <segue destination="X65-Ov-OlM" kind="show" identifier="RecoveryCode" id="gPY-fV-a8f"/>
@@ -1153,9 +1162,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IkA-52-XOD"/>
+        <segue reference="gPY-fV-a8f"/>
         <segue reference="mys-65-odR"/>
-        <segue reference="2Jb-20-RaX"/>
+        <segue reference="BzB-ih-qyI"/>
         <segue reference="LPC-QH-zn5"/>
         <segue reference="Jy3-Sg-jPe"/>
         <segue reference="IJ1-g6-hd0"/>

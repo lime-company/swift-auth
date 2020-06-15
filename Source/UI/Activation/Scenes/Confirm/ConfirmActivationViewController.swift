@@ -211,13 +211,24 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
 	@IBOutlet weak var activationFingerprintLabel: UILabel?
 	@IBOutlet weak var waitingForActivationLabel: UILabel?
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView?
+    @IBOutlet weak var centerActivityIndicatorView: UIActivityIndicatorView?
     @IBOutlet weak var removeActivationButton: UIButton?
+    @IBOutlet weak var topUI: UIView?
+    @IBOutlet weak var bottomUI: UIView?
     
     // MARK: -
     
     open override func prepareUI() {
         let uiData = uiDataProvider.uiDataForConfirmActivation
         let theme = uiDataProvider.uiTheme
+        
+        switch router.activationProcess.additionalOTP {
+        case .authentication:
+            topUI?.isHidden = true
+            bottomUI?.isHidden = true
+        case .none:
+            centerActivityIndicatorView?.isHidden = true
+        }
         
         // Apply texts & images
         promoImageView?.setLazyImage(theme.illustrations.confirmScene)
@@ -237,6 +248,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         activationFingerprintLabel?.textColor = theme.common.highlightedTextColor
         removeActivationButton?.applyButtonStyle(theme.buttons.destructive)
         activityIndicatorView?.applyIndicatorStyle(theme.common.activityIndicator)
+        centerActivityIndicatorView?.applyIndicatorStyle(theme.common.activityIndicator)
     }
 }
 
