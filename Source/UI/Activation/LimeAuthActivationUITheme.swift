@@ -41,6 +41,9 @@ public struct LimeAuthActivationUITheme {
         /// Color for all scene titles
         public var titleColor: UIColor
         
+        /// Font for all scene titles
+        public var titleFont: UIFont?
+        
         /// Color for all texts in scenes
         public var textColor: UIColor
         
@@ -63,6 +66,7 @@ public struct LimeAuthActivationUITheme {
             backgroundColor: UIColor?,
             backgroundImage: LazyUIImage?,
             titleColor: UIColor,
+            titleFont: UIFont?,
             textColor: UIColor,
             highlightedTextColor: UIColor,
             activityIndicator: ActivityIndicatorStyle,
@@ -72,6 +76,7 @@ public struct LimeAuthActivationUITheme {
             self.backgroundColor = backgroundColor
             self.backgroundImage = backgroundImage
             self.titleColor = titleColor
+            self.titleFont = titleFont
             self.textColor = textColor
             self.highlightedTextColor = highlightedTextColor
             self.activityIndicator = activityIndicator
@@ -273,11 +278,13 @@ public struct LimeAuthActivationUITheme {
     
     /// Function provides a fallback theme used internally, for theme's initial values.
     public static func fallbackTheme() -> LimeAuthActivationUITheme {
+        
         return LimeAuthActivationUITheme(
             common: Common(
                 backgroundColor: .white,
                 backgroundImage: nil,
                 titleColor: .blue,
+                titleFont: nil,
                 textColor: .black,
                 highlightedTextColor: .blue,
                 activityIndicator: .small(.blue),

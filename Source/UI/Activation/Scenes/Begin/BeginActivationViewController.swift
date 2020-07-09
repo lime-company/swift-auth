@@ -143,6 +143,9 @@ open class BeginActivationViewController: LimeAuthUIBaseViewController, Activati
         // Apply styles
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         sceneTitleLabel?.textColor = theme.common.titleColor
+        if let font = theme.common.titleFont {
+            sceneTitleLabel?.font = font
+        }
         sceneDescriptionLabel?.textColor = theme.common.textColor
         scanAccessCodeButton?.applyButtonStyle(theme.buttons.primary)
         enterAccessCodeButton?.applyButtonStyle(theme.buttons.secondary)
