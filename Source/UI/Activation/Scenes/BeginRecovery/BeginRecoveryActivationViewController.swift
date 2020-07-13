@@ -74,6 +74,9 @@ open class BeginRecoveryActivationViewController: LimeAuthUIBaseViewController, 
         
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         titleLabel?.textColor = theme.common.titleColor
+        if let font = theme.common.titleFont {
+            titleLabel.font = font
+        }
         message?.textColor = theme.common.textColor
         cancelButton?.applyButtonStyle(theme.buttons.cancel)
         continueButton?.applyButtonStyle(theme.buttons.primary)

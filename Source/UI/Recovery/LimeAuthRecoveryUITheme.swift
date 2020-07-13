@@ -22,6 +22,8 @@ public struct LimeAuthRecoveryUITheme {
         
         /// Screen title color
         public var titleColor: UIColor
+        /// Screen title
+        public var titleFont: UIFont?
         /// Normal text color
         public var textColor: UIColor
         /// Color for text displayed on the bottom of "recovery code" screen
@@ -51,6 +53,7 @@ public struct LimeAuthRecoveryUITheme {
         
         public init(
             titleColor: UIColor,
+            titleFont: UIFont?,
             textColor: UIColor,
             warningTextColor: UIColor,
             headerTextColor: UIColor,
@@ -64,6 +67,7 @@ public struct LimeAuthRecoveryUITheme {
             backgroundImage: LazyUIImage?) {
             
             self.titleColor = titleColor
+            self.titleFont = titleFont
             self.textColor = textColor
             self.warningTextColor = warningTextColor
             self.headerTextColor = headerTextColor

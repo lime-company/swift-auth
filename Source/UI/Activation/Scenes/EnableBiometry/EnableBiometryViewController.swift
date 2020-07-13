@@ -115,6 +115,9 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         // Apply styles
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         sceneTitleLabel?.textColor = theme.common.titleColor
+        if let font = theme.common.titleFont {
+            sceneTitleLabel?.font = font
+        }
         sceneDescriptionLabel?.textColor = theme.common.textColor
         enableBiometryButton?.applyButtonStyle(theme.buttons.primary)
         enableLaterButton?.applyButtonStyle(theme.buttons.secondary)

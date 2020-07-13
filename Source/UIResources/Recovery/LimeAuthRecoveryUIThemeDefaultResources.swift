@@ -32,6 +32,7 @@ public extension LimeAuthRecoveryUITheme {
         
         return LimeAuthRecoveryUITheme(recoveryScene: RecoveryCodeScene(
             titleColor: activation.common.titleColor,
+            titleFont: nil,
             textColor: activation.common.textColor,
             warningTextColor: .red,
             headerTextColor: .gray,
@@ -52,6 +53,7 @@ public extension LimeAuthRecoveryUITheme {
         
         return LimeAuthRecoveryUITheme(recoveryScene: RecoveryCodeScene(
             titleColor: activation.common.titleColor,
+            titleFont: nil,
             textColor: activation.common.textColor,
             warningTextColor: .red,
             headerTextColor: .gray,
