@@ -244,6 +244,9 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         // Apply styles
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         sceneTitleLabel?.textColor = theme.common.titleColor
+        if let font = theme.common.titleFont {
+            sceneTitleLabel?.font = font
+        }
         sceneDescriptionLabel?.textColor = theme.common.textColor
         waitingForActivationLabel?.textColor = theme.common.textColor
         activationFingerprintLabel?.textColor = theme.common.highlightedTextColor
