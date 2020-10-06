@@ -16,6 +16,62 @@
 
 import UIKit
 
-open class LimeAuthUINavigationController : UINavigationController {
+/// Custom LimeAuth navigation controller.
+/// - Fixing issue when a view controller is pushed while modal dialog (alert) is being presented.
+open class LimeAuthUINavigationController: UINavigationController {
+    
+    /// Whether the issue when a view controller is pushed while modal dialog (alert) is being presented should be fixed.
+    /// - true by default.
+    open var enablePushWhenModalTransitionFix = true
+    
+    /// Marks whether view controller is being presented using "present" method
+    private(set) var isPresenting = false {
+        didSet {
+            
+            // When presenting is finished and there was an attempt made for pushing a new view controller
+            // we will try to push it again (as pushing VC during transition i not possible).
+            
+            guard isPresenting == false, let vc = storedPushController else {
+                return
+            }
+            
+            D.print("Pushing stored view controller after the modal presentation is finished.")
+            
+            let animate = animateStoredPushController
+            storedPushController = nil
+            
+            // schedule the push to the end of the current stack (to let the current methods to finish).
+            DispatchQueue.main.async  {
+                self.pushViewController(vc, animated: animate)
+            }
+        }
+    }
+    
+    private var storedPushController: UIViewController?
+    private var animateStoredPushController = false
+    
+    open override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        isPresenting = true
+        super.present(viewControllerToPresent, animated: flag, completion: { [weak self] in
+            completion?()
+            self?.isPresenting = false
+        })
+    }
+    
+    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        
+        // If a modal dialog is being presented while trying to push a view controller
+        // a warning is raised to the console and the actual "push" won't occur.
+        // In such case, we're storing the view controller that will be pushed once
+        // the presentation phased of the modal is over.
+        
+        if enablePushWhenModalTransitionFix && isPresenting && storedPushController == nil {
+            storedPushController = viewController
+            animateStoredPushController = animated
+            D.print("Attempting to push view controller while modal is under transition. Storing the push for later.")
+        } else {
+            super.pushViewController(viewController, animated: animated)
+        }
+    }
     
 }
