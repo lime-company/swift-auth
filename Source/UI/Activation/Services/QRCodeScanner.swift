@@ -114,7 +114,6 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
         let bounds = view.bounds
         previewLayer?.bounds = bounds
         previewLayer?.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        
     }
     
     // MARK: - Private methods
