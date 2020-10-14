@@ -39,8 +39,8 @@ public class PukView: UIView, UITextFieldDelegate {
     
     public func prepareComponent(uiDataProvider: ActivationUIDataProvider) {
         createTextFields()
-        tf1.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode)
-        tf2.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode)
+        tf1.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.puk)
+        tf2.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.puk)
     }
     
     public func buildPUK() -> String {
