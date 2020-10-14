@@ -79,6 +79,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     /// **Call ithis method on main thread.**
     public func stopScanner() {
         previewView?.removeObserver(self, forKeyPath: "frame")
+        previewView = nil
         guard let session = captureSession else {
             return
         }
