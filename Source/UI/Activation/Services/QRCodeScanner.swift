@@ -50,6 +50,7 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     private let captureSessionQueue = DispatchQueue(label: "LimeAuth.QRCodeScanner.CaptureSessionQueue")
 
     public private(set) weak var previewLayer: AVCaptureVideoPreviewLayer?
+    private weak var previewView: UIView?
     
     // MARK: - QRCodeProvider protocol
     
@@ -77,7 +78,10 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
     /// Stops the scanner asynchronously.
     /// **Call ithis method on main thread.**
     public func stopScanner() {
-        guard let session = captureSession else { return }
+        previewView?.removeObserver(self, forKeyPath: "frame")
+        guard let session = captureSession else {
+            return
+        }
         captureSessionQueue.async {
             if session.isRunning {
                 session.stopRunning()
@@ -97,6 +101,19 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
                 }
             }
         }
+    }
+    
+    // MARK: - KVO
+    
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        // only observation here is on the preview. when the preview changes its size
+        // reflect that into the video preview layer
+        guard let view = object as? UIView, keyPath == "frame" else {
+            return
+        }
+        let bounds = view.bounds
+        previewLayer?.bounds = bounds
+        previewLayer?.position = CGPoint(x: bounds.midX, y: bounds.midY)
     }
     
     // MARK: - Private methods
@@ -145,7 +162,12 @@ public class QRCodeScanner: NSObject, QRCodeProvider, AVCaptureMetadataOutputObj
             videoLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
             preview.layer.insertSublayer(videoLayer, at: 0)
             
+            // start observing of the frame changes of the preview in case of resizing
+            // this can happen for example when the previous screen had navbar, but current doesn't have it
+            preview.addObserver(self, forKeyPath: "frame", options: [], context: nil)
+            
             self.previewLayer = videoLayer
+            self.previewView = preview
         }
         
         self.captureSession = session

@@ -182,6 +182,18 @@ public extension LimeAuthActivationUITheme {
                     borderCornerRadius: 8.0,
                     keyboardAppearance: .default,
                     options: []
+                ),
+                puk: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .white,
+                    textColor: .black,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .black,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .default,
+                    options: [],
+                    keyboardType: .asciiCapableNumberPad
                 )
             ),
             navigationBar: NavigationBar(
@@ -316,6 +328,18 @@ public extension LimeAuthActivationUITheme {
                     borderCornerRadius: 8.0,
                     keyboardAppearance: .dark,
                     options: []
+                ),
+                puk: TextFieldStyle(
+                    tintColor: nil,
+                    backgroundColor: .black,
+                    textColor: .white,
+                    textFont: UIFont(name: "CourierNewPSMT", size: 18.0),
+                    borderWidth: 1.0,
+                    borderColor: .white,
+                    borderCornerRadius: 8.0,
+                    keyboardAppearance: .dark,
+                    options: [],
+                    keyboardType: .asciiCapableNumberPad
                 )
             ),
             navigationBar: NavigationBar(
