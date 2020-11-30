@@ -130,7 +130,9 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     }
     
     open func qrCodeProviderCameraPreview(_ provider: QRCodeProvider, forSession session: AVCaptureSession?) -> UIView? {
-        return self.view
+        // to avoid gray temporary background until the camera "kicks in"
+        view.backgroundColor = uiDataProvider.uiTheme.common.backgroundColor
+        return view
     }
     
     
