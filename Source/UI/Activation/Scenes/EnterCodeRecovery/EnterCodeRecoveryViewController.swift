@@ -85,7 +85,9 @@ open class EnterCodeRecoveryViewController: LimeAuthUIBaseViewController, Activa
         
         title = strings.sceneTitle
         cancelButtonItem.title = commonStrings.cancelTitle
+        codeLabel.textAlignment = .left
         codeLabel.text = strings.codeDescription
+        pukLabel.textAlignment = .left
         pukLabel.text = strings.pukDescription
         confirmButton.setTitle(strings.confirmButton, for: .normal)
         

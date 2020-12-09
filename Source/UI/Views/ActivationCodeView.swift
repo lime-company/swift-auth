@@ -41,12 +41,19 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     
     // MARK: - public API
     
+    var uiDataProvider: ActivationUIDataProvider!
+    
     public func prepareComponent(uiDataProvider: ActivationUIDataProvider) {
+        self.uiDataProvider = uiDataProvider
         createTextFields()
         tf1.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityFirstCode
         tf2.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilitySecondCode
         tf3.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityThirdCode
         tf4.accessibilityLabel = uiDataProvider.uiDataForEnterActivationCode.strings.accessibilityFourthCode
+        fields.forEach { $0.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode) }
+    }
+    
+    public override func layoutSubviews() {
         fields.forEach { $0.applyTextFieldStyle(uiDataProvider.uiTheme.enterCodeScene.activationCode) }
     }
     

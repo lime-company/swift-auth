@@ -155,6 +155,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
     @IBOutlet weak var confirmButton: UIButton?
     @IBOutlet weak var activationCodeView: ActivationCodeView!
+    @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var bottomKeyboardConstraint: NSLayoutConstraint?
     
@@ -185,5 +186,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
         
         // Prepare text fields
         activationCodeView.prepareComponent(uiDataProvider: uiDataProvider)
+        
+        stackView.alignment = .leading
     }
 }

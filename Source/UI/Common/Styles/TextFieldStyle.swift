@@ -33,15 +33,8 @@ public struct TextFieldStyle {
     /// If set, then colors are applied to `UITextField.textColor`
     public let textFont: UIFont?
     
-    
-    /// Affects width of text fields's border. Applied to text field's layer.
-    public let borderWidth: CGFloat
-    
-    /// Changes color of text field's border. Applied to text field's layer.
-    public let borderColor: UIColor?
-    
-    /// Affects corner radius of text field's border. Applied to view's layer.
-    public let borderCornerRadius: CGFloat
+    /// Styles for the borders
+    public let borders: [BorderStyle]
     
     /// System keyboard's appearance
     public let keyboardAppearance: UIKeyboardAppearance
@@ -87,20 +80,19 @@ public struct TextFieldStyle {
         options: Options,
         keyboardType: UIKeyboardType = .default,
         alignment: NSTextAlignment = .left,
-        contentType: UITextContentType? = nil)
+        contentType: UITextContentType? = nil,
+        borders: [BorderStyle]? = nil)
     {
         self.tintColor = tintColor
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.textFont = textFont
-        self.borderWidth = borderWidth
-        self.borderColor = borderColor
-        self.borderCornerRadius = borderCornerRadius
         self.keyboardAppearance = keyboardAppearance
         self.options = options
         self.keyboardType = keyboardType
         self.alignment = alignment
         self.textContentType = contentType
+        self.borders = borders ?? [BorderStyle(width: borderWidth, borderRadius: borderCornerRadius, borders: .all, color: borderColor ?? .clear)]
     }
  
     /// Returns style which doesn't affect text field's appearance at all. This kind of style can be used for cases when actual

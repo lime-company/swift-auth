@@ -94,12 +94,15 @@ extension UITextField {
         if let font = style.textFont {
             self.font = font
         }
-        let layer = self.layer
-        layer.borderWidth = style.borderWidth
-        layer.cornerRadius = style.borderCornerRadius
-        if let color = style.borderColor {
-            layer.borderColor = color.cgColor
-        }
+        //let layer = self.layer
+        
+        applyBorders(style.borders)
+        
+//        layer.borderWidth = style.borderWidth
+//        layer.cornerRadius = style.borderCornerRadius
+//        if let color = style.borderColor {
+//            layer.borderColor = color.cgColor
+//        }
         self.keyboardAppearance = style.keyboardAppearance
         self.keyboardType = style.keyboardType
         self.textAlignment = style.alignment
@@ -121,6 +124,37 @@ extension UIView {
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor.cgColor
         layer.cornerRadius = style.cornerRadius
+    }
+    
+    func applyBorders(_ styles: [BorderStyle]) {
+        guard styles.isEmpty == false else {
+            return
+        }
+        
+        layer.sublayers?.forEach {
+            if $0.name == "borderLayer" {
+                if let idx = layer.sublayers?.firstIndex(of: $0) {
+                    layer.sublayers?.remove(at: idx)
+                }
+            }
+        }
+    
+        clipsToBounds = true
+        
+        for style in styles {
+            let borderLayer = CALayer()
+            borderLayer.name = "borderLayer"
+            borderLayer.borderColor = style.color.cgColor
+            borderLayer.borderWidth = style.width
+            borderLayer.cornerRadius = style.borderRadius
+            
+            let x: CGFloat = style.borders.contains(.left) ? 0 : -10
+            let y: CGFloat = style.borders.contains(.top) ? 0 : -10
+            let width = frame.width + abs(x) + (style.borders.contains(.right) ? 0 : 10)
+            let height = frame.height + abs(y) + (style.borders.contains(.bottom) ? 0 : 10)
+            borderLayer.frame = CGRect(x: x, y: y, width: width, height: height)
+            layer.addSublayer(borderLayer)
+        }
     }
     
 }

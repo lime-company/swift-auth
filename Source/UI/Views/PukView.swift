@@ -78,7 +78,8 @@ public class PukView: UIView, UITextFieldDelegate {
         addConstraint(sv.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5))
         addConstraint(sv.heightAnchor.constraint(equalToConstant: 44))
         addConstraint(sv.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1))
-        addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
+        //addConstraint(sv.centerXAnchor.constraint(equalTo: centerXAnchor))
+        addConstraint(sv.leadingAnchor.constraint(equalTo: leadingAnchor))
         addConstraint(sv.centerYAnchor.constraint(equalTo: centerYAnchor))
         
         for field in fields {
