@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="v1e-b9-268">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,10 +39,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4le-cZ-li9" userLabel="Pin1 Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o58-mQ-rAa">
-                                        <rect key="frame" x="47.5" y="69.5" width="280" height="130"/>
+                                        <rect key="frame" x="47.5" y="70.5" width="280" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obf-La-fic" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -82,10 +82,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCK-89-phx" userLabel="Pin2 Group">
-                                <rect key="frame" x="375" y="0.0" width="375" height="269"/>
+                                <rect key="frame" x="375" y="0.0" width="375" height="271"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a2f-ZM-C5i">
-                                        <rect key="frame" x="47.5" y="69.5" width="280" height="130"/>
+                                        <rect key="frame" x="47.5" y="70.5" width="280" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter second pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1l-8f-AvF" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -123,7 +123,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-dE-S3L" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="84.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="85.5" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yFD-ba-DjQ" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -156,8 +156,8 @@
                                     <outlet property="succesImageView" destination="yFD-ba-DjQ" id="qD1-oI-r5Q"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-hx-IPD">
-                                <rect key="frame" x="126.5" y="269" width="122" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1K-hx-IPD">
+                                <rect key="frame" x="126.5" y="233" width="122" height="30"/>
                                 <state key="normal" title="Passphrase setup"/>
                                 <connections>
                                     <action selector="passphraseSetupAction:" destination="zeQ-AG-UAj" eventType="touchUpInside" id="0TB-14-Lt6"/>
@@ -403,7 +403,7 @@
                             <constraint firstItem="tIM-cR-zu8" firstAttribute="leading" secondItem="3zP-Sl-RpC" secondAttribute="leading" id="JCz-fo-QBy"/>
                             <constraint firstItem="xrH-Wp-kzL" firstAttribute="trailing" secondItem="3zP-Sl-RpC" secondAttribute="trailing" id="Nnf-1M-K4X"/>
                             <constraint firstItem="4le-cZ-li9" firstAttribute="trailing" secondItem="cCK-89-phx" secondAttribute="leading" id="YH4-wB-EKt"/>
-                            <constraint firstItem="F7t-cG-dFN" firstAttribute="top" secondItem="k1K-hx-IPD" secondAttribute="bottom" constant="12" id="ZIm-0U-Wjt"/>
+                            <constraint firstItem="F7t-cG-dFN" firstAttribute="top" secondItem="k1K-hx-IPD" secondAttribute="bottom" constant="48" id="ZIm-0U-Wjt"/>
                             <constraint firstItem="4le-cZ-li9" firstAttribute="height" secondItem="cCK-89-phx" secondAttribute="height" id="bJj-N8-Vlo"/>
                             <constraint firstItem="3zP-Sl-RpC" firstAttribute="width" secondItem="o58-mQ-rAa" secondAttribute="width" id="cfB-0f-fb1"/>
                             <constraint firstItem="cCK-89-phx" firstAttribute="top" secondItem="4le-cZ-li9" secondAttribute="top" id="cg1-ff-WPj"/>
@@ -412,7 +412,7 @@
                             <constraint firstItem="4le-cZ-li9" firstAttribute="width" secondItem="chz-yk-fKM" secondAttribute="width" id="kgF-Jl-xcx"/>
                             <constraint firstItem="F7t-cG-dFN" firstAttribute="top" secondItem="3zP-Sl-RpC" secondAttribute="bottom" id="kjP-ae-V2j"/>
                             <constraint firstItem="4le-cZ-li9" firstAttribute="leading" secondItem="chz-yk-fKM" secondAttribute="leading" id="mwa-l3-OUB"/>
-                            <constraint firstItem="k1K-hx-IPD" firstAttribute="top" secondItem="4le-cZ-li9" secondAttribute="bottom" id="p1h-fx-wyv"/>
+                            <constraint firstItem="k1K-hx-IPD" firstAttribute="bottom" secondItem="4le-cZ-li9" secondAttribute="bottom" constant="-8" id="p1h-fx-wyv"/>
                             <constraint firstItem="HV7-zA-elE" firstAttribute="top" secondItem="F7t-cG-dFN" secondAttribute="bottom" constant="20" id="sbb-zd-ykH"/>
                             <constraint firstItem="k1K-hx-IPD" firstAttribute="centerX" secondItem="chz-yk-fKM" secondAttribute="centerX" id="tPY-8x-Eyz"/>
                             <constraint firstItem="a2f-ZM-C5i" firstAttribute="width" secondItem="o58-mQ-rAa" secondAttribute="width" id="tlN-t0-IBq"/>
@@ -453,10 +453,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3S-aK-umU" userLabel="Pin Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="311"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-Ri-YLI">
-                                        <rect key="frame" x="47.5" y="99.5" width="280" height="112"/>
+                                        <rect key="frame" x="47.5" y="79.5" width="280" height="112"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-zY-kpZ" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -496,7 +496,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W47-fr-Vv8" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="243.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="223.5" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-SY-YDF" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -794,7 +794,7 @@
                             <constraint firstItem="uSf-Bo-idv" firstAttribute="leading" secondItem="LXa-BV-yqr" secondAttribute="leading" id="OJr-O8-ssI"/>
                             <constraint firstItem="LXa-BV-yqr" firstAttribute="width" secondItem="7gC-Ri-YLI" secondAttribute="width" id="PHm-Id-LHL"/>
                             <constraint firstAttribute="leadingMargin" secondItem="G3a-d1-ZHn" secondAttribute="leading" id="Pcn-G8-7M8"/>
-                            <constraint firstItem="G3a-d1-ZHn" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="bottom" id="TBh-j1-k4M"/>
+                            <constraint firstItem="G3a-d1-ZHn" firstAttribute="top" secondItem="Y3S-aK-umU" secondAttribute="bottom" constant="40" id="TBh-j1-k4M"/>
                             <constraint firstItem="aI2-Iz-kO8" firstAttribute="top" secondItem="G3a-d1-ZHn" secondAttribute="bottom" constant="20" id="arB-Ac-rs8"/>
                             <constraint firstItem="Vqm-cK-x2r" firstAttribute="centerX" secondItem="kxP-un-uXV" secondAttribute="centerX" id="bkh-82-m2L"/>
                             <constraint firstItem="W47-fr-Vv8" firstAttribute="top" secondItem="7gC-Ri-YLI" secondAttribute="bottom" constant="32" id="gAC-Lw-vnJ"/>
@@ -818,6 +818,7 @@
                         <outlet property="attemptsLabel" destination="jYc-jV-5ZV" id="0iK-4f-jdU"/>
                         <outlet property="closeErrorButton" destination="1Qf-IN-V2z" id="bDp-IE-Nh1"/>
                         <outlet property="fixedPinLabel" destination="tGi-tA-04H" id="XqV-0S-JNk"/>
+                        <outlet property="pinGroupView" destination="Y3S-aK-umU" id="ZhJ-tJ-pRt"/>
                         <outlet property="pinKeyboard" destination="G3a-d1-ZHn" id="F98-Mj-bBo"/>
                         <outlet property="pinKeyboardBottomConstraint" destination="arB-Ac-rs8" id="obl-Xp-Gho"/>
                         <outlet property="promptLabel" destination="n3p-zY-kpZ" id="HWj-g3-G3W"/>
@@ -841,10 +842,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sM-Ng-OAb" userLabel="Pin Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="311"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mEN-hi-ga6">
-                                        <rect key="frame" x="47.5" y="91.5" width="280" height="128"/>
+                                        <rect key="frame" x="47.5" y="71.5" width="280" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lb-gu-REB" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -924,7 +925,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Am-jE-Ntc" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="251.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="231.5" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OT9-d7-Q1p" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -1324,7 +1325,7 @@
                             <constraint firstItem="0Am-jE-Ntc" firstAttribute="centerX" secondItem="SCs-Be-bzw" secondAttribute="centerX" id="I7v-QF-ali"/>
                             <constraint firstItem="CuR-Hc-dgt" firstAttribute="width" secondItem="mEN-hi-ga6" secondAttribute="width" id="JtF-y5-YPW"/>
                             <constraint firstItem="jAZ-dA-yal" firstAttribute="leading" secondItem="SCs-Be-bzw" secondAttribute="leadingMargin" constant="20" id="Jv7-DS-JJt"/>
-                            <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="4sM-Ng-OAb" secondAttribute="bottom" id="Oco-6E-yME"/>
+                            <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="4sM-Ng-OAb" secondAttribute="bottom" constant="40" id="Oco-6E-yME"/>
                             <constraint firstItem="aeA-AC-Upz" firstAttribute="top" secondItem="Psw-AF-jq7" secondAttribute="bottom" constant="20" id="Wqh-db-77z"/>
                             <constraint firstItem="Psw-AF-jq7" firstAttribute="trailing" secondItem="SCs-Be-bzw" secondAttribute="trailingMargin" id="asH-V8-YuR"/>
                             <constraint firstItem="Psw-AF-jq7" firstAttribute="top" secondItem="CuR-Hc-dgt" secondAttribute="bottom" id="d5c-0U-4bZ"/>
@@ -1348,6 +1349,7 @@
                         <outlet property="attemptsLabel" destination="Cue-gI-cgz" id="ZwJ-41-4Gu"/>
                         <outlet property="closeErrorButton" destination="jAZ-dA-yal" id="vBD-YP-Z38"/>
                         <outlet property="confirmPinButton" destination="QQN-xl-NNt" id="1uU-MC-bVR"/>
+                        <outlet property="pinGroup" destination="4sM-Ng-OAb" id="InI-Fw-eRn"/>
                         <outlet property="pinKeyboard" destination="Psw-AF-jq7" id="D3P-V4-0Jn"/>
                         <outlet property="pinKeyboardBottomConstraint" destination="Wqh-db-77z" id="fR7-lL-482"/>
                         <outlet property="promptLabel" destination="8Lb-gu-REB" id="B0h-eR-dM7"/>
@@ -1373,10 +1375,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZw-fA-Wfy" userLabel="Pin1 Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="269"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="184-G8-MvJ">
-                                        <rect key="frame" x="47.5" y="61.5" width="280" height="146"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="184-G8-MvJ">
+                                        <rect key="frame" x="47.5" y="64.5" width="280" height="142"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgy-0X-Zhg" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -1388,7 +1390,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-b4-4bh" userLabel="Variable Pin">
-                                                <rect key="frame" x="0.0" y="52" width="280" height="48"/>
+                                                <rect key="frame" x="0.0" y="50" width="280" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-fF-DZt" userLabel="Round Corners">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="48"/>
@@ -1438,7 +1440,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PINs doesn't match, please enter them again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfJ-FA-ofZ">
-                                                <rect key="frame" x="0.0" y="108" width="280" height="38"/>
+                                                <rect key="frame" x="0.0" y="104" width="280" height="38"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="fbL-pk-P68"/>
                                                 </constraints>
@@ -1456,10 +1458,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyd-KB-wTb" userLabel="Pin2 Group">
-                                <rect key="frame" x="375" y="0.0" width="375" height="269"/>
+                                <rect key="frame" x="375" y="0.0" width="375" height="271"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-9y-6g6">
-                                        <rect key="frame" x="47.5" y="69.5" width="280" height="130"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-9y-6g6">
+                                        <rect key="frame" x="47.5" y="64.5" width="280" height="142"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter second pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsP-fy-CwV" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -1471,7 +1473,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJV-wo-W9H" userLabel="Variable Pin">
-                                                <rect key="frame" x="0.0" y="44" width="280" height="48"/>
+                                                <rect key="frame" x="0.0" y="50" width="280" height="48"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-sI-Hi5" userLabel="Round Corners">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="48"/>
@@ -1521,7 +1523,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zka-Rl-MTm" userLabel="Dummy Padding">
-                                                <rect key="frame" x="0.0" y="92" width="280" height="38"/>
+                                                <rect key="frame" x="0.0" y="104" width="280" height="38"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="38" id="ThF-Hp-HsC"/>
@@ -1537,7 +1539,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnw-ZD-7tQ" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="84.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="85.5" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cX5-a9-26c" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -1570,8 +1572,8 @@
                                     <outlet property="succesImageView" destination="cX5-a9-26c" id="1sc-Z2-xCP"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMj-15-6JK">
-                                <rect key="frame" x="126.5" y="269" width="122" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMj-15-6JK">
+                                <rect key="frame" x="126.5" y="233" width="122" height="30"/>
                                 <state key="normal" title="Passphrase setup"/>
                                 <connections>
                                     <action selector="passphraseSetupAction:" destination="nB0-Rg-aqC" eventType="touchUpInside" id="jfC-s9-881"/>
@@ -1815,13 +1817,13 @@
                             <constraint firstItem="pnw-ZD-7tQ" firstAttribute="centerY" secondItem="dZw-fA-Wfy" secondAttribute="centerY" id="21d-8m-9Ou"/>
                             <constraint firstItem="P6Y-ji-KRP" firstAttribute="trailing" secondItem="kfr-hg-nvI" secondAttribute="trailingMargin" id="63f-lH-dtz"/>
                             <constraint firstItem="Fyd-KB-wTb" firstAttribute="height" secondItem="dZw-fA-Wfy" secondAttribute="height" id="6IG-tB-uWX"/>
-                            <constraint firstItem="dZw-fA-Wfy" firstAttribute="bottom" secondItem="YMj-15-6JK" secondAttribute="top" id="8an-q1-T0i"/>
+                            <constraint firstItem="dZw-fA-Wfy" firstAttribute="bottom" secondItem="YMj-15-6JK" secondAttribute="bottom" constant="8" id="8an-q1-T0i"/>
                             <constraint firstItem="dZw-fA-Wfy" firstAttribute="trailing" secondItem="Fyd-KB-wTb" secondAttribute="leading" id="BCP-eb-WaA"/>
                             <constraint firstItem="YMj-15-6JK" firstAttribute="centerX" secondItem="kfr-hg-nvI" secondAttribute="centerX" id="BPV-46-V93"/>
                             <constraint firstItem="dZw-fA-Wfy" firstAttribute="width" secondItem="kfr-hg-nvI" secondAttribute="width" id="BpJ-ih-xDk"/>
                             <constraint firstItem="pnw-ZD-7tQ" firstAttribute="centerX" secondItem="kfr-hg-nvI" secondAttribute="centerX" id="KbP-vn-ZY8"/>
                             <constraint firstItem="Fyd-KB-wTb" firstAttribute="top" secondItem="dZw-fA-Wfy" secondAttribute="top" id="WJC-zR-FUc"/>
-                            <constraint firstItem="P6Y-ji-KRP" firstAttribute="top" secondItem="YMj-15-6JK" secondAttribute="bottom" constant="12" id="ZOB-IH-CXo"/>
+                            <constraint firstItem="P6Y-ji-KRP" firstAttribute="top" secondItem="YMj-15-6JK" secondAttribute="bottom" constant="48" id="ZOB-IH-CXo"/>
                             <constraint firstItem="DDw-Jj-kPA" firstAttribute="width" secondItem="184-G8-MvJ" secondAttribute="width" id="aXO-d1-9Qn"/>
                             <constraint firstItem="P6Y-ji-KRP" firstAttribute="top" secondItem="DDw-Jj-kPA" secondAttribute="bottom" id="ePz-zp-8Eb"/>
                             <constraint firstItem="uoa-a2-yYJ" firstAttribute="leading" secondItem="DDw-Jj-kPA" secondAttribute="leading" id="ehZ-X9-epb"/>
@@ -1871,10 +1873,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHY-Ed-CXv" userLabel="Password Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGj-ZY-Xn9">
-                                        <rect key="frame" x="47.5" y="101.5" width="280" height="128"/>
+                                        <rect key="frame" x="47.5" y="51" width="280" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Confirm payment with PIN or very long text with the error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-lA-2Zs" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -1935,6 +1937,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="ELQ-jp-fYi"/>
                                     <constraint firstItem="sGj-ZY-Xn9" firstAttribute="centerX" secondItem="AHY-Ed-CXv" secondAttribute="centerX" id="dSX-4f-CqK"/>
                                     <constraint firstItem="sGj-ZY-Xn9" firstAttribute="centerY" secondItem="AHY-Ed-CXv" secondAttribute="centerY" id="sPy-aZ-Q5w"/>
                                 </constraints>
@@ -1951,7 +1954,7 @@
                                     <action selector="confirmErrorAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="8wP-Au-6av"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyA-Fc-Uef">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyA-Fc-Uef">
                                 <rect key="frame" x="16" y="8" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -1959,7 +1962,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-Af-zdy" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="261.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="221" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-nX-Rqo" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -1997,16 +2000,15 @@
                         <color key="tintColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vEo-cO-0jy" firstAttribute="top" secondItem="e1u-2W-0Pa" secondAttribute="bottom" constant="20" id="1IF-Y5-V5r"/>
+                            <constraint firstItem="yWo-Af-zdy" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" constant="221" id="Aq1-9q-B5M"/>
                             <constraint firstAttribute="trailing" secondItem="AHY-Ed-CXv" secondAttribute="trailing" id="Bm4-oT-0cS"/>
                             <constraint firstItem="xyA-Fc-Uef" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leadingMargin" id="KS1-c2-LfL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e1u-2W-0Pa" secondAttribute="trailing" constant="20" id="MNH-Pc-c3h"/>
                             <constraint firstItem="AHY-Ed-CXv" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" id="NOV-lr-bzl"/>
-                            <constraint firstItem="yWo-Af-zdy" firstAttribute="top" secondItem="sGj-ZY-Xn9" secondAttribute="bottom" constant="32" id="OdA-QQ-jKh"/>
                             <constraint firstItem="xyA-Fc-Uef" firstAttribute="top" secondItem="x5a-88-dGv" secondAttribute="bottom" constant="8" id="WNm-dQ-npQ"/>
                             <constraint firstItem="yWo-Af-zdy" firstAttribute="centerX" secondItem="hA2-eY-rfP" secondAttribute="centerX" id="WfN-vi-yyy"/>
                             <constraint firstItem="AHY-Ed-CXv" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leading" id="eiu-9y-PoQ"/>
                             <constraint firstItem="e1u-2W-0Pa" firstAttribute="leading" secondItem="hA2-eY-rfP" secondAttribute="leadingMargin" constant="20" id="m9E-m2-bXw"/>
-                            <constraint firstItem="vEo-cO-0jy" firstAttribute="top" secondItem="AHY-Ed-CXv" secondAttribute="bottom" constant="336" id="pyl-cW-Nor"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enter Password" id="LBQ-0W-ubl" userLabel="Enter Password">
@@ -2024,6 +2026,7 @@
                         <outlet property="closeErrorButton" destination="e1u-2W-0Pa" id="dja-S0-sD0"/>
                         <outlet property="confirmPasswordButton" destination="gaG-cb-bj6" id="sWQ-ji-uuJ"/>
                         <outlet property="keyboardAccessoryView" destination="lqo-Js-Kdp" id="0FS-4q-EBH"/>
+                        <outlet property="passwordGroup" destination="AHY-Ed-CXv" id="0K8-TB-jz5"/>
                         <outlet property="passwordTextField" destination="4hO-Ip-W8U" id="xFN-wR-Nm5"/>
                         <outlet property="promptLabel" destination="WdX-lA-2Zs" id="rsB-1y-z6P"/>
                         <outlet property="roundCornersView" destination="kX3-ZY-cuN" id="ImT-Z0-qks"/>
@@ -2036,8 +2039,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-Ix-T9s">
-                            <rect key="frame" x="141.5" y="0.0" width="92" height="44"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahw-Ix-T9s">
+                            <rect key="frame" x="142" y="0.0" width="91" height="44"/>
                             <state key="normal" title="Use Touch ID"/>
                             <connections>
                                 <action selector="useBiometryAction:" destination="CSc-fJ-4zd" eventType="touchUpInside" id="sPT-md-VO6"/>
@@ -2067,10 +2070,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saL-0a-hQf" userLabel="Password1 Group">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nZL-D6-b8L">
-                                        <rect key="frame" x="47.5" y="92.5" width="280" height="146"/>
+                                        <rect key="frame" x="47.5" y="42" width="280" height="146"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68j-tr-9zj" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -2136,15 +2139,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="57y-fr-h3r"/>
                                     <constraint firstItem="nZL-D6-b8L" firstAttribute="centerY" secondItem="saL-0a-hQf" secondAttribute="centerY" id="GCc-tR-M6B"/>
                                     <constraint firstItem="nZL-D6-b8L" firstAttribute="centerX" secondItem="saL-0a-hQf" secondAttribute="centerX" id="xA7-6c-PPN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjF-jL-NGv" userLabel="Password2 Group">
-                                <rect key="frame" x="375" y="0.0" width="375" height="331"/>
+                                <rect key="frame" x="375" y="0.0" width="375" height="230"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L1H-nk-bpQ">
-                                        <rect key="frame" x="47.5" y="100.5" width="280" height="130"/>
+                                        <rect key="frame" x="47.5" y="50" width="280" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Enter first pin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sr-ap-B9z" userLabel="Prompt">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -2209,7 +2213,7 @@
                                     <constraint firstItem="L1H-nk-bpQ" firstAttribute="centerY" secondItem="zjF-jL-NGv" secondAttribute="centerY" id="ErL-hI-OqS"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-eY-itj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-eY-itj">
                                 <rect key="frame" x="16" y="8" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -2217,7 +2221,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-4x-Jtx" userLabel="Checkmark With Activity" customClass="CheckmarkWithActivityView" customModule="LimeAuth" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="115.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="65" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-P9-uUP" userLabel="Success Image">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -2263,7 +2267,6 @@
                             <constraint firstItem="L1H-nk-bpQ" firstAttribute="width" secondItem="nZL-D6-b8L" secondAttribute="width" id="T3r-5E-CXn"/>
                             <constraint firstItem="ShT-4x-Jtx" firstAttribute="centerX" secondItem="gkD-Fd-2Pd" secondAttribute="centerX" id="Zcu-y4-qqj"/>
                             <constraint firstItem="saL-0a-hQf" firstAttribute="width" secondItem="gkD-Fd-2Pd" secondAttribute="width" id="fTC-do-EL7"/>
-                            <constraint firstItem="z3B-Fd-Rzb" firstAttribute="top" secondItem="saL-0a-hQf" secondAttribute="bottom" constant="336" id="hTn-Wg-Dvx"/>
                             <constraint firstItem="kWY-eY-itj" firstAttribute="top" secondItem="TLQ-TH-3k1" secondAttribute="bottom" constant="8" id="jg0-5u-LsF"/>
                             <constraint firstItem="zjF-jL-NGv" firstAttribute="width" secondItem="saL-0a-hQf" secondAttribute="width" id="rko-49-J4d"/>
                             <constraint firstItem="zjF-jL-NGv" firstAttribute="top" secondItem="saL-0a-hQf" secondAttribute="top" id="zAm-hu-Dmv"/>
@@ -2295,7 +2298,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyr-si-WeT">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyr-si-WeT">
                             <rect key="frame" x="126.5" y="0.0" width="122" height="44"/>
                             <state key="normal" title="Passphrase setup">
                                 <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2317,6 +2320,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qJw-nM-RXb"/>
+        <segue reference="AAL-3I-MRa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,6 +40,8 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
     /// A PIN keyboard view
     @IBOutlet weak var pinKeyboard: PinKeyboardView!
     
+    @IBOutlet weak var pinGroup: UIView!
+    
     /// Label for PIN prompt
     @IBOutlet weak var promptLabel: UILabel!
     /// Label for PIN bullets
@@ -384,6 +386,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         let theme = uiDataProvider.uiTheme
         
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        pinGroup.backgroundColor = theme.common.topPartBackgroundColor
         pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
         closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
         confirmPinButton?.applyButtonStyle(theme.buttons.ok)
@@ -424,6 +427,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
             //
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 1
+            self.pinGroup.alpha = 0
             self.activityIndicator.showActivity(animated: animated)
             self.pinKeyboard.transform = CGAffineTransform.init(translationX: 0.0, y: self.pinKeyboard.frame.size.height + self.pinKeyboardAdditionalHidingOffset)
             self.pinKeyboard.alpha = 0.3
@@ -457,6 +461,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
             //
             self.variablePinLabel.textColor = self.uiDataProvider.uiTheme.common.passwordTextColor
             self.closeErrorButton.alpha = 0
+            self.pinGroup.alpha = 1
             self.activityIndicator.alpha = 0
             self.activityIndicator.showIdle(animated: animated)
             self.pinKeyboard.transform = CGAffineTransform.identity
@@ -476,6 +481,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         
         self.changeState(to: .success)
         self.activityIndicator.showSuccess(animated: animated)
+        self.pinGroup.alpha = 0
         self.updateViews()
         actionFeedback?.scene(.operationSuccess)
         
@@ -494,6 +500,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         self.changeState(to: .error)
         self.updateViews()
         self.activityIndicator.showError()
+        self.pinGroup.alpha = 0
         actionFeedback?.scene(.operationFail)
         
         if retry {

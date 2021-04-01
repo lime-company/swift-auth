@@ -35,6 +35,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
     
     // MARK: - Outlets -
     
+    @IBOutlet weak var passwordGroup: UIView!
     /// Label for password prompt
     @IBOutlet weak var promptLabel: UILabel!
     /// Text field for password
@@ -368,6 +369,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         let theme = uiDataProvider.uiTheme
         
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
+        passwordGroup.backgroundColor = theme.common.topPartBackgroundColor
         passwordTextField?.applyTextFieldStyle(theme.common.passwordTextField)
         passwordTextField?.font = UIFont.systemFont(ofSize: 17)
         closeErrorButton?.applyButtonStyle(theme.buttons.dismissError)
@@ -408,6 +410,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
 		
 		let uiChange = { ()->Void in
             //
+            self.passwordGroup.alpha = 0
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 1
             self.activityIndicator.showActivity(animated: animated)
@@ -436,12 +439,13 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         
         let _ = self.getAndResetPassword()
         self.remainingAttemptsLabelIsVisible = true
-		
+        
 		self.passwordTextField.isEnabled = true
 		self.passwordTextField.becomeFirstResponder()
 		
         let uiChange = { ()->Void in
             //
+            self.passwordGroup.alpha = 1
             self.passwordTextField.textColor = self.uiDataProvider.uiTheme.common.passwordTextField.textColor
             self.closeErrorButton.alpha = 0
             self.activityIndicator.alpha = 0
@@ -464,6 +468,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         self.activityIndicator.showSuccess(animated: animated)
         self.updateViews()
         actionFeedback?.scene(.operationSuccess)
+        self.passwordGroup.alpha = 0
         
         // we're delaying auto-navigation, so disable any tempering with potentional modal presentation
         setSwipeToDismissGestureEnabled(to: false) { resetBlock in
@@ -481,6 +486,7 @@ open class EnterPasswordViewController: LimeAuthUIBaseViewController, EnterPassw
         self.updateViews()
         self.activityIndicator.showError()
         actionFeedback?.scene(.operationFail)
+        self.passwordGroup.alpha = 1
         
         if retry {
             // Retry means that we need to shake with PIN and then wait for a while

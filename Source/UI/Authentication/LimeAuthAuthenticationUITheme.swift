@@ -31,6 +31,8 @@ public struct LimeAuthAuthenticationUITheme {
         /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
         public var backgroundColor: UIColor?
         
+        public var topPartBackgroundColor: UIColor?
+        
         /// Common background image for all authentication scenes.
         /// You can choose between `backgroundColor` or `backgroundImage`, or use both.
         public var backgroundImage: LazyUIImage?
@@ -69,6 +71,7 @@ public struct LimeAuthAuthenticationUITheme {
         /// Structure initializer
         public init(
             backgroundColor: UIColor?,
+            topPartBackgroundColor: UIColor?,
             backgroundImage: LazyUIImage?,
             promptTextColor: UIColor,
             highlightedTextColor: UIColor,
@@ -82,6 +85,7 @@ public struct LimeAuthAuthenticationUITheme {
             statusBarStyle: UIStatusBarStyle)
         {
             self.backgroundColor = backgroundColor
+            self.topPartBackgroundColor = topPartBackgroundColor
             self.backgroundImage = backgroundImage
             self.promptTextColor = promptTextColor
             self.highlightedTextColor = highlightedTextColor
@@ -194,6 +198,7 @@ public struct LimeAuthAuthenticationUITheme {
         return LimeAuthAuthenticationUITheme(
             common: Common(
                 backgroundColor: .white,
+                topPartBackgroundColor: .clear,
                 backgroundImage: nil,
                 promptTextColor: .black,
                 highlightedTextColor: .purple,

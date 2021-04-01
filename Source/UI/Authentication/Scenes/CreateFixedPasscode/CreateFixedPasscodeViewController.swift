@@ -332,6 +332,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         pinKeyboard?.applyButtonStyle(forDigits: theme.buttons.pinDigits, forAuxiliary: theme.buttons.pinAuxiliary)
         prompt1Label?.textColor = theme.common.promptTextColor
         prompt2Label?.textColor = theme.common.promptTextColor
+        group1.backgroundColor = theme.common.topPartBackgroundColor
+        group2.backgroundColor = theme.common.topPartBackgroundColor
         password1Label?.textColor = theme.common.passwordTextColor
         password1Label.font = UIFont.systemFont(ofSize: 40)
         password2Label?.textColor = theme.common.passwordTextColor
@@ -382,7 +384,7 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.updatePasswordLabel()
         
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
-            self.changeComplexityButton.alpha = 00.0
+            self.changeComplexityButton.alpha = 0
             self.groupsAnimationConstraint.constant = -self.view.frame.width
             self.view.layoutIfNeeded()
         }, completion: nil)
@@ -392,6 +394,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
         self.currentState = .success
         
         actionFeedback?.scene(.operationSuccess)
+        group1.layer.opacity = 0
+        group2.layer.opacity = 0
         
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
             self.groupsAnimationConstraint.constant = -2*self.view.frame.width

@@ -76,6 +76,7 @@ public extension LimeAuthAuthenticationUITheme {
         return LimeAuthAuthenticationUITheme(
             common: Common(
                 backgroundColor: .white,
+                topPartBackgroundColor: .white,
                 backgroundImage: nil,
                 promptTextColor: .black,
                 highlightedTextColor: .purple,
@@ -110,6 +111,7 @@ public extension LimeAuthAuthenticationUITheme {
         return LimeAuthAuthenticationUITheme(
             common: Common(
                 backgroundColor: .black,
+                topPartBackgroundColor: .black,
                 backgroundImage: nil,
                 promptTextColor: .lightGray,
                 highlightedTextColor: .lightGray,

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-carthage update --use-submodules --platform ios
+carthage update --use-submodules --use-xcframeworks --platform ios

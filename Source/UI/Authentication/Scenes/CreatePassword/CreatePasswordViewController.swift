@@ -279,6 +279,8 @@ open class CreatePasswordViewController: LimeAuthUIBaseViewController, CreateAnd
         configureBackground(image: theme.common.backgroundImage, color: theme.common.backgroundColor)
         prompt1Label?.textColor = theme.common.promptTextColor
         prompt2Label?.textColor = theme.common.promptTextColor
+        group1.backgroundColor = theme.common.topPartBackgroundColor
+        group2.backgroundColor = theme.common.topPartBackgroundColor
         password1TextField?.applyTextFieldStyle(theme.common.passwordTextField)
         password1TextField?.font = UIFont.systemFont(ofSize: 17)
         password2TextField?.applyTextFieldStyle(theme.common.passwordTextField)
