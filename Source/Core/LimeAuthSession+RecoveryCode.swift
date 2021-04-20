@@ -24,6 +24,10 @@ public class LimeAuthRecoveryData {
     public let activationCode: String
     /// PUK as provided by powerauth protocol
     public let puk: String
+    /// Activation ID of the original activation
+    public let originalActivationId: String?
+    /// Identifier of the application for the activation transfer
+    public let appTransferId: String?
     
     /// Formatted activation code with dashes for displaying on the screen
     public var activationCodeFormatted: String {
@@ -45,9 +49,51 @@ public class LimeAuthRecoveryData {
         return code
     }
     
-    init(activationCode: String, puk: String) {
+    public var qrCodeData: String {
+        return "\(activationCode)\n\(puk)\n\(originalActivationId ?? "")\n\(appTransferId ?? "")"
+    }
+    
+    init(activationCode: String, puk: String, originalActivationId: String?, appTransferId: String?) {
         self.activationCode = activationCode
         self.puk = puk
+        self.originalActivationId = originalActivationId
+        self.appTransferId = appTransferId
+    }
+    
+    convenience init?(scannerQrCode: String, appTransferId: String?) {
+        
+        let parts = scannerQrCode.split(separator: "\n").map(String.init)
+        
+        guard parts.count >= 2 else {
+            return nil
+        }
+        
+        let code = parts[0]
+        guard PA2OtpUtil.validateRecoveryCode(code) else {
+            return nil
+        }
+        
+        let puk = parts[1]
+        guard PA2OtpUtil.validateRecoveryPuk(puk) else {
+            return nil
+        }
+        
+        var activationId = parts.count >= 3 ? parts[2] : nil
+        var scannedAppTransferId = parts.count >= 4 ? parts[3] : nil
+        
+        if activationId?.isEmpty == true {
+            activationId = nil
+        }
+        
+        if scannedAppTransferId?.isEmpty == true {
+            scannedAppTransferId = nil
+        }
+        
+        if let sati = scannedAppTransferId, sati != appTransferId {
+            return nil
+        }
+        
+        self.init(activationCode: code, puk: puk, originalActivationId: activationId, appTransferId: scannedAppTransferId)
     }
 }
 
@@ -62,7 +108,7 @@ public extension LimeAuthSession {
     /// Unlocks the vault with provided authentication and retrieves the recovery data. This methdo does not check if the data exists in the first place - you
     /// should do it with `hasRecoveryActivation` check first.
     @discardableResult
-    func getActivationRecovery(authentication: PowerAuthAuthentication, completion: @escaping (LimeAuthRecoveryData?, LimeAuthError?)->Void) -> Operation {
+    func getActivationRecovery(authentication: PowerAuthAuthentication, completion: @escaping (PA2ActivationRecoveryData?, LimeAuthError?)->Void) -> Operation {
         
         let blockOperation = AsyncBlockOperation { operation, markFinished in
             self.powerAuth.activationRecoveryData(authentication) { recoveryData, error in
@@ -79,7 +125,7 @@ public extension LimeAuthSession {
                         return
                     }
                     
-                    completion(LimeAuthRecoveryData(activationCode: recoveryData.recoveryCode, puk: recoveryData.puk), nil)
+                    completion(recoveryData, nil)
                 }
             }
         }

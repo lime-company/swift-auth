@@ -194,14 +194,16 @@ public struct LimeAuthActivationUITheme {
     }
     
     public struct EnterCodeScene {
-        /// Style for text fields in "enter activation code" scene
+        /// Style for activation code text field
         public var activationCode: TextFieldStyle
+        /// Style for puk text field
+        public var puk: TextFieldStyle
         
         /// Structure initializer
-        public init(
-            activationCode: TextFieldStyle)
+        public init(activationCode: TextFieldStyle, puk: TextFieldStyle)
         {
             self.activationCode = activationCode
+            self.puk = puk
         }
     }
     
@@ -315,7 +317,8 @@ public struct LimeAuthActivationUITheme {
                 fallbackButton: .noStyle
             ),
             enterCodeScene: EnterCodeScene(
-                activationCode: .noStyle
+                activationCode: .noStyle,
+                puk: .noStyle
             ),
             navigationBar: NavigationBar(
                 backgroundColor: .white,

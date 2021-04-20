@@ -81,6 +81,8 @@ public class LimeAuthActivationUI {
             controller = uiProvider.instantiateRecoveryInitialScene()
         case .recoveryEnterCode:
             controller = uiProvider.instantiateRecoveryEnterCodeScene()
+        case .recoveryScanCode:
+            controller = uiProvider.instantiateRecoveryScanCodeScene()
         case .default:
             D.fatalError("Flow error") // this should never happened
         }
@@ -159,6 +161,8 @@ public class LimeAuthActivationUI {
             wrongState = !canStartActivation
         case .recoveryEnterCode:
             wrongState = !canStartActivation
+        case .recoveryScanCode:
+            wrongState = !canStartActivation
         }
         // Throw error if we cannot process scene for current session's state
         if wrongState {
@@ -206,6 +210,8 @@ public class LimeAuthActivationUI {
         case recoveryInitial
         /// Activation UI flow will begin in entering recovery code scene. The provided session must be empty.
         case recoveryEnterCode
+        /// Activation UI flow will begin in scanning recovery code scene. The provided session must be empty.
+        case recoveryScanCode
         
         // OTHER
         

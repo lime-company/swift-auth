@@ -235,7 +235,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         sceneTitleLabel?.text = uiData.strings.sceneTitle
         sceneDescriptionLabel?.text = uiData.strings.sceneDescription
         waitingForActivationLabel?.text = uiData.strings.waitingLabel
-		activationFingerprintLabel?.text = self.activationFingerprint
+        activationFingerprintLabel?.text = uiData.other.showConfirmationNumber ? self.activationFingerprint : ""
         removeActivationButton?.setTitle(uiData.strings.removeActivationButton, for: .normal)
         // Hide remove button in initial state, or show it when it's recovery from crashed activation
         // When the status check count is set to max.value, hide it

@@ -31,6 +31,8 @@ public enum Activation {
         
         public var puk: String? // needed for activation via recovery
         
+        public var originalActivationId: String? // when recovering activation
+        
         public var createActivationResult: PA2ActivationResult?
         
         public var recoveryFromFailedActivation = false

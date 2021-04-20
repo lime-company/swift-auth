@@ -22,6 +22,8 @@ public protocol RecoveryUIProvider: class {
     func instantiateRecoveryController() -> RecoveryViewController
     
     var uiDataProvider: RecoveryUIDataProvider { get }
+    
+    var appTransferId: String { get }
 }
 
 public protocol RecoveryUIDataProvider: class {

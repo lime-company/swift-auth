@@ -24,7 +24,8 @@ class RecoveryDisplayView: UIView {
     
     private var continueButtonWait: Int = 10
     
-    @IBOutlet private weak var introTextLabel: UILabel!
+    @IBOutlet private weak var qrCodeImageView: UIImageView!
+    @IBOutlet private weak var qrCodeImageViewBackground: UIView!
     @IBOutlet private weak var codeHeaderLabel: UILabel!
     @IBOutlet private weak var codeLabel: UILabel!
     @IBOutlet private weak var pukHeaderLabel: UILabel!
@@ -42,28 +43,16 @@ class RecoveryDisplayView: UIView {
         stopWatch?.stop()
     }
     
-    func showRecoveryCode(_ data: LimeAuthRecoveryData, withWaitingCountdown: Bool) {
-        codeLabel.text = data.activationCodeFormatted
-        pukLabel.text = data.pukFormatted
-        stopCountdown()
-        continueButton.setTitle(continueString, for: .normal)
-        if withWaitingCountdown {
-            startCountdown()
-        }
-        isHidden = false
-    }
-    
     func hide() {
         isHidden = true
         stopCountdown()
     }
     
-    func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings) {
+    func prepareUI(theme: LimeAuthRecoveryUITheme, strings: RecoveryCode.UIData.Strings, data: LimeAuthRecoveryData, withWaitingCountdown: Bool) {
         
         continueButtonWait = theme.recoveryScene.activationContinueDelay
         
         // Strings
-        introTextLabel.text = strings.description
         codeHeaderLabel.text = strings.activationCodeHeader
         pukHeaderLabel.text = strings.pukHeader
         warningLabel.text = strings.warning
@@ -75,13 +64,31 @@ class RecoveryDisplayView: UIView {
         pukLabel.font = theme.recoveryScene.activationPukAndCodeFont ?? codeFont
         
         // Styles
-        introTextLabel.textColor = theme.recoveryScene.textColor
         codeHeaderLabel.textColor = theme.recoveryScene.headerTextColor
         codeLabel.textColor = theme.recoveryScene.activationCodeColor
         pukHeaderLabel.textColor = theme.recoveryScene.headerTextColor
         pukLabel.textColor = theme.recoveryScene.pukColor
         warningLabel.textColor = theme.recoveryScene.warningTextColor
         continueButton.applyButtonStyle(theme.recoveryScene.continueButtonStyle)
+        
+        codeLabel.text = data.activationCodeFormatted
+        pukLabel.text = data.pukFormatted
+        
+        if theme.recoveryScene.showQrCode {
+            qrCodeImageViewBackground.layer.backgroundColor = theme.recoveryScene.qrCodeBackgroundColor.cgColor
+            qrCodeImageViewBackground.layer.cornerRadius = theme.recoveryScene.qrCodeCornerRadius
+            qrCodeImageView.image = QRGenerator.generateQRCode(from: data.qrCodeData, color: theme.recoveryScene.qrCodeColor)
+        } else {
+            qrCodeImageViewBackground.removeFromSuperview()
+            qrCodeImageView.removeFromSuperview()
+        }
+        
+        stopCountdown()
+        continueButton.setTitle(continueString, for: .normal)
+        if withWaitingCountdown {
+            startCountdown()
+        }
+        isHidden = false
     }
     
     @IBAction private func continueClicked(_ sender: UIButton) {

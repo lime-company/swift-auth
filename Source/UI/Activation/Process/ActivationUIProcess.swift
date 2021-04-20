@@ -27,6 +27,7 @@ public protocol ActivationUIProvider: class {
     // recovery activation
     func instantiateRecoveryInitialScene() -> BeginRecoveryActivationViewController
     func instantiateRecoveryEnterCodeScene() -> EnterCodeRecoveryViewController
+    func instantiateRecoveryScanCodeScene() -> ScanRecoveryCodeViewController
     // other
     func instantiateErrorScene() -> ErrorActivationViewController
     func instantiateNavigationController(with rootController: UIViewController) -> UINavigationController?
@@ -38,6 +39,7 @@ public protocol ActivationUIProvider: class {
 
 public protocol ActivationUIDataProvider: class {
     
+    var enableRecoveryScreen: Bool { get }
     var uiTheme: LimeAuthActivationUITheme { get }
     var uiCommonStrings: Activation.UIData.CommonStrings { get }
     
@@ -51,6 +53,7 @@ public protocol ActivationUIDataProvider: class {
     
     // recovery activation strings
     var uiDataForBeginRecoveryActivation: BeginRecoveryActivation.UIData { get}
+    var uiDataForScanRecoveryCode: ScanActivationCode.UIData { get }
     var uiDataForEnterCodeRecovery: EnterCodeRecovery.UIData { get }
     
     // common strings

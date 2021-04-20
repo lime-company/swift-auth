@@ -54,9 +54,11 @@ public enum ConfirmActivation {
             /// How many tries before "Cancel Activation" button is presented.
             /// Polling is happening every 2 seconds.
             public let statusCheckCountBeforeCancelButton: Int
+            public let showConfirmationNumber: Bool
             
-            public init(statusCheckCountBeforeCancelButton: Int) {
+            public init(statusCheckCountBeforeCancelButton: Int, showConfirmationNumber: Bool = true) {
                 self.statusCheckCountBeforeCancelButton = statusCheckCountBeforeCancelButton
+                self.showConfirmationNumber = showConfirmationNumber
             }
         }
         

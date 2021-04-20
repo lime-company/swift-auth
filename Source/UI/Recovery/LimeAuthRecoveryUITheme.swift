@@ -51,6 +51,11 @@ public struct LimeAuthRecoveryUITheme {
         /// Background image
         public var backgroundImage: LazyUIImage?
         
+        public var showQrCode = true
+        public var qrCodeColor: UIColor
+        public var qrCodeBackgroundColor: UIColor
+        public var qrCodeCornerRadius: CGFloat
+        
         public init(
             titleColor: UIColor,
             titleFont: UIFont?,
@@ -64,7 +69,11 @@ public struct LimeAuthRecoveryUITheme {
             skipButton: ButtonStyle,
             errorButton: ButtonStyle,
             backgroundColor: UIColor?,
-            backgroundImage: LazyUIImage?) {
+            backgroundImage: LazyUIImage?,
+            showQrCode: Bool,
+            qrCodeColor: UIColor,
+            qrCodeBackgroundColor: UIColor,
+            qrCodeCornerRadius: CGFloat) {
             
             self.titleColor = titleColor
             self.titleFont = titleFont
@@ -76,6 +85,10 @@ public struct LimeAuthRecoveryUITheme {
             self.continueButtonStyle = continueButtonStyle
             self.backgroundColor = backgroundColor
             self.backgroundImage = backgroundImage
+            self.qrCodeColor = qrCodeColor
+            self.qrCodeBackgroundColor = qrCodeBackgroundColor
+            self.qrCodeCornerRadius = qrCodeCornerRadius
+            self.showQrCode = showQrCode
         }
     }
     

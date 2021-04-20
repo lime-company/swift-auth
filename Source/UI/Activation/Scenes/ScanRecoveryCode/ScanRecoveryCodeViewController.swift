@@ -1,5 +1,5 @@
 //
-// Copyright 2018 Wultra s.r.o.
+// Copyright 2021 Wultra s.r.o.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@ import UIKit
 import PowerAuth2
 import AVKit
 
-open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, QRCodeProviderDelegate {
+open class ScanRecoveryCodeViewController: LimeAuthUIBaseViewController, ActivationUIProcessController, QRCodeProviderDelegate {
     
-    public var router: (ActivationUIProcessRouter & ScanActivationCodeRoutingLogic)!
+    public var router: (ActivationUIProcessRouter & ScanRecoveryCodeRoutingLogic)!
     public var uiDataProvider: ActivationUIDataProvider!
     public var qrCodeProvider: QRCodeProvider?
     
@@ -40,7 +40,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     private func setup() {
         let viewController = self
-        let router = ScanActivationCodeRouter()
+        let router = ScanRecoveryCodeRouter()
         router.viewController = self
         viewController.router = router
         // QRCodeProvider
@@ -113,18 +113,19 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     }
     
     open func qrCodeProvider(_ provider: QRCodeProvider, didFinishWithCode code: String) {
-        router.routeToKeyExchange(activationCode: code)
+        guard let data = LimeAuthRecoveryData(scannerQrCode: code, appTransferId: router.activationProcess.uiRecoveryProvider.appTransferId) else {
+            return
+        }
+        router.routeToKeyExchange(data: data)
         stopScanner()
     }
     
     open func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool {
-        guard let otp = PA2OtpUtil.parse(fromActivationCode: code) else {
+        
+        guard LimeAuthRecoveryData(scannerQrCode: code, appTransferId: router.activationProcess.uiRecoveryProvider.appTransferId) != nil else {
             return false
         }
-        if otp.activationSignature == nil {
-            // signature is required for QR code
-            return false
-        }
+        
         actionFeedback?.haptic(.impact(.medium))
         return true
     }
@@ -166,7 +167,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     
     
     open override func prepareUI() {
-        let uiData = uiDataProvider.uiDataForScanActivationCode
+        let uiData = uiDataProvider.uiDataForScanRecoveryCode
         let theme = uiDataProvider.uiTheme
         
         sceneTitleLabel?.text = uiData.strings.sceneTitle

@@ -28,6 +28,7 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
     public typealias FinishedCallback = (_ displayed: Bool) -> Void
     
     var showCountdownDelay = true
+    var showQRCode = false
     
     private var uiProvider: RecoveryUIProvider!
     private var finishedCallback: FinishedCallback!
@@ -79,8 +80,7 @@ public class RecoveryViewController: LimeAuthUIBaseViewController, RecoveryViewD
         if let font = recoveryScene.titleFont {
             titleLabel.font = font
         }
-        displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings)
-        displayView.showRecoveryCode(recoveryData, withWaitingCountdown: showCountdownDelay)
+        displayView.prepareUI(theme: uiProvider!.uiDataProvider.uiTheme, strings: strings, data: recoveryData, withWaitingCountdown: showCountdownDelay)
     }
     
     @objc private func userDidTakeScreenshot() {

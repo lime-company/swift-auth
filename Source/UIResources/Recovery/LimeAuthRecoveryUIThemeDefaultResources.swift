@@ -43,7 +43,11 @@ public extension LimeAuthRecoveryUITheme {
             skipButton: activation.buttons.secondary,
             errorButton: activation.buttons.destructive,
             backgroundColor: activation.common.backgroundColor,
-            backgroundImage: activation.common.backgroundImage
+            backgroundImage: activation.common.backgroundImage,
+            showQrCode: true,
+            qrCodeColor: .black,
+            qrCodeBackgroundColor: .white,
+            qrCodeCornerRadius: 10
         ))
     }
     
@@ -64,7 +68,11 @@ public extension LimeAuthRecoveryUITheme {
             skipButton: activation.buttons.secondary,
             errorButton: activation.buttons.destructive,
             backgroundColor: activation.common.backgroundColor,
-            backgroundImage: activation.common.backgroundImage
+            backgroundImage: activation.common.backgroundImage,
+            showQrCode: true,
+            qrCodeColor: .black,
+            qrCodeBackgroundColor: .white,
+            qrCodeCornerRadius: 10
         ))
     }
 }

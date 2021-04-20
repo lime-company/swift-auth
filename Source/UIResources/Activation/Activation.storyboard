@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4qz-fD-Xx7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4qz-fD-Xx7">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +29,7 @@
                                             <constraint firstAttribute="width" secondItem="e1t-28-nyH" secondAttribute="height" multiplier="1:1" id="gpR-gI-4Ia"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-vZ-QYO" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-vZ-QYO" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="80" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="dMI-1c-G0r"/>
@@ -175,7 +176,7 @@
                                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of8-Mk-NMH" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of8-Mk-NMH" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="38" width="237" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="30" id="1dA-gF-zHC"/>
@@ -378,7 +379,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cTU-8G-GAp" secondAttribute="trailing" constant="20" symbolic="YES" id="7vO-cj-PiR"/>
                             <constraint firstItem="cTU-8G-GAp" firstAttribute="leading" secondItem="dve-KG-QJT" secondAttribute="leading" constant="20" symbolic="YES" id="Hz8-vl-eIk"/>
@@ -478,7 +479,7 @@
                                             <constraint firstAttribute="width" secondItem="BW1-MN-0Bl" secondAttribute="height" multiplier="1:1" id="T8T-dg-QhU"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qem-gU-P5o" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qem-gU-P5o" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="10" y="8" width="80" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="D2s-v0-F0C"/>
@@ -665,7 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQF-5S-eNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="2008"/>
+            <point key="canvasLocation" x="1166" y="2421"/>
         </scene>
         <!--Begin Recovery Activation View Controller-->
         <scene sceneID="d9n-sw-iU6">
@@ -688,7 +689,7 @@
                                             <constraint firstAttribute="width" secondItem="5Xd-OU-sYF" secondAttribute="height" multiplier="1:1" id="2xu-yb-62n"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-qn-YrR" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwa-qn-YrR" customClass="CancelWizardButton" customModule="LimeAuth" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="80" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="pLM-AO-0un"/>
@@ -781,6 +782,7 @@
                         <outlet property="message" destination="DQM-lm-CAH" id="pa2-qr-HoU"/>
                         <outlet property="titleLabel" destination="dQQ-Ar-kht" id="66i-YM-piR"/>
                         <segue destination="i2l-Yo-Zrg" kind="show" identifier="RecoveryEnterCode" id="b5x-Ij-NU5"/>
+                        <segue destination="cbZ-WF-Jnl" kind="show" identifier="RecoveryScanCode" id="56K-5z-f2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vND-8M-fPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1160,13 +1162,128 @@
             </objects>
             <point key="canvasLocation" x="5596" y="1521"/>
         </scene>
+        <!--Scan Recovery Code View Controller-->
+        <scene sceneID="gCp-Dh-3AA">
+            <objects>
+                <viewController storyboardIdentifier="RecoveryScanCode" id="cbZ-WF-Jnl" customClass="ScanRecoveryCodeViewController" customModule="LimeAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lX2-n1-OrK"/>
+                        <viewControllerLayoutGuide type="bottom" id="cx1-ZJ-R8n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7EL-6l-q0N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckz-kw-Ag2" userLabel="Black overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-2e-H0r">
+                                        <rect key="frame" x="69" y="60" width="237" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the recovery QR code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xId-jh-dz4">
+                                                <rect key="frame" x="0.0" y="0.0" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ETm-r0-I3u"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6f-4g-KEP" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="38" width="237" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="30" id="fcV-WH-cnH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.49928477110000002" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Unable to scan? Rewrite the code">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                                        <real key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="enterCodeFallbackAction:" destination="cbZ-WF-Jnl" eventType="touchUpInside" id="dfp-1z-ti4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cT7-2e-H0r" secondAttribute="trailing" constant="24" id="4Om-KM-6jq"/>
+                                    <constraint firstItem="cT7-2e-H0r" firstAttribute="top" secondItem="ckz-kw-Ag2" secondAttribute="top" constant="60" id="LpY-53-IqN"/>
+                                    <constraint firstAttribute="bottom" secondItem="cT7-2e-H0r" secondAttribute="bottom" constant="24" id="VId-8B-lW5"/>
+                                    <constraint firstItem="cT7-2e-H0r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ckz-kw-Ag2" secondAttribute="leading" constant="24" id="hL6-ws-uMG"/>
+                                    <constraint firstItem="cT7-2e-H0r" firstAttribute="centerX" secondItem="ckz-kw-Ag2" secondAttribute="centerX" id="t3Y-EQ-zPC"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dXi-bD-CxR">
+                                <rect key="frame" x="67.5" y="203.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="5t4-SN-AKg"/>
+                                    <constraint firstAttribute="height" constant="240" id="hoS-Id-J9O"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yi0-ie-ghU" customClass="RoundCornersButton" customModule="LimeAuth" customModuleProvider="target">
+                                <rect key="frame" x="157.5" y="567" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="At6-Tg-oMT"/>
+                                    <constraint firstAttribute="width" constant="60" id="jiS-TW-YdQ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.49803921569999998" green="0.75294117650000003" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeSceneAction:" destination="cbZ-WF-Jnl" eventType="touchUpInside" id="jEx-ll-B0V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dXi-bD-CxR" firstAttribute="centerX" secondItem="7EL-6l-q0N" secondAttribute="centerX" id="PXF-W9-DYJ"/>
+                            <constraint firstItem="dXi-bD-CxR" firstAttribute="centerY" secondItem="7EL-6l-q0N" secondAttribute="centerY" id="XOO-83-Dto"/>
+                            <constraint firstItem="ckz-kw-Ag2" firstAttribute="leading" secondItem="7EL-6l-q0N" secondAttribute="leading" id="e4V-Ze-pgb"/>
+                            <constraint firstItem="Yi0-ie-ghU" firstAttribute="centerX" secondItem="7EL-6l-q0N" secondAttribute="centerX" id="gbB-Uv-E2e"/>
+                            <constraint firstAttribute="trailing" secondItem="ckz-kw-Ag2" secondAttribute="trailing" id="mCt-kp-p3K"/>
+                            <constraint firstItem="ckz-kw-Ag2" firstAttribute="top" secondItem="7EL-6l-q0N" secondAttribute="top" id="ptS-kx-0D4"/>
+                            <constraint firstItem="cx1-ZJ-R8n" firstAttribute="top" secondItem="Yi0-ie-ghU" secondAttribute="bottom" constant="20" id="u0Z-Gn-Zrf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BPk-Wd-3pX"/>
+                    <connections>
+                        <outlet property="closeSceneButton" destination="Yi0-ie-ghU" id="UX5-IA-7Pe"/>
+                        <outlet property="crossHairImageView" destination="dXi-bD-CxR" id="As5-aA-lSq"/>
+                        <outlet property="enterCodeFallbackButton" destination="T6f-4g-KEP" id="bR4-f1-eGC"/>
+                        <outlet property="sceneTitleLabel" destination="xId-jh-dz4" id="uPo-JV-szy"/>
+                        <outlet property="topViewConstraint" destination="LpY-53-IqN" id="q3C-BB-Mlk"/>
+                        <segue destination="i2l-Yo-Zrg" kind="show" identifier="EnterCode" id="y8B-5S-5Zk"/>
+                        <segue destination="xao-2H-SKp" kind="show" identifier="KeyExchange" id="elI-Wn-f70"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mad-4d-EBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="1571"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="gPY-fV-a8f"/>
         <segue reference="mys-65-odR"/>
         <segue reference="BzB-ih-qyI"/>
-        <segue reference="LPC-QH-zn5"/>
-        <segue reference="Jy3-Sg-jPe"/>
+        <segue reference="y8B-5S-5Zk"/>
+        <segue reference="elI-Wn-f70"/>
+        <segue reference="Iie-zV-rYY"/>
         <segue reference="IJ1-g6-hd0"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
