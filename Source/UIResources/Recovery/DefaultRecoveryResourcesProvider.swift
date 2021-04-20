@@ -44,6 +44,8 @@ class DefaultRecoveryResourcesProvider: RecoveryUIProvider, RecoveryUIDataProvid
         return theme
     }
     
+    var appTransferId: String = ""
+    
     lazy var activationStrings = RecoveryCode.UIData.Strings(
         sceneTitle: localization.localizedString("limeauth.recovery.act.title"),
         description: localization.localizedString("limeauth.recovery.act.description"),

@@ -51,8 +51,14 @@ public extension LimeAuthRecoveryUI {
         
         let operation = OnlineAuthenticationUIOperation(isSerialized: true) { (session, authentication, completionCallback) -> Operation? in
             return session.getActivationRecovery(authentication: authentication) { data, error in
-                resultData = data // we need to store the data for later use
-                completionCallback(data, error)
+                if let data = data {
+                    resultData = LimeAuthRecoveryData(
+                        activationCode: data.recoveryCode,
+                        puk: data.puk,
+                        originalActivationId: session.activationIdentifier,
+                        appTransferId: uiRecoveryProvider.appTransferId) // we need to store the data for later use
+                }
+                completionCallback(resultData, error)
             }
         }
         
@@ -65,6 +71,7 @@ public extension LimeAuthRecoveryUI {
                 
                 let vc = uiRecoveryProvider.instantiateRecoveryController()
                 vc.showCountdownDelay = false
+                vc.showQRCode = true // TODO: make configurable once integrated to the app
                 vc.setup(withData: data, uiProvider: uiRecoveryProvider, context: .standalone) { [weak vc] _ in
                     completion(.success, vc)
                 }

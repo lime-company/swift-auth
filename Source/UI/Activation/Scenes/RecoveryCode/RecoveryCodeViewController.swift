@@ -43,7 +43,11 @@ public class RecoveryCodeViewController: LimeAuthUIBaseViewController, Activatio
             D.fatalError("recovery data expected here")
         }
         
-        let rData = LimeAuthRecoveryData(activationCode: recoveryData.recoveryCode, puk: recoveryData.puk)
+        let rData = LimeAuthRecoveryData(
+            activationCode: recoveryData.recoveryCode,
+            puk: recoveryData.puk,
+            originalActivationId: router.activationProcess.session.activationIdentifier,
+            appTransferId: uiRecoveryProvider.appTransferId)
         let isReactivation = router.activationProcess.activationData.puk != nil
         
         vc.setup(withData: rData, uiProvider: uiRecoveryProvider, context: isReactivation ? .reactivation : .activation) { [weak self] _ in

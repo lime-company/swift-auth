@@ -87,6 +87,13 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
         return controller
     }
     
+    func instantiateRecoveryScanCodeScene() -> ScanRecoveryCodeViewController {
+        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecoveryScanCode") as? ScanRecoveryCodeViewController else {
+            D.fatalError("Cannot instantiate RecoveryScanCode scene")
+        }
+        return controller
+    }
+    
     public func instantiateErrorScene() -> ErrorActivationViewController {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "Error") as? ErrorActivationViewController else {
             D.fatalError("Cannot instantiate Error scene")
@@ -120,6 +127,7 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
     // MARK: - ActivationUIDataProvider
 
     public var uiTheme: LimeAuthActivationUITheme = .fallbackTheme()
+    public var enableRecoveryScreen: Bool = true
     
     public lazy var uiCommonStrings: Activation.UIData.CommonStrings = {
         Activation.UIData.CommonStrings(
@@ -163,6 +171,16 @@ internal class DefaultActivationResourcesProvider: ActivationUIProvider, Activat
                 accessibilitySecondCode: localization.localizedString("limeauth.act.enterCode.accessibility.secondField"),
                 accessibilityThirdCode: localization.localizedString("limeauth.act.enterCode.accessibility.thirdField"),
                 accessibilityFourthCode: localization.localizedString("limeauth.act.enterCode.accessibility.fourthField")
+            )
+        )
+    }()
+    
+    public lazy var uiDataForScanRecoveryCode: ScanActivationCode.UIData = {
+        ScanActivationCode.UIData(
+            strings: ScanActivationCode.UIData.Strings(
+                sceneTitle: localization.localizedString("limeauth.act.scanCodeRecovery.title"),
+                enterCodeFallbackButton: localization.localizedString("limeauth.act.scanCodeRecovery.fallbackButton"),
+                closeScanAccessibilityLabel: localization.localizedString("limeauth.act.scanCodeRecovery.acs.close")
             )
         )
     }()

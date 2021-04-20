@@ -30,8 +30,8 @@ public class ConfirmActivationRouter: ConfirmActivationRoutingLogic, ActivationU
     
 
     public func routeToSuccess() {
-        // if the activation has recovery data (code and puk), go to the "show recovery" screen
-        if activationProcess.activationData.createActivationResult?.activationRecovery != nil {
+        // if the activation has recovery data (code and puk) and is configured to be anabled, go to the "show recovery" screen
+        if activationProcess.activationData.createActivationResult?.activationRecovery != nil && activationProcess.uiProvider.uiDataProvider.enableRecoveryScreen {
             viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
         } else { // otherwise just complete the activation
             activationProcess.completeActivation(controller: viewController)

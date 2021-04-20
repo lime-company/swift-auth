@@ -110,8 +110,8 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
                 let message = self.activationProcess.uiDataProvider.uiDataForConfirmActivation.errors.passwordSetupFailure
                 self.routeToError(with: .wrap(error, string: message))
             } else {
-                // if recovery is part of the new activation, navigate to recovery screen
-                if self.activationProcess.activationData.createActivationResult?.activationRecovery != nil {
+                // if the activation has recovery data (code and puk) and is configured to be anabled, go to the "show recovery" screen
+                if self.activationProcess.activationData.createActivationResult?.activationRecovery != nil && self.activationProcess.uiProvider.uiDataProvider.enableRecoveryScreen {
                     self.viewController?.performSegue(withIdentifier: "RecoveryCode", sender: nil)
                 } else {
                     self.activationProcess.completeActivation(controller: self.viewController)
