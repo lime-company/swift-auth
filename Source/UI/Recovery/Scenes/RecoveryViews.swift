@@ -77,7 +77,8 @@ class RecoveryDisplayView: UIView {
         if theme.recoveryScene.showQrCode {
             qrCodeImageViewBackground.layer.backgroundColor = theme.recoveryScene.qrCodeBackgroundColor.cgColor
             qrCodeImageViewBackground.layer.cornerRadius = theme.recoveryScene.qrCodeCornerRadius
-            qrCodeImageView.image = QRGenerator.generateQRCode(from: data.qrCodeData, color: theme.recoveryScene.qrCodeColor)
+            qrCodeImageView.image = QRGenerator.generateQRCode(from: data.qrCodeData, size: qrCodeImageView.bounds.size, color: theme.recoveryScene.qrCodeColor)
+            qrCodeImageView.layer.magnificationFilter = .nearest
         } else {
             qrCodeImageViewBackground.removeFromSuperview()
             qrCodeImageView.removeFromSuperview()

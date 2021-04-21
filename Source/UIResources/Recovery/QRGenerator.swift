@@ -19,15 +19,22 @@ import CoreImage
 
 struct QRGenerator {
     
-    static func generateQRCode(from string: String, color: UIColor = .black) -> UIImage? {
+    static func generateQRCode(from string: String, size: CGSize, color: UIColor = .black) -> UIImage? {
         
         let data = string.data(using: String.Encoding.ascii)
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-
-            if let output = filter.outputImage?.transformed(by: transform).tinted(using: color) {
-                return UIImage(ciImage: output)
+            
+            
+            if let output = filter.outputImage {
+                // scale the image to desired width and hight + scale it according to the screen scale
+                let scaleX = (size.width / output.extent.width) * UIScreen.main.scale
+                let scaleY = (size.height / output.extent.height) * UIScreen.main.scale
+                let transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
+                
+                if let ciimage = output.transformed(by: transform).tinted(using: color) {
+                    return UIImage(ciImage: ciimage)
+                }
             }
         }
 
