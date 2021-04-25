@@ -307,13 +307,8 @@ open class CreateFixedPasscodeViewController: LimeAuthUIBaseViewController, Crea
     
     open func updatePasswordLabel() {
         let filledBulletsCount = self.passwordLength
-        var bulletsText = String(repeating: "• ", count: filledBulletsCount)
-        let emptyBulletsCount = self.requiredPasswordLength - filledBulletsCount
-        if (emptyBulletsCount > 0) {
-            bulletsText.append(String(repeating: "◦ ", count: emptyBulletsCount))
-        }
         let currentLabel = self.currentState == .firstPass ? self.password1Label : self.password2Label
-        currentLabel?.text = bulletsText
+        currentLabel?.showPinDots(filled: filledBulletsCount, totalLength: requiredPasswordLength, uiDataProvider: uiDataProvider)
         // update backspace / cancel button
         let visibleBackspace = filledBulletsCount > 0
         let visibleCancel = !visibleBackspace && (self.currentState == .secondPass || !router.authenticationProcess.isPartOfActivation)

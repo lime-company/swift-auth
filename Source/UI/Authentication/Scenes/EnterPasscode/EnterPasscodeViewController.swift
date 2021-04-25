@@ -393,7 +393,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         (activityIndicator as? CheckmarkWithActivityView)?.applyIndicatorStyle(theme.styleForCheckmarkWithActivity)
         promptLabel?.textColor = theme.common.promptTextColor
         attemptsLabel?.textColor = theme.common.highlightedTextColor
-        variablePinLabel?.textColor = theme.common.passwordTextColor
+        variablePinLabel?.textColor = theme.common.filledPinDotColor
         variablePinLabel?.font = UIFont.systemFont(ofSize: 22)
         roundCornersView?.applyLayerStyle(theme.layerStyleFromAuthenticationCommon)
         
@@ -459,7 +459,7 @@ open class EnterPasscodeViewController: LimeAuthUIBaseViewController, EnterPassw
         
         let uiChange = { ()->Void in
             //
-            self.variablePinLabel.textColor = self.uiDataProvider.uiTheme.common.passwordTextColor
+            self.variablePinLabel.textColor = self.uiDataProvider.uiTheme.common.filledPinDotColor
             self.closeErrorButton.alpha = 0
             self.pinGroup.alpha = 1
             self.activityIndicator.alpha = 0

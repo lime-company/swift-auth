@@ -558,14 +558,8 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
     }
     
     open func updatePasswordLabel() {
-        let filledBulletsCount = self.passwordLength
-        var bulletsText = String(repeating: "• ", count: filledBulletsCount)
-        let emptyBulletsCount = self.requiredPasswordLength - filledBulletsCount
-        if (emptyBulletsCount > 0) {
-            bulletsText.append(String(repeating: "◦ ", count: emptyBulletsCount))
-        }
-        self.fixedPinLabel?.text = bulletsText
-        self.fixedPinLabel?.accessibilityLabel = String(format: uiDataProvider.uiCommonStrings.accessibilityPinDisplay, filledBulletsCount, self.requiredPasswordLength)
+        fixedPinLabel?.showPinDots(filled: passwordLength, totalLength: requiredPasswordLength, uiDataProvider: uiDataProvider)
+        fixedPinLabel?.accessibilityLabel = String(format: uiDataProvider.uiCommonStrings.accessibilityPinDisplay, passwordLength, requiredPasswordLength)
     }
     
     /// Triggers visibility of remaining attempts label

@@ -68,6 +68,12 @@ public struct LimeAuthAuthenticationUITheme {
         /// Note that your application has to support "ViewController based" status bar appearance.
         public var statusBarStyle: UIStatusBarStyle
         
+        /// Color for pin label with empty dot
+        public var emptyPinDotColor: UIColor
+        
+        /// Color for pin label with empty dot
+        public var filledPinDotColor: UIColor
+        
         /// Structure initializer
         public init(
             backgroundColor: UIColor?,
@@ -82,7 +88,9 @@ public struct LimeAuthAuthenticationUITheme {
             passwordBorderWidth: CGFloat,
             passwordBorderColor: UIColor?,
             passwordBorderCornerRadius: CGFloat,
-            statusBarStyle: UIStatusBarStyle)
+            statusBarStyle: UIStatusBarStyle,
+            emptyPinDotColor: UIColor,
+            filledPinDotColor: UIColor)
         {
             self.backgroundColor = backgroundColor
             self.topPartBackgroundColor = topPartBackgroundColor
@@ -97,6 +105,8 @@ public struct LimeAuthAuthenticationUITheme {
             self.passwordBorderWidth = passwordBorderWidth
             self.passwordBorderColor = passwordBorderColor
             self.passwordBorderCornerRadius = passwordBorderCornerRadius
+            self.emptyPinDotColor = emptyPinDotColor
+            self.filledPinDotColor = filledPinDotColor
         }
     }
     
@@ -209,7 +219,9 @@ public struct LimeAuthAuthenticationUITheme {
                 passwordBorderWidth: 0,
                 passwordBorderColor: nil,
                 passwordBorderCornerRadius: 0,
-                statusBarStyle: .default
+                statusBarStyle: .default,
+                emptyPinDotColor: .gray,
+                filledPinDotColor: .white
             ),
             images: Images(
                 logo: nil,

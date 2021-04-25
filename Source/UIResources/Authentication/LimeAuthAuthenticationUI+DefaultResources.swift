@@ -87,7 +87,9 @@ public extension LimeAuthAuthenticationUITheme {
                 passwordBorderWidth: 2,
                 passwordBorderColor: .lightGray,
                 passwordBorderCornerRadius: 16,
-                statusBarStyle: .default
+                statusBarStyle: .default,
+                emptyPinDotColor: .gray,
+                filledPinDotColor: .black
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
@@ -132,7 +134,9 @@ public extension LimeAuthAuthenticationUITheme {
                 passwordBorderWidth: 2,
                 passwordBorderColor: .lightGray,
                 passwordBorderCornerRadius: 16,
-                statusBarStyle: .lightContent
+                statusBarStyle: .lightContent,
+                emptyPinDotColor: .gray,
+                filledPinDotColor: .white
             ),
             images: images ?? .defaultImages(),
             buttons: Buttons(
