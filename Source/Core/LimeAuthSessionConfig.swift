@@ -24,8 +24,8 @@ public protocol LimeAuthSessionConfigType {
     // MARK: - PowerAuth related
     
     var powerAuth: PowerAuthConfiguration { get }
-    var powerAuthKeychain: PA2KeychainConfiguration { get }
-    var powerAuthHttpClient: PA2ClientConfiguration { get }
+    var powerAuthKeychain: PowerAuthKeychainConfiguration { get }
+    var powerAuthHttpClient: PowerAuthClientConfiguration { get }
     
     // MARK: - Internal networking
     var operationDispatchQueue: DispatchQueue? { get }
@@ -45,8 +45,8 @@ public protocol LimeAuthSessionConfigType {
 public class LimeAuthSessionConfig: LimeAuthSessionConfigType {
     
     public var powerAuth: PowerAuthConfiguration
-    public var powerAuthKeychain: PA2KeychainConfiguration
-    public var powerAuthHttpClient: PA2ClientConfiguration
+    public var powerAuthKeychain: PowerAuthKeychainConfiguration
+    public var powerAuthHttpClient: PowerAuthClientConfiguration
     
     // dispatch queue
     public var operationDispatchQueue: DispatchQueue?
@@ -55,8 +55,8 @@ public class LimeAuthSessionConfig: LimeAuthSessionConfigType {
     public var removeLocalActivationWhenRemovedOnServer = true
 
     public init(powerAuth: PowerAuthConfiguration = PowerAuthConfiguration(),
-                keychain: PA2KeychainConfiguration = .sharedInstance(),
-                httpClient: PA2ClientConfiguration = .sharedInstance()) {
+                keychain: PowerAuthKeychainConfiguration = .sharedInstance(),
+                httpClient: PowerAuthClientConfiguration = .sharedInstance()) {
         self.powerAuth = powerAuth
         self.powerAuthKeychain = keychain
         self.powerAuthHttpClient = httpClient

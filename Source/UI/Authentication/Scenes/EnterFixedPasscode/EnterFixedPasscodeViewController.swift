@@ -605,7 +605,7 @@ open class EnterFixedPasscodeViewController: LimeAuthUIBaseViewController, Enter
                     return uiDataProvider.uiCommonErrors.activationWasRemoved
                 }
             } else if result.isBiometryError {
-                switch PA2Keychain.biometricAuthenticationInfo.biometryType {
+                switch PowerAuthKeychain.biometricAuthenticationInfo.biometryType {
                 case .touchID:
                     return uiDataProvider.uiCommonErrors.biometryNotRecognized_TouchId
                 case .faceID:

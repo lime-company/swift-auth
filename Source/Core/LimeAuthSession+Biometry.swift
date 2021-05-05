@@ -64,21 +64,21 @@ public extension LimeAuthSession {
     
     
     /// Returns true if authentication with using biometry is supported on this device.
-    /// The implementation simply returns result from `PA2Keychain.canUseBiometricAuthentication`
+    /// The implementation simply returns result from `PowerAuthKeychain.canUseBiometricAuthentication`
     static var canUseBiometricAuthentication: Bool {
-        return PA2Keychain.canUseBiometricAuthentication
+        return PowerAuthKeychain.canUseBiometricAuthentication
     }
 
     /// Returns true if authentication with using biometry is supported on this device.
-    /// The implementation simply returns result from `PA2Keychain.supportedBiometricAuthentication`
-    static var supportedBiometricAuthentication: PA2BiometricAuthenticationType {
-        return PA2Keychain.supportedBiometricAuthentication
+    /// The implementation simply returns result from `PowerAuthKeychain.supportedBiometricAuthentication`
+    static var supportedBiometricAuthentication: PowerAuthBiometricAuthenticationType {
+        return PowerAuthKeychain.supportedBiometricAuthentication
     }
     
     /// Returns full information about biometry type and its state on this device.
-    /// The implementation simply returns result from `PA2Keychain.biometricAuthenticationInfo`
-    static var biometricAuthenticationInfo: PA2BiometricAuthenticationInfo {
-        return PA2Keychain.biometricAuthenticationInfo
+    /// The implementation simply returns result from `PowerAuthKeychain.biometricAuthenticationInfo`
+    static var biometricAuthenticationInfo: PowerAuthBiometricAuthenticationInfo {
+        return PowerAuthKeychain.biometricAuthenticationInfo
     }
     
 }

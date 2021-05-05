@@ -118,7 +118,7 @@ open class ScanActivationCodeViewController: LimeAuthUIBaseViewController, Activ
     }
     
     open func qrCodeProvider(_ provider: QRCodeProvider, needsValidateCode code: String) -> Bool {
-        guard let otp = PA2OtpUtil.parse(fromActivationCode: code) else {
+        guard let otp = PowerAuthActivationCodeUtil.parse(fromActivationCode: code) else {
             return false
         }
         if otp.activationSignature == nil {

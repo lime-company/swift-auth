@@ -93,7 +93,7 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
         let biometryOption: LimeAuthCredentials.Biometry.Option
         
         // First chech if biometry is setup and is system-available
-        if session.hasBiometryFactor && PA2Keychain.canUseBiometricAuthentication {
+        if session.hasBiometryFactor && PowerAuthKeychain.canUseBiometricAuthentication {
             // Translate supported biometric authentication to biometry option enum.
             switch LimeAuthSession.supportedBiometricAuthentication {
             case .touchID: biometryOption = credentials.biometry.touchId
@@ -219,15 +219,14 @@ public class AuthenticationUIOperationExecutor: AuthenticationUIOperationExecuti
             }
         }
         // Now validate the error
-        if let error = response.error, error.domain == PA2ErrorDomain {
-            let code = error.code
-            if code == PA2ErrorCodeBiometryCancel {
+        if let error = response.error, let code = error.powerAuthErrorCode {
+            if code == .biometryCancel {
                 // User did cancel the operation
                 response.isTouchIdCancel = true
                 canRetryAfterFailedBiometry = true
                 return true
                 //
-            } else if code == PA2ErrorCodeBiometryNotAvailable {
+            } else if code == .biometryNotAvailable {
                 // Touch-ID is not supported.
                 // This usually means a broken keyboard logic, but we still can report the error
                 response.touchIdNotAvailable = true

@@ -93,7 +93,7 @@ public class LimeAuthError: Error {
     ///
     /// If value is not set, then it is automatically gathered from
     /// the nested error or from `URLResponse`. Also the nested error must be produced
-    /// in PowerAuth2 library and contain embedded `PA2ErrorResponse` object.
+    /// in PowerAuth2 library and contain embedded `PowerAuthErrorResponse` object.
     ///
     /// Due to internal getter optimization, the nested objects evaluation is performed only once.
     /// So if you get the value before URL response is set, then the returned value will be incorrect.
@@ -235,10 +235,10 @@ public extension LimeAuthError {
         return false
     }
     
-    /// Returns `PA2ErrorResponse` if such object is embedded in nested error. This is typically useful
+    /// Returns `PowerAuthRestApiErrorResponse` if such object is embedded in nested error. This is typically useful
     /// for getting response created in the PowerAuth2 library.
-    var powerAuthErrorResponse: PA2ErrorResponse? {
-        if let responseObject = self.userInfo[PA2ErrorDomain] as? PA2ErrorResponse {
+    var powerAuthErrorResponse: PowerAuthRestApiErrorResponse? {
+        if let responseObject = self.userInfo[PowerAuthErrorDomain] as? PowerAuthRestApiErrorResponse {
             return responseObject
         }
         return nil
@@ -253,6 +253,15 @@ public extension LimeAuthError {
             return code
         }
         return nil
+    }
+    
+    /// Returns `PowerAuthErrorCode` in case that nested error contains error with `PowerAuthErrorDomain`.
+    var powerAuthErrorCode: PowerAuthErrorCode? {
+        guard let e = nestedError as NSError? else {
+            return nil
+        }
+        let ec = e.powerAuthErrorCode
+        return ec != .NA ? ec : nil
     }
 }
 

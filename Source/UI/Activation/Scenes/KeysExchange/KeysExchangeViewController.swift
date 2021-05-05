@@ -84,7 +84,7 @@ open class KeysExchangeViewController: LimeAuthUIBaseViewController, ActivationU
         let activationName = UIDevice.current.name
         let activationCode = process.activationData.activationCode ?? ""
         
-        let completion = { [weak self] (result: PA2ActivationResult?, error: LimeAuthError?) in
+        let completion = { [weak self] (result: PowerAuthActivationResult?, error: LimeAuthError?) in
             guard let `self` = self else {
                 return
             }

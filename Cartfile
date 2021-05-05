@@ -1,2 +1,2 @@
 github "wultra/swift-lime-core" "develop"
-github "wultra/powerauth-mobile-sdk" "feature/carthage-build"
+github "wultra/powerauth-mobile-sdk" "issues/373-ios-separate-core-lib"

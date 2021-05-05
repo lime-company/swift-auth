@@ -28,8 +28,8 @@ internal class ActivationStatusFetcher {
         self.authSession = session
     }
     
-    typealias FetchStatusCompletion = (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void
-    typealias FetchStatusData = (status: PA2ActivationStatus, data: [AnyHashable: Any]?)
+    typealias FetchStatusCompletion = (PowerAuthActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void
+    typealias FetchStatusData = (status: PowerAuthActivationStatus, data: [AnyHashable: Any]?)
     
     // MARK: - Last fetched status
     
@@ -131,7 +131,7 @@ internal class ActivationStatusFetcher {
         
         private var completion: FetchStatusCompletion
         private weak var statusChecker: ActivationStatusFetcher?
-        private weak var fetchTask: PA2OperationTask?
+        private weak var fetchTask: PowerAuthOperationTask?
         
         init(statusChecker: ActivationStatusFetcher, completion: @escaping FetchStatusCompletion) {
             self.statusChecker = statusChecker

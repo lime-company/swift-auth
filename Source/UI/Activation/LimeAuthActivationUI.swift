@@ -120,7 +120,7 @@ public class LimeAuthActivationUI {
         let uiProvider = activationProcess.uiProvider
         if let activationFingerprint = activationProcess.session.activationFingerprint {
             // In this case, there's no full activation result available, but we can restore at least activation fingerprint.
-            let activationResult = PA2ActivationResult()
+            let activationResult = PowerAuthActivationResult()
             activationResult.activationFingerprint = activationFingerprint
             activationProcess.activationData.recoveryFromFailedActivation = true
             activationProcess.activationData.createActivationResult = activationResult

@@ -132,7 +132,7 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
     
     public func textField(_ tf: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if tf == fields.first && isEmptyCode && range.location == 0 && PA2OtpUtil.validateActivationCode(string) {
+        if tf == fields.first && isEmptyCode && range.location == 0 && PowerAuthActivationCodeUtil.validateActivationCode(string) {
             pasteFullCode(code:string)
             return false
         }
@@ -195,7 +195,7 @@ public class ActivationCodeView: UIView, UITextFieldDelegate {
         var result : String = ""
         var success = true
         for codepoint in string.unicodeScalars {
-            let newCodepoint = PA2OtpUtil.validateAndCorrectTypedCharacter(codepoint.value)
+            let newCodepoint = PowerAuthActivationCodeUtil.validateAndCorrectTypedCharacter(codepoint.value)
             if newCodepoint != 0 {
                 let corrected = UnicodeScalar(newCodepoint)!
                 result.append(Character(corrected))

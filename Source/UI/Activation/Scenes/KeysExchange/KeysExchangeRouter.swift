@@ -19,7 +19,7 @@ import PowerAuth2
 
 public protocol KeysExchangeRoutingLogic {
 
-    func routeToCreatePassword(with result: PA2ActivationResult)
+    func routeToCreatePassword(with result: PowerAuthActivationResult)
     func routeToError(with error: LimeAuthError)
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -32,7 +32,7 @@ public class KeysExchangeRouter: KeysExchangeRoutingLogic, ActivationUIProcessRo
     
     private var authenticationUI: LimeAuthAuthenticationUI?
     
-    public func routeToCreatePassword(with result: PA2ActivationResult) {
+    public func routeToCreatePassword(with result: PowerAuthActivationResult) {
         // Keep activation result
         activationProcess.activationData.createActivationResult = result
         // Present create password UI

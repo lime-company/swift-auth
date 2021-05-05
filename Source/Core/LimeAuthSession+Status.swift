@@ -19,16 +19,16 @@ import PowerAuth2
 
 public extension LimeAuthSession {
     
-    /// Notification is fired after the state of the activation change. PA2ActivationStatus is passed as object.
+    /// Notification is fired after the state of the activation change. PowerAuthActivationStatus is passed as object.
     static let didChangeActivationStatus = Notification.Name(rawValue: "LimeAuthSession_didChangeActivationStatus")    
 
     /// The method updates activation status from the server.
-    func fetchActivationStatus(completion: @escaping (PA2ActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void) -> Operation {
+    func fetchActivationStatus(completion: @escaping (PowerAuthActivationStatus?, [AnyHashable : Any]?, LimeAuthError?) -> Void) -> Operation {
         return statusFetcher.updateActivationStatus(completion: completion)
     }
     
     /// Contains last fetched activation status object or nil if status has not been fetched yet.
-    var lastFetchedActivationStatus: PA2ActivationStatus? {
+    var lastFetchedActivationStatus: PowerAuthActivationStatus? {
         if powerAuth.hasValidActivation() {
             return self.statusFetcher.lastFetchedData?.status
         }

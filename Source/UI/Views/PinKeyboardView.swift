@@ -235,7 +235,7 @@ open class PinKeyboardView : UIView {
     
     private func setupBiometryButton() {
         if !biometryButtonConfigured {
-            let biometryType = PA2Keychain.supportedBiometricAuthentication
+            let biometryType = PowerAuthKeychain.supportedBiometricAuthentication
             let image: UIImage?
             if biometryType != .none {
                 let iconType: PinKeyboardBiometryIcon = biometryType == .faceID ? .faceID : .touchID

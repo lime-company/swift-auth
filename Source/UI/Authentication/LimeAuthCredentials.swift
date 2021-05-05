@@ -179,7 +179,7 @@ public extension LimeAuthCredentials.Biometry {
     
     /// Contains true whether biometry configuration matches actual support on the device.
     var isSupportedOnDevice: Bool {
-        var supported = PA2Keychain.supportedBiometricAuthentication
+        var supported = PowerAuthKeychain.supportedBiometricAuthentication
         if supported == .touchID && touchId == .disabled {
             supported = .none
         } else if supported == .faceID && faceId == .disabled {

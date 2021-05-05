@@ -19,7 +19,7 @@ import PowerAuth2
 
 // MARK: - Keychain simplification -
 
-public extension PA2Keychain {
+public extension PowerAuthKeychain {
     
     private static let jsonEncoder: JSONEncoder = {
         let enc = JSONEncoder()
@@ -55,11 +55,11 @@ public extension PA2Keychain {
     
     private func encode<T: CodableToDictionary & Codable>(_ value: T) -> Data? {
         let dict = T.encodeToDictionary(value)
-        return try? PA2Keychain.jsonEncoder.encode(dict)
+        return try? PowerAuthKeychain.jsonEncoder.encode(dict)
     }
     
     private func decode<T: CodableToDictionary & Codable>(_ data: Data) -> T? {
-        guard let dict = try? PA2Keychain.jsonDecoder.decode([String:T].self, from: data)
+        guard let dict = try? PowerAuthKeychain.jsonDecoder.decode([String:T].self, from: data)
             else { return nil }
         return T.decodeFromDictionary(dict)
     }

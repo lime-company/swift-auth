@@ -106,7 +106,7 @@ open class EnterActivationCodeViewController: LimeAuthUIBaseViewController, Acti
     
     public func confirm() {
         let code = activationCodeView.buildCode()
-        guard PA2OtpUtil.validateActivationCode(code) else {
+        guard PowerAuthActivationCodeUtil.validateActivationCode(code) else {
             let strings = uiDataProvider.uiDataForEnterActivationCode.strings
             let alert = UIAlertController(title: strings.notValidAlertTitle, message: strings.notValidAlertText, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: strings.notValidAlertButton, style: .default, handler: nil))

@@ -22,7 +22,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
     public var router: (EnableBiometryRoutingLogic & ActivationUIProcessRouter)!
     public var uiDataProvider: ActivationUIDataProvider!
     
-    var isTouchId: Bool = PA2Keychain.supportedBiometricAuthentication == .touchID
+    var isTouchId: Bool = PowerAuthKeychain.supportedBiometricAuthentication == .touchID
     
     // MARK: - Object lifecycle
     
@@ -64,7 +64,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         guard let _ = router?.activationProcess else {
             D.fatalError("EnableBiometryViewController is not configured properly.")
         }
-        guard PA2Keychain.supportedBiometricAuthentication != .none else {
+        guard PowerAuthKeychain.supportedBiometricAuthentication != .none else {
             D.fatalError("EnableBiometryViewController biometry is not supported.")
         }
     }
@@ -100,7 +100,7 @@ open class EnableBiometryViewController: LimeAuthUIBaseViewController, Activatio
         let theme = uiDataProvider.uiTheme
 
         // Apply images & texts
-        let isTouchId = PA2Keychain.supportedBiometricAuthentication == .touchID
+        let isTouchId = PowerAuthKeychain.supportedBiometricAuthentication == .touchID
         
         let sceneTitle          = isTouchId ? uiData.strings.touchIdSceneTitle : uiData.strings.faceIdSceneTitle
         let description         = isTouchId ? uiData.strings.touchIdDescription : uiData.strings.faceIdDescription

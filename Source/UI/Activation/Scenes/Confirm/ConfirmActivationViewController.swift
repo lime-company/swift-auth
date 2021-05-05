@@ -160,7 +160,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
         
     }
     
-    private func processStatus(_ status: PA2ActivationStatus?, error: LimeAuthError?) -> Bool {
+    private func processStatus(_ status: PowerAuthActivationStatus?, error: LimeAuthError?) -> Bool {
         var errorToReport: LimeAuthError?
         if let status = status {
             switch status.state {
@@ -179,7 +179,7 @@ open class ConfirmActivationViewController: LimeAuthUIBaseViewController, Activa
                 D.fatalError("unknown state")
             }
         } else if let error = error {
-            if error.domain != PA2ErrorDomain {
+            if error.domain != PowerAuthErrorDomain {
                 return true
             } else {
                 errorToReport = .wrap(error, string: uiDataProvider.uiDataForConfirmActivation.errors.activation)

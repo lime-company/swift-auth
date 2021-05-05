@@ -102,7 +102,7 @@ public struct AuthenticationUIOperationResult {
     public var isActivationProblem: Bool = false
     
     /// If "isActivationProblem" is set, then contains fetched activation state.
-    public var activationState: PA2ActivationState?
+    public var activationState: PowerAuthActivationState?
     
     init(result: Any? = nil, error: LimeAuthError? = nil) {
         self.result = result

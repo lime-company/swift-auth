@@ -16,6 +16,7 @@
 
 import Foundation
 import PowerAuth2
+import PowerAuthCore
 import LimeCore
 
 public class LimeAuthSession {

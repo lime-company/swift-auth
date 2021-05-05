@@ -31,7 +31,7 @@ public enum Activation {
         
         public var puk: String? // needed for activation via recovery
         
-        public var createActivationResult: PA2ActivationResult?
+        public var createActivationResult: PowerAuthActivationResult?
         
         public var recoveryFromFailedActivation = false
         

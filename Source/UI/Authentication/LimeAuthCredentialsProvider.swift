@@ -44,7 +44,7 @@ public protocol LimeAuthCredentialsProvider: class {
 /// The class is persisting only value for `passwordIndex`, so you should take a special care about
 /// how you change `passwordOptions` array in LimeAuthCredentials structure.
 ///
-/// The `PA2Keychain` is used as an underlying configuration storage, so it's recommended to reset the keychain
+/// The `PowerAuthKeychain` is used as an underlying configuration storage, so it's recommended to reset the keychain
 /// once you detect that application has been reinstalled.
 public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     
@@ -54,10 +54,10 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     /// Key to underlying keychain service for store information about password complexity.
     public static let keyForPasswordIndex = "passwordIndex"
     
-    public init(credentials: LimeAuthCredentials, keychain: PA2Keychain? = nil, validatorProvider: LimeAuthPassphraseValidatorProvider? = nil) {
+    public init(credentials: LimeAuthCredentials, keychain: PowerAuthKeychain? = nil, validatorProvider: LimeAuthPassphraseValidatorProvider? = nil) {
         self.credentials = credentials
         self.passphraseValidatorProvider = validatorProvider
-        self.keychain = keychain ?? PA2Keychain(identifier: LimeAuthCredentialsStore.defaultKeychainServiceName)
+        self.keychain = keychain ?? PowerAuthKeychain(identifier: LimeAuthCredentialsStore.defaultKeychainServiceName)
         if let restoredIndex = restoreIndex() {
             if isValid(passwordIndex: restoredIndex) {
                 self.credentials.passwordIndex = restoredIndex
@@ -74,7 +74,7 @@ public class LimeAuthCredentialsStore: LimeAuthCredentialsProvider {
     public private(set) var credentials: LimeAuthCredentials
     
     /// Contains `PA2Keychain` instance associated to this object.
-    public let keychain: PA2Keychain
+    public let keychain: PowerAuthKeychain
     
     /// Factory class that will create PassphraseValidator
     public let passphraseValidatorProvider: LimeAuthPassphraseValidatorProvider?
