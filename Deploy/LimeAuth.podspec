@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |sub|
     sub.source_files = 'Source/Core/**/*.swift'
     sub.dependency 'LimeCore', '~> 1.2'
-    sub.dependency 'PowerAuth2'
+    sub.dependency 'PowerAuth2', '~> 1.6'
   end
   
   # 'UI' subspec
